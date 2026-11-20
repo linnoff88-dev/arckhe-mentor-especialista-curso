@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="mentor-especialista-curso" name="inema-course"/>
+<title>Módulo 3.2 · Fontes, temas, princípios e métodos | Mentor-Especialista</title>
+<script src="../../assets/boot.js"></script>
+<script data-inema-manifest="" type="application/json">
+  {
+    "course": "mentor-especialista-curso",
+    "tracks": [
+      { "n": "1", "title": "Por que um mentor", "modules": [
+        { "id": "1-1", "title": "Os maus hábitos da IA quando ensina", "topics": 6, "href": "curso/trilha1/modulo-1-1.html" },
+        { "id": "1-2", "title": "Método não é persona: escopo do mentor", "topics": 6, "href": "curso/trilha1/modulo-1-2.html" }
+      ]},
+      { "n": "2", "title": "Coleta do acervo", "modules": [
+        { "id": "2-1", "title": "Fontes e coletores", "topics": 6, "href": "curso/trilha2/modulo-2-1.html" },
+        { "id": "2-2", "title": "Subagentes, manifesto e falhas", "topics": 6, "href": "curso/trilha2/modulo-2-2.html" }
+      ]},
+      { "n": "3", "title": "Wiki compilada", "modules": [
+        { "id": "3-1", "title": "Raw imutável, wiki viva", "topics": 6, "href": "curso/trilha3/modulo-3-1.html" },
+        { "id": "3-2", "title": "Fontes, temas, princípios e métodos", "topics": 6, "href": "curso/trilha3/modulo-3-2.html" }
+      ]},
+      { "n": "4", "title": "Regras com prova", "modules": [
+        { "id": "4-1", "title": "Conduta, não frase de efeito", "topics": 6, "href": "curso/trilha4/modulo-4-1.html" },
+        { "id": "4-2", "title": "Citação, status e validador", "topics": 6, "href": "curso/trilha4/modulo-4-2.html" }
+      ]},
+      { "n": "5", "title": "Agente, skills e portão", "modules": [
+        { "id": "5-1", "title": "Mapa: settings, agente e skills", "topics": 6, "href": "curso/trilha5/modulo-5-1.html" },
+        { "id": "5-2", "title": "O loop obrigatório do mentor", "topics": 6, "href": "curso/trilha5/modulo-5-2.html" },
+        { "id": "5-3", "title": "Skills: ensina, revisa, ingere", "topics": 6, "href": "curso/trilha5/modulo-5-3.html" },
+        { "id": "5-4", "title": "Portão de execução", "topics": 6, "href": "curso/trilha5/modulo-5-4.html" }
+      ]},
+      { "n": "6", "title": "Prova e evolução", "modules": [
+        { "id": "6-1", "title": "O piloto real e os testes de aceitação", "topics": 6, "href": "curso/trilha6/modulo-6-1.html" },
+        { "id": "6-2", "title": "Ingestão contínua, atualização e reuso", "topics": 6, "href": "curso/trilha6/modulo-6-2.html" }
+      ]}
+    ]
+  }
+  </script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../../assets/curso.css" rel="stylesheet"/>
+<link href="../../assets/learn.css" rel="stylesheet"/>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+<a class="skip sr-only focus:not-sr-only" href="#conteudo">Pular para o conteúdo</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🧭</span><span class="font-bold text-lg hidden sm:inline">Mentor-Especialista</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+<span class="text-neutral-600">-</span>
+<a class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200 text-sm font-medium" href="https://inema.pro" target="_blank">PRO</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Por quê</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Coleta</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10" href="index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Wiki</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors" href="../trilha4/index.html"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Regras</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors" href="../trilha5/index.html"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Agente</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors" href="../trilha6/index.html"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Prova</span></a>
+<button class="hidden md:inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-neutral-300 hover:text-neutral-100 transition-colors text-sm" data-inema-journey-open="" type="button">
+<span aria-hidden="true">◷</span><span>Minha jornada</span><span aria-hidden="true" class="inema-journey-badge hidden"></span>
+</button>
+<button aria-label="Alternar tema claro/escuro" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<nav aria-label="Trilha de navegação" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+<div class="flex items-center space-x-2 text-sm text-neutral-400">
+<a class="hover:text-purple-400" href="../../index.html">Início</a><span>/</span>
+<a class="hover:text-purple-400" href="index.html">Trilha 3</a><span>/</span>
+<span class="text-purple-400">Módulo 3.2</span>
+</div>
+</nav>
+<header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600" data-inema-module="3-2" data-inema-track="3">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 3.2</span>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">🧩 Fontes, temas, princípios e métodos</h1>
+<p class="text-lg text-neutral-400 max-w-3xl">
+        A wiki tem quatro tipos de página e três arquivos de controle. Aqui você vê o que vai em cada um, abre o hot real do mentor do Nei,
+        aprende a julgar se a wiki soa como a pessoa ou como IA genérica e acompanha o caso real da legenda picada.
+      </p>
+<div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">50</div><div class="text-xs text-neutral-400">Minutos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Core</div><div class="text-xs text-neutral-400">Nível</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Prático</div><div class="text-xs text-neutral-400">Tipo</div></div>
+</div>
+<div class="mt-6 max-w-2xl">
+<div aria-label="Progresso do módulo 3.2" aria-valuemax="100" aria-valuemin="0" class="inema-meter" data-inema-meter="modulo:3-2" role="progressbar">
+<span class="inema-meter-pct">0%</span><span class="inema-meter-count">0 de 6</span>
+</div>
+</div>
+</div>
+</header>
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:grid lg:grid-cols-[220px_1fr] lg:gap-10">
+<nav aria-label="Índice da página" class="hidden lg:block sticky top-24 self-start" data-inema-toc="">
+<p class="text-sm text-neutral-400 mb-2">Seção <span class="inema-toc-pos">1</span> de <span class="inema-toc-total">6</span></p>
+<ul class="space-y-1 text-sm">
+<li><a class="inema-toc-link hover:text-purple-400" href="#topico-1">1. Os 4 tipos de página</a></li>
+<li><a class="inema-toc-link hover:text-purple-400" href="#topico-2">2. Links nos dois sentidos</a></li>
+<li><a class="inema-toc-link hover:text-purple-400" href="#topico-3">3. index, hot e log</a></li>
+<li><a class="inema-toc-link hover:text-purple-400" href="#topico-4">4. O hot do Nei</a></li>
+<li><a class="inema-toc-link hover:text-purple-400" href="#topico-5">5. Pessoa ou IA genérica?</a></li>
+<li><a class="inema-toc-link hover:text-purple-400" href="#topico-6">6. Caso real: legenda picada</a></li>
+</ul>
+</nav>
+<main class="inema-prose" id="conteudo">
+<!-- TOPICO 1 -->
+<section class="mb-16" data-inema-topic="modulo-3-2#topico-1" id="topico-1">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span>
+<h2 class="text-2xl font-bold">🗂️ Os quatro tipos de página</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m3-2-t1-p1">
+          Cada página responde a uma pergunta diferente sobre o especialista. <strong class="text-purple-400">Fonte</strong>: o que esta live
+          ou guia diz? <strong class="text-purple-400">Tema</strong>: o que ele sabe sobre esse assunto? <strong class="text-purple-400">Princípio</strong>:
+          o que ele defende de novo e de novo? <strong class="text-purple-400">Método</strong>: como ele faz (explica, depura, constrói, revisa)?
+          Misturar as perguntas é o jeito mais rápido de ter uma wiki que fala muito e ensina pouco.
+        </p>
+<div class="rounded-2xl border border-purple-500/30 bg-dark-900/40 p-3 sm:p-4 mb-6 overflow-hidden">
+<svg aria-label="Quatro quadrantes: fontes, 22 páginas, o que cada item diz; temas, 18, o que ele sabe; princípios, 12, o que ele defende; métodos, 21, como ele faz. Fontes alimentam os outros três." class="w-full h-auto" role="img" viewbox="0 0 1000 270">
+<defs>
+<lineargradient id="m32a-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#c084fc"></stop><stop offset="1" stop-color="#a855f7"></stop></lineargradient>
+<filter height="180%" id="m32a-glow" width="180%" x="-40%" y="-40%"><fegaussianblur result="b" stddeviation="1.8"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
+<pattern height="32" id="m32a-grid" patternunits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#a855f7" opacity="0.12" r="1.3"></circle></pattern>
+<marker id="m32a-ah" markerheight="9" markerwidth="9" orient="auto" refx="6.5" refy="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#38bdf8"></path></marker>
+</defs>
+<rect fill="url(#m32a-grid)" height="270" width="1000" x="0" y="0"></rect>
+<g fill="none" opacity="0.55" stroke="#38bdf8" stroke-width="2">
+<path d="M290,135 C380,135 400,50 520,50" marker-end="url(#m32a-ah)"></path>
+<path d="M290,135 L520,135" marker-end="url(#m32a-ah)"></path>
+<path d="M290,135 C380,135 400,220 520,220" marker-end="url(#m32a-ah)"></path>
+</g>
+<g filter="url(#m32a-glow)"><rect fill="#1a1230" height="110" rx="16" stroke="url(#m32a-grad)" stroke-width="2.5" width="250" x="40" y="80"></rect></g>
+<text fill="#c084fc" font-family="Inter,sans-serif" font-size="18" font-weight="700" text-anchor="middle" x="165" y="118">fontes/ · 22</text>
+<text fill="#e9d5ff" font-family="Inter,sans-serif" font-size="13" text-anchor="middle" x="165" y="142">uma por item do manifesto</text>
+<text fill="#9ca3af" font-family="Inter,sans-serif" font-size="12" text-anchor="middle" x="165" y="164">"o que esta fonte diz?"</text>
+<g font-family="Inter,sans-serif">
+<rect fill="#0e1b26" height="60" rx="12" stroke="#38bdf8" stroke-width="2" width="400" x="525" y="20"></rect>
+<text fill="#bfe6ff" font-size="15" font-weight="700" x="545" y="46">temas/ · 18</text><text fill="#9ca3af" font-size="12" x="545" y="66">o que ele sabe sobre um assunto + [[fontes]]</text>
+<rect fill="#1a1230" height="60" rx="12" stroke="#c084fc" stroke-width="2" width="400" x="525" y="105"></rect>
+<text fill="#e9d5ff" font-size="15" font-weight="700" x="545" y="131">principios/ · 12</text><text fill="#9ca3af" font-size="12" x="545" y="151">o que ele defende repetidamente + ≥1 [[fonte]]</text>
+<rect fill="#0e1b26" height="60" rx="12" stroke="#38bdf8" stroke-width="2" width="400" x="525" y="190"></rect>
+<text fill="#bfe6ff" font-size="15" font-weight="700" x="545" y="216">metodos/ · 21</text><text fill="#9ca3af" font-size="12" x="545" y="236">como ele faz: passos + exemplos + [[fontes]]</text>
+</g>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-purple-400">Como ler:</strong> fonte é a única página que nasce direto do raw; temas, princípios e métodos nascem da
+            <em>soma</em> das fontes. Os números são da wiki do Nei hoje (depois da ingestão). O princípio está em destaque porque é o único
+            tipo que o validador exige ligado a uma fonte: é a matéria-prima das regras da trilha 4.
+          </p>
+</div>
+<div class="overflow-x-auto mb-6">
+<table class="w-full text-sm border border-dark-600 rounded-xl overflow-hidden">
+<thead class="bg-dark-800"><tr><th class="text-left p-3 text-purple-400">Pasta</th><th class="text-left p-3 text-purple-400">Uma página por…</th><th class="text-left p-3 text-purple-400">Conteúdo mínimo</th><th class="text-left p-3 text-purple-400">Exemplo no piloto</th></tr></thead>
+<tbody class="divide-y divide-dark-600 text-neutral-300">
+<tr><td class="p-3 font-mono">fontes/</td><td class="p-3">item do manifesto</td><td class="p-3">resumo, ideias centrais, <code>Arquivo: raw/...</code>, ligações</td><td class="p-3 font-mono text-xs">guia-execucao-longa-…-b4357</td></tr>
+<tr><td class="p-3 font-mono">temas/</td><td class="p-3">assunto que a pessoa domina</td><td class="p-3">o que ela sabe + <code>[[fontes]]</code></td><td class="p-3 font-mono text-xs">custo-de-tokens</td></tr>
+<tr><td class="p-3 font-mono">principios/</td><td class="p-3">coisa que ela defende sempre</td><td class="p-3">enunciado + trechos curtos + ≥1 <code>[[fonte]]</code></td><td class="p-3 font-mono text-xs">verificar-antes-de-afirmar</td></tr>
+<tr><td class="p-3 font-mono">metodos/</td><td class="p-3">jeito de fazer</td><td class="p-3">passos + exemplos + <code>[[fontes]]</code></td><td class="p-3 font-mono text-xs">depurar-ao-vivo</td></tr>
+</tbody>
+</table>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-5">
+<h4 class="font-semibold text-purple-400 mb-2">Princípio real: <code>menor-custo-que-resolve</code></h4>
+<p class="text-neutral-300 text-sm mb-2"><strong>Enunciado:</strong> "Custo entra na conta antes de construir: assinatura em vez de API, menor modelo e menor esforço que cobrem o risco, modelo grátis para volume, worker determinístico no lugar de LLM. Exceção: risco irreversível não tem opção barata."</p>
+<p class="text-neutral-400 text-xs">Repare na exceção: princípio bom diz também quando <em>não</em> vale.</p>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-5">
+<h4 class="font-semibold text-sky-400 mb-2">Método real: <code>depurar-ao-vivo</code> (passos)</h4>
+<ol class="list-decimal ml-5 text-neutral-300 text-sm space-y-1">
+<li>Deixar o erro acontecer</li>
+<li>Copiar a mensagem de erro com o contexto de antes</li>
+<li>Levar ao chat e pedir a causa em vez de tentar no escuro</li>
+<li>Formular a hipótese e aplicar o contorno</li>
+<li>Conferir o resultado real, não o OK da ferramenta</li>
+<li>Documentar a dica no material do curso</li>
+</ol>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-purple-400 text-sm font-semibold mb-1">Fonte</p><p class="text-xs text-neutral-400">O que este item diz</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-purple-400 text-sm font-semibold mb-1">Tema</p><p class="text-xs text-neutral-400">O que ele sabe</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-purple-400 text-sm font-semibold mb-1">Princípio</p><p class="text-xs text-neutral-400">O que ele defende</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-purple-400 text-sm font-semibold mb-1">Método</p><p class="text-xs text-neutral-400">Como ele faz</p></div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-500/20 border border-purple-500/30 text-purple-400 hover:bg-purple-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 2 -->
+<section class="mb-16" data-inema-topic="modulo-3-2#topico-2" id="topico-2">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span>
+<h2 class="text-2xl font-bold">🔁 Links nos dois sentidos</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m3-2-t2-p1">
+          Se a fonte da live de execução longa liga <code>[[criterio-de-pronto-explicito]]</code>, o princípio também deve listar essa fonte.
+          Assim o mentor anda nos dois sentidos: da fonte para a ideia ("o que essa live ensina?") e da ideia para as provas ("onde ele
+          disse isso?"). É o segundo caminho que sustenta uma citação.
+        </p>
+<div class="bg-sky-900/20 rounded-xl border border-sky-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-sky-400 mb-3 flex items-center"><span class="mr-2">🆕</span> O que é um link <code>[[...]]</code> e um "link de volta"?</h3>
+<p class="text-neutral-300 text-sm"><code>[[nome-da-pagina]]</code> é o jeito da wiki dizer "veja também": o nome entre colchetes é o nome do arquivo sem <code>.md</code>,
+            em qualquer pasta da wiki. <strong class="text-white">Link de volta</strong> é o mesmo par na direção contrária: se A aponta para B, B aponta para A.
+            Por isso nomes de página não podem se repetir entre pastas.</p>
+</div>
+<div class="rounded-2xl border border-purple-500/30 bg-dark-900/40 p-3 sm:p-4 mb-6 overflow-hidden">
+<svg aria-label="Uma fonte e um princípio ligados por duas setas, ida e volta, marcadas como certo; abaixo, um tema que aponta para uma fonte sem link de volta, em tracejado vermelho, marcado como mão única" class="w-full h-auto" role="img" viewbox="0 0 1000 230">
+<defs>
+<pattern height="32" id="m32b-grid" patternunits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#a855f7" opacity="0.12" r="1.3"></circle></pattern>
+<marker id="m32b-ah" markerheight="9" markerwidth="9" orient="auto" refx="6.5" refy="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#c084fc"></path></marker>
+<marker id="m32b-ahc" markerheight="9" markerwidth="9" orient="auto" refx="6.5" refy="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#38bdf8"></path></marker>
+<marker id="m32b-ahr" markerheight="9" markerwidth="9" orient="auto" refx="6.5" refy="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#f87171"></path></marker>
+</defs>
+<rect fill="url(#m32b-grid)" height="230" width="1000" x="0" y="0"></rect>
+<g font-family="Inter,sans-serif" font-size="13" font-weight="600">
+<rect fill="#1a1230" height="48" rx="10" stroke="#c084fc" stroke-width="2" width="250" x="60" y="30"></rect><text fill="#e9d5ff" text-anchor="middle" x="185" y="59">fonte: guia-execucao-longa</text>
+<rect fill="#0e1b26" height="48" rx="10" stroke="#38bdf8" stroke-width="2" width="300" x="560" y="30"></rect><text fill="#bfe6ff" text-anchor="middle" x="710" y="59">princípio: criterio-de-pronto-explicito</text>
+<rect fill="#0e1b26" height="48" rx="10" stroke="#38bdf8" stroke-width="2" width="250" x="60" y="150"></rect><text fill="#bfe6ff" text-anchor="middle" x="185" y="179">tema: subagentes</text>
+<rect fill="#1a1230" height="48" rx="10" stroke="#c084fc" stroke-width="2" width="300" x="560" y="150"></rect><text fill="#e9d5ff" text-anchor="middle" x="710" y="179">fonte: video-transcript</text>
+</g>
+<path d="M310,46 L556,46" fill="none" marker-end="url(#m32b-ah)" stroke="#c084fc" stroke-width="2"></path>
+<path d="M560,64 L314,64" fill="none" marker-end="url(#m32b-ahc)" stroke="#38bdf8" stroke-width="2"></path>
+<text fill="#34d399" font-family="Inter,sans-serif" font-size="13" font-weight="700" text-anchor="middle" x="935" y="60">✓ ida e volta</text>
+<path d="M310,174 L556,174" fill="none" marker-end="url(#m32b-ahr)" stroke="#f87171" stroke-dasharray="7 6" stroke-width="2"></path>
+<text fill="#fca5a5" font-family="Inter,sans-serif" font-size="12" text-anchor="middle" x="433" y="205">a fonte não aponta de volta</text>
+<text fill="#f87171" font-family="Inter,sans-serif" font-size="13" font-weight="700" text-anchor="middle" x="935" y="180">✗ mão única</text>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-purple-400">Como ler:</strong> em cima, o par saudável: a fonte aponta o princípio e o princípio aponta a fonte. Embaixo,
+            um caso real do piloto: o tema <code>subagentes</code> cita a fonte <code>video-transcript</code>, mas a página dessa fonte não
+            menciona o tema. O mentor que parte da fonte nunca chega lá.
+          </p>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">🧪</span> Copy-run — ache as ligações de mão única entre fontes e conceitos</h3>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-purple-400">Objetivo:</strong> até o kit 1.2, o <code>validar_links.py</code> não checava os dois sentidos. Este script, só com a biblioteca padrão do Python, lista os pares fonte↔conceito em que falta o link de volta. Rode na pasta do mentor:</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">cd ~/projetos/mentor-&lt;slug&gt;
+python3 - &lt;&lt;'EOF'
+import re
+from pathlib import Path
+LINK = re.compile(r"\[\[([^\]|#]+)(?:[#|][^\]]*)?\]\]")
+pags = {p.stem: p for p in Path("wiki").rglob("*.md") if p.stem not in ("index", "hot", "log")}
+sai = {s: {x.strip() for x in LINK.findall(p.read_text(encoding="utf-8"))} for s, p in pags.items()}
+fonte = {s for s, p in pags.items() if p.parent.name == "fontes"}
+n = 0
+for a in sorted(sai):
+    for b in sorted(sai[a]):
+        if b in sai and a not in sai[b] and (a in fonte) != (b in fonte):
+            print(f"sem volta: {a} -&gt; {b}"); n += 1
+print(f"{n} ligações fonte&lt;-&gt;conceito de mão única")
+EOF</pre>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-purple-400">Saída real no piloto</strong> (com o <code>validar_links.py</code> do kit 1.2 em exit 0):</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">sem volta: guia-agente-claude-codex-migrar-do-claude-pro-codex-ou-ac831 -&gt; guia-de-projeto-landing
+sem volta: subagentes -&gt; video-live-100-videosdia-com-ia-agentes-metodos-e-escala-rea
+sem volta: subagentes -&gt; video-transcript
+3 ligações fonte&lt;-&gt;conceito de mão única</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-purple-400">Como verificar:</strong> a última linha dá o total. Zero é o ideal; poucos casos se corrigem pedindo ao agente "acrescente o link de volta nestes pares" e rodando o script de novo até dar <code>0</code>. Depois, <code>validar_links.py</code> tem que continuar em exit 0.</p>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-emerald-400 mb-3 flex items-center"><span class="mr-2">✅</span> No kit 1.3, o validador reprova</h3>
+<p class="text-neutral-300 text-sm mb-3">O achado virou regra: desde o kit 1.3, o <code>validar_links.py</code> exige ida e volta entre fonte e conceito (tema, princípio, método). Cada ligação de mão única vira erro e o exit deixa de ser 0, com mensagens como:</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-3">mão única: subagentes → fontes/video-transcript, mas a fonte não liga de volta</pre>
+<p class="text-neutral-300 text-sm">Foi ele que apontou as 3 ligações do mentor do Nei, e as 3 foram fechadas. O script acima continua útil se o seu mentor foi gerado antes do 1.3 e você ainda não rodou <code>novo-mentor.py --atualizar</code> (módulo 6.2).</p>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+<p class="text-neutral-300">Repare que 2 dos 3 casos do piloto passam pelo tema <code>subagentes</code>, tocado depois pela ingestão de um guia novo. Ingestão é onde a volta costuma faltar: a página nova aponta para as velhas, e ninguém reabre as velhas. Rode o script depois de todo <code>/&lt;slug&gt;-ingere</code>.</p>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-500/20 border border-purple-500/30 text-purple-400 hover:bg-purple-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 3 -->
+<section class="mb-16" data-inema-topic="modulo-3-2#topico-3" id="topico-3">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span>
+<h2 class="text-2xl font-bold">🧭 index, hot e log: os três arquivos de controle</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m3-2-t3-p1">
+          Além das páginas de conteúdo, a wiki tem três arquivos que não ensinam nada sozinhos, mas organizam o resto. O
+          validador reprova se qualquer um faltar.
+        </p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+<div class="bg-dark-800 border border-purple-500/30 rounded-xl p-5">
+<p class="text-2xl mb-2">🔥</p>
+<h4 class="font-semibold text-purple-400 mb-2"><code>wiki/hot.md</code></h4>
+<p class="text-neutral-300 text-sm">De 10 a 20 conceitos mais citados, uma linha cada, com o link e o nº de fontes. É a <strong>porta de entrada</strong>: o mentor lê primeiro, porque cabe inteiro no contexto. No piloto: 20 itens.</p>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-5">
+<p class="text-2xl mb-2">🗺️</p>
+<h4 class="font-semibold text-sky-400 mb-2"><code>wiki/index.md</code></h4>
+<p class="text-neutral-300 text-sm">O <strong>mapa completo</strong>: toda página da wiki, por pasta, com uma linha de descrição e, para temas e princípios, quantas fontes os sustentam. No piloto: 73 entradas.</p>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-5">
+<p class="text-2xl mb-2">📜</p>
+<h4 class="font-semibold text-sky-400 mb-2"><code>wiki/log.md</code></h4>
+<p class="text-neutral-300 text-sm">O <strong>histórico</strong>: o que entrou, quando e o que mudou. Só se acrescenta linha, nunca se apaga. É ele que diz se uma regra foi reforçada por fonte nova.</p>
+</div>
+</div>
+<div class="rounded-2xl border border-purple-500/30 bg-dark-900/40 p-3 sm:p-4 mb-6 overflow-hidden">
+<svg aria-label="Caminho de consulta do mentor: pergunta, hot, página de princípio, página de fonte e por fim o arquivo no raw; cada passo é mais longo e só é aberto se necessário" class="w-full h-auto" role="img" viewbox="0 0 1000 150">
+<defs>
+<filter height="180%" id="m32c-glow" width="180%" x="-40%" y="-40%"><fegaussianblur result="b" stddeviation="1.8"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
+<pattern height="32" id="m32c-grid" patternunits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#a855f7" opacity="0.12" r="1.3"></circle></pattern>
+<marker id="m32c-ah" markerheight="9" markerwidth="9" orient="auto" refx="6.5" refy="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#c084fc"></path></marker>
+</defs>
+<rect fill="url(#m32c-grid)" height="150" width="1000" x="0" y="0"></rect>
+<g fill="none" opacity="0.6" stroke="#c084fc" stroke-width="2">
+<path d="M170,62 L200,62" marker-end="url(#m32c-ah)"></path><path d="M370,62 L400,62" marker-end="url(#m32c-ah)"></path>
+<path d="M570,62 L600,62" marker-end="url(#m32c-ah)"></path><path d="M770,62 L800,62" marker-end="url(#m32c-ah)"></path>
+</g>
+<g font-family="Inter,sans-serif" font-size="14" font-weight="600">
+<rect fill="#151b26" height="48" rx="10" stroke="#6b7280" stroke-width="2" width="150" x="20" y="38"></rect><text fill="#d1d5db" text-anchor="middle" x="95" y="67">pergunta</text>
+<g filter="url(#m32c-glow)"><rect fill="#1a1230" height="48" rx="10" stroke="#c084fc" stroke-width="2.5" width="170" x="200" y="38"></rect></g><text fill="#c084fc" text-anchor="middle" x="285" y="67">hot.md</text>
+<rect fill="#1a1230" height="48" rx="10" stroke="#c084fc" stroke-width="2" width="170" x="400" y="38"></rect><text fill="#e9d5ff" text-anchor="middle" x="485" y="67">princípio</text>
+<rect fill="#0e1b26" height="48" rx="10" stroke="#38bdf8" stroke-width="2" width="170" x="600" y="38"></rect><text fill="#bfe6ff" text-anchor="middle" x="685" y="67">fonte</text>
+<rect fill="#0e1b26" height="48" rx="10" stroke="#38bdf8" stroke-width="2" width="170" x="800" y="38"></rect><text fill="#bfe6ff" text-anchor="middle" x="885" y="67">raw/ (conferir)</text>
+</g>
+<g fill="#9ca3af" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">
+<text x="285" y="108">20 linhas</text><text x="485" y="108">enunciado + trechos</text><text x="685" y="108">resumo + ideias</text><text x="885" y="108">só para citar</text>
+</g>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-purple-400">Como ler:</strong> da esquerda para a direita, cada passo é mais longo e mais caro. O mentor só avança quando
+            precisa: a maioria das perguntas se resolve no hot e no princípio; o raw é aberto para conferir uma citação, não para estudar.
+          </p>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3">O <code>wiki/log.md</code> real do piloto (formato)</h3>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto">| data       | fonte                                  | páginas tocadas                | regras promovidas            |
+|------------|----------------------------------------|--------------------------------|------------------------------|
+| 2026-10-05 | acervo inicial (21 itens do MANIFESTO: | 21 fontes, 18 temas,           | — (fase 3 ainda não rodou)   |
+|            | 15 vídeos, 6 guias)                    | 12 princípios, 19 métodos,     |                              |
+|            |                                        | index, hot                     |                              |
+| 2026-10-05 | /nei-ingere guia agente-claude-codex   | fonte nova; 2 métodos novos;   | R1, R2, R6 reforçadas;       |
+|            |                                        | temas, princípios, index, hot  | R9 e R10 criadas já ativas   |</pre>
+<p class="text-neutral-400 text-sm mt-3">Duas linhas contam a história inteira da wiki: a compilação inicial e a primeira ingestão (trilha 6). O texto das colunas foi resumido e quebrado aqui para caber na tela.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-purple-400 text-sm font-semibold mb-1">hot</p><p class="text-xs text-neutral-400">Porta de entrada</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-purple-400 text-sm font-semibold mb-1">index</p><p class="text-xs text-neutral-400">Mapa de tudo</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-purple-400 text-sm font-semibold mb-1">log</p><p class="text-xs text-neutral-400">Só acrescentar</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-purple-400 text-sm font-semibold mb-1">Raw por último</p><p class="text-xs text-neutral-400">Para conferir</p></div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-500/20 border border-purple-500/30 text-purple-400 hover:bg-purple-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 4 -->
+<section class="mb-16" data-inema-topic="modulo-3-2#topico-4" id="topico-4">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span>
+<h2 class="text-2xl font-bold">🔥 O hot do Nei</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m3-2-t4-p1">
+          O número entre parênteses no hot é quantas páginas de fonte ligam aquele conceito. Não é opinião da IA sobre o que importa:
+          é contagem. Na fase 2, os quatro princípios do topo foram <strong class="text-purple-400">verificar antes de afirmar (17 fontes),
+          menor custo que resolve (16), medir antes de acreditar (14) e critério de pronto explícito (10)</strong>. Depois da ingestão
+          de um guia novo, três deles subiram um ponto.
+        </p>
+<div class="rounded-2xl border border-purple-500/30 bg-dark-900/40 p-3 sm:p-4 mb-6 overflow-hidden">
+<svg aria-label="Barras horizontais dos quatro princípios mais citados: verificar antes de afirmar 17 na fase 2 e 18 hoje; menor custo 16 e 17; medir 14 e 14; critério de pronto 10 e 11" class="w-full h-auto" role="img" viewbox="0 0 1000 260">
+<defs>
+<lineargradient id="m32d-grad" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#a855f7"></stop><stop offset="1" stop-color="#c084fc"></stop></lineargradient>
+<pattern height="32" id="m32d-grid" patternunits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#a855f7" opacity="0.12" r="1.3"></circle></pattern>
+</defs>
+<rect fill="url(#m32d-grid)" height="260" width="1000" x="0" y="0"></rect>
+<g fill="#d1d5db" font-family="Inter,sans-serif" font-size="14" font-weight="600" text-anchor="end">
+<text x="290" y="52">verificar antes de afirmar</text><text x="290" y="107">menor custo que resolve</text>
+<text x="290" y="162">medir antes de acreditar</text><text x="290" y="217">critério de pronto explícito</text>
+</g>
+<g>
+<rect fill="url(#m32d-grad)" height="18" rx="4" width="510" x="310" y="32"></rect><rect fill="#38bdf8" height="8" opacity="0.85" rx="3" width="540" x="310" y="54"></rect>
+<rect fill="url(#m32d-grad)" height="18" rx="4" width="480" x="310" y="87"></rect><rect fill="#38bdf8" height="8" opacity="0.85" rx="3" width="510" x="310" y="109"></rect>
+<rect fill="url(#m32d-grad)" height="18" rx="4" width="420" x="310" y="142"></rect><rect fill="#38bdf8" height="8" opacity="0.85" rx="3" width="420" x="310" y="164"></rect>
+<rect fill="url(#m32d-grad)" height="18" rx="4" width="300" x="310" y="197"></rect><rect fill="#38bdf8" height="8" opacity="0.85" rx="3" width="330" x="310" y="219"></rect>
+</g>
+<g font-family="Inter,sans-serif" font-size="13" font-weight="700">
+<text fill="#e9d5ff" x="830" y="46">17</text><text fill="#9ad6ff" x="860" y="63">18</text>
+<text fill="#e9d5ff" x="800" y="101">16</text><text fill="#9ad6ff" x="830" y="118">17</text>
+<text fill="#e9d5ff" x="740" y="156">14</text><text fill="#9ad6ff" x="740" y="173">14</text>
+<text fill="#e9d5ff" x="620" y="211">10</text><text fill="#9ad6ff" x="650" y="228">11</text>
+</g>
+<g font-family="Inter,sans-serif" font-size="12"><rect fill="#a855f7" height="10" rx="2" width="18" x="310" y="8"></rect><text fill="#d1d5db" x="334" y="17">fase 2 (73 páginas)</text>
+<rect fill="#38bdf8" height="8" rx="2" width="18" x="490" y="9"></rect><text fill="#d1d5db" x="514" y="17">depois da ingestão (76 páginas)</text></g>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-purple-400">Como ler:</strong> cada barra roxa é o nº de fontes na fase 2; a fina, em ciano, é o número de hoje. A ordem
+            não mudou com a fonte nova, e isso é bom sinal: o topo do hot reflete o que ele repete de verdade, não o último material lido.
+          </p>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">🧪</span> Copy-run — confira o número do hot você mesmo</h3>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-purple-400">Objetivo:</strong> não confiar no número que o agente escreveu no hot; recontar as fontes que ligam cada princípio.</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">cd ~/projetos/mentor-&lt;slug&gt;
+for p in &lt;principio-1&gt; &lt;principio-2&gt; &lt;principio-3&gt;; do
+  echo "$p $(grep -l "\[\[$p\]\]" wiki/fontes/*.md | wc -l)"
+done</pre>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-purple-400">Saída real no piloto</strong> (com os quatro princípios do topo):</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">verificar-antes-de-afirmar 18
+menor-custo-que-resolve 17
+medir-antes-de-acreditar 14
+criterio-de-pronto-explicito 11</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-purple-400">Como verificar:</strong> compare com <code>cat wiki/hot.md</code>. No piloto bate linha por linha: (18), (17), (14), (11). Se não bater no seu, o hot está desatualizado; peça ao agente para refazer só o hot a partir da contagem.</p>
+</div>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">📋</span> As primeiras linhas do <code>wiki/hot.md</code> real</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">1.</span><span><code>[[verificar-antes-de-afirmar]]</code> (18): o OK da ferramenta não prova nada; confere o resultado real antes de dar como feito.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">2.</span><span><code>[[menor-custo-que-resolve]]</code> (17): custo entra na conta antes de construir: assinatura, menor modelo/esforço, worker no lugar de LLM.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">3.</span><span><code>[[medir-antes-de-acreditar]]</code> (14): decisão vem do número (antes/depois, com/sem), não do hype.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">4.</span><span><code>[[criterio-de-pronto-explicito]]</code> (11): pronto = comando com saída esperada; todo loop com critério de sucesso, aborto e limite.</span></li>
+</ul>
+<p class="text-neutral-400 text-xs mt-3">O hot segue com princípios (7), métodos (4) e temas (9), num total de 20 linhas.</p>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-500/20 border border-purple-500/30 text-purple-400 hover:bg-purple-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 5 -->
+<section class="mb-16" data-inema-topic="modulo-3-2#topico-5" id="topico-5">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span>
+<h2 class="text-2xl font-bold">🧑‍⚖️ É a pessoa ou é IA genérica?</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m3-2-t5-p1">
+          "Verificar antes de afirmar" poderia estar em qualquer manual de boas práticas. O que torna a página do Nei é o resto: os trechos
+          literais com arquivo de origem, o jeito particular ("o OK da ferramenta não prova nada", "refresh no GitHub") e a exceção que
+          ele faz. O validador não julga isso; você julga. No piloto, a leitura do hot deu <strong class="text-purple-400">nota 8/10</strong>
+          de "reconheço a pessoa".
+        </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ Sinais de que é a pessoa</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Trecho literal que você acha no raw com <code>grep</code></span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Exemplo concreto do mundo dela (ferramenta, número, caso)</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Exceção ou limite que só quem pratica conhece</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Várias fontes diferentes sustentando a mesma ideia</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ Sinais de IA genérica</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Frase que serviria para qualquer especialista do domínio</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>"Trecho" que não aparece em lugar nenhum do raw</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Princípio sustentado por uma fonte só, com frase vaga</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Listas de "boas práticas" sem exemplo de como ela faz</span></li>
+</ul>
+</div>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">🧪</span> Copy-run — a auditoria em duas partes</h3>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-purple-400">Objetivo:</strong> o agente aponta candidatos a genérico; você confere os trechos com um comando. Parte 1, cole no Claude Code na pasta do mentor:</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">Leia wiki/hot.md e as páginas de wiki/principios/.
+Para cada princípio, responda numa tabela:
+1. nº de fontes que o ligam (conte os [[links]] em wiki/fontes/, não copie do hot);
+2. um trecho literal curto que só &lt;nome do especialista&gt; diria, com o caminho raw/... ;
+3. GENÉRICO ou DELE: GENÉRICO se o enunciado caberia em qualquer manual do domínio
+   sem perder nada.
+No fim, liste 3 páginas mais "dele" e 3 mais genéricas.
+Não invente trechos: se não achar, escreva "sem trecho". Não altere nenhum arquivo.</pre>
+<p class="text-neutral-300 text-sm mb-2">Parte 2, no terminal: pegue três trechos da tabela e procure cada um no raw.</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">cd ~/projetos/mentor-&lt;slug&gt;
+grep -rnF "&lt;trecho copiado da tabela&gt;" raw/ | cut -d: -f1,2; echo "exit=$?"
+git status raw/</pre>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-purple-400">Saída real no piloto</strong> (trecho "Arquivo existir não é prova", do princípio verificar-antes-de-afirmar):</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">raw/guia/agente-claude-codex-migrar-do-claude-pro-codex-ou--ac8311.md:21
+exit=0</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-purple-400">Como verificar:</strong> cada trecho aparece com arquivo e linha; <code>git status raw/</code> não lista nada (raw intocado). Trecho de <strong>guia</strong> que não aparece é inventado. Trecho de <strong>vídeo</strong> que não aparece pode ser o caso do próximo tópico: a frase existe, mas está quebrada entre duas linhas da legenda.</p>
+</div>
+<div class="inema-check mt-8 mb-6 bg-dark-800 border border-dark-600 rounded-xl p-6" data-inema-check="modulo-3-2#q1">
+<p class="font-medium mb-4">Checagem rápida: uma página de princípio diz "documentação é importante", liga uma única fonte e traz um trecho que o grep não acha no raw (que é um guia). O que fazer?</p>
+<div class="inema-check-options space-y-2">
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="0" type="button">Nada: validar_links.py deu exit 0, então a página está certa.</button>
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="1" type="button">Corrigir o raw para conter o trecho.</button>
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="2" type="button">Marcar como genérica: trocar o trecho por um literal ou rebaixar a ideia a tema.</button>
+</div>
+<div aria-live="polite" class="mt-4 text-sm" data-inema-check-feedback="" role="status"></div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-500/20 border border-purple-500/30 text-purple-400 hover:bg-purple-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 6 -->
+<section class="mb-16" data-inema-topic="modulo-3-2#topico-6" id="topico-6">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span>
+<h2 class="text-2xl font-bold">✂️ Caso real 3: a legenda picada</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m3-2-t6-p1">
+          Na leitura da wiki, o Nei achou trechos de vídeo cortados no meio da frase, como <em>"brilhante. Cuidado para vocês não"</em>.
+          A causa estava no raw: a legenda automática quebra a fala em linhas de 4 a 8 palavras, cada uma com sua marca de tempo
+          <code>[hh:mm:ss]</code>. Uma citação que cruza duas linhas fica com a marca no meio do texto e não é encontrada por busca literal.
+        </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-3">✗ Antes: o raw real do piloto</h4>
+<pre class="font-mono text-xs bg-dark-900/60 rounded-lg p-3 border border-dark-600 text-neutral-300 overflow-x-auto">[00:25:40] né? eh, estrelas. Isso é muito legal
+[00:25:43] porque mostra o movimento, mas é mais um
+[00:25:46] movimento de de atenção. Objeto
+[00:25:50] brilhante. Cuidado para vocês não
+[00:25:51] perderem tempo com isso. O que que eu
+[00:25:53] fiz? Eu baixei, instalei ele na minha
+[00:25:56] máquina e eu estou rodando.</pre>
+<p class="text-neutral-400 text-xs mt-2">"Objeto brilhante" está dividido entre duas linhas, com <code>[00:25:50]</code> no meio.</p>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-3">✓ Depois: o formato do kit 1.2</h4>
+<pre class="font-mono text-xs bg-dark-900/60 rounded-lg p-3 border border-dark-600 text-neutral-300 overflow-x-auto whitespace-pre-wrap">[00:25:40] né? eh, estrelas. Isso é muito legal porque mostra o movimento, mas é mais um movimento de de atenção. Objeto brilhante. Cuidado para vocês não perderem tempo com isso. O que que eu fiz? Eu baixei, instalei ele na minha máquina e eu estou rodando. …</pre>
+<p class="text-neutral-400 text-xs mt-2">As linhas viram um parágrafo, com uma marca de tempo a cada ~30 s. A frase fica inteira e pode ser citada com sentido.</p>
+</div>
+</div>
+<div class="rounded-2xl border border-purple-500/30 bg-dark-900/40 p-3 sm:p-4 mb-6 overflow-hidden">
+<svg aria-label="Sete linhas curtas de legenda, cada uma com marca de tempo, entram num funil que junta tudo em blocos de cerca de 30 segundos; do outro lado sai um parágrafo com uma marca só; abaixo, o validador remove as marcas de tempo antes de comparar" class="w-full h-auto" role="img" viewbox="0 0 1000 230">
+<defs>
+<lineargradient id="m32e-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#c084fc"></stop><stop offset="1" stop-color="#a855f7"></stop></lineargradient>
+<filter height="180%" id="m32e-glow" width="180%" x="-40%" y="-40%"><fegaussianblur result="b" stddeviation="1.8"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
+<pattern height="32" id="m32e-grid" patternunits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#a855f7" opacity="0.12" r="1.3"></circle></pattern>
+<marker id="m32e-ah" markerheight="9" markerwidth="9" orient="auto" refx="6.5" refy="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#38bdf8"></path></marker>
+</defs>
+<rect fill="url(#m32e-grid)" height="230" width="1000" x="0" y="0"></rect>
+<g font-family="monospace" font-size="11">
+<g fill="#151b26" stroke="#4b5563"><rect height="16" rx="3" width="220" x="30" y="20"></rect><rect height="16" rx="3" width="220" x="30" y="40"></rect><rect height="16" rx="3" width="220" x="30" y="60"></rect><rect height="16" rx="3" width="220" x="30" y="80"></rect><rect height="16" rx="3" width="220" x="30" y="100"></rect><rect height="16" rx="3" width="220" x="30" y="120"></rect><rect height="16" rx="3" width="220" x="30" y="140"></rect></g>
+<g fill="#f87171"><text x="36" y="32">[00:25:40]</text><text x="36" y="52">[00:25:43]</text><text x="36" y="72">[00:25:46]</text><text x="36" y="92">[00:25:50]</text><text x="36" y="112">[00:25:51]</text><text x="36" y="132">[00:25:53]</text><text x="36" y="152">[00:25:56]</text></g>
+<g fill="#9ca3af"><text x="112" y="32">né? eh, estrelas…</text><text x="112" y="52">porque mostra o…</text><text x="112" y="72">…atenção. Objeto</text><text x="112" y="92">brilhante. Cuidado…</text><text x="112" y="112">perderem tempo…</text><text x="112" y="132">fiz? Eu baixei…</text><text x="112" y="152">máquina e eu…</text></g>
+</g>
+<path d="M270,30 L420,70 L420,110 L270,150 Z" fill="#1a1230" opacity="0.7" stroke="#c084fc" stroke-width="1.5"></path>
+<text fill="#e9d5ff" font-family="Inter,sans-serif" font-size="12" font-weight="600" text-anchor="middle" x="350" y="88">junta</text>
+<text fill="#e9d5ff" font-family="Inter,sans-serif" font-size="11" text-anchor="middle" x="350" y="104">~30 s</text>
+<path d="M425,90 L480,90" fill="none" marker-end="url(#m32e-ah)" stroke="#38bdf8" stroke-width="2"></path>
+<g filter="url(#m32e-glow)"><rect fill="#1a1230" height="84" rx="12" stroke="url(#m32e-grad)" stroke-width="2" width="480" x="490" y="48"></rect></g>
+<text fill="#34d399" font-family="monospace" font-size="12" x="506" y="72">[00:25:40]</text>
+<text fill="#e9d5ff" font-family="Inter,sans-serif" font-size="12" x="590" y="72">né? eh, estrelas. Isso é muito legal porque</text>
+<text fill="#e9d5ff" font-family="Inter,sans-serif" font-size="12" x="506" y="92">mostra o movimento… Objeto brilhante. Cuidado para</text>
+<text fill="#e9d5ff" font-family="Inter,sans-serif" font-size="12" x="506" y="112">vocês não perderem tempo com isso. O que que eu fiz?…</text>
+<rect fill="#0e1b26" height="40" rx="10" stroke="#38bdf8" stroke-width="2" width="940" x="30" y="175"></rect>
+<text fill="#bfe6ff" font-family="Inter,sans-serif" font-size="13" text-anchor="middle" x="500" y="200">e no validador: normalizar() tira [hh:mm:ss], caixa, acento e pontuação antes de comparar → a citação casa mesmo cruzando linhas</text>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-purple-400">Como ler:</strong> em vermelho, as marcas que cortavam a fala; o funil junta as linhas em blocos de ~30 s e
+            sobra uma marca por parágrafo. A faixa de baixo é a segunda metade da correção: mesmo num raw antigo, o validador ignora as marcas
+            de tempo ao procurar uma citação.
+          </p>
+</div>
+<div class="space-y-4 mb-6">
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-14 h-14 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold text-xs">16:15</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600"><p class="text-neutral-300 text-sm"><strong class="text-white">Detectado na fase 2:</strong> trechos picados na wiki. Gravidade média no diário; ideia de correção anotada na hora: juntar linhas em parágrafos e fazer a normalização ignorar <code>[hh:mm:ss]</code>.</p></div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-14 h-14 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold text-xs">16:25</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600"><p class="text-neutral-300 text-sm"><strong class="text-white">Contornado na fase 3:</strong> a sessão de regras percebeu sozinha o problema das legendas cruzando linha e usou citações curtas, de uma linha. Validador OK de primeira.</p></div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-14 h-14 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold text-xs">1.2</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-4 border border-purple-500/30"><p class="text-neutral-300 text-sm"><strong class="text-white">Corrigido no kit 1.2:</strong> o coletor de vídeo agrupa a legenda em parágrafos de cerca de 30 s, e o validador de citações ignora as marcas de tempo. O raw do piloto ficou como estava, porque raw não se edita.</p></div>
+</div>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">🧪</span> Copy-run — veja a busca literal falhar numa frase que existe</h3>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-purple-400">Objetivo:</strong> sentir o problema na mão. No seu raw de vídeo, escolha duas palavras seguidas que estejam em linhas diferentes e procure as duas juntas.</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">cd ~/projetos/mentor-&lt;slug&gt;
+grep -rnF "&lt;fim de uma linha&gt; &lt;começo da próxima&gt;" raw/videos/; echo "exit=$?"
+grep -rnF "&lt;fim de uma linha&gt;" raw/videos/ | head -3</pre>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-purple-400">Saída real no piloto</strong> (com "Objeto brilhante"):</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">$ grep -rnF "Objeto brilhante" raw/videos/; echo "exit=$?"
+exit=1</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-purple-400">Como verificar:</strong> a frase falada não aparece (<code>exit=1</code>), mas cada metade aparece sozinha, em linhas vizinhas. Se o seu raw foi coletado com o kit 1.2 ou mais novo, a busca acha o parágrafo inteiro: sinal de que a correção chegou.</p>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Atenção</h3>
+<p class="text-neutral-300">A tentação é "consertar" o raw antigo juntando as linhas na mão. Não faça: o <code>stats.py</code> acusa o sha256 diferente e
+            você perde a prova do que foi coletado. O caminho certo é o do piloto: corrigir a ferramenta (coletor e validador) e, se quiser o
+            formato novo, coletar de novo aquele vídeo.</p>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-500/20 border border-purple-500/30 text-purple-400 hover:bg-purple-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<section class="mb-12">
+<div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📌</span> Resumo do Módulo</h2>
+<div class="space-y-4 mb-8">
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Quatro perguntas, quatro pastas</strong><span class="text-neutral-400"> - o que a fonte diz, o que ele sabe, o que ele defende, como ele faz.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Links nos dois sentidos</strong><span class="text-neutral-400"> - o script acha os de mão única (3 no piloto, todos fechados); desde o kit 1.3, o validar_links reprova.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">hot, index, log</strong><span class="text-neutral-400"> - porta de entrada, mapa e histórico que só cresce.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">O hot é contagem</strong><span class="text-neutral-400"> - 17/16/14/10 na fase 2, 18/17/14/11 depois da ingestão; reconte com grep.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Julgamento humano</strong><span class="text-neutral-400"> - 3 páginas mais dele, 3 mais genéricas, trechos conferidos no raw; nota 8 no piloto.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Legenda picada</strong><span class="text-neutral-400"> - corrigida na ferramenta (parágrafos de ~30 s + validador sem marcas), nunca no raw.</span></div></div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+<h3 class="font-semibold text-purple-400 mb-2">Próximo Módulo:</h3>
+<p class="text-neutral-300">4.1 - Conduta, não frase de efeito: como os princípios da wiki viram as regras do mentor.</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="index.html">← Voltar para Trilha</a>
+<a class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors" href="../trilha4/modulo-4-1.html">Próximo Módulo →</a>
+</div>
+</div>
+</section>
+</main>
+</div>
+<footer class="border-t border-dark-600 py-8 mt-16">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+<p>Mentor-Especialista: o método de um especialista virando seu mentor no Claude Code — 2026</p>
+<p class="mt-2">
+<a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+<span class="text-neutral-600 mx-1">-</span>
+<a class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200" href="https://inema.pro" target="_blank">PRO</a>
+</p>
+</div>
+</footer>
+<script src="../../assets/curso.js"></script>
+<script src="../../assets/learn.js"></script>
+<script>
+    if (window.INEMA && typeof window.INEMA.init === 'function') window.INEMA.init();
+    window.addEventListener('DOMContentLoaded', function () {
+      if (window.INEMA && INEMA.registerCheck) {
+        INEMA.registerCheck('modulo-3-2#q1', {
+          answer: 2,
+          explain: {
+            0: 'O validador prova estrutura, não autoria. Trecho que não existe no raw é sinal de IA genérica.',
+            1: 'Nunca: o raw é somente leitura e o sha256 acusaria a mudança. Quem se corrige é a wiki.',
+            2: 'Isso. Sem trecho literal e com uma fonte só, a página não sustenta um princípio da pessoa.'
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

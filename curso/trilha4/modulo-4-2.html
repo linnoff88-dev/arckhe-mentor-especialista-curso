@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="mentor-especialista-curso" name="inema-course"/>
+<title>Módulo 4.2 · Citação, status e validador | Mentor-Especialista</title>
+<meta content="O formato do regras.md, os status ativa/banco/inferência, a normalização das citações, o teste negativo e o caso real do git checkout que apagou as regras." name="description"/>
+<script src="../../assets/boot.js"></script>
+<script data-inema-manifest="" type="application/json">
+  {
+    "course": "mentor-especialista-curso",
+    "tracks": [
+      { "n": "1", "title": "Por que um mentor", "modules": [
+        { "id": "1-1", "title": "Os maus hábitos da IA quando ensina", "topics": 6, "href": "curso/trilha1/modulo-1-1.html" },
+        { "id": "1-2", "title": "Método não é persona: escopo do mentor", "topics": 6, "href": "curso/trilha1/modulo-1-2.html" }
+      ]},
+      { "n": "2", "title": "Coleta do acervo", "modules": [
+        { "id": "2-1", "title": "Fontes e coletores", "topics": 6, "href": "curso/trilha2/modulo-2-1.html" },
+        { "id": "2-2", "title": "Subagentes, manifesto e falhas", "topics": 6, "href": "curso/trilha2/modulo-2-2.html" }
+      ]},
+      { "n": "3", "title": "Wiki compilada", "modules": [
+        { "id": "3-1", "title": "Raw imutável, wiki viva", "topics": 6, "href": "curso/trilha3/modulo-3-1.html" },
+        { "id": "3-2", "title": "Fontes, temas, princípios e métodos", "topics": 6, "href": "curso/trilha3/modulo-3-2.html" }
+      ]},
+      { "n": "4", "title": "Regras com prova", "modules": [
+        { "id": "4-1", "title": "Conduta, não frase de efeito", "topics": 6, "href": "curso/trilha4/modulo-4-1.html" },
+        { "id": "4-2", "title": "Citação, status e validador", "topics": 6, "href": "curso/trilha4/modulo-4-2.html" }
+      ]},
+      { "n": "5", "title": "Agente, skills e portão", "modules": [
+        { "id": "5-1", "title": "Mapa: settings, agente e skills", "topics": 6, "href": "curso/trilha5/modulo-5-1.html" },
+        { "id": "5-2", "title": "O loop obrigatório do mentor", "topics": 6, "href": "curso/trilha5/modulo-5-2.html" },
+        { "id": "5-3", "title": "Skills: ensina, revisa, ingere", "topics": 6, "href": "curso/trilha5/modulo-5-3.html" },
+        { "id": "5-4", "title": "Portão de execução", "topics": 6, "href": "curso/trilha5/modulo-5-4.html" }
+      ]},
+      { "n": "6", "title": "Prova e evolução", "modules": [
+        { "id": "6-1", "title": "O piloto real e os testes de aceitação", "topics": 6, "href": "curso/trilha6/modulo-6-1.html" },
+        { "id": "6-2", "title": "Ingestão contínua, atualização e reuso", "topics": 6, "href": "curso/trilha6/modulo-6-2.html" }
+      ]}
+    ]
+  }
+  </script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../../assets/curso.css" rel="stylesheet"/>
+<link href="../../assets/learn.css" rel="stylesheet"/>
+<style>
+  /* light mode: acentos extras usados nesta página (texto escuro em superfície clara) */
+  html:not(.dark) .text-red-400 { color: #b91c1c; }
+  html:not(.dark) .text-sky-400 { color: #0369a1; }
+  html:not(.dark) .text-cyan-400 { color: #0e7490; }
+  html:not(.dark) .bg-dark-900\/60 { background-color: #f3f4f6; }
+</style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+<a class="skip sr-only focus:not-sr-only" href="#conteudo">Pular para o conteúdo</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🧭</span><span class="font-bold text-lg hidden sm:inline">Mentor-Especialista</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+<span class="text-neutral-600">-</span>
+<a class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200 text-sm font-medium" href="https://inema.pro" target="_blank">PRO</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Por quê</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Coleta</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Wiki</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10" href="index.html"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Regras</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors" href="../trilha5/index.html"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Agente</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors" href="../trilha6/index.html"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Prova</span></a>
+<button class="hidden md:inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-neutral-300 hover:text-neutral-100 transition-colors text-sm" data-inema-journey-open="" type="button">
+<span aria-hidden="true">◷</span><span>Minha jornada</span><span aria-hidden="true" class="inema-journey-badge hidden"></span>
+</button>
+<button aria-label="Alternar tema claro/escuro" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<nav aria-label="Trilha de navegação" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+<div class="flex items-center space-x-2 text-sm text-neutral-400">
+<a class="hover:text-amber-400" href="../../index.html">Início</a><span>/</span>
+<a class="hover:text-amber-400" href="index.html">Trilha 4</a><span>/</span>
+<span class="text-amber-400">Módulo 4.2</span>
+</div>
+</nav>
+<header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600" data-inema-module="4-2" data-inema-track="4">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">MÓDULO 4.2</span>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">🔏 Citação, status e validador</h1>
+<p class="text-lg text-neutral-400 max-w-3xl">
+        Uma regra sem prova é só a sua opinião sobre o especialista. Este módulo mostra como cada regra carrega trechos
+        literais do acervo, como o status depende do número de fontes e como um script de 99 linhas confere tudo —
+        inclusive quando quem erra é o operador.
+      </p>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 max-w-2xl">
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">50</div><div class="text-xs text-neutral-400">Minutos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">40</div><div class="text-xs text-neutral-400">Citações no piloto</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Prático</div><div class="text-xs text-neutral-400">Tipo</div></div>
+</div>
+<div class="mt-6 max-w-2xl">
+<div aria-label="Progresso do módulo 4.2" aria-valuemax="100" aria-valuemin="0" class="inema-meter" data-inema-meter="modulo:4-2" role="progressbar">
+<span class="inema-meter-pct">0%</span><span class="inema-meter-count">0 de 6</span>
+</div>
+</div>
+</div>
+</header>
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:grid lg:grid-cols-[220px_1fr] lg:gap-10">
+<nav aria-label="Índice da página" class="hidden lg:block sticky top-24 self-start" data-inema-toc="">
+<p class="text-sm text-neutral-400 mb-2">Seção <span class="inema-toc-pos">1</span> de <span class="inema-toc-total">6</span></p>
+<ul class="space-y-1 text-sm">
+<li><a class="inema-toc-link hover:text-amber-400" href="#topico-1">1. Formato do regras.md</a></li>
+<li><a class="inema-toc-link hover:text-amber-400" href="#topico-2">2. Ativa, banco, inferência</a></li>
+<li><a class="inema-toc-link hover:text-amber-400" href="#topico-3">3. Normalização</a></li>
+<li><a class="inema-toc-link hover:text-amber-400" href="#topico-4">4. Teste negativo</a></li>
+<li><a class="inema-toc-link hover:text-amber-400" href="#topico-5">5. Caso real: o checkout</a></li>
+<li><a class="inema-toc-link hover:text-amber-400" href="#topico-6">6. Rodar o validador</a></li>
+</ul>
+</nav>
+<main class="inema-prose" id="conteudo">
+<!-- TOPICO 1 -->
+<section class="mb-16" data-inema-topic="modulo-4-2#topico-1" id="topico-1">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">1</span>
+<h2 class="text-2xl font-bold">📄 O formato do regras.md</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m4-2-t1-p1">
+          O <code>regras.md</code> é lido por gente e por máquina. Por isso o formato é rígido: o próprio arquivo avisa
+          <em>"não mude os rótulos, o validador depende deles"</em>. Cada regra é um bloco com cinco peças, sempre nesta ordem.
+          Este é o bloco real da R10 do piloto:
+        </p>
+<pre class="font-mono text-xs sm:text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-6">## R10 — Ação irreversível só com pedido atual do humano
+- status: ativa
+- enunciado: Gasto, publicação, deploy, envio ou apagar viram portão humano;
+  nota antiga, handoff ou plano não autorizam, o pedido tem que vir de novo
+  na sessão atual.
+- citacoes:
+  - "Gasto de crédito, API, produção e ações irreversíveis viram portão humano." — raw/guia/execucao-longa-agentes-que-trabalham-horas-e-dias--b43579.md
+  - "Handoff não é permissão." — raw/guia/agente-claude-codex-migrar-do-claude-pro-codex-ou--ac8311.md
+  - "Sem merge, deploy nem publicação sem você." — raw/guia/agente-claude-codex-migrar-do-claude-pro-codex-ou--ac8311.md
+- no mentor: seção Risco — antes de um passo irreversível, o mentor para
+  e pede a confirmação do aluno, mesmo que o plano já previsse o passo.</pre>
+<div class="rounded-2xl border border-amber-500/30 bg-dark-900/40 p-3 sm:p-4 mb-4 overflow-hidden">
+<svg aria-label="Anatomia de uma regra: cabeçalho com ID, status, enunciado, citações com trecho e localizador, e linha no mentor; o validador lê o cabeçalho, o status e as citações" class="w-full h-auto" role="img" viewbox="0 0 1000 260">
+<defs>
+<marker id="m42a-ah" markerHeight="9" markerWidth="9" orient="auto" refX="6.5" refY="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#38bdf8"></path></marker>
+<filter height="180%" id="m42a-glow" width="180%" x="-40%" y="-40%"><feGaussianBlur result="b" stdDeviation="2"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+</defs>
+<rect fill="#0b1220" height="260" rx="16" width="1000" x="0" y="0"></rect>
+<g font-family="Inter,sans-serif" font-size="13">
+<rect fill="#1f1604" height="36" rx="8" stroke="#fbbf24" stroke-width="2" width="560" x="30" y="22"></rect><text fill="#fcd9a0" x="44" y="45">## R10 — título curto</text>
+<rect fill="#1f1604" height="30" rx="8" stroke="#fbbf24" stroke-width="2" width="560" x="30" y="66"></rect><text fill="#fcd9a0" x="44" y="86">- status: ativa | banco | inferencia</text>
+<rect fill="#1f1604" height="30" rx="8" stroke="#fbbf24" stroke-opacity="0.5" stroke-width="2" width="560" x="30" y="104"></rect><text fill="#fcd9a0" x="44" y="124">- enunciado: uma frase de ação</text>
+<rect fill="#1f1604" height="58" rx="8" stroke="#fbbf24" stroke-width="2" width="560" x="30" y="142"></rect><text fill="#fcd9a0" x="44" y="164">- citacoes:</text><text fill="#fcd9a0" x="64" y="188">- "trecho literal" — raw/&lt;tipo&gt;/&lt;arquivo&gt;@hh:mm:ss</text>
+<rect fill="#1f1604" height="30" rx="8" stroke="#fbbf24" stroke-opacity="0.5" stroke-width="2" width="560" x="30" y="208"></rect><text fill="#fcd9a0" x="44" y="228">- no mentor: seção onde aparece</text>
+</g>
+<g fill="none" opacity="0.8" stroke="#38bdf8" stroke-width="1.8">
+<path d="M596,40 C680,40 690,120 742,126" marker-end="url(#m42a-ah)"></path>
+<path d="M596,81 C670,81 690,126 742,130" marker-end="url(#m42a-ah)"></path>
+<path d="M596,171 C670,171 690,138 742,134" marker-end="url(#m42a-ah)"></path>
+</g>
+<g filter="url(#m42a-glow)"><rect fill="#0e1b26" height="90" rx="14" stroke="#38bdf8" stroke-width="2" width="220" x="750" y="86"></rect></g>
+<g font-family="Inter,sans-serif">
+<text fill="#bfe6ff" font-size="14" font-weight="700" text-anchor="middle" x="860" y="116">validar_citacoes.py</text>
+<text fill="#bfe6ff" font-size="12" text-anchor="middle" x="860" y="138">lê ID, status e citações</text>
+<text fill="#bfe6ff" font-size="12" text-anchor="middle" x="860" y="158">por expressão regular</text>
+<text fill="#9ca3af" font-size="12" text-anchor="middle" x="860" y="214">enunciado e "no mentor:"</text>
+<text fill="#9ca3af" font-size="12" text-anchor="middle" x="860" y="232">são para o agente</text>
+</g>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-amber-400">Como ler:</strong> as três linhas com borda cheia são as que o validador lê (setas em ciano): o cabeçalho
+            <code>## R&lt;n&gt;</code>, o <code>status</code> e cada citação. As duas com borda apagada são para o agente mentor seguir.
+            Mude um rótulo — escreva "Status" com maiúscula noutro lugar, troque o travessão por dois-pontos — e a regra some para o validador.
+          </p>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🆕</span> Novo aqui?</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li><strong>Citação</strong> é um trecho entre aspas, copiado do raw, seguido de travessão e do caminho do arquivo de onde saiu.</li>
+<li><strong>Localizador</strong> é o que vem depois do caminho: <code>@00:12:30</code> para a marca de tempo de um vídeo, <code>#L12</code> para a linha de um texto. O validador usa só o caminho; o localizador serve para um humano achar o trecho rápido.</li>
+<li><strong>Expressão regular</strong> (regex) é um padrão de texto que um programa usa para reconhecer linhas — por isso o formato não pode variar.</li>
+</ul>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-400 hover:bg-amber-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 2 -->
+<section class="mb-16" data-inema-topic="modulo-4-2#topico-2" id="topico-2">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">2</span>
+<h2 class="text-2xl font-bold">🚦 Ativa, banco, inferência</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m4-2-t2-p1">
+          O status diz <strong class="text-amber-400">quanta prova a regra tem</strong> — e muda o que o mentor faz com ela. A conta é por
+          <em>arquivos diferentes</em>, não por número de citações: três trechos do mesmo guia continuam sendo uma fonte só.
+        </p>
+<div class="rounded-2xl border border-amber-500/30 bg-dark-900/40 p-3 sm:p-4 mb-4 overflow-hidden">
+<svg aria-label="Três faixas de status: ativa exige duas ou mais fontes diferentes, banco exige uma fonte e espera a segunda, inferência não tem citação e o mentor avisa ao usar" class="w-full h-auto" role="img" viewbox="0 0 1000 220">
+<defs>
+<filter height="180%" id="m42b-glow" width="180%" x="-40%" y="-40%"><feGaussianBlur result="b" stdDeviation="2"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+<marker id="m42b-ah" markerHeight="9" markerWidth="9" orient="auto" refX="6.5" refY="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#fbbf24"></path></marker>
+</defs>
+<rect fill="#0b1220" height="220" rx="16" width="1000" x="0" y="0"></rect>
+<g font-family="Inter,sans-serif">
+<g filter="url(#m42b-glow)"><rect fill="#1f1604" height="52" rx="12" stroke="#fbbf24" stroke-width="2" width="940" x="30" y="20"></rect></g>
+<text fill="#fbbf24" font-size="15" font-weight="700" x="50" y="51">ativa</text>
+<circle cx="190" cy="46" fill="#fbbf24" r="9"></circle><circle cx="216" cy="46" fill="#38bdf8" r="9"></circle>
+<text fill="#fcd9a0" font-size="13" x="244" y="51">≥2 arquivos diferentes  →  o mentor aplica sem ressalva</text>
+<rect fill="#1f1604" height="52" rx="12" stroke="#fbbf24" stroke-opacity="0.6" stroke-width="2" width="940" x="30" y="84"></rect>
+<text fill="#fbbf24" font-size="15" font-weight="700" x="50" y="115">banco</text>
+<circle cx="190" cy="110" fill="#fbbf24" r="9"></circle><circle cx="216" cy="110" fill="none" r="9" stroke="#38bdf8" stroke-dasharray="3 3" stroke-width="1.6"></circle>
+<text fill="#fcd9a0" font-size="13" x="244" y="115">1 fonte, espera a 2ª  →  vale, e sobe para ativa quando a 2ª chegar</text>
+<rect fill="#0e1b26" height="52" rx="12" stroke="#38bdf8" stroke-dasharray="6 5" stroke-width="2" width="940" x="30" y="148"></rect>
+<text fill="#bfe6ff" font-size="15" font-weight="700" x="50" y="179">inferencia</text>
+<circle cx="190" cy="174" fill="none" r="9" stroke="#38bdf8" stroke-dasharray="3 3" stroke-width="1.6"></circle><circle cx="216" cy="174" fill="none" r="9" stroke="#38bdf8" stroke-dasharray="3 3" stroke-width="1.6"></circle>
+<text fill="#bfe6ff" font-size="13" x="244" y="179">0 citações  →  o mentor pode usar, avisando: "isto é inferência, não está nas fontes"</text>
+</g>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-amber-400">Como ler:</strong> cada bolinha cheia é um arquivo diferente do raw que prova a regra. Duas cheias, a regra é
+            ativa; uma, fica no banco; nenhuma, é inferência (borda tracejada) e o mentor é obrigado a dizer isso ao aluno. No piloto
+            do Nei, as 10 regras estão ativas.
+          </p>
+</div>
+<div class="overflow-x-auto mb-6">
+<table class="w-full text-sm border border-dark-600 rounded-lg overflow-hidden">
+<thead class="bg-dark-700">
+<tr><th class="text-left p-3 text-amber-400">Status</th><th class="text-left p-3 text-amber-400">O validador exige</th><th class="text-left p-3 text-amber-400">Erro que ele mostra se faltar</th></tr>
+</thead>
+<tbody class="divide-y divide-dark-600 text-neutral-300">
+<tr><td class="p-3"><code>ativa</code></td><td class="p-3">citações de ≥2 arquivos diferentes</td><td class="p-3"><code>'ativa' exige ≥2 fontes diferentes (tem 1) — mova para 'banco'</code></td></tr>
+<tr><td class="p-3"><code>banco</code></td><td class="p-3">≥1 citação</td><td class="p-3"><code>'banco' exige ≥1 citação — ou marque 'inferencia'</code></td></tr>
+<tr><td class="p-3"><code>inferencia</code></td><td class="p-3">nada (zero citações é permitido)</td><td class="p-3">—</td></tr>
+<tr><td class="p-3">outro valor ou ausente</td><td class="p-3">—</td><td class="p-3"><code>status inválido ou ausente</code></td></tr>
+</tbody>
+</table>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3">Saída real: rebaixar a R9 de propósito</h3>
+<p class="text-neutral-300 text-sm mb-3">A R9 do piloto tem três citações: uma de live e duas do mesmo guia. Numa <strong>cópia</strong> do <code>regras.md</code>, tiramos só a citação da live. Sobram duas citações, mas de um arquivo só:</p>
+<pre class="font-mono text-xs sm:text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-3">10 regras (10 ativas), 39 citações encontradas, 0 faltando
+REPROVADO:
+  - R9: 'ativa' exige ≥2 fontes diferentes (tem 1) — mova para 'banco'</pre>
+<p class="text-sm text-neutral-400"><strong class="text-amber-400">O que reparar:</strong> nenhuma citação está errada ("0 faltando"), mesmo assim reprova. Prova verdadeira mas de uma fonte só não sustenta uma regra ativa — talvez seja algo que a pessoa disse uma vez.</p>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-400 hover:bg-amber-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 3 -->
+<section class="mb-16" data-inema-topic="modulo-4-2#topico-3" id="topico-3">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">3</span>
+<h2 class="text-2xl font-bold">🧼 Normalização: comparar sem cair em vírgula</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m4-2-t3-p1">
+          Transcrição nunca é literal. A legenda pode vir sem acento, com outra pontuação ou com marcas de tempo no meio da frase.
+          Se o validador comparasse caractere por caractere, reprovaria citação verdadeira. Então ele
+          <strong class="text-amber-400">normaliza</strong> os dois lados — o trecho e o arquivo inteiro — antes de procurar um dentro do outro.
+        </p>
+<div class="rounded-2xl border border-amber-500/30 bg-dark-900/40 p-3 sm:p-4 mb-4 overflow-hidden">
+<svg aria-label="Pipeline de normalização em quatro passos: tira marcas de tempo, tira acentos, passa para minúsculas, troca pontuação por espaço e junta espaços" class="w-full h-auto" role="img" viewbox="0 0 1000 210">
+<defs>
+<marker id="m42c-ah" markerHeight="9" markerWidth="9" orient="auto" refX="6.5" refY="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#fbbf24"></path></marker>
+<filter height="180%" id="m42c-glow" width="180%" x="-40%" y="-40%"><feGaussianBlur result="b" stdDeviation="2"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+</defs>
+<rect fill="#0b1220" height="210" rx="16" width="1000" x="0" y="0"></rect>
+<g font-family="Inter,sans-serif">
+<rect fill="#2a0f16" height="40" rx="10" stroke="#f87171" stroke-width="1.8" width="940" x="30" y="18"></rect>
+<text fill="#fca5a5" font-family="ui-monospace,monospace" font-size="14" text-anchor="middle" x="500" y="43">entrada:  [00:12:30] Handoff não é   permissão.</text>
+<g font-size="12.5" font-weight="600">
+<rect fill="#0e1b26" height="58" rx="10" stroke="#38bdf8" stroke-width="1.8" width="210" x="30" y="78"></rect><text fill="#bfe6ff" text-anchor="middle" x="135" y="102">1. tira [hh:mm:ss]</text><text fill="#9ca3af" font-weight="400" text-anchor="middle" x="135" y="122">marca de tempo some</text>
+<rect fill="#0e1b26" height="58" rx="10" stroke="#38bdf8" stroke-width="1.8" width="210" x="273" y="78"></rect><text fill="#bfe6ff" text-anchor="middle" x="378" y="102">2. tira acentos</text><text fill="#9ca3af" font-weight="400" text-anchor="middle" x="378" y="122">não → nao, é → e</text>
+<rect fill="#0e1b26" height="58" rx="10" stroke="#38bdf8" stroke-width="1.8" width="210" x="516" y="78"></rect><text fill="#bfe6ff" text-anchor="middle" x="621" y="102">3. minúsculas</text><text fill="#9ca3af" font-weight="400" text-anchor="middle" x="621" y="122">Handoff → handoff</text>
+<rect fill="#0e1b26" height="58" rx="10" stroke="#38bdf8" stroke-width="1.8" width="210" x="759" y="78"></rect><text fill="#bfe6ff" text-anchor="middle" x="864" y="102">4. pontuação → espaço</text><text fill="#9ca3af" font-weight="400" text-anchor="middle" x="864" y="122">e espaços juntados</text>
+</g>
+<path d="M242,107 L268,107" marker-end="url(#m42c-ah)" stroke="#fbbf24" stroke-width="2"></path>
+<path d="M485,107 L511,107" marker-end="url(#m42c-ah)" stroke="#fbbf24" stroke-width="2"></path>
+<path d="M728,107 L754,107" marker-end="url(#m42c-ah)" stroke="#fbbf24" stroke-width="2"></path>
+<g filter="url(#m42c-glow)"><rect fill="#1f1604" height="40" rx="10" stroke="#fbbf24" stroke-width="2" width="940" x="30" y="154"></rect></g>
+<text fill="#fbbf24" font-family="ui-monospace,monospace" font-size="14" text-anchor="middle" x="500" y="179">saída:    handoff nao e permissao</text>
+</g>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-amber-400">Como ler:</strong> a linha vermelha é o que pode vir da legenda; a âmbar é o que de fato se compara. Esta saída
+            é real: foi o que a função <code>normalizar()</code> do kit devolveu para essa entrada. Como os dois lados passam pelos
+            mesmos quatro passos em ciano, "Handoff não é permissão." e "HANDOFF NAO E PERMISSAO" valem a mesma coisa.
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ A normalização perdoa</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Maiúscula × minúscula</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Com ou sem acento</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Vírgula, ponto, aspas, reticências</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Marcas <code>[hh:mm:ss]</code> e quebras de linha no meio da fala</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ A normalização não perdoa</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Palavra trocada por sinônimo</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Palavra a mais ou a menos</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Ordem diferente das palavras</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Resumo "com as palavras dela"</span></li>
+</ul>
+</div>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">🔁</span> Ligação com o caso real 3 (trilha 3)</h3>
+<p class="text-neutral-300 text-sm">No kit 1.1, a legenda vinha em linhas curtas, cada uma com <code>[hh:mm:ss]</code>. Uma citação que cruzasse duas linhas tinha uma marca de tempo no meio e não casava. Na fase 3 do piloto, a sessão percebeu sozinha e usou citações curtas, dentro de uma linha — é por isso que várias citações de live parecem picadas. O kit 1.2 resolveu nas duas pontas: a legenda passou a ser agrupada em parágrafos de cerca de 30 s e a normalização passou a ignorar <code>[hh:mm:ss]</code>.</p>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-400 hover:bg-amber-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 4 -->
+<section class="mb-16" data-inema-topic="modulo-4-2#topico-4" id="topico-4">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">4</span>
+<h2 class="text-2xl font-bold">🧪 Teste negativo: provar que o validador morde</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m4-2-t4-p1">
+          Um validador que sempre diz <code>OK</code> não prova nada — pode estar quebrado. O <strong class="text-amber-400">teste negativo</strong>
+          é estragar a entrada de propósito e conferir que ele reclama. No piloto: uma citação inventada entrou e o validador respondeu
+          <code>1 faltando</code>, com exit 1. É a R1 do Nei aplicada ao próprio kit: não aceitar o OK sem ver o que ele faz quando devia dizer não.
+        </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-dark-800 border border-emerald-500/30 rounded-xl p-5">
+<p class="text-emerald-400 text-sm font-semibold mb-2">Antes: regras.md original</p>
+<pre class="font-mono text-xs bg-dark-900/60 rounded-lg p-3 border border-dark-600 text-neutral-300 overflow-x-auto">10 regras (10 ativas), 40 citações encontradas, 0 faltando
+OK
+exit=0</pre>
+</div>
+<div class="bg-dark-800 border border-red-500/30 rounded-xl p-5">
+<p class="text-red-400 text-sm font-semibold mb-2">Depois: uma citação adulterada (cópia)</p>
+<pre class="font-mono text-xs bg-dark-900/60 rounded-lg p-3 border border-dark-600 text-neutral-300 overflow-x-auto">10 regras (10 ativas), 39 citações encontradas, 1 faltando
+REPROVADO:
+  - R10: citação não encontrada em raw/guia/agente-claude-codex-...md:
+    "Handoff nunca é permissão para nada."
+exit=1</pre>
+</div>
+</div>
+<p class="text-neutral-300 text-sm mb-6">Saídas reais, rodadas no mentor do Nei. A mudança foi pequena — "Handoff não é permissão." virou "Handoff nunca é permissão para nada." — e bastou. Palavra a mais é exatamente o tipo de paráfrase que a normalização não perdoa.</p>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Por que testar numa cópia</h3>
+<p class="text-neutral-300 text-sm">O validador aceita <code>--regras &lt;arquivo&gt;</code>: você adultera uma cópia e deixa o <code>regras.md</code> de verdade intocado. Não precisa desfazer nada no fim — e é aí que entra o próximo tópico, em que alguém desfez do jeito errado.</p>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-400 hover:bg-amber-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 5 -->
+<section class="mb-16" data-inema-topic="modulo-4-2#topico-5" id="topico-5">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">5</span>
+<h2 class="text-2xl font-bold">🩹 Caso real 4: o <code>git checkout</code> que apagou as regras</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m4-2-t5-p1">
+          Desta vez quem errou não foi o kit nem o agente: foi o operador. Na fase 3 do piloto, depois do teste negativo, a edição
+          foi desfeita com <code>git checkout regras.md</code>. Só que as 8 regras recém-geradas ainda <strong class="text-amber-400">não
+          tinham sido commitadas</strong>. O checkout devolveu o arquivo à última versão salva no git — o modelo vazio — e as regras sumiram.
+        </p>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🆕</span> Novo aqui?</h3>
+<p class="text-neutral-300 text-sm"><strong>Commit</strong> é uma foto do projeto guardada no git. <code>git checkout &lt;arquivo&gt;</code> (ou <code>git restore &lt;arquivo&gt;</code>) troca o arquivo pela versão da última foto, <strong>sem perguntar</strong> e sem lixeira: o que você mudou depois dela se perde.</p>
+</div>
+<div class="rounded-2xl border border-amber-500/30 bg-dark-900/40 p-3 sm:p-4 mb-4 overflow-hidden">
+<svg aria-label="Linha do tempo do caso real: fase 3 gera 8 regras sem commit, teste negativo edita o arquivo, git checkout volta ao commit anterior e apaga as regras, recuperação pelo log da sessão, commit e registro em FALHAS.md" class="w-full h-auto" role="img" viewbox="0 0 1000 220">
+<defs>
+<marker id="m42d-ah" markerHeight="9" markerWidth="9" orient="auto" refX="6.5" refY="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#fbbf24"></path></marker>
+<filter height="180%" id="m42d-glow" width="180%" x="-40%" y="-40%"><feGaussianBlur result="b" stdDeviation="2"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+</defs>
+<rect fill="#0b1220" height="220" rx="16" width="1000" x="0" y="0"></rect>
+<path d="M50,110 L950,110" marker-end="url(#m42d-ah)" opacity="0.5" stroke="#fbbf24" stroke-width="2"></path>
+<g font-family="Inter,sans-serif" font-size="12.5">
+<circle cx="90" cy="110" fill="#1f1604" r="14" stroke="#fbbf24" stroke-width="2"></circle><text fill="#fbbf24" font-weight="700" text-anchor="middle" x="90" y="115">1</text>
+<text fill="#fcd9a0" text-anchor="middle" x="90" y="62">fase 3: 8 regras</text><text fill="#fcd9a0" text-anchor="middle" x="90" y="80">sem commit</text>
+<circle cx="260" cy="110" fill="#1f1604" r="14" stroke="#fbbf24" stroke-width="2"></circle><text fill="#fbbf24" font-weight="700" text-anchor="middle" x="260" y="115">2</text>
+<text fill="#fcd9a0" text-anchor="middle" x="260" y="150">teste negativo</text><text fill="#fcd9a0" text-anchor="middle" x="260" y="168">edita regras.md</text>
+<circle cx="430" cy="110" fill="#2a0f16" r="16" stroke="#f87171" stroke-width="2.4"></circle><text fill="#f87171" font-weight="700" text-anchor="middle" x="430" y="115">3</text>
+<text fill="#fca5a5" text-anchor="middle" x="430" y="62">git checkout regras.md</text><text fill="#fca5a5" text-anchor="middle" x="430" y="80">volta ao modelo vazio</text>
+<circle cx="600" cy="110" fill="#2a0f16" r="14" stroke="#f87171" stroke-width="2"></circle><text fill="#f87171" font-weight="700" text-anchor="middle" x="600" y="115">4</text>
+<text fill="#fca5a5" text-anchor="middle" x="600" y="150">regras sumiram</text><text fill="#fca5a5" text-anchor="middle" x="600" y="168">sem lixeira</text>
+<circle cx="760" cy="110" fill="#0e1b26" r="14" stroke="#38bdf8" stroke-width="2"></circle><text fill="#38bdf8" font-weight="700" text-anchor="middle" x="760" y="115">5</text>
+<text fill="#bfe6ff" text-anchor="middle" x="760" y="62">recuperadas do</text><text fill="#bfe6ff" text-anchor="middle" x="760" y="80">log da sessão</text>
+<g filter="url(#m42d-glow)"><circle cx="900" cy="110" fill="#1f1604" r="16" stroke="#fbbf24" stroke-width="2.4"></circle></g><text fill="#fbbf24" font-weight="700" text-anchor="middle" x="900" y="115">6</text>
+<text fill="#fcd9a0" text-anchor="middle" x="900" y="150">commit + linha</text><text fill="#fcd9a0" text-anchor="middle" x="900" y="168">no FALHAS.md</text>
+</g>
+<text fill="#9ca3af" font-family="Inter,sans-serif" font-size="12" text-anchor="middle" x="500" y="204">o passo 3 só destrói porque o passo 1 não terminou em commit</text>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-amber-400">Como ler:</strong> siga os números. O vermelho (3 e 4) é o estrago; o ciano (5) é a sorte de existir o log da
+            sessão, onde o conteúdo gerado ainda estava escrito; o âmbar com brilho (6) é o que transforma o susto em proteção. A causa
+            raiz não está no passo 3, está no passo 1: trabalho bom sem commit antes de um teste que mexe no arquivo.
+          </p>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3">A linha real do <code>FALHAS.md</code> do piloto</h3>
+<pre class="font-mono text-xs sm:text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-3">| data | o que quebrou | menor correção | prompt \| infra |
+|---|---|---|---|
+| 2026-10-05 | teste negativo + `git checkout regras.md` apagou as regras da fase 3 (não commitadas); recuperado do log da sessão | commitar antes de teste destrutivo (ou cópia no scratchpad) | prompt |</pre>
+<p class="text-sm text-neutral-400"><strong class="text-amber-400">O que reparar:</strong> a correção registrada não é "reescrever o processo", é a menor proteção que teria evitado o estrago. E a causa foi classificada como <em>prompt</em> (o pedido/operação induziu o erro), não como infraestrutura. Depois disso, o histórico do repositório do piloto mostra o commit <code>fase 3: 8 regras ativas, 31 citações</code>.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-amber-400 text-sm font-semibold mb-1">Commit antes</p><p class="text-xs text-neutral-400"><code>git add regras.md &amp;&amp; git commit -m "fase 3"</code> antes de qualquer teste que edite o arquivo.</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-amber-400 text-sm font-semibold mb-1">Ou teste na cópia</p><p class="text-xs text-neutral-400">Adultere <code>.mentor/tmp/regras-neg.md</code> e rode com <code>--regras</code>. Nada para desfazer.</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-amber-400 text-sm font-semibold mb-1">Olhe antes de restaurar</p><p class="text-xs text-neutral-400"><code>git status</code> e <code>git diff regras.md</code> mostram o que vai se perder.</p></div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-400 hover:bg-amber-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 6 -->
+<section class="mb-16" data-inema-topic="modulo-4-2#topico-6" id="topico-6">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">6</span>
+<h2 class="text-2xl font-bold">⌨️ Na prática: validador, teste negativo e proteção</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m4-2-t6-p1">
+          Três blocos para rodar na pasta do seu mentor, no terminal (não precisa de IA para nenhum deles). Juntos eles fecham a fase 3:
+          o arquivo passa, você prova que o validador reprova o que deve, e nada se perde no caminho.
+        </p>
+<div class="space-y-6 mb-6">
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold">1</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+<h4 class="font-semibold text-neutral-100 mb-2">Salvar antes de testar</h4>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-amber-400">Objetivo:</strong> garantir que o <code>regras.md</code> bom está numa foto do git.</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-2">git add regras.md mentor.config.json
+git commit -m "fase 3: regras validadas"
+git status --short regras.md</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-amber-400">Como verificar:</strong> a última linha não imprime nada (arquivo limpo, igual ao commit).</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold">2</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+<h4 class="font-semibold text-neutral-100 mb-2">Rodar o validador</h4>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-amber-400">Objetivo:</strong> conferir que toda citação existe no raw e que cada status bate com o número de fontes.</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-2">python3 tools/validar_citacoes.py; echo "exit=$?"</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-amber-400">Como verificar:</strong> termina em <code>OK</code> e <code>exit=0</code>. No piloto, hoje: <code>10 regras (10 ativas), 40 citações encontradas, 0 faltando</code>.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold">3</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-amber-500/30">
+<h4 class="font-semibold text-neutral-100 mb-2">Teste negativo numa cópia</h4>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-amber-400">Objetivo:</strong> provar que o validador reprova uma citação inventada, sem tocar no arquivo real.</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-2">mkdir -p .mentor/tmp
+cp regras.md .mentor/tmp/regras-neg.md
+# estraga a 1ª citação da cópia
+sed -i '0,/^  - "/s//  - "TRECHO INVENTADO /' .mentor/tmp/regras-neg.md
+python3 tools/validar_citacoes.py --regras .mentor/tmp/regras-neg.md; echo "exit=$?"
+git status --short regras.md</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-amber-400">Como verificar:</strong> aparece <code>1 faltando</code>, uma linha <code>REPROVADO:</code> com o trecho <code>"TRECHO INVENTADO …"</code> e <code>exit=1</code>. A última linha continua vazia: o <code>regras.md</code> real não mudou. A pasta <code>.mentor/</code> já está no <code>.gitignore</code> do mentor.</p>
+</div>
+</div>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Quando reprovar, nunca afrouxe o validador</h3>
+<p class="text-neutral-300 text-sm">A skill é direta: <em>"Uma citação não encontrada se corrige copiando do raw de novo, nunca relaxando o validador."</em> Se uma regra não acha a 2ª fonte, ela desce para <code>banco</code> — não sobe por decreto. Pedir ao agente "ajusta o validador para passar" é o atalho que transforma prova em teatro.</p>
+</div>
+<div class="inema-check mt-8 mb-6 bg-dark-800 border border-dark-600 rounded-xl p-6" data-inema-check="modulo-4-2#q1">
+<p class="font-medium mb-4">Checagem rápida: uma regra tem 3 citações, todas encontradas, mas as 3 vêm do mesmo guia. Marcada como <code>ativa</code>, o que acontece?</p>
+<div class="inema-check-options space-y-2">
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="0" type="button">Passa: 3 citações é mais que o mínimo de 2.</button>
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="1" type="button">Reprova com "0 faltando": ativa exige 2 arquivos diferentes; ela deve ir para banco.</button>
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="2" type="button">Reprova com "3 faltando", porque as citações estão duplicadas.</button>
+</div>
+<div aria-live="polite" class="mt-4 text-sm" data-inema-check-feedback="" role="status"></div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-400 hover:bg-amber-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<section class="mb-12">
+<div class="bg-gradient-to-br from-amber-900/40 via-dark-800 to-dark-800 rounded-xl border border-amber-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📌</span> Resumo do Módulo</h2>
+<div class="space-y-4 mb-8">
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-neutral-100">Formato rígido</strong><span class="text-neutral-400"> - cabeçalho, status e citações são lidos por regex; não mude os rótulos.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-neutral-100">Status pela prova</strong><span class="text-neutral-400"> - ativa ≥2 arquivos, banco ≥1, inferência avisa.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-neutral-100">Normalização</strong><span class="text-neutral-400"> - perdoa caixa, acento, pontuação e marca de tempo; não perdoa paráfrase.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-neutral-100">Teste negativo</strong><span class="text-neutral-400"> - citação inventada → 1 faltando, exit 1.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-neutral-100">Commit antes de teste destrutivo</strong><span class="text-neutral-400"> - ou teste numa cópia com <code>--regras</code>.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-neutral-100">Nunca afrouxar</strong><span class="text-neutral-400"> - corrige-se a citação, não o validador.</span></div></div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+<h3 class="font-semibold text-amber-400 mb-2">Próxima trilha:</h3>
+<p class="text-neutral-300">Trilha 5 - Agente, skills e portão: como o mentor usa estas regras em cada resposta, e o portão que impede dizer "pronto" sem ter rodado.</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="modulo-4-1.html">← Módulo 4.1</a>
+<a class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors" href="../trilha5/index.html">Trilha 5: Agente →</a>
+</div>
+</div>
+</section>
+</main>
+</div>
+<footer class="border-t border-dark-600 py-8 mt-16">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+<p>Mentor-Especialista — um curso da comunidade INEMA — 2026</p>
+<p class="mt-2">
+<a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+<span class="text-neutral-600 mx-1">-</span>
+<a class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200" href="https://inema.pro" target="_blank">PRO</a>
+</p>
+</div>
+</footer>
+<script src="../../assets/curso.js"></script>
+<script src="../../assets/learn.js"></script>
+<script>
+    if (window.INEMA && typeof window.INEMA.init === 'function') window.INEMA.init();
+    window.addEventListener('DOMContentLoaded', function () {
+      if (window.INEMA && INEMA.registerCheck) {
+        INEMA.registerCheck('modulo-4-2#q1', {
+          answer: 1,
+          explain: {
+            0: 'O mínimo de "ativa" não é de citações, é de arquivos diferentes. Três trechos do mesmo guia contam como uma fonte.',
+            1: 'Isso. As citações existem (0 faltando), mas a prova vem de uma fonte só. O validador manda mover para banco.',
+            2: 'As citações foram encontradas, então nada está "faltando". O problema é o status, não os trechos.'
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

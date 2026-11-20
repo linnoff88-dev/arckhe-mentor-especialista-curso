@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="mentor-especialista-curso" name="inema-course"/>
+<title>Módulo 2.1 · Fontes e coletores | Mentor-Especialista</title>
+<script src="../../assets/boot.js"></script>
+<script data-inema-manifest="" type="application/json">
+  {
+    "course": "mentor-especialista-curso",
+    "tracks": [
+      { "n": "1", "title": "Por que um mentor", "modules": [
+        { "id": "1-1", "title": "Os maus hábitos da IA quando ensina", "topics": 6, "href": "curso/trilha1/modulo-1-1.html" },
+        { "id": "1-2", "title": "Método não é persona: escopo do mentor", "topics": 6, "href": "curso/trilha1/modulo-1-2.html" }
+      ]},
+      { "n": "2", "title": "Coleta do acervo", "modules": [
+        { "id": "2-1", "title": "Fontes e coletores", "topics": 6, "href": "curso/trilha2/modulo-2-1.html" },
+        { "id": "2-2", "title": "Subagentes, manifesto e falhas", "topics": 6, "href": "curso/trilha2/modulo-2-2.html" }
+      ]},
+      { "n": "3", "title": "Wiki compilada", "modules": [
+        { "id": "3-1", "title": "Raw imutável, wiki viva", "topics": 6, "href": "curso/trilha3/modulo-3-1.html" },
+        { "id": "3-2", "title": "Fontes, temas, princípios e métodos", "topics": 6, "href": "curso/trilha3/modulo-3-2.html" }
+      ]},
+      { "n": "4", "title": "Regras com prova", "modules": [
+        { "id": "4-1", "title": "Conduta, não frase de efeito", "topics": 6, "href": "curso/trilha4/modulo-4-1.html" },
+        { "id": "4-2", "title": "Citação, status e validador", "topics": 6, "href": "curso/trilha4/modulo-4-2.html" }
+      ]},
+      { "n": "5", "title": "Agente, skills e portão", "modules": [
+        { "id": "5-1", "title": "Mapa: settings, agente e skills", "topics": 6, "href": "curso/trilha5/modulo-5-1.html" },
+        { "id": "5-2", "title": "O loop obrigatório do mentor", "topics": 6, "href": "curso/trilha5/modulo-5-2.html" },
+        { "id": "5-3", "title": "Skills: ensina, revisa, ingere", "topics": 6, "href": "curso/trilha5/modulo-5-3.html" },
+        { "id": "5-4", "title": "Portão de execução", "topics": 6, "href": "curso/trilha5/modulo-5-4.html" }
+      ]},
+      { "n": "6", "title": "Prova e evolução", "modules": [
+        { "id": "6-1", "title": "O piloto real e os testes de aceitação", "topics": 6, "href": "curso/trilha6/modulo-6-1.html" },
+        { "id": "6-2", "title": "Ingestão contínua, atualização e reuso", "topics": 6, "href": "curso/trilha6/modulo-6-2.html" }
+      ]}
+    ]
+  }
+  </script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../../assets/curso.css" rel="stylesheet"/>
+<link href="../../assets/learn.css" rel="stylesheet"/>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+<a class="skip sr-only focus:not-sr-only" href="#conteudo">Pular para o conteúdo</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🧭</span><span class="font-bold text-lg hidden sm:inline">Mentor-Especialista</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+<span class="text-neutral-600">-</span>
+<a class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200 text-sm font-medium" href="https://inema.pro" target="_blank">PRO</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Por quê</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10" href="index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Coleta</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Wiki</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors" href="../trilha4/index.html"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Regras</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors" href="../trilha5/index.html"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Agente</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors" href="../trilha6/index.html"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Prova</span></a>
+<button class="hidden md:inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-neutral-300 hover:text-neutral-100 transition-colors text-sm" data-inema-journey-open="" type="button">
+<span aria-hidden="true">◷</span><span>Minha jornada</span><span aria-hidden="true" class="inema-journey-badge hidden"></span>
+</button>
+<button aria-label="Alternar tema claro/escuro" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<nav aria-label="Trilha de navegação" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+<div class="flex items-center space-x-2 text-sm text-neutral-400">
+<a class="hover:text-blue-400" href="../../index.html">Início</a><span>/</span>
+<a class="hover:text-blue-400" href="index.html">Trilha 2</a><span>/</span>
+<span class="text-blue-400">Módulo 2.1</span>
+</div>
+</nav>
+<header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600" data-inema-module="2-1" data-inema-track="2">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MÓDULO 2.1</span>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">📥 Fontes e coletores</h1>
+<p class="text-lg text-neutral-400 max-w-3xl">
+        O mentor só sabe o que está no acervo. Este módulo mostra de onde vem cada fonte, qual coletor do kit busca
+        cada tipo e por que a ordem é sempre a mesma: primeiro o que já existe pronto (legenda), depois o que roda na sua
+        máquina (transcritor), e por último a mão — nunca uma API paga sem autorização.
+      </p>
+<div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">50</div><div class="text-xs text-neutral-400">Minutos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">4</div><div class="text-xs text-neutral-400">Coletores</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Prático</div><div class="text-xs text-neutral-400">Tipo</div></div>
+</div>
+<div class="mt-6 max-w-2xl">
+<div aria-label="Progresso do módulo 2.1" aria-valuemax="100" aria-valuemin="0" class="inema-meter" data-inema-meter="modulo:2-1" role="progressbar">
+<span class="inema-meter-pct">0%</span><span class="inema-meter-count">0 de 6</span>
+</div>
+</div>
+</div>
+</header>
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:grid lg:grid-cols-[220px_1fr] lg:gap-10">
+<nav aria-label="Índice da página" class="hidden lg:block sticky top-24 self-start" data-inema-toc="">
+<p class="text-sm text-neutral-400 mb-2">Seção <span class="inema-toc-pos">1</span> de <span class="inema-toc-total">6</span></p>
+<ul class="space-y-1 text-sm">
+<li><a class="inema-toc-link hover:text-blue-400" href="#topico-1">1. Tipos de fonte</a></li>
+<li><a class="inema-toc-link hover:text-blue-400" href="#topico-2">2. Legenda primeiro</a></li>
+<li><a class="inema-toc-link hover:text-blue-400" href="#topico-3">3. Transcritor plugável</a></li>
+<li><a class="inema-toc-link hover:text-blue-400" href="#topico-4">4. Web e repositórios</a></li>
+<li><a class="inema-toc-link hover:text-blue-400" href="#topico-5">5. Exportação manual</a></li>
+<li><a class="inema-toc-link hover:text-blue-400" href="#topico-6">6. Os 4 coletores na prática</a></li>
+</ul>
+</nav>
+<main class="inema-prose" id="conteudo">
+<!-- TOPICO 1 -->
+<section class="mb-16" data-inema-topic="modulo-2-1#topico-1" id="topico-1">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">1</span>
+<h2 class="text-2xl font-bold">🗃️ Conheça os tipos de fonte</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m2-1-t1-p1">
+          Na trilha 1 você escreveu o <span class="font-mono text-sm">ESCOPO.md</span>: o domínio numa frase e a lista de fontes.
+          Agora essa lista vira arquivo. Cada fonte tem um tipo, e cada tipo tem um coletor próprio no kit. O resultado de
+          todos eles cai no mesmo lugar: a pasta <span class="font-mono text-sm">raw/</span>, com uma linha nova no manifesto para cada
+          item. <strong class="text-blue-400">O mentor nunca lê a internet na hora de ensinar — ele lê o que você coletou.</strong>
+</p>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🆕</span> Novo aqui?</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li><strong>Acervo</strong> é o conjunto de tudo o que o especialista publicou e que você escolheu usar: lives, artigos, guias, repositórios.</li>
+<li><strong>raw</strong> ("cru", em inglês) é a pasta onde o acervo fica exatamente como foi coletado. Ninguém edita nada ali depois.</li>
+<li><strong>Coletor</strong> é um script Python do kit (pasta <span class="font-mono text-xs">tools/</span>) que busca um tipo de fonte e grava o texto em <span class="font-mono text-xs">raw/</span>.</li>
+<li><strong>Manifesto</strong> é o arquivo <span class="font-mono text-xs">raw/MANIFESTO.json</span>: a lista de tudo que foi coletado, com tamanho e uma "impressão digital" de cada arquivo. O módulo 2.2 abre esse arquivo por dentro.</li>
+</ul>
+</div>
+<div class="rounded-2xl border border-blue-500/30 bg-dark-900/40 p-3 sm:p-4 mb-4 overflow-hidden">
+<svg aria-label="Quatro tipos de fonte entram por quatro coletores diferentes e convergem na pasta raw, que registra cada item no manifesto" class="w-full h-auto" role="img" viewbox="0 0 1000 260">
+<defs>
+<lineargradient id="m21a-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#60a5fa"></stop><stop offset="1" stop-color="#3b82f6"></stop></lineargradient>
+<filter height="180%" id="m21a-glow" width="180%" x="-40%" y="-40%"><fegaussianblur result="b" stddeviation="1.8"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
+<pattern height="32" id="m21a-grid" patternunits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#3b82f6" opacity="0.12" r="1.3"></circle></pattern>
+<marker id="m21a-ah" markerheight="9" markerwidth="9" orient="auto" refx="6.5" refy="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#38bdf8"></path></marker>
+</defs>
+<rect fill="url(#m21a-grid)" height="260" width="1000" x="0" y="0"></rect>
+<g font-family="Inter,sans-serif" font-size="13" font-weight="600">
+<rect fill="#0e1622" height="40" rx="10" stroke="#60a5fa" stroke-width="2" width="170" x="20" y="18"></rect><text fill="#bfdbfe" text-anchor="middle" x="105" y="43">vídeo / live</text>
+<rect fill="#0e1622" height="40" rx="10" stroke="#60a5fa" stroke-width="2" width="170" x="20" y="78"></rect><text fill="#bfdbfe" text-anchor="middle" x="105" y="103">página / guia / blog</text>
+<rect fill="#0e1622" height="40" rx="10" stroke="#60a5fa" stroke-width="2" width="170" x="20" y="138"></rect><text fill="#bfdbfe" text-anchor="middle" x="105" y="163">repositório git</text>
+<rect fill="#0e1622" height="40" rx="10" stroke="#60a5fa" stroke-width="2" width="170" x="20" y="198"></rect><text fill="#bfdbfe" text-anchor="middle" x="105" y="223">exportação / notas</text>
+<rect fill="#0e1b26" height="40" rx="10" stroke="#38bdf8" stroke-width="2" width="210" x="290" y="18"></rect><text fill="#bfe6ff" text-anchor="middle" x="395" y="43">coletar_video.py</text>
+<rect fill="#0e1b26" height="40" rx="10" stroke="#38bdf8" stroke-width="2" width="210" x="290" y="78"></rect><text fill="#bfe6ff" text-anchor="middle" x="395" y="103">coletar_web.py</text>
+<rect fill="#0e1b26" height="40" rx="10" stroke="#38bdf8" stroke-width="2" width="210" x="290" y="138"></rect><text fill="#bfe6ff" text-anchor="middle" x="395" y="163">coletar_repo.py</text>
+<rect fill="#0e1b26" height="40" rx="10" stroke="#38bdf8" stroke-width="2" width="210" x="290" y="198"></rect><text fill="#bfe6ff" text-anchor="middle" x="395" y="223">coletar_arquivo.py</text>
+</g>
+<g fill="none" opacity="0.6" stroke="#38bdf8" stroke-width="1.8">
+<path d="M190,38 L282,38" marker-end="url(#m21a-ah)"></path><path d="M190,98 L282,98" marker-end="url(#m21a-ah)"></path>
+<path d="M190,158 L282,158" marker-end="url(#m21a-ah)"></path><path d="M190,218 L282,218" marker-end="url(#m21a-ah)"></path>
+<path d="M500,38 C580,38 580,118 632,124" marker-end="url(#m21a-ah)"></path><path d="M500,98 C560,98 580,124 632,128" marker-end="url(#m21a-ah)"></path>
+<path d="M500,158 C560,158 580,136 632,134" marker-end="url(#m21a-ah)"></path><path d="M500,218 C580,218 580,142 632,138" marker-end="url(#m21a-ah)"></path>
+</g>
+<g filter="url(#m21a-glow)"><rect fill="#0e1622" height="120" rx="16" stroke="url(#m21a-grad)" stroke-width="2" width="320" x="640" y="70"></rect></g>
+<text fill="#60a5fa" font-family="Inter,sans-serif" font-size="17" font-weight="700" text-anchor="middle" x="800" y="102">raw/</text>
+<text fill="#bfdbfe" font-family="Inter,sans-serif" font-size="12.5" text-anchor="middle" x="800" y="126">videos/ · web/ · guia/ · repos/ · notas/</text>
+<text fill="#9ad6ff" font-family="Inter,sans-serif" font-size="12.5" text-anchor="middle" x="800" y="150">+ 1 linha por item em MANIFESTO.json</text>
+<text fill="#9ad6ff" font-family="Inter,sans-serif" font-size="12" text-anchor="middle" x="800" y="172">falhou? → RELATORIO-FALHAS.md</text>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-blue-400">Como ler:</strong> cada tipo de fonte (esquerda) tem o seu coletor (meio), mas todos desembocam
+            na mesma caixa iluminada. Repare que nada sai do <span class="font-mono text-xs">raw/</span> sem passar pelo manifesto, e
+            que até a falha tem destino escrito. É isso que torna o acervo conferível depois.
+          </p>
+</div>
+<div class="overflow-x-auto mb-6">
+<table class="w-full text-sm border border-dark-600 rounded-lg">
+<thead class="bg-dark-800"><tr><th class="text-left p-3 text-blue-400">Tipo</th><th class="text-left p-3 text-blue-400">Coletor</th><th class="text-left p-3 text-blue-400">Vai para</th><th class="text-left p-3 text-blue-400">No piloto do Nei</th></tr></thead>
+<tbody class="divide-y divide-dark-600 text-neutral-300">
+<tr><td class="p-3">Vídeo, live, aula</td><td class="p-3 font-mono text-xs">coletar_video.py</td><td class="p-3 font-mono text-xs">raw/videos/</td><td class="p-3">14 lives</td></tr>
+<tr><td class="p-3">Guia, artigo, blog</td><td class="p-3 font-mono text-xs">coletar_web.py --tipo guia</td><td class="p-3 font-mono text-xs">raw/guia/</td><td class="p-3">8 guias</td></tr>
+<tr><td class="p-3">Repositório</td><td class="p-3 font-mono text-xs">coletar_repo.py</td><td class="p-3 font-mono text-xs">raw/repos/</td><td class="p-3">não usado</td></tr>
+<tr><td class="p-3">Posts, notas, export</td><td class="p-3 font-mono text-xs">coletar_arquivo.py --tipo posts</td><td class="p-3 font-mono text-xs">raw/posts/</td><td class="p-3">não usado</td></tr>
+</tbody>
+</table>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ Entra no acervo</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Conteúdo público em que a pessoa explica como faz e por quê</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Material longo, com raciocínio em voz alta (lives são ótimas)</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Guias e documentos em que o método aparece passo a passo</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Só fontes listadas no ESCOPO.md, com o tipo certo</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ Fica de fora</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Opiniões pessoais e políticas, vida privada</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Qualquer coisa que faça o mentor parecer a própria pessoa</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Fonte "achada no caminho" que não está no escopo</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Conteúdo atrás de login pago coletado por API sem autorização</span></li>
+</ul>
+</div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-500/20 border border-blue-500/30 text-blue-400 hover:bg-blue-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 2 -->
+<section class="mb-16" data-inema-topic="modulo-2-1#topico-2" id="topico-2">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">2</span>
+<h2 class="text-2xl font-bold">💬 Use a legenda antes da transcrição</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m2-1-t2-p1">
+          Quase todo vídeo publicado já tem uma <strong>legenda automática</strong>: o texto que a própria plataforma gera
+          a partir da fala, com marcas de tempo. Baixar só essa legenda é questão de segundos e não exige baixar o vídeo.
+          Transcrever o áudio na sua máquina dá um texto parecido, mas custa minutos de GPU por vídeo. Por isso o coletor
+          de vídeo segue uma ordem fixa.
+        </p>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🆕</span> O que é yt-dlp?</h3>
+<p class="text-neutral-300 text-sm"><strong>yt-dlp</strong> é um programa de linha de comando que lê páginas de vídeo. Com a opção
+            <span class="font-mono text-xs">--skip-download</span> ele não baixa o vídeo: só pega título, ID e, se você pedir, as legendas.
+            <strong>VTT</strong> e <strong>SRT</strong> são os dois formatos de arquivo de legenda mais comuns; ambos guardam "de tal segundo a tal segundo, este texto".</p>
+</div>
+<div class="space-y-6 mb-6">
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">1</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-blue-500/30">
+<h4 class="font-semibold text-white mb-2">Legenda que já existe</h4>
+<p class="text-neutral-300 text-sm">Pede as legendas manuais e automáticas nos idiomas de <span class="font-mono text-xs">idiomas_legenda</span> do config, sem baixar o vídeo. Teto de 300 segundos.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">2</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+<h4 class="font-semibold text-white mb-2">Seu transcritor, se configurado</h4>
+<p class="text-neutral-300 text-sm">Só roda se não houver legenda <em>e</em> se <span class="font-mono text-xs">transcrever_cmd</span> estiver preenchido. Teto de <span class="font-mono text-xs">timeout_video_s</span> (3600 s no padrão).</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">3</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+<h4 class="font-semibold text-white mb-2">Relatório de falhas</h4>
+<p class="text-neutral-300 text-sm">Se nada deu texto, o vídeo vira uma linha em <span class="font-mono text-xs">raw/RELATORIO-FALHAS.md</span> com o motivo ("sem legenda", "timeout na legenda"…). O coletor segue com os outros.</p>
+</div>
+</div>
+</div>
+<div class="rounded-2xl border border-blue-500/30 bg-dark-900/40 p-3 sm:p-4 mb-4 overflow-hidden">
+<svg aria-label="Comparação real do piloto: 13 lives por legenda em 1,6 minuto contra 1 live transcrita localmente em 7,7 minutos" class="w-full h-auto" role="img" viewbox="0 0 1000 200">
+<defs>
+<lineargradient id="m21b-grad" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#60a5fa"></stop><stop offset="1" stop-color="#3b82f6"></stop></lineargradient>
+<filter height="180%" id="m21b-glow" width="180%" x="-40%" y="-40%"><fegaussianblur result="b" stddeviation="1.8"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
+<pattern height="32" id="m21b-grid" patternunits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#3b82f6" opacity="0.12" r="1.3"></circle></pattern>
+</defs>
+<rect fill="url(#m21b-grid)" height="200" width="1000" x="0" y="0"></rect>
+<text fill="#bfdbfe" font-family="Inter,sans-serif" font-size="14" font-weight="600" x="30" y="40">Tempo de máquina no piloto (minutos)</text>
+<text fill="#bfdbfe" font-family="Inter,sans-serif" font-size="13" x="30" y="88">13 lives · legenda</text>
+<g filter="url(#m21b-glow)"><rect fill="url(#m21b-grad)" height="28" rx="6" width="112" x="250" y="68"></rect></g>
+<text fill="#60a5fa" font-family="Inter,sans-serif" font-size="14" font-weight="700" x="374" y="88">1,6 min → 169.937 palavras</text>
+<text fill="#bfe6ff" font-family="Inter,sans-serif" font-size="13" x="30" y="142">1 live · transcrição local</text>
+<rect fill="#0e1b26" height="28" rx="6" stroke="#38bdf8" stroke-width="2" width="539" x="250" y="122"></rect>
+<text fill="#9ad6ff" font-family="Inter,sans-serif" font-size="14" font-weight="700" x="800" y="142">7,7 min → 8.045 pal.</text>
+<text fill="#9ad6ff" font-family="Inter,sans-serif" font-size="12" x="250" y="182">escala: 70 px por minuto</text>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-blue-400">Como ler:</strong> a barra de cima é o lote inteiro de 13 lives buscado por legenda; a de baixo é
+            uma única live sem legenda, transcrita na máquina. A de baixo é quase cinco vezes mais longa para um vigésimo do texto.
+            É por isso que o transcritor é o plano B, nunca o plano A.
+          </p>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">🔎</span> O comando que o coletor roda por baixo</h3>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-blue-400">Objetivo:</strong> ver com os próprios olhos se um vídeo tem legenda, antes de pôr ele no ESCOPO. Nada é baixado além do arquivo de legenda.</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">mkdir -p /tmp/teste-legenda
+yt-dlp --skip-download --write-subs --write-auto-subs \
+  --sub-langs pt,pt-orig --sub-format "vtt/srt/best" \
+  -o "/tmp/teste-legenda/%(title)s.%(ext)s" "&lt;URL do vídeo&gt;"
+ls /tmp/teste-legenda</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-blue-400">Como verificar:</strong> se aparecer um <span class="font-mono text-xs">.vtt</span> ou <span class="font-mono text-xs">.srt</span>, o coletor vai resolver esse vídeo em segundos. Pasta vazia = esse vídeo vai cair no transcritor (tópico 3) ou no relatório de falhas.</p>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica do piloto</h3>
+<p class="text-neutral-300 text-sm">No mentor do Nei, <span class="font-mono text-xs">idiomas_legenda</span> ficou <span class="font-mono text-xs">["pt", "pt-orig"]</span>: "pt-orig" é a legenda automática na língua original da fala. Das 14 lives do escopo, 13 tinham legenda e saíram de uma vez; 1 não tinha e foi parar no relatório de falhas, exatamente como desenhado.</p>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-500/20 border border-blue-500/30 text-blue-400 hover:bg-blue-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 3 -->
+<section class="mb-16" data-inema-topic="modulo-2-1#topico-3" id="topico-3">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">3</span>
+<h2 class="text-2xl font-bold">🎙️ Plugue o seu transcritor</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m2-1-t3-p1">
+          O kit não traz um transcritor embutido de propósito: cada máquina tem o seu (Whisper local, faster-whisper, o pipeline
+          que você já usa). Em vez disso, ele aceita <strong>qualquer comando</strong> em <span class="font-mono text-sm">transcrever_cmd</span>,
+          dentro do <span class="font-mono text-sm">mentor.config.json</span>. O coletor só exige uma coisa do seu comando:
+          <strong class="text-blue-400">deixar um .txt, .srt ou .vtt dentro da pasta que ele indicar</strong>.
+        </p>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🆕</span> Novo aqui?</h3>
+<p class="text-neutral-300 text-sm"><strong>Transcritor</strong> é o programa que ouve o áudio e devolve o texto falado. <strong>Whisper</strong> é um modelo de transcrição que roda na sua própria máquina, sem custo por minuto.
+            <strong>Placeholder</strong> é um marcador no texto do comando que o coletor troca por um valor real: aqui são dois, <span class="font-mono text-xs">{url}</span> (o link do vídeo) e <span class="font-mono text-xs">{saida}</span> (uma pasta temporária).</p>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">⚙️</span> O formato no mentor.config.json</h3>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-blue-400">Objetivo:</strong> ligar o plano B. Troque a parte entre <span class="font-mono text-xs">&lt; &gt;</span> pelo seu comando; mantenha <span class="font-mono text-xs">{url}</span> e <span class="font-mono text-xs">{saida}</span> exatamente assim.</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">{
+  "idiomas_legenda": ["pt", "pt-orig"],
+  "transcrever_cmd": "&lt;seu transcritor&gt; --url {url} --saida {saida}",
+  "timeout_video_s": 3600
+}</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-blue-400">Como verificar:</strong> rode o coletor num vídeo que você sabe que não tem legenda (tópico 2). A linha de saída deve terminar em <span class="font-mono text-xs">(transcrição local)</span> em vez de <span class="font-mono text-xs">(legenda)</span>.</p>
+</div>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m2-1-t3-p2">
+          No piloto, o comando do Nei encadeia dois scripts que ele já tinha (um que baixa só o áudio e outro que transcreve
+          com Whisper large-v3). O detalhe que importa não é o programa, é a moldura em volta:
+        </p>
+<pre class="font-mono text-xs bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">"transcrever_cmd": "cd ~/projetos/inemavox &amp;&amp; systemd-run --user --scope -q -p MemoryMax=24G -- python3 baixar_v1.py --url {url} --outdir {saida} --quality audio &amp;&amp; systemd-run --user --scope -q -p MemoryMax=24G -- python3 transcrever_v1.py --in \"$(ls -S {saida}/* | head -1)\" --outdir {saida} --whisper-model large-v3"</pre>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Teto de memória não é enfeite</h3>
+<p class="text-neutral-300 text-sm">Um modelo de transcrição grande pode comer a memória da máquina inteira e travar tudo antes de dar erro. Por isso o comando do piloto roda dentro de <span class="font-mono text-xs">systemd-run ... -p MemoryMax=24G</span>: se passar do teto, morre só a transcrição, não o computador. Somado ao <span class="font-mono text-xs">timeout_video_s</span>, você tem um limite de memória e um de tempo. Ajuste os números para a sua máquina, mas não tire os dois.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-blue-400 text-sm font-semibold mb-1">{url}</p><p class="text-xs text-neutral-400">O link, já com aspas seguras</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-blue-400 text-sm font-semibold mb-1">{saida}</p><p class="text-xs text-neutral-400">Pasta temporária do coletor</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-blue-400 text-sm font-semibold mb-1">.vtt / .srt primeiro</p><p class="text-xs text-neutral-400">Depois .txt, se for só isso</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-blue-400 text-sm font-semibold mb-1">Vazio = falha</p><p class="text-xs text-neutral-400">Vai para o relatório com o exit</p></div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-500/20 border border-blue-500/30 text-blue-400 hover:bg-blue-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 4 -->
+<section class="mb-16" data-inema-topic="modulo-2-1#topico-4" id="topico-4">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">4</span>
+<h2 class="text-2xl font-bold">🌐 Colete páginas web e repositórios</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m2-1-t4-p1">
+          Texto escrito é mais fácil que vídeo, mas tem as suas armadilhas: menus, rodapés e anúncios que não são o
+          especialista falando; páginas que só mostram o conteúdo depois de rodar JavaScript; repositórios em que o
+          raciocínio está espalhado entre README, docs e comentários. Os dois coletores de texto lidam com isso sem
+          nenhuma biblioteca extra — só Python padrão e <span class="font-mono text-sm">git</span>.
+        </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-dark-800 rounded-xl border border-blue-500/30 p-6">
+<h4 class="font-bold text-blue-400 mb-3">🌐 coletar_web.py</h4>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li>• Baixa a página e joga fora script, style, nav, footer, header, aside, form.</li>
+<li>• Títulos viram <span class="font-mono text-xs">#</span>, listas viram <span class="font-mono text-xs">-</span>; blocos de código mantêm a indentação.</li>
+<li>• Só aceita <span class="font-mono text-xs">http://</span> e <span class="font-mono text-xs">https://</span>.</li>
+<li>• Menos de 80 palavras? Provável paywall ou página feita só de JavaScript → falha registrada, colete à mão.</li>
+<li>• Salva em <span class="font-mono text-xs">raw/&lt;tipo&gt;/&lt;titulo&gt;-&lt;hash&gt;.md</span>.</li>
+</ul>
+</div>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+<h4 class="font-bold text-blue-400 mb-3">📦 coletar_repo.py</h4>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li>• Clona raso (<span class="font-mono text-xs">git clone --depth 1</span>) numa pasta temporária.</li>
+<li>• Junta os .md, .rst e .txt (até <span class="font-mono text-xs">--max-arquivos</span>, padrão 40).</li>
+<li>• De cada arquivo de código, pega só o primeiro bloco de comentário, onde o autor costuma explicar o porquê.</li>
+<li>• Comentário com menos de 8 palavras é ignorado (é cabeçalho de licença, não explicação).</li>
+<li>• Salva tudo em um único <span class="font-mono text-xs">raw/repos/&lt;nome&gt;.md</span>.</li>
+</ul>
+</div>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> O que o piloto mostrou sobre guias</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li>• O coletor de web funcionou bem nos guias: no do makeshorts, pegou 885 palavras de 936 visíveis no HTML (o resto era menu e rodapé).</li>
+<li>• Os guias INEMA têm entre 885 e 1.427 palavras cada. Seis guias somaram 7.269 palavras, abaixo da meta de 8.000 do config.</li>
+<li>• Lição: a meta de palavras por tipo deve ser calibrada <em>depois</em> de ver o tamanho real das fontes. O módulo 2.2 mostra como o <span class="font-mono text-xs">stats.py</span> reprovou e o que foi feito.</li>
+</ul>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3">Saída típica do coletor de web <span class="text-xs text-neutral-500 font-normal">(formato real das linhas impressas)</span></h3>
+<div class="rounded-lg border border-dark-600 overflow-hidden">
+<div class="flex items-center gap-2 px-3 py-2 bg-dark-700 border-b border-dark-600">
+<span class="w-2.5 h-2.5 rounded-full bg-red-400"></span><span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span><span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+<span class="text-xs text-neutral-400 ml-2 font-mono">python3 tools/coletar_web.py ... --tipo guia</span>
+</div>
+<div class="p-4 font-mono text-xs text-neutral-300 space-y-1 bg-dark-900/60">
+<p><span class="text-emerald-400">ok</span>   1418 pal.  raw/guia/maestro-roteador-triagem-de-modelo-e-esforco-para--ded1bc.md</p>
+<p><span class="text-emerald-400">ok</span>    885 pal.  raw/guia/makeshorts-fabrica-de-shorts-com-ia-70fe54.md</p>
+<p><span class="text-neutral-500">já coletado: https://inematds.github.io/makeshorts/guia/</span></p>
+<p><span class="text-red-400">FALHA</span> &lt;URL&gt;: texto curto demais</p>
+</div>
+</div>
+<p class="text-sm text-neutral-400 mt-3"><strong class="text-blue-400">Como ler:</strong> "ok" traz o número de palavras e o arquivo criado. "já coletado" significa que a URL já está no manifesto e nada foi refeito (rodar de novo é seguro). "FALHA" sempre vem com o motivo, e a mesma linha vai para o relatório.</p>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-500/20 border border-blue-500/30 text-blue-400 hover:bg-blue-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 5 -->
+<section class="mb-16" data-inema-topic="modulo-2-1#topico-5" id="topico-5">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">5</span>
+<h2 class="text-2xl font-bold">📤 Exporte à mão em vez de pagar API</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m2-1-t5-p1">
+          Posts de rede social, newsletters, notas, PDFs: muita coisa boa do especialista não está numa página aberta.
+          A tentação é ligar uma <strong>API paga</strong> que raspa tudo. O kit fecha essa porta por regra: a skill de coleta
+          diz "nenhuma API paga sem autorização explícita do dono do projeto (serviço + finalidade)". O caminho é exportar à mão
+          e entregar o arquivo ao <span class="font-mono text-sm">coletar_arquivo.py</span>.
+        </p>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🆕</span> O que é uma API paga, neste contexto?</h3>
+<p class="text-neutral-300 text-sm">Uma <strong>API</strong> é uma porta de acesso que um serviço oferece para programas. "Paga" quer dizer que cada chamada consome crédito ou cobra por volume. Um agente com acesso a uma chave de API pode gastar sem você ver. Ter a chave guardada num arquivo não é autorização para usar.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ Caminho do kit</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Use a exportação oficial da plataforma (o "baixar meus dados")</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Converta para .txt ou .md antes (PDF não entra direto)</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Diga de onde veio em <span class="font-mono text-xs">--origem</span>: vira o campo <span class="font-mono text-xs">url</span> do manifesto</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Sem autorização? Registre como falha e siga com o resto</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ O que o kit não faz</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Chamar serviço pago "só para testar"</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Trocar o transcritor local por transcrição na nuvem sem pedir</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Usar uma chave só porque ela existe no .env</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Aceitar binário: o coletor só copia .md .txt .srt .vtt .json .csv .html</span></li>
+</ul>
+</div>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">🧪</span> Exercício copiável — entre com uma exportação</h3>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-blue-400">Objetivo:</strong> pôr no acervo um arquivo que você exportou à mão, com origem rastreável. Rode na raiz do seu mentor.</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">python3 tools/coletar_arquivo.py &lt;posts-exportados.txt&gt; \
+  --tipo posts --origem "&lt;export da rede X em 2026-10&gt;"</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-blue-400">Como verificar:</strong> a saída mostra <span class="font-mono text-xs">ok &lt;N&gt; pal.  raw/posts/&lt;nome&gt;.txt</span>. Em seguida, <span class="font-mono text-xs">grep -A3 '"tipo": "posts"' raw/MANIFESTO.json</span> deve mostrar a sua origem no campo <span class="font-mono text-xs">url</span>.</p>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-500/20 border border-blue-500/30 text-blue-400 hover:bg-blue-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 6 -->
+<section class="mb-16" data-inema-topic="modulo-2-1#topico-6" id="topico-6">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">6</span>
+<h2 class="text-2xl font-bold">▶️ Rode os 4 coletores</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m2-1-t6-p1">
+          Todos os comandos abaixo rodam na raiz do mentor que o <span class="font-mono text-sm">novo-mentor.py</span> gerou
+          (a pasta <span class="font-mono text-sm">mentor-&lt;slug&gt;/</span>). Todos aceitam várias URLs de uma vez, são seguros para
+          rodar de novo (o que já está no manifesto é pulado) e devolvem exit 1 se pelo menos uma fonte falhou.
+        </p>
+<div class="space-y-6 mb-6">
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6">
+<h3 class="text-lg font-semibold mb-3">🎬 Vídeo</h3>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-blue-400">Objetivo:</strong> trazer o texto de um ou mais vídeos, por legenda ou pelo seu transcritor.</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-3">python3 tools/coletar_video.py "&lt;URL do vídeo 1&gt;" "&lt;URL do vídeo 2&gt;" --idiomas pt,pt-orig</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-blue-400">Como verificar:</strong> <span class="font-mono text-xs">ls raw/videos</span> mostra um arquivo por vídeo, com o título e o ID no nome. <span class="font-mono text-xs">head -5 raw/videos/&lt;arquivo&gt;.txt</span> traz <span class="font-mono text-xs">Origem:</span> e <span class="font-mono text-xs">Texto: legenda</span> ou <span class="font-mono text-xs">Texto: transcrição local</span>.</p>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6">
+<h3 class="text-lg font-semibold mb-3">🌐 Página / guia</h3>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-blue-400">Objetivo:</strong> trazer o texto limpo de guias ou artigos, separados por tipo.</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-3">python3 tools/coletar_web.py "https://inematds.github.io/&lt;projeto&gt;/guia/" --tipo guia</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-blue-400">Como verificar:</strong> a linha "ok" deve ter algumas centenas de palavras ou mais. Abra o .md gerado: se ele começa com menu ou cookie, a página tem pouco texto real e vale coletar à mão.</p>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6">
+<h3 class="text-lg font-semibold mb-3">📦 Repositório</h3>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-blue-400">Objetivo:</strong> juntar a documentação e os comentários de topo de um repositório do especialista.</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-3">python3 tools/coletar_repo.py https://github.com/inematds/mentor-especialista --max-arquivos 40</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-blue-400">Como verificar:</strong> <span class="font-mono text-xs">grep -c '^## ' raw/repos/mentor-especialista.md</span> conta quantos arquivos entraram (cada um vira uma seção <span class="font-mono text-xs">##</span>).</p>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6">
+<h3 class="text-lg font-semibold mb-3">📤 Arquivo exportado</h3>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-blue-400">Objetivo:</strong> registrar notas ou exportações locais, com origem.</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-3">python3 tools/coletar_arquivo.py &lt;notas.md&gt; --tipo notas --origem "&lt;caderno de 2026&gt;"</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-blue-400">Como verificar:</strong> <span class="font-mono text-xs">python3 -c "import json;print(len(json.load(open('raw/MANIFESTO.json'))))"</span> sobe em 1 a cada arquivo novo.</p>
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Feche sempre com o mesmo comando</h3>
+<p class="text-neutral-300 text-sm">Depois de qualquer coleta, rode <span class="font-mono text-xs">python3 tools/stats.py</span>. Ele soma tudo por tipo, confere contra as metas e diz se o acervo está pronto (exit 0) ou o que falta. O módulo 2.2 explica cada motivo de reprovação.</p>
+</div>
+<div class="inema-check mt-8 mb-6 bg-dark-800 border border-dark-600 rounded-xl p-6" data-inema-check="modulo-2-1#q1">
+<p class="font-medium mb-4">Checagem rápida: uma live importante do especialista não tem legenda e o seu <span class="font-mono text-sm">transcrever_cmd</span> está vazio. O que o coletor faz?</p>
+<div class="inema-check-options space-y-2">
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="0" type="button">Usa um serviço de transcrição na nuvem para não perder a fonte.</button>
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="1" type="button">Registra a live em RELATORIO-FALHAS.md com o motivo e segue com as outras.</button>
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="2" type="button">Para a coleta inteira até você resolver.</button>
+</div>
+<div aria-live="polite" class="mt-4 text-sm" data-inema-check-feedback="" role="status"></div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-500/20 border border-blue-500/30 text-blue-400 hover:bg-blue-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<section class="mb-12">
+<div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📌</span> Resumo do Módulo</h2>
+<div class="space-y-4 mb-8">
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Um tipo, um coletor</strong><span class="text-neutral-400"> - vídeo, web, repositório e arquivo; todos gravam em raw/ e no manifesto.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Legenda primeiro</strong><span class="text-neutral-400"> - no piloto, 13 lives em 1,6 min contra 1 live transcrita em 7,7 min.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Transcritor plugável</strong><span class="text-neutral-400"> - qualquer comando com {url} e {saida}, sempre com teto de memória e de tempo.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Texto limpo</strong><span class="text-neutral-400"> - web sem menu e rodapé; repositório com docs e comentários de topo.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Nada pago sem autorização</strong><span class="text-neutral-400"> - exportação manual entra por coletar_arquivo.py.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Fecha com stats.py</strong><span class="text-neutral-400"> - pronto é exit 0, não "parece que coletou tudo".</span></div></div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+<h3 class="font-semibold text-blue-400 mb-2">Próximo Módulo:</h3>
+<p class="text-neutral-300">2.2 - Subagentes, manifesto e falhas: coletar em paralelo sem perder nada, e os dois bugs reais que o piloto achou.</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="index.html">← Voltar para Trilha</a>
+<a class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors" href="modulo-2-2.html">Próximo Módulo →</a>
+</div>
+</div>
+</section>
+</main>
+</div>
+<footer class="border-t border-dark-600 py-8 mt-16">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+<p>Mentor-Especialista: o método de um especialista virando seu mentor no Claude Code — 2026</p>
+<p class="mt-2">
+<a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+<span class="text-neutral-600 mx-1">-</span>
+<a class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200" href="https://inema.pro" target="_blank">PRO</a>
+</p>
+</div>
+</footer>
+<script src="../../assets/curso.js"></script>
+<script src="../../assets/learn.js"></script>
+<script>
+    if (window.INEMA && typeof window.INEMA.init === 'function') window.INEMA.init();
+    window.addEventListener('DOMContentLoaded', function () {
+      if (window.INEMA && INEMA.registerCheck) {
+        INEMA.registerCheck('modulo-2-1#q1', {
+          answer: 1,
+          explain: {
+            0: 'Não. Serviço pago só com autorização explícita do dono do projeto. Sem ela, a fonte vira falha registrada.',
+            1: 'Isso. A falha vai para o relatório com o motivo ("sem legenda") e a coleta continua. Foi o que aconteceu no piloto.',
+            2: 'Não. Uma fonte que falha não derruba as outras: o coletor registra e segue, e devolve exit 1 no fim para você ver.'
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

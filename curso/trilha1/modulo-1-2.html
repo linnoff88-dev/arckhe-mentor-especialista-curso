@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="mentor-especialista-curso" name="inema-course"/>
+<title>Módulo 1.2 · Método não é persona | Mentor-Especialista</title>
+<script>
+  (function () {
+    try {
+      var html = document.documentElement;
+      var DEF = { theme: 'inema-dark', font: 'inter', fontScale: 100, lineWidth: 68, leading: 1.7, accent: 'emerald' };
+      function clone(o) { var r = {}; for (var x in o) r[x] = o[x]; return r; }
+      var p = clone(DEF);
+      try {
+        var raw = localStorage.getItem('inema.prefs');
+        if (raw) { var parsed = JSON.parse(raw); if (parsed && typeof parsed === 'object') { for (var k in DEF) if (parsed[k] != null) p[k] = parsed[k]; } }
+        else { var legacy = localStorage.getItem('theme'); if (legacy === 'light') p.theme = 'claro'; else if (legacy === 'dark') p.theme = 'inema-dark'; }
+      } catch (e) { p = clone(DEF); }
+      var THEMES = { 'inema-dark': { dark: true, attr: null, cs: 'dark' }, 'claro': { dark: false, attr: null, cs: 'light' }, 'sepia': { dark: false, attr: 'sepia', cs: 'light' }, 'foco': { dark: null, attr: 'foco', cs: null }, 'contraste': { dark: true, attr: 'contraste', cs: 'dark' } };
+      var t = THEMES[p.theme] || THEMES['inema-dark'];
+      if (t.dark === true) html.classList.add('dark'); else if (t.dark === false) html.classList.remove('dark');
+      if (t.attr) html.setAttribute('data-theme', t.attr); else html.removeAttribute('data-theme');
+      html.style.colorScheme = (t.cs ? t.cs : (html.classList.contains('dark') ? 'dark' : 'light'));
+      html.setAttribute('data-font', p.font || 'inter'); html.setAttribute('data-accent', p.accent || 'emerald');
+      var s = html.style, scale = (+p.fontScale || 100);
+      s.setProperty('--inema-font-scale', (scale / 100).toString()); s.setProperty('font-size', scale + '%');
+      s.setProperty('--measure', (+p.lineWidth || 68) + 'ch'); s.setProperty('--lh-body', (+p.leading || 1.7).toString());
+      var fam = p.font === 'system' ? 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif' : (p.font === 'leitura' ? '"Atkinson Hyperlegible", "Inter", system-ui, sans-serif' : '"Inter", system-ui, sans-serif');
+      s.setProperty('--font-body', fam);
+      var ACC = { emerald: [152,76,45], blue: [217,91,60], purple: [258,90,66], amber: [38,92,50], teal: [174,72,41], rose: [350,89,60] };
+      var a = ACC[p.accent] || ACC.emerald;
+      s.setProperty('--accent-h', a[0] + ''); s.setProperty('--accent-s', a[1] + '%'); s.setProperty('--accent-l', a[2] + '%');
+      s.setProperty('--accent', 'hsl(' + a[0] + ' ' + a[1] + '% ' + a[2] + '%)');
+    } catch (err) { try { document.documentElement.classList.add('dark'); document.documentElement.style.colorScheme = 'dark'; } catch (e) {} }
+  })();
+  </script>
+<script data-inema-manifest="" type="application/json">
+  {
+    "course": "mentor-especialista-curso",
+    "tracks": [
+      { "n": "1", "title": "Por que um mentor", "modules": [
+        { "id": "1-1", "title": "Os maus hábitos da IA quando ensina", "topics": 6, "href": "curso/trilha1/modulo-1-1.html" },
+        { "id": "1-2", "title": "Método não é persona: escopo do mentor", "topics": 6, "href": "curso/trilha1/modulo-1-2.html" }
+      ]},
+      { "n": "2", "title": "Coleta do acervo", "modules": [
+        { "id": "2-1", "title": "Fontes e coletores", "topics": 6, "href": "curso/trilha2/modulo-2-1.html" },
+        { "id": "2-2", "title": "Subagentes, manifesto e falhas", "topics": 6, "href": "curso/trilha2/modulo-2-2.html" }
+      ]},
+      { "n": "3", "title": "Wiki compilada", "modules": [
+        { "id": "3-1", "title": "Raw imutável, wiki viva", "topics": 6, "href": "curso/trilha3/modulo-3-1.html" },
+        { "id": "3-2", "title": "Fontes, temas, princípios e métodos", "topics": 6, "href": "curso/trilha3/modulo-3-2.html" }
+      ]},
+      { "n": "4", "title": "Regras com prova", "modules": [
+        { "id": "4-1", "title": "Conduta, não frase de efeito", "topics": 6, "href": "curso/trilha4/modulo-4-1.html" },
+        { "id": "4-2", "title": "Citação, status e validador", "topics": 6, "href": "curso/trilha4/modulo-4-2.html" }
+      ]},
+      { "n": "5", "title": "Agente, skills e portão", "modules": [
+        { "id": "5-1", "title": "Mapa: settings, agente e skills", "topics": 6, "href": "curso/trilha5/modulo-5-1.html" },
+        { "id": "5-2", "title": "O loop obrigatório do mentor", "topics": 6, "href": "curso/trilha5/modulo-5-2.html" },
+        { "id": "5-3", "title": "Skills: ensina, revisa, ingere", "topics": 6, "href": "curso/trilha5/modulo-5-3.html" },
+        { "id": "5-4", "title": "Portão de execução", "topics": 6, "href": "curso/trilha5/modulo-5-4.html" }
+      ]},
+      { "n": "6", "title": "Prova e evolução", "modules": [
+        { "id": "6-1", "title": "O piloto real e os testes de aceitação", "topics": 6, "href": "curso/trilha6/modulo-6-1.html" },
+        { "id": "6-2", "title": "Ingestão contínua, atualização e reuso", "topics": 6, "href": "curso/trilha6/modulo-6-2.html" }
+      ]}
+    ]
+  }
+  </script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../../assets/learn.css" rel="stylesheet"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+    [id^="topico-"], [id^="modulo-"] { scroll-margin-top: 5rem; }
+    html:not(.dark) svg[role="img"] { filter: saturate(0.82) brightness(0.96); }
+    @keyframes wf-pulse { 0%,100% { opacity:.55 } 50% { opacity:1 } }
+    @media (prefers-reduced-motion: no-preference) {
+      .wf-a { animation: wf-pulse 2.6s ease-in-out infinite; }
+      .wf-a:nth-child(2){animation-delay:.25s} .wf-a:nth-child(3){animation-delay:.5s}
+      .wf-a:nth-child(4){animation-delay:.75s} .wf-a:nth-child(5){animation-delay:1s}
+    }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .text-white { color: #111827; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5,150,105,0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) .hover\:bg-emerald-500\/30:hover { background-color: rgba(5,150,105,0.18); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .group:hover .group-hover\:text-emerald-400 { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
+    html:not(.dark) .hover\:bg-amber-500\/10:hover { background-color: rgba(217,119,6,0.08); }
+    html:not(.dark) .hover\:text-teal-400:hover { color: #0d9488; }
+    html:not(.dark) .hover\:bg-teal-500\/10:hover { background-color: rgba(13,148,136,0.08); }
+    html:not(.dark) .hover\:text-rose-400:hover { color: #9f1239; }
+    html:not(.dark) .hover\:bg-rose-500\/10:hover { background-color: rgba(225,29,72,0.08); }
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/30 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .text-red-400 { color: #b91c1c; }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(185,28,28,0.25); }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+
+    .dark .border-dark-600 { border-color: #374151; }
+    .dark .divide-dark-600 > :not([hidden]) ~ :not([hidden]) { border-color: #374151; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+<a class="skip sr-only focus:not-sr-only" href="#conteudo">Pular para o conteúdo</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🧭</span><span class="font-bold text-lg hidden sm:inline">Mentor-Especialista</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+<span class="text-neutral-600">-</span>
+<a class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200 text-sm font-medium" href="https://inema.pro" target="_blank">PRO</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10" href="index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Por quê</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Coleta</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Wiki</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors" href="../trilha4/index.html"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Regras</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors" href="../trilha5/index.html"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Agente</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors" href="../trilha6/index.html"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Prova</span></a>
+<button class="hidden md:inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-neutral-300 hover:text-neutral-100 transition-colors text-sm" data-inema-journey-open="" type="button">
+<span aria-hidden="true">◷</span><span>Minha jornada</span><span aria-hidden="true" class="inema-journey-badge hidden"></span>
+</button>
+<button aria-label="Alternar tema claro/escuro" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<nav aria-label="Trilha de navegação" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+<div class="flex items-center space-x-2 text-sm text-neutral-400">
+<a class="hover:text-emerald-400" href="../../index.html">Início</a><span>/</span>
+<a class="hover:text-emerald-400" href="index.html">Trilha 1</a><span>/</span>
+<span class="text-emerald-400">Módulo 1.2</span>
+</div>
+</nav>
+<header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600" data-inema-module="1-2" data-inema-track="1">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.2</span>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">🎯 Método não é persona: escopo do mentor</h1>
+<p class="text-lg text-neutral-400 max-w-3xl">
+        O mentor copia como o especialista explica, constrói, depura e verifica. Não copia a voz, nem fala em nome dele.
+        Neste módulo você decide o que entra e o que fica fora, escreve o domínio numa frase estreita, escolhe o especialista
+        e gera o seu primeiro mentor com <code class="font-mono text-base">novo-mentor.py</code>.
+      </p>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 max-w-2xl">
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">~50</div><div class="text-xs text-neutral-400">Minutos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Base</div><div class="text-xs text-neutral-400">Nível</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Prática</div><div class="text-xs text-neutral-400">Tipo</div></div>
+</div>
+<div class="mt-6 max-w-2xl">
+<div aria-label="Progresso do módulo 1.2" aria-valuemax="100" aria-valuemin="0" class="inema-meter" data-inema-meter="modulo:1-2" role="progressbar">
+<span class="inema-meter-pct">0%</span><span class="inema-meter-count">0 de 6</span>
+</div>
+</div>
+</div>
+</header>
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:grid lg:grid-cols-[220px_1fr] lg:gap-10">
+<nav aria-label="Índice da página" class="hidden lg:block sticky top-24 self-start" data-inema-toc="">
+<p class="text-sm text-neutral-400 mb-2">Seção <span class="inema-toc-pos">1</span> de <span class="inema-toc-total">6</span></p>
+<ul class="space-y-1 text-sm">
+<li><a class="inema-toc-link hover:text-emerald-400" href="#topico-1">1. Método, não voz</a></li>
+<li><a class="inema-toc-link hover:text-emerald-400" href="#topico-2">2. Dentro e fora</a></li>
+<li><a class="inema-toc-link hover:text-emerald-400" href="#topico-3">3. Domínio numa frase</a></li>
+<li><a class="inema-toc-link hover:text-emerald-400" href="#topico-4">4. Escolher o especialista</a></li>
+<li><a class="inema-toc-link hover:text-emerald-400" href="#topico-5">5. novo-mentor.py</a></li>
+<li><a class="inema-toc-link hover:text-emerald-400" href="#topico-6">6. ESCOPO do piloto</a></li>
+</ul>
+</nav>
+<main class="inema-prose" id="conteudo">
+<!-- TOPICO 1 -->
+<section class="mb-16" data-inema-topic="modulo-1-2#topico-1" id="topico-1">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span>
+<h2 class="text-2xl font-bold">🎭 Copie o método, não a voz</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m1-2-t1-p1">
+          A tentação, quando se fala em "mentor de um especialista", é fazer a IA falar como ele: os bordões, o jeito de
+          cumprimentar, as piadas. Isso é a parte <strong class="text-emerald-400">menos útil</strong> e a mais arriscada. O que
+          ensina é o método: a ordem em que ele ataca um problema, o que ele confere antes de dizer que acabou, como ele depura.
+        </p>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🆕</span> Novo aqui?</h3>
+<p class="text-neutral-300 text-sm"><strong>Persona</strong> é uma personagem: a IA fingindo ser alguém, com nome, voz e opinião dessa pessoa. <strong>Método</strong> é o conjunto de comportamentos que se repetem quando a pessoa trabalha, como "sempre define o critério de pronto antes de começar". O kit copia só o segundo.</p>
+</div>
+<div class="rounded-2xl border border-emerald-500/30 bg-dark-900/40 p-3 sm:p-4 mb-4 overflow-hidden">
+<svg aria-label="Um filtro separa o que o especialista publicou em duas saídas: o método (como explica, constrói, depura e verifica) passa para o mentor; a persona (voz, bordões, opiniões, vida pessoal) fica de fora" class="w-full h-auto" role="img" viewbox="0 0 1000 260">
+<defs>
+<linearGradient id="m12a-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#34d399"></stop><stop offset="1" stop-color="#10b981"></stop></linearGradient>
+<filter height="180%" id="m12a-glow" width="180%" x="-40%" y="-40%"><feGaussianBlur result="b" stdDeviation="1.8"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+<pattern height="32" id="m12a-grid" patternUnits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#10b981" opacity="0.12" r="1.3"></circle></pattern>
+<marker id="m12a-ah" markerHeight="9" markerWidth="9" orient="auto" refX="6.5" refY="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#34d399"></path></marker>
+<marker id="m12a-ahc" markerHeight="9" markerWidth="9" orient="auto" refX="6.5" refY="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#38bdf8"></path></marker>
+</defs>
+<rect fill="url(#m12a-grid)" height="260" width="1000" x="0" y="0"></rect>
+<rect fill="#0e1b26" height="80" rx="14" stroke="#38bdf8" stroke-width="2" width="220" x="40" y="90"></rect>
+<text fill="#bfe6ff" font-family="Inter,sans-serif" font-size="15" font-weight="600" text-anchor="middle" x="150" y="124">o que ele publicou</text>
+<text fill="#9ad6ff" font-family="Inter,sans-serif" font-size="12" text-anchor="middle" x="150" y="146">lives · guias · repositórios</text>
+<path d="M260,130 L370,130" fill="none" marker-end="url(#m12a-ahc)" stroke="#38bdf8" stroke-width="1.8"></path>
+<g filter="url(#m12a-glow)"><path d="M380,70 L520,70 L470,130 L470,190 L430,190 L430,130 Z" fill="#0e2018" stroke="url(#m12a-grad)" stroke-width="2"></path></g>
+<text fill="#34d399" font-family="Inter,sans-serif" font-size="13" font-weight="600" text-anchor="middle" x="450" y="100">filtro</text>
+<path d="M470,150 C560,150 580,80 650,80" fill="none" marker-end="url(#m12a-ah)" stroke="#34d399" stroke-width="2"></path>
+<path d="M470,170 C560,170 580,200 650,200" fill="none" marker-end="url(#m12a-ahc)" stroke="#38bdf8" stroke-dasharray="6 6" stroke-width="1.8"></path>
+<g filter="url(#m12a-glow)"><rect fill="#0e2018" height="76" rx="14" stroke="url(#m12a-grad)" stroke-width="2" width="300" x="655" y="42"></rect></g>
+<text fill="#34d399" font-family="Inter,sans-serif" font-size="15" font-weight="700" text-anchor="middle" x="805" y="72">MÉTODO → mentor</text>
+<text fill="#a7f3d0" font-family="Inter,sans-serif" font-size="12.5" text-anchor="middle" x="805" y="96">explica · constrói · depura · verifica</text>
+<rect fill="#0e1b26" height="76" rx="14" stroke="#38bdf8" stroke-dasharray="5 5" stroke-width="2" width="300" x="655" y="162"></rect>
+<text fill="#bfe6ff" font-family="Inter,sans-serif" font-size="15" font-weight="700" text-anchor="middle" x="805" y="192">PERSONA → fica fora</text>
+<text fill="#9ad6ff" font-family="Inter,sans-serif" font-size="12.5" text-anchor="middle" x="805" y="216">voz · bordões · opiniões · vida pessoal</text>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-emerald-400">Como ler:</strong> o mesmo acervo entra no filtro e sai por dois caminhos. A seta verde contínua vai
+            para o mentor: são comportamentos que dá para citar e conferir. A seta ciano tracejada é descartada de propósito: imitar a pessoa
+            não ensina nada e cria um risco que o método não tem.
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ Método (entra)</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>"Confere o resultado real antes de dizer pronto"</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>"Define o critério de pronto e de aborto antes de começar"</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>"Começa mínimo e corta o que não paga o custo"</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ Persona (fica fora)</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Responder em primeira pessoa como se fosse ele</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Imitar bordões e o jeito de falar</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Publicar texto em nome da pessoa</span></li>
+</ul>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Método</p><p class="text-xs text-neutral-400">Comportamento que se repete</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Persona</p><p class="text-xs text-neutral-400">Personagem, fica fora</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Citável</p><p class="text-xs text-neutral-400">Método tem prova no acervo</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Sem risco</p><p class="text-xs text-neutral-400">Nada em nome da pessoa</p></div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 2 -->
+<section class="mb-16" data-inema-topic="modulo-1-2#topico-2" id="topico-2">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span>
+<h2 class="text-2xl font-bold">🚧 Decida o que entra e o que fica fora</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m1-2-t2-p1">
+          O escopo tem duas metades e as duas são escritas. A de dentro diz para que o mentor serve. A de fora é a fronteira:
+          o que ele não toca nem que alguém peça. Escrever o "fora" é o que impede o mentor de virar, aos poucos,
+          <strong class="text-emerald-400">uma imitação da pessoa</strong>.
+        </p>
+<div class="overflow-x-auto mb-6">
+<table class="w-full text-sm border border-dark-600 rounded-xl overflow-hidden">
+<thead class="bg-dark-800"><tr><th class="text-left p-3 text-emerald-400">Entra</th><th class="text-left p-3 text-red-400">Fica fora</th></tr></thead>
+<tbody class="divide-y divide-dark-600 text-neutral-300">
+<tr><td class="p-3">Ensinar construindo junto</td><td class="p-3">Opiniões pessoais e políticas</td></tr>
+<tr><td class="p-3">Revisar trabalho antes de entregar</td><td class="p-3">Vida privada</td></tr>
+<tr><td class="p-3">Conteúdo <strong>público</strong>, respeitando os termos de cada plataforma</td><td class="p-3">Qualquer coisa que faça o mentor parecer a própria pessoa</td></tr>
+<tr><td class="p-3">Uso educacional e de estudo</td><td class="p-3">Distribuir o acervo coletado sem autorização de quem o escreveu</td></tr>
+</tbody>
+</table>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Uso responsável, sem exceção</h3>
+<p class="text-neutral-300 text-sm">O mentor nunca se apresenta como a pessoa nem publica texto em nome dela. Esta frase está no README do kit e no <code class="font-mono text-xs">CLAUDE.md</code> que cada mentor recebe ("Copia o método, não a persona"). Se você for publicar o acervo de alguém, como o piloto publicou o do Nei, precisa da autorização da pessoa.</p>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">💸</span> Também fica fora: custo escondido</h3>
+<p class="text-neutral-300 text-sm">O kit não chama nenhuma API paga. Fontes sem coletor automático (posts de redes sociais, PDFs, notas) entram por exportação manual com <code class="font-mono text-xs">coletar_arquivo.py</code>. Isso também é escopo: decidir antes que o mentor não vai gerar conta.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Para que serve</p><p class="text-xs text-neutral-400">Ensinar e revisar</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Fora do escopo</p><p class="text-xs text-neutral-400">Fronteira escrita</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Público</p><p class="text-xs text-neutral-400">Só conteúdo aberto</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Sem API paga</p><p class="text-xs text-neutral-400">Exportação manual</p></div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 3 -->
+<section class="mb-16" data-inema-topic="modulo-1-2#topico-3" id="topico-3">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span>
+<h2 class="text-2xl font-bold">🎯 Escreva o domínio numa frase estreita</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m1-2-t3-p1">
+          O domínio é a frase que diz o que o mentor ensina. Ela vai para o <code class="font-mono text-xs">ESCOPO.md</code>,
+          para o <code class="font-mono text-xs">mentor.config.json</code> e para o texto do agente. Quanto mais larga, mais o
+          mentor volta ao conhecimento genérico, porque nenhum acervo cobre "tudo". Estreita quer dizer:
+          <strong class="text-emerald-400">um assunto, um jeito de ensinar, um público</strong>.
+        </p>
+<div class="rounded-2xl border border-emerald-500/30 bg-dark-900/40 p-3 sm:p-4 mb-4 overflow-hidden">
+<svg aria-label="Funil de três níveis que estreita o domínio: tudo sobre IA, depois automação com Claude Code, depois automação com Claude Code para iniciantes, ensinando construindo junto" class="w-full h-auto" role="img" viewbox="0 0 1000 250">
+<defs>
+<linearGradient id="m12b-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#34d399"></stop><stop offset="1" stop-color="#10b981"></stop></linearGradient>
+<filter height="180%" id="m12b-glow" width="180%" x="-40%" y="-40%"><feGaussianBlur result="b" stdDeviation="1.8"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+<pattern height="32" id="m12b-grid" patternUnits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#10b981" opacity="0.12" r="1.3"></circle></pattern>
+</defs>
+<rect fill="url(#m12b-grid)" height="250" width="1000" x="0" y="0"></rect>
+<path d="M170,30 L830,30 L760,90 L240,90 Z" fill="#0e1b26" stroke="#38bdf8" stroke-dasharray="6 5" stroke-width="2"></path>
+<text fill="#bfe6ff" font-family="Inter,sans-serif" font-size="15" font-weight="600" text-anchor="middle" x="500" y="66">"tudo sobre IA"  ✗ largo demais</text>
+<path d="M250,100 L750,100 L690,160 L310,160 Z" fill="#0e1b26" stroke="#38bdf8" stroke-width="2"></path>
+<text fill="#bfe6ff" font-family="Inter,sans-serif" font-size="14.5" font-weight="600" text-anchor="middle" x="500" y="136">"automação com Claude Code"  · ainda largo</text>
+<g filter="url(#m12b-glow)"><path d="M320,170 L680,170 L640,232 L360,232 Z" fill="#0e2018" stroke="url(#m12b-grad)" stroke-width="2.2"></path></g>
+<text fill="#34d399" font-family="Inter,sans-serif" font-size="14" font-weight="700" text-anchor="middle" x="500" y="198">"…para iniciantes, construindo junto"</text>
+<text fill="#a7f3d0" font-family="Inter,sans-serif" font-size="12" text-anchor="middle" x="500" y="218">✓ um assunto · um jeito · um público</text>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-emerald-400">Como ler:</strong> cada nível do funil acrescenta uma restrição. O topo ciano tracejado é o que o kit chama de
+            ruim; o fundo verde é a frase que um acervo de 20 a 50 fontes consegue sustentar. Se o seu domínio ainda cabe no meio do funil,
+            falta uma restrição.
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ Bom</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>"ensinar redes neurais construindo do zero"</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>"ensinar automação com Claude Code para iniciantes"</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>"ensinar a usar Claude Code e agentes de IA na prática, construindo junto" (o do piloto)</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ Ruim</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>"tudo o que a pessoa sabe"</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>"tudo sobre IA"</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Frase com quebra de linha (o gerador recusa: "--nome e --dominio devem ter uma linha só")</span></li>
+</ul>
+</div>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">🧪</span> Exercício copiável: aperte o seu domínio</h3>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-emerald-400">Objetivo:</strong> sair com uma frase que passa no critério da fase 0 do kit ("domínio em 1 frase"). Cole no Claude Code.</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-3">Quero montar um mentor no método de &lt;nome do especialista&gt;.
+Meu rascunho de domínio é: "&lt;sua frase&gt;".
+Avalie em 3 critérios: (1) é UM assunto, (2) diz COMO ele ensina,
+(3) diz PARA QUEM. Para cada critério que falhar, proponha uma restrição.
+Devolva 3 versões da frase, todas numa linha só, da mais larga para a
+mais estreita, e diga qual um acervo de 20 a 50 fontes consegue cobrir.</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-emerald-400">Como verificar:</strong> a frase escolhida tem uma linha, cabe no funil de baixo e você consegue nomear pelo menos 5 fontes públicas do especialista sobre ela. Se não consegue, ela ainda está larga ou o especialista é outro.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Um assunto</p><p class="text-xs text-neutral-400">Não "tudo sobre"</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Um jeito</p><p class="text-xs text-neutral-400">"construindo junto"</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Um público</p><p class="text-xs text-neutral-400">"para iniciantes"</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Uma linha</p><p class="text-xs text-neutral-400">Regra do gerador</p></div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 4 -->
+<section class="mb-16" data-inema-topic="modulo-1-2#topico-4" id="topico-4">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span>
+<h2 class="text-2xl font-bold">🧑‍🏫 Escolha o especialista pelos critérios certos</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m1-2-t4-p1">
+          Fama não é critério. O especialista bom para virar mentor é o que deixou material suficiente, ensina de um jeito
+          que se reconhece e trabalha num domínio que você entende o bastante para julgar. Se faltar o terceiro, você não
+          vai saber se o mentor acertou: e aí volta o hábito do "parece certo".
+        </p>
+<div class="rounded-2xl border border-emerald-500/30 bg-dark-900/40 p-3 sm:p-4 mb-4 overflow-hidden">
+<svg aria-label="Fluxo de decisão em três perguntas: tem muito material público em texto ou com legenda? ensina de um jeito reconhecível? você conhece o domínio para julgar? Três sins levam a bom candidato; qualquer não leva a procurar outro" class="w-full h-auto" role="img" viewbox="0 0 1000 250">
+<defs>
+<linearGradient id="m12c-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#34d399"></stop><stop offset="1" stop-color="#10b981"></stop></linearGradient>
+<filter height="180%" id="m12c-glow" width="180%" x="-40%" y="-40%"><feGaussianBlur result="b" stdDeviation="1.8"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+<pattern height="32" id="m12c-grid" patternUnits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#10b981" opacity="0.12" r="1.3"></circle></pattern>
+<marker id="m12c-ah" markerHeight="9" markerWidth="9" orient="auto" refX="6.5" refY="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#34d399"></path></marker>
+<marker id="m12c-ahc" markerHeight="9" markerWidth="9" orient="auto" refX="6.5" refY="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#38bdf8"></path></marker>
+</defs>
+<rect fill="url(#m12c-grid)" height="250" width="1000" x="0" y="0"></rect>
+<g font-family="Inter,sans-serif">
+<rect fill="#0e2018" height="70" rx="12" stroke="#34d399" stroke-width="2" width="200" x="30" y="50"></rect>
+<text fill="#34d399" font-size="13.5" font-weight="600" text-anchor="middle" x="130" y="78">material público</text>
+<text fill="#a7f3d0" font-size="12" text-anchor="middle" x="130" y="98">texto ou com legenda?</text>
+<path d="M230,85 L268,85" fill="none" marker-end="url(#m12c-ah)" stroke="#34d399" stroke-width="1.8"></path>
+<text fill="#a7f3d0" font-size="11.5" text-anchor="middle" x="249" y="76">sim</text>
+<rect fill="#0e2018" height="70" rx="12" stroke="#34d399" stroke-width="2" width="200" x="272" y="50"></rect>
+<text fill="#34d399" font-size="13.5" font-weight="600" text-anchor="middle" x="372" y="78">jeito reconhecível</text>
+<text fill="#a7f3d0" font-size="12" text-anchor="middle" x="372" y="98">"ele sempre faz X"?</text>
+<path d="M472,85 L510,85" fill="none" marker-end="url(#m12c-ah)" stroke="#34d399" stroke-width="1.8"></path>
+<text fill="#a7f3d0" font-size="11.5" text-anchor="middle" x="491" y="76">sim</text>
+<rect fill="#0e2018" height="70" rx="12" stroke="#34d399" stroke-width="2" width="200" x="514" y="50"></rect>
+<text fill="#34d399" font-size="13.5" font-weight="600" text-anchor="middle" x="614" y="78">você julga o domínio</text>
+<text fill="#a7f3d0" font-size="12" text-anchor="middle" x="614" y="98">sabe se o mentor acertou?</text>
+<path d="M714,85 L752,85" fill="none" marker-end="url(#m12c-ah)" stroke="#34d399" stroke-width="1.8"></path>
+<text fill="#a7f3d0" font-size="11.5" text-anchor="middle" x="733" y="76">sim</text>
+<g filter="url(#m12c-glow)"><rect fill="#0e2018" height="70" rx="14" stroke="url(#m12c-grad)" stroke-width="2.4" width="210" x="756" y="50"></rect></g>
+<text fill="#34d399" font-size="15" font-weight="700" text-anchor="middle" x="861" y="91">bom candidato</text>
+<path d="M130,120 L130,175" fill="none" marker-end="url(#m12c-ahc)" stroke="#38bdf8" stroke-dasharray="5 5" stroke-width="1.6"></path>
+<path d="M372,120 L372,175" fill="none" marker-end="url(#m12c-ahc)" stroke="#38bdf8" stroke-dasharray="5 5" stroke-width="1.6"></path>
+<path d="M614,120 L614,175" fill="none" marker-end="url(#m12c-ahc)" stroke="#38bdf8" stroke-dasharray="5 5" stroke-width="1.6"></path>
+<rect fill="#0e1b26" height="44" rx="12" stroke="#38bdf8" stroke-width="2" width="584" x="80" y="180"></rect>
+<text fill="#bfe6ff" font-size="13.5" text-anchor="middle" x="372" y="207">não → troque o especialista ou estreite o domínio</text>
+</g>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-emerald-400">Como ler:</strong> são três portas em série, e todas precisam abrir. A seta ciano de cada uma leva ao mesmo
+            lugar: não insista num especialista que falha em qualquer porta. A terceira é a que mais se esquece e a que mais importa,
+            porque é ela que permite você dar nota ao mentor no fim.
+          </p>
+</div>
+<div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-emerald-400 mb-3 flex items-center"><span class="mr-2">🪞</span> A opção forte: você mesmo</h3>
+<p class="text-neutral-300 text-sm mb-3">Se você publica aulas, lives ou guias, você pode ser o especialista. Não há questão de direitos e o mentor vira a voz didática da sua marca. Foi o que o piloto fez: o especialista é o próprio Nei, com o conteúdo público dele, e o mentor completo está aberto em <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/mentor-nei" target="_blank">inematds/mentor-nei</a>.</p>
+<p class="text-neutral-400 text-sm">Bônus: só você sabe julgar com segurança se "reconheço a pessoa nas regras". No piloto, essa nota foi 8.</p>
+</div>
+<div class="overflow-x-auto mb-6">
+<table class="w-full text-sm border border-dark-600 rounded-xl overflow-hidden">
+<thead class="bg-dark-800"><tr><th class="text-left p-3 text-emerald-400">Tipo de fonte</th><th class="text-left p-3 text-emerald-400">Quantidade sugerida para o piloto</th></tr></thead>
+<tbody class="divide-y divide-dark-600 text-neutral-300">
+<tr><td class="p-3">Vídeos (de preferência com legenda)</td><td class="p-3">10–20</td></tr>
+<tr><td class="p-3">Textos (blog, newsletter, docs)</td><td class="p-3">5–15</td></tr>
+<tr><td class="p-3">Repositórios</td><td class="p-3">1–3</td></tr>
+<tr><td class="p-3">Exportação manual (posts)</td><td class="p-3">1, se houver</td></tr>
+<tr><td class="p-3 font-semibold">Total</td><td class="p-3 font-semibold">20–50 itens; para treinar, cerca de 50 mil palavras</td></tr>
+</tbody>
+</table>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Material</p><p class="text-xs text-neutral-400">Texto ou legenda</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Reconhecível</p><p class="text-xs text-neutral-400">"Sempre faz X"</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Julgável</p><p class="text-xs text-neutral-400">Você sabe avaliar</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Você mesmo</p><p class="text-xs text-neutral-400">Sem questão de direitos</p></div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 5 -->
+<section class="mb-16" data-inema-topic="modulo-1-2#topico-5" id="topico-5">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span>
+<h2 class="text-2xl font-bold">⚙️ Gere o seu mentor com novo-mentor.py</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m1-2-t5-p1">
+          Você não monta o mentor do zero. O kit traz um gerador que copia o <code class="font-mono text-xs">template/</code> para
+          uma pasta nova, troca os marcadores pelo nome, slug e domínio que você passou e cria as pastas vazias do acervo e da wiki.
+          Leva segundos. O trabalho de verdade começa depois, nas trilhas seguintes.
+        </p>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🆕</span> Novo aqui?</h3>
+<p class="text-neutral-300 text-sm"><strong>Slug</strong> é o apelido técnico do mentor: letras minúsculas, números e hífen, como <code class="font-mono text-xs">prof-redes</code>. Ele vira o nome da pasta (<code class="font-mono text-xs">mentor-prof-redes</code>) e o prefixo dos comandos (<code class="font-mono text-xs">/prof-redes-ensina</code>). <strong>Flag</strong> é a opção com dois hífens que vai depois do comando, como <code class="font-mono text-xs">--nome</code>. <strong>Template</strong> é o projeto-modelo que o gerador copia.</p>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">🧪</span> Copie e rode: o primeiro mentor</h3>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-emerald-400">Objetivo:</strong> gerar o projeto do seu mentor e colocá-lo no git, para enxergar o que cada fase muda depois. Troque o que está entre &lt; &gt;.</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-3">cd mentor-especialista          # a pasta do kit que você clonou no módulo 1.1
+git pull
+python3 novo-mentor.py &lt;slug&gt; \
+  --nome "&lt;Nome do especialista&gt;" \
+  --dominio "&lt;domínio em uma frase&gt;" \
+  --destino ~/mentores
+cd ~/mentores/mentor-&lt;slug&gt;
+git init -q &amp;&amp; git add -A &amp;&amp; git commit -qm "mentor &lt;slug&gt;: projeto gerado"
+ls .claude/agents .claude/skills; ls .claude/settings.json</pre>
+<p class="text-neutral-300 text-sm mb-3"><strong class="text-emerald-400">Como verificar:</strong> o último comando mostra <code class="font-mono text-xs">&lt;slug&gt;-mentor.md</code> em <code class="font-mono text-xs">agents</code>, 6 pastas em <code class="font-mono text-xs">skills</code> (coletar, compilar, regras, ensina, revisa, ingere) e o <code class="font-mono text-xs">settings.json</code>, que registra o portão de execução. A saída do gerador, rodado com <code class="font-mono text-xs">prof-redes</code>, termina assim:</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-400 overflow-x-auto">Próximos passos:
+  1. cd ~/mentores/mentor-prof-redes
+  2. Preencha ESCOPO.md (fontes) e ajuste mentor.config.json (metas, transcritor)
+  3. Abra o Claude Code nessa pasta e rode, em ordem:
+       /prof-redes-coletar
+       /prof-redes-compilar
+       /prof-redes-regras
+  4. Use: /prof-redes-ensina &lt;dúvida&gt;   /prof-redes-revisa &lt;arquivo&gt;   /prof-redes-ingere &lt;link&gt;</pre>
+</div>
+<div class="overflow-x-auto mb-6">
+<table class="w-full text-sm border border-dark-600 rounded-xl overflow-hidden">
+<thead class="bg-dark-800"><tr><th class="text-left p-3 text-emerald-400">Se aparecer…</th><th class="text-left p-3 text-emerald-400">Significa</th><th class="text-left p-3 text-emerald-400">Faça</th></tr></thead>
+<tbody class="divide-y divide-dark-600 text-neutral-300">
+<tr><td class="p-3 font-mono text-xs">slug inválido: use letras minúsculas, números e hífen</td><td class="p-3">Maiúscula, espaço ou sublinhado no slug</td><td class="p-3">Troque <code class="font-mono text-xs">Prof_Redes</code> por <code class="font-mono text-xs">prof-redes</code></td></tr>
+<tr><td class="p-3 font-mono text-xs">já existe: … (use --forcar …)</td><td class="p-3">A pasta do mentor já foi criada</td><td class="p-3">Não force sem pensar: <code class="font-mono text-xs">--forcar</code> apaga a pasta inteira</td></tr>
+<tr><td class="p-3 font-mono text-xs">--nome e --dominio devem ter uma linha só</td><td class="p-3">Quebra de linha no nome ou no domínio</td><td class="p-3">Volte ao tópico 3: uma frase, uma linha</td></tr>
+</tbody>
+</table>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Slug</p><p class="text-xs text-neutral-400">Pasta + prefixo dos comandos</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Template</p><p class="text-xs text-neutral-400">Copiado e preenchido</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">6 skills</p><p class="text-xs text-neutral-400">Já vêm prontas</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">git init</p><p class="text-xs text-neutral-400">Para ver cada fase</p></div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 6 -->
+<section class="mb-16" data-inema-topic="modulo-1-2#topico-6" id="topico-6">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span>
+<h2 class="text-2xl font-bold">📋 Leia o ESCOPO.md do piloto e preencha o seu</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m1-2-t6-p1">
+          O <code class="font-mono text-xs">ESCOPO.md</code> é a primeira coisa que você preenche no mentor gerado, e o critério
+          da fase 0 é simples: domínio em 1 frase, pelo menos 5 fontes listadas, metas definidas. Veja como ficou o do piloto,
+          e o que aconteceu quando as metas encontraram a realidade.
+        </p>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">📄</span> ESCOPO.md do mentor do Nei (tabela de fontes condensada)</h3>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto">## Domínio (uma frase, estreita)
+Ensinar a usar Claude Code e agentes de IA na prática, construindo junto.
+
+## Para que o mentor serve
+- [x] Ensinar construindo junto
+- [x] Revisar trabalho antes de entregar
+
+## Fontes
+| tipo  | origem                    | coletor                    |
+|-------|---------------------------|----------------------------|
+| video | (14 lives do canal)       | coletar_video.py           |
+| guia  | (6 guias publicados)      | coletar_web.py --tipo guia |
+
+## Metas de coleta
+video ≥ 10 itens / 60000 palavras; guia ≥ 5 itens / 8000 palavras.</pre>
+</div>
+<div class="space-y-4 mb-6">
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">1</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600"><h4 class="font-semibold mb-1">20 fontes listadas no início</h4><p class="text-sm text-neutral-400">14 lives e 6 guias. Domínio numa frase, para que serve marcado, metas no <code class="font-mono text-xs">mentor.config.json</code>.</p></div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center"><span class="text-red-400 font-bold">2</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600"><h4 class="font-semibold mb-1">A meta de guia reprovou</h4><p class="text-sm text-neutral-400">Os 6 guias somaram 7.269 palavras, abaixo da meta de 8.000. Guias INEMA têm cerca de 900 a 1.400 palavras cada. O agente reportou exit 1 sem maquiar e sugeriu fontes extras.</p></div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">3</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600"><h4 class="font-semibold mb-1">+1 guia, coleta aprovada</h4><p class="text-sm text-neutral-400">Com um guia a mais e a transcrição local da live sem legenda: 21 itens, 187.382 palavras, exit 0.</p></div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">4</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-5 border border-emerald-500/30"><h4 class="font-semibold mb-1">22 fontes no acervo final</h4><p class="text-sm text-neutral-400">Depois da ingestão de mais um guia: 14 lives + 8 guias, cerca de 189 mil palavras.</p></div>
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> A lição do passo 2</h3>
+<p class="text-neutral-300 text-sm">Calibre a meta <strong>depois</strong> de listar as fontes, pelo tamanho real delas. Meta chutada reprova o acervo certo. A correção virou parte do kit 1.2: o <code class="font-mono text-xs">stats.py</code> agora diz quanto falta para cada meta.</p>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">🧪</span> Copie e cole no Claude Code: preencha o seu ESCOPO.md</h3>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-emerald-400">Objetivo:</strong> sair da fase 0 com o escopo pronto. Abra o Claude Code dentro de <code class="font-mono text-xs">~/mentores/mentor-&lt;slug&gt;</code> e cole:</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-3">Preencha o ESCOPO.md deste mentor. Fontes (uma por linha):
+&lt;cole aqui as URLs ou arquivos, de 20 a 50, misturando tipos&gt;
+Para cada fonte, preencha tipo e coletor seguindo a tabela-modelo do próprio
+ESCOPO.md. Não invente fontes. Mantenha a seção "Fora do escopo".
+Depois, sugira metas_coleta para o mentor.config.json com base no tamanho
+provável de cada tipo, e me mostre o diff antes de salvar o config.</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-emerald-400">Como verificar:</strong> rode <code class="font-mono text-xs">grep -c '^| ' ESCOPO.md</code>. O número deve ser o de fontes mais 1 (a linha de cabeçalho; o separador <code class="font-mono text-xs">|---|</code> não conta) e as fontes devem ser pelo menos 5. Confira também que o domínio continua em uma linha. Depois, <code class="font-mono text-xs">git commit -am "escopo"</code>.</p>
+</div>
+<div class="inema-check mt-8 mb-6 bg-dark-800 border border-dark-600 rounded-xl p-6" data-inema-check="modulo-1-2#q1">
+<p class="font-medium mb-4">Checagem rápida (não bloqueia nada): a coleta reprovou porque os guias ficaram abaixo da meta de palavras. O que o piloto mostrou ser o certo?</p>
+<div class="inema-check-options space-y-2">
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="0" type="button">Baixar a meta até o número que saiu, para dar exit 0.</button>
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="1" type="button">Reportar o exit 1 sem maquiar, e calibrar a meta pelo tamanho real ou acrescentar fontes.</button>
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="2" type="button">Ignorar a meta, porque o acervo já é grande.</button>
+</div>
+<div aria-live="polite" class="mt-4 text-sm" data-inema-check-feedback="" role="status"></div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Fase 0</p><p class="text-xs text-neutral-400">1 frase · ≥5 fontes · metas</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Metas reais</p><p class="text-xs text-neutral-400">Calibrar depois de listar</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Sem maquiar</p><p class="text-xs text-neutral-400">Exit 1 é informação</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">20 → 22</p><p class="text-xs text-neutral-400">O acervo cresce depois</p></div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- RESUMO -->
+<section class="mb-12">
+<div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📌</span> Resumo do Módulo</h2>
+<div class="space-y-4 mb-8">
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Método, não voz</strong><span class="text-neutral-400"> - o mentor copia como a pessoa explica, constrói, depura e verifica.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Dentro e fora escritos</strong><span class="text-neutral-400"> - conteúdo público, nada em nome da pessoa, nenhuma API paga.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Domínio estreito</strong><span class="text-neutral-400"> - um assunto, um jeito, um público, numa linha.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Especialista certo</strong><span class="text-neutral-400"> - material público, jeito reconhecível, domínio que você julga; você mesmo é opção forte.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">novo-mentor.py</strong><span class="text-neutral-400"> - gera agente, 6 skills e portão em segundos; commit logo em seguida.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">ESCOPO do piloto</strong><span class="text-neutral-400"> - 20 fontes listadas, meta de guia reprovou, calibrou, 22 no acervo final.</span></div></div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+<h3 class="font-semibold text-emerald-400 mb-2">Próxima Trilha:</h3>
+<p class="text-neutral-300">Trilha 2 - Coleta do acervo: fontes, coletores, subagentes em paralelo e o relatório de falhas.</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="index.html">← Voltar para Trilha</a>
+<a class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors" href="../trilha2/index.html">Trilha 2: Coleta →</a>
+</div>
+</div>
+</section>
+</main>
+</div>
+<footer class="border-t border-dark-600 py-8 mt-16">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+<p>Mentor-Especialista: o método de um especialista virando seu mentor no Claude Code — 2026</p>
+<p class="mt-2">
+<a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+<span class="text-neutral-600 mx-1">-</span>
+<a class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200" href="https://inema.pro" target="_blank">PRO</a>
+</p>
+</div>
+</footer>
+<script>
+    function toggleTopic(button) {
+      const topicItem = button.closest('.topic-item');
+      const explanation = topicItem.querySelector('.topic-explanation');
+      const willOpen = !explanation.classList.contains('active');
+      explanation.classList.toggle('active');
+      button.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    }
+    function openModal(modalId) { const m = document.getElementById(modalId); if (m) { m.classList.remove('hidden'); document.body.style.overflow = 'hidden'; } }
+    function closeModal() { document.querySelectorAll('.modal').forEach(m => m.classList.add('hidden')); document.body.style.overflow = 'auto'; }
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const htmlEl = document.documentElement;
+    if (htmlEl.classList.contains('dark')) themeToggleLightIcon.classList.remove('hidden'); else themeToggleDarkIcon.classList.remove('hidden');
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden');
+      htmlEl.classList.toggle('dark');
+      const dark = htmlEl.classList.contains('dark');
+      localStorage.setItem('theme', dark ? 'dark' : 'light');
+      try { const p = JSON.parse(localStorage.getItem('inema.prefs') || '{}'); p.theme = dark ? 'inema-dark' : 'claro'; localStorage.setItem('inema.prefs', JSON.stringify(p)); } catch (e) {}
+    });
+  </script>
+<script src="../../assets/learn.js"></script>
+<script>
+    if (window.INEMA && typeof window.INEMA.init === 'function') window.INEMA.init();
+    window.addEventListener('DOMContentLoaded', function () {
+      if (window.INEMA && INEMA.registerCheck) {
+        INEMA.registerCheck('modulo-1-2#q1', {
+          answer: 1,
+          explain: {
+            0: 'Baixar a meta até o número que saiu é maquiar o resultado. O validador perde o sentido.',
+            1: 'Isso. No piloto o agente reportou exit 1 sem maquiar; a meta foi calibrada pelo tamanho real dos guias e entrou mais uma fonte.',
+            2: 'Ignorar a meta tira o "pronto" verificável da fase. Ajuste a meta com critério, não a abandone.'
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

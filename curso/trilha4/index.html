@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="mentor-especialista-curso" name="inema-course"/>
+<title>Trilha 4 · Regras com prova | Mentor-Especialista</title>
+<meta content="Trilha 4 do curso Mentor-Especialista: extrair da wiki as regras de conduta do especialista, cada uma com citação literal do acervo, status pela prova e validador." name="description"/>
+<script src="../../assets/boot.js"></script>
+<script data-inema-manifest="" type="application/json">
+  {
+    "course": "mentor-especialista-curso",
+    "tracks": [
+      { "n": "1", "title": "Por que um mentor", "modules": [
+        { "id": "1-1", "title": "Os maus hábitos da IA quando ensina", "topics": 6, "href": "curso/trilha1/modulo-1-1.html" },
+        { "id": "1-2", "title": "Método não é persona: escopo do mentor", "topics": 6, "href": "curso/trilha1/modulo-1-2.html" }
+      ]},
+      { "n": "2", "title": "Coleta do acervo", "modules": [
+        { "id": "2-1", "title": "Fontes e coletores", "topics": 6, "href": "curso/trilha2/modulo-2-1.html" },
+        { "id": "2-2", "title": "Subagentes, manifesto e falhas", "topics": 6, "href": "curso/trilha2/modulo-2-2.html" }
+      ]},
+      { "n": "3", "title": "Wiki compilada", "modules": [
+        { "id": "3-1", "title": "Raw imutável, wiki viva", "topics": 6, "href": "curso/trilha3/modulo-3-1.html" },
+        { "id": "3-2", "title": "Fontes, temas, princípios e métodos", "topics": 6, "href": "curso/trilha3/modulo-3-2.html" }
+      ]},
+      { "n": "4", "title": "Regras com prova", "modules": [
+        { "id": "4-1", "title": "Conduta, não frase de efeito", "topics": 6, "href": "curso/trilha4/modulo-4-1.html" },
+        { "id": "4-2", "title": "Citação, status e validador", "topics": 6, "href": "curso/trilha4/modulo-4-2.html" }
+      ]},
+      { "n": "5", "title": "Agente, skills e portão", "modules": [
+        { "id": "5-1", "title": "Mapa: settings, agente e skills", "topics": 6, "href": "curso/trilha5/modulo-5-1.html" },
+        { "id": "5-2", "title": "O loop obrigatório do mentor", "topics": 6, "href": "curso/trilha5/modulo-5-2.html" },
+        { "id": "5-3", "title": "Skills: ensina, revisa, ingere", "topics": 6, "href": "curso/trilha5/modulo-5-3.html" },
+        { "id": "5-4", "title": "Portão de execução", "topics": 6, "href": "curso/trilha5/modulo-5-4.html" }
+      ]},
+      { "n": "6", "title": "Prova e evolução", "modules": [
+        { "id": "6-1", "title": "O piloto real e os testes de aceitação", "topics": 6, "href": "curso/trilha6/modulo-6-1.html" },
+        { "id": "6-2", "title": "Ingestão contínua, atualização e reuso", "topics": 6, "href": "curso/trilha6/modulo-6-2.html" }
+      ]}
+    ]
+  }
+  </script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../../assets/curso.css" rel="stylesheet"/>
+<link href="../../assets/learn.css" rel="stylesheet"/>
+<style>
+  /* light mode: acentos extras usados nesta página (texto escuro em superfície clara) */
+  html:not(.dark) .text-sky-400 { color: #0369a1; }
+</style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+<a class="skip sr-only focus:not-sr-only" href="#conteudo">Pular para o conteúdo</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🧭</span><span class="font-bold text-lg hidden sm:inline">Mentor-Especialista</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+<span class="text-neutral-600">-</span>
+<a class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200 text-sm font-medium" href="https://inema.pro" target="_blank">PRO</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Por quê</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Coleta</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Wiki</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10" href="index.html"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Regras</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors" href="../trilha5/index.html"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Agente</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors" href="../trilha6/index.html"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Prova</span></a>
+<button class="hidden md:inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-neutral-300 hover:text-neutral-100 transition-colors text-sm" data-inema-journey-open="" type="button">
+<span aria-hidden="true">◷</span><span>Minha jornada</span><span aria-hidden="true" class="inema-journey-badge hidden"></span>
+</button>
+<button aria-label="Alternar tema claro/escuro" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<nav aria-label="Trilha de navegação" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+<div class="flex items-center space-x-2 text-sm text-neutral-400">
+<a class="hover:text-amber-400" href="../../index.html">Início</a><span>/</span>
+<span class="text-amber-400">Trilha 4</span>
+</div>
+</nav>
+<header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600" data-inema-track="4">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">TRILHA 4</span>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">🔏 Regras com prova</h1>
+<p class="text-lg text-neutral-400 max-w-3xl">
+        A wiki guarda o que o especialista disse. Esta trilha tira dela o que ele <em>faz</em> — poucas regras de conduta,
+        cada uma com trechos literais do acervo e um validador que reprova citação inventada. É aqui que o mentor
+        deixa de ser "uma IA que fala do assunto" e passa a ter o método da pessoa, com prova.
+      </p>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 max-w-2xl">
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">2</div><div class="text-xs text-neutral-400">Módulos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">12</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">~1h35</div><div class="text-xs text-neutral-400">Duração</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Fase 3</div><div class="text-xs text-neutral-400">do método</div></div>
+</div>
+<div class="mt-6 max-w-2xl">
+<div aria-label="Progresso da trilha 4" aria-valuemax="100" aria-valuemin="0" class="inema-meter" data-inema-meter="trilha:4" role="progressbar">
+<span class="inema-meter-pct">0%</span><span class="inema-meter-count">0 de 12</span>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="conteudo">
+<div class="rounded-2xl border border-amber-500/30 bg-dark-900/40 p-3 sm:p-4 mb-12 overflow-hidden">
+<svg aria-label="Fase 3 do método: princípios e métodos da wiki viram regras de conduta em regras.md, cada citação é conferida contra o raw pelo validador, e só com exit 0 as regras chegam ao agente mentor" class="w-full h-auto" role="img" viewbox="0 0 1000 250">
+<defs>
+<linearGradient id="t4h-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#fbbf24"></stop><stop offset="1" stop-color="#f59e0b"></stop></linearGradient>
+<filter height="180%" id="t4h-glow" width="180%" x="-40%" y="-40%"><feGaussianBlur result="b" stdDeviation="2"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+<pattern height="32" id="t4h-grid" patternUnits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#f59e0b" opacity="0.14" r="1.3"></circle></pattern>
+<marker id="t4h-ah" markerHeight="9" markerWidth="9" orient="auto" refX="6.5" refY="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#fbbf24"></path></marker>
+<marker id="t4h-ahc" markerHeight="9" markerWidth="9" orient="auto" refX="6.5" refY="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#38bdf8"></path></marker>
+</defs>
+<rect fill="#0b1220" height="250" rx="16" width="1000" x="0" y="0"></rect>
+<rect fill="url(#t4h-grid)" height="250" width="1000" x="0" y="0"></rect>
+<g font-family="Inter,sans-serif">
+<rect fill="#0e1b26" height="40" rx="10" stroke="#38bdf8" stroke-width="2" width="170" x="30" y="50"></rect><text fill="#bfe6ff" font-size="13" font-weight="600" text-anchor="middle" x="115" y="75">wiki/principios</text>
+<rect fill="#0e1b26" height="40" rx="10" stroke="#38bdf8" stroke-width="2" width="170" x="30" y="104"></rect><text fill="#bfe6ff" font-size="13" font-weight="600" text-anchor="middle" x="115" y="129">wiki/metodos</text>
+<path d="M206,70 C250,70 250,100 282,104" fill="none" marker-end="url(#t4h-ahc)" opacity="0.8" stroke="#38bdf8" stroke-width="1.8"></path>
+<path d="M206,124 C250,124 250,112 282,110" fill="none" marker-end="url(#t4h-ahc)" opacity="0.8" stroke="#38bdf8" stroke-width="1.8"></path>
+<g filter="url(#t4h-glow)"><rect fill="#1f1604" height="96" rx="14" stroke="url(#t4h-grad)" stroke-width="2" width="230" x="290" y="60"></rect></g>
+<text fill="#fbbf24" font-size="16" font-weight="700" text-anchor="middle" x="405" y="90">regras.md</text>
+<text fill="#fcd9a0" font-size="12.5" text-anchor="middle" x="405" y="112">R1 … R10 · conduta</text>
+<text fill="#fcd9a0" font-size="12.5" text-anchor="middle" x="405" y="132">"trecho literal" — raw/…</text>
+<text fill="#fbbf24" font-size="12" font-weight="600" text-anchor="middle" x="405" y="180">módulo 4.1</text>
+<path d="M526,108 L578,108" marker-end="url(#t4h-ah)" stroke="#fbbf24" stroke-width="2"></path>
+<rect fill="#0e1b26" height="96" rx="14" stroke="#38bdf8" stroke-width="2" width="210" x="586" y="60"></rect>
+<text fill="#bfe6ff" font-size="15" font-weight="700" text-anchor="middle" x="691" y="90">validar_citacoes.py</text>
+<text fill="#bfe6ff" font-size="12.5" text-anchor="middle" x="691" y="112">trecho existe no raw?</text>
+<text fill="#bfe6ff" font-size="12.5" text-anchor="middle" x="691" y="132">status bate com as fontes?</text>
+<text fill="#38bdf8" font-size="12" font-weight="600" text-anchor="middle" x="691" y="180">módulo 4.2</text>
+<path d="M691,156 L691,206 L405,206 L405,190" fill="none" marker-end="url(#t4h-ah)" opacity="0.6" stroke="#f87171" stroke-dasharray="6 5" stroke-width="1.8"></path>
+<text fill="#f87171" font-size="12" text-anchor="middle" x="548" y="226">REPROVADO → copia do raw de novo</text>
+<path d="M802,108 L846,108" marker-end="url(#t4h-ah)" stroke="#fbbf24" stroke-width="2"></path>
+<text fill="#fbbf24" font-size="12" font-weight="700" text-anchor="middle" x="824" y="96">exit 0</text>
+<rect fill="#1f1604" height="96" rx="14" stroke="#fbbf24" stroke-width="2" width="120" x="852" y="60"></rect>
+<text fill="#fbbf24" font-size="14" font-weight="700" text-anchor="middle" x="912" y="100">agente</text>
+<text fill="#fcd9a0" font-size="12" text-anchor="middle" x="912" y="122">mentor</text>
+<text fill="#9ca3af" font-size="12" text-anchor="middle" x="912" y="180">trilha 5</text>
+</g>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-amber-400">Como ler:</strong> da esquerda para a direita é a fase 3 inteira. A wiki (ciano) alimenta o <code>regras.md</code>,
+        que você aprende a escrever no módulo 4.1. O validador (ciano, à direita) confere cada citação contra o acervo cru, assunto do
+        módulo 4.2. A seta vermelha tracejada é o caminho de volta quando algo não bate: corrige-se a citação, nunca o validador. Só com
+        exit 0 as regras seguem para o agente. No piloto do Nei, saíram 8 regras e 31 citações na primeira passada; hoje são 10 regras e 40 citações.
+      </p>
+</div>
+<section class="mb-12">
+<h2 class="text-2xl font-bold mb-6">Mapa da trilha</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<a class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-amber-500/30 p-5 transition-all" href="#modulo-4-1">
+<div class="flex items-center justify-between mb-2"><span class="text-amber-400 font-bold text-sm">4.1</span><span class="text-xs text-neutral-500">~45 min</span></div>
+<h3 class="font-semibold mb-1 group-hover:text-amber-400 transition-colors">🎯 Conduta, não frase de efeito</h3>
+<p class="text-xs text-neutral-400">Se não muda a resposta, não é regra</p>
+</a>
+<a class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-amber-500/30 p-5 transition-all" href="#modulo-4-2">
+<div class="flex items-center justify-between mb-2"><span class="text-amber-400 font-bold text-sm">4.2</span><span class="text-xs text-neutral-500">~50 min</span></div>
+<h3 class="font-semibold mb-1 group-hover:text-amber-400 transition-colors">🔏 Citação, status e validador</h3>
+<p class="text-xs text-neutral-400">Corrige a citação, nunca o validador</p>
+</a>
+</div>
+</section>
+<h2 class="text-2xl font-bold mb-6">Conteúdo detalhado</h2>
+<!-- MODULO 4.1 -->
+<div class="bg-dark-800 rounded-xl border border-dark-600 mb-6" data-inema-module="4-1" data-inema-track="4" id="modulo-4-1">
+<div class="p-6 border-b border-dark-600">
+<div class="flex items-center justify-between mb-2"><span class="text-amber-400 font-bold">4.1</span><span class="text-xs text-neutral-500">~45 min</span></div>
+<h3 class="text-2xl font-bold mb-2">🎯 Conduta, não frase de efeito</h3>
+<p class="text-neutral-400 text-sm">O que conta como regra, onde procurar na wiki, como fundir e cortar, as 10 regras do Nei, a linha "no mentor:" que liga a regra à resposta e a skill <code>/&lt;slug&gt;-regras</code> na prática.</p>
+</div>
+<div class="divide-y divide-dark-600">
+<div class="topic-item">
+<button aria-controls="t41-1" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+<span class="text-lg">🧭</span>
+<div><span class="font-medium">Regra é comportamento recorrente</span><span class="text-neutral-500 text-sm ml-2">- Gatilho, ação, prova</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t41-1">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">A definição do kit: regra é o que a pessoa faz de forma recorrente ao ensinar ou construir, não uma frase de efeito. Tem um momento que a dispara, uma ação que dá para ver e trechos do acervo que a provam.</p></div>
+<div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Frase bonita não orienta resposta nenhuma. Se a regra não diz o que fazer na próxima tarefa, o mentor não tem como segui-la e você não tem como cobrar.</p></div>
+<div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Começa com verbo · Repete em fontes diferentes · Muda a resposta do mentor.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t41-2" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+<span class="text-lg">🔎</span>
+<div><span class="font-medium">Onde procurar: princípios e métodos</span><span class="text-neutral-500 text-sm ml-2">- A wiki já garimpou</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t41-2">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">A leitura de <code>wiki/principios/</code> cruzada com <code>wiki/metodos/</code>: o princípio que aparece como passo em vários métodos é o candidato forte a regra.</p></div>
+<div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Reler 189 mil palavras de acervo para achar regra é desperdício. A wiki do piloto já tinha separado princípios e métodos, cada um com trechos e fontes.</p></div>
+<div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Princípio vira gesto dentro de métodos · Contar fontes, não menções · Raw só para conferir a citação.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t41-3" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+<span class="text-lg">✂️</span>
+<div><span class="font-medium">Fundir e cortar</span><span class="text-neutral-500 text-sm ml-2">- De 5 a 9, fortes</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t41-3">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Juntar numa regra só os jeitos diferentes de dizer a mesma conduta (eles viram citações) e apagar o que não muda nenhuma seção da resposta.</p></div>
+<div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">O mentor lê o <code>regras.md</code> inteiro antes de cada resposta. Regra fraca dilui as fortes e alonga a resposta sem melhorar nada.</p></div>
+<div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Fundir aumenta a prova · Cortar diminui o ruído · Teste do corte: "se eu apagar, o que muda?"</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t41-4" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+<span class="text-lg">📜</span>
+<div><span class="font-medium">As 10 regras do Nei</span><span class="text-neutral-500 text-sm ml-2">- O regras.md real</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t41-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">As regras do piloto, de R1 (conferir o resultado real antes de dizer "pronto") a R10 (ação irreversível só com pedido atual do humano), cada uma com uma citação de live ou guia.</p></div>
+<div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É um exemplo completo e validado: 10 regras ativas e 40 citações, 8 delas criadas na fase 3 e 2 depois da ingestão de um guia novo.</p></div>
+<div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Antes, durante e antes de entregar · Citação de live parece picada (e é literal) · Todas começam com verbo.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t41-5" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+<span class="text-lg">🧩</span>
+<div><span class="font-medium">A linha "no mentor:"</span><span class="text-neutral-500 text-sm ml-2">- Regra com endereço na resposta</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t41-5">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">A última linha de cada regra, que diz em qual seção da resposta ela aparece (Custo, Sua vez, Risco…). No kit 1.2 esses nomes entram em <code>secoes_resposta</code> e o validador de resposta passa a cobrá-los.</p></div>
+<div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">O piloto achou o furo: as regras pediam seções próprias, mas o agente tinha um loop fixo. Sem esse elo, a regra existe no arquivo e não aparece na resposta.</p></div>
+<div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">1 a 3 seções novas, no máximo · ID estável (R1, R2…) no relatório · Regra que alguém de fora consegue cobrar.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t41-6" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+<span class="text-lg">⌨️</span>
+<div><span class="font-medium">Rodar /&lt;slug&gt;-regras</span><span class="text-neutral-500 text-sm ml-2">- 1,1 min no piloto</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t41-6">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">A skill da fase 3, gerada no seu mentor pelo kit. Lê princípios e métodos, escreve o <code>regras.md</code> no formato exato e roda o validador.</p></div>
+<div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">No piloto, levou 1,1 minuto e saiu com 8 regras ativas, 31 citações e validador OK de primeira. Você ainda audita se cada regra é conduta.</p></div>
+<div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Prompt pronto para colar · Pronto = exit 0 · Auditoria: gatilho, ação, seção, fontes.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+<button class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors" onclick="openModal('modal-4-1')">Ver em Modal</button>
+<a class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors" href="modulo-4-1.html">Ver Completo</a>
+</div>
+</div>
+<!-- MODULO 4.2 -->
+<div class="bg-dark-800 rounded-xl border border-dark-600 mb-6" data-inema-module="4-2" data-inema-track="4" id="modulo-4-2">
+<div class="p-6 border-b border-dark-600">
+<div class="flex items-center justify-between mb-2"><span class="text-amber-400 font-bold">4.2</span><span class="text-xs text-neutral-500">~50 min</span></div>
+<h3 class="text-2xl font-bold mb-2">🔏 Citação, status e validador</h3>
+<p class="text-neutral-400 text-sm">O formato exato do <code>regras.md</code>, os status ativa/banco/inferência, a normalização das citações, o teste negativo, o caso real do <code>git checkout</code> que apagou as regras e os comandos para rodar tudo.</p>
+</div>
+<div class="divide-y divide-dark-600">
+<div class="topic-item">
+<button aria-controls="t42-1" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+<span class="text-lg">📄</span>
+<div><span class="font-medium">O formato do regras.md</span><span class="text-neutral-500 text-sm ml-2">- Não mude os rótulos</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t42-1">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Um bloco por regra com cinco peças: <code>## R&lt;n&gt; — título</code>, status, enunciado, citações (trecho + caminho no raw + localizador) e a linha "no mentor:".</p></div>
+<div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">O validador lê o arquivo por expressão regular. Um rótulo diferente e a regra some da conferência sem aviso.</p></div>
+<div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Cabeçalho, status e citações são da máquina · Enunciado e "no mentor:" são do agente · Localizador é para o humano.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t42-2" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+<span class="text-lg">🚦</span>
+<div><span class="font-medium">Ativa, banco, inferência</span><span class="text-neutral-500 text-sm ml-2">- Status pela prova</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t42-2">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Três níveis de confiança: ativa (≥2 arquivos diferentes), banco (1 fonte, espera a 2ª) e inferência (sem citação, o mentor avisa ao usar).</p></div>
+<div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Algo dito uma vez pode ser acaso. O status separa o hábito da pessoa do comentário solto, e o mentor trata cada um de um jeito.</p></div>
+<div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Conta arquivos, não citações · "mova para 'banco'" · Inferência é dita em voz alta.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t42-3" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+<span class="text-lg">🧼</span>
+<div><span class="font-medium">Normalização</span><span class="text-neutral-500 text-sm ml-2">- Sem cair em vírgula</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t42-3">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Antes de comparar, trecho e arquivo perdem marcas <code>[hh:mm:ss]</code>, acentos, maiúsculas e pontuação. "Handoff não é permissão." vira "handoff nao e permissao".</p></div>
+<div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Transcrição nunca é literal. Sem normalizar, citação verdadeira reprova; com ela, só a paráfrase reprova.</p></div>
+<div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Perdoa forma, não conteúdo · Copiar, não parafrasear · Legenda em parágrafos de ~30 s (kit 1.2).</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t42-4" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+<span class="text-lg">🧪</span>
+<div><span class="font-medium">Teste negativo</span><span class="text-neutral-500 text-sm ml-2">- Citação inventada → 1 faltando</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t42-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Estragar uma citação de propósito e conferir que o validador reprova: no piloto, "1 faltando" e exit 1.</p></div>
+<div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Validador que sempre diz OK pode estar quebrado. Só o teste negativo mostra que ele de fato morde.</p></div>
+<div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Testar o teste · Fazer numa cópia com <code>--regras</code> · Uma palavra a mais já reprova.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t42-5" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+<span class="text-lg">🩹</span>
+<div><span class="font-medium">Caso real 4: o git checkout</span><span class="text-neutral-500 text-sm ml-2">- Erro do operador</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t42-5">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">No piloto, desfazer o teste negativo com <code>git checkout regras.md</code> apagou as regras da fase 3, que não estavam commitadas. Foram recuperadas do log da sessão.</p></div>
+<div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">O erro mais caro do piloto nessa fase não foi da IA. A lição ficou registrada como a menor correção possível: commitar antes de teste destrutivo.</p></div>
+<div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Checkout não tem lixeira · Commit antes, ou cópia · Uma linha no FALHAS.md.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t42-6" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+<span class="text-lg">⌨️</span>
+<div><span class="font-medium">Rodar o validador</span><span class="text-neutral-500 text-sm ml-2">- Três blocos de terminal</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t42-6">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Os comandos para salvar o <code>regras.md</code> no git, rodar <code>tools/validar_citacoes.py</code> e fazer o teste negativo numa cópia em <code>.mentor/tmp/</code>.</p></div>
+<div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É o fechamento da fase 3: o arquivo passa, você prova que o validador reprova o que deve e nada se perde no caminho.</p></div>
+<div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Pronto = OK e exit 0 · Teste negativo = exit 1 · Nunca afrouxar o validador.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+<button class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors" onclick="openModal('modal-4-2')">Ver em Modal</button>
+<a class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors" href="modulo-4-2.html">Ver Completo</a>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 mt-12">
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="../trilha3/index.html">← Trilha 3: Wiki compilada</a>
+<a class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors" href="../trilha5/index.html">Trilha 5: Agente, skills e portão →</a>
+</div>
+</main>
+<div class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" id="modal-4-1" onclick="if(event.target === this) closeModal()">
+<div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+<div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+<div class="flex items-center space-x-3"><span class="text-amber-400 font-bold">4.1</span><span class="font-semibold">Conduta, não frase de efeito</span></div>
+<button aria-label="Fechar" class="text-neutral-400 hover:text-neutral-100 text-2xl leading-none" onclick="closeModal()">×</button>
+</div>
+<iframe class="flex-1 w-full rounded-b-xl" src="modulo-4-1.html" title="Módulo 4.1"></iframe>
+</div>
+</div>
+<div class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" id="modal-4-2" onclick="if(event.target === this) closeModal()">
+<div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+<div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+<div class="flex items-center space-x-3"><span class="text-amber-400 font-bold">4.2</span><span class="font-semibold">Citação, status e validador</span></div>
+<button aria-label="Fechar" class="text-neutral-400 hover:text-neutral-100 text-2xl leading-none" onclick="closeModal()">×</button>
+</div>
+<iframe class="flex-1 w-full rounded-b-xl" src="modulo-4-2.html" title="Módulo 4.2"></iframe>
+</div>
+</div>
+<footer class="border-t border-dark-600 py-8 mt-16">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+<p>Mentor-Especialista — um curso da comunidade INEMA — 2026</p>
+<p class="mt-2">
+<a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+<span class="text-neutral-600 mx-1">-</span>
+<a class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200" href="https://inema.pro" target="_blank">PRO</a>
+</p>
+</div>
+</footer>
+<script src="../../assets/curso.js"></script>
+<script src="../../assets/learn.js"></script>
+<script>if (window.INEMA && typeof window.INEMA.init === 'function') window.INEMA.init();</script>
+</body>
+</html>

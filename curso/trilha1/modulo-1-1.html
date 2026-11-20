@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="mentor-especialista-curso" name="inema-course"/>
+<title>Módulo 1.1 · Os maus hábitos da IA quando ensina | Mentor-Especialista</title>
+<script>
+  (function () {
+    try {
+      var html = document.documentElement;
+      var DEF = { theme: 'inema-dark', font: 'inter', fontScale: 100, lineWidth: 68, leading: 1.7, accent: 'emerald' };
+      function clone(o) { var r = {}; for (var x in o) r[x] = o[x]; return r; }
+      var p = clone(DEF);
+      try {
+        var raw = localStorage.getItem('inema.prefs');
+        if (raw) { var parsed = JSON.parse(raw); if (parsed && typeof parsed === 'object') { for (var k in DEF) if (parsed[k] != null) p[k] = parsed[k]; } }
+        else { var legacy = localStorage.getItem('theme'); if (legacy === 'light') p.theme = 'claro'; else if (legacy === 'dark') p.theme = 'inema-dark'; }
+      } catch (e) { p = clone(DEF); }
+      var THEMES = { 'inema-dark': { dark: true, attr: null, cs: 'dark' }, 'claro': { dark: false, attr: null, cs: 'light' }, 'sepia': { dark: false, attr: 'sepia', cs: 'light' }, 'foco': { dark: null, attr: 'foco', cs: null }, 'contraste': { dark: true, attr: 'contraste', cs: 'dark' } };
+      var t = THEMES[p.theme] || THEMES['inema-dark'];
+      if (t.dark === true) html.classList.add('dark'); else if (t.dark === false) html.classList.remove('dark');
+      if (t.attr) html.setAttribute('data-theme', t.attr); else html.removeAttribute('data-theme');
+      html.style.colorScheme = (t.cs ? t.cs : (html.classList.contains('dark') ? 'dark' : 'light'));
+      html.setAttribute('data-font', p.font || 'inter'); html.setAttribute('data-accent', p.accent || 'emerald');
+      var s = html.style, scale = (+p.fontScale || 100);
+      s.setProperty('--inema-font-scale', (scale / 100).toString()); s.setProperty('font-size', scale + '%');
+      s.setProperty('--measure', (+p.lineWidth || 68) + 'ch'); s.setProperty('--lh-body', (+p.leading || 1.7).toString());
+      var fam = p.font === 'system' ? 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif' : (p.font === 'leitura' ? '"Atkinson Hyperlegible", "Inter", system-ui, sans-serif' : '"Inter", system-ui, sans-serif');
+      s.setProperty('--font-body', fam);
+      var ACC = { emerald: [152,76,45], blue: [217,91,60], purple: [258,90,66], amber: [38,92,50], teal: [174,72,41], rose: [350,89,60] };
+      var a = ACC[p.accent] || ACC.emerald;
+      s.setProperty('--accent-h', a[0] + ''); s.setProperty('--accent-s', a[1] + '%'); s.setProperty('--accent-l', a[2] + '%');
+      s.setProperty('--accent', 'hsl(' + a[0] + ' ' + a[1] + '% ' + a[2] + '%)');
+    } catch (err) { try { document.documentElement.classList.add('dark'); document.documentElement.style.colorScheme = 'dark'; } catch (e) {} }
+  })();
+  </script>
+<script data-inema-manifest="" type="application/json">
+  {
+    "course": "mentor-especialista-curso",
+    "tracks": [
+      { "n": "1", "title": "Por que um mentor", "modules": [
+        { "id": "1-1", "title": "Os maus hábitos da IA quando ensina", "topics": 6, "href": "curso/trilha1/modulo-1-1.html" },
+        { "id": "1-2", "title": "Método não é persona: escopo do mentor", "topics": 6, "href": "curso/trilha1/modulo-1-2.html" }
+      ]},
+      { "n": "2", "title": "Coleta do acervo", "modules": [
+        { "id": "2-1", "title": "Fontes e coletores", "topics": 6, "href": "curso/trilha2/modulo-2-1.html" },
+        { "id": "2-2", "title": "Subagentes, manifesto e falhas", "topics": 6, "href": "curso/trilha2/modulo-2-2.html" }
+      ]},
+      { "n": "3", "title": "Wiki compilada", "modules": [
+        { "id": "3-1", "title": "Raw imutável, wiki viva", "topics": 6, "href": "curso/trilha3/modulo-3-1.html" },
+        { "id": "3-2", "title": "Fontes, temas, princípios e métodos", "topics": 6, "href": "curso/trilha3/modulo-3-2.html" }
+      ]},
+      { "n": "4", "title": "Regras com prova", "modules": [
+        { "id": "4-1", "title": "Conduta, não frase de efeito", "topics": 6, "href": "curso/trilha4/modulo-4-1.html" },
+        { "id": "4-2", "title": "Citação, status e validador", "topics": 6, "href": "curso/trilha4/modulo-4-2.html" }
+      ]},
+      { "n": "5", "title": "Agente, skills e portão", "modules": [
+        { "id": "5-1", "title": "Mapa: settings, agente e skills", "topics": 6, "href": "curso/trilha5/modulo-5-1.html" },
+        { "id": "5-2", "title": "O loop obrigatório do mentor", "topics": 6, "href": "curso/trilha5/modulo-5-2.html" },
+        { "id": "5-3", "title": "Skills: ensina, revisa, ingere", "topics": 6, "href": "curso/trilha5/modulo-5-3.html" },
+        { "id": "5-4", "title": "Portão de execução", "topics": 6, "href": "curso/trilha5/modulo-5-4.html" }
+      ]},
+      { "n": "6", "title": "Prova e evolução", "modules": [
+        { "id": "6-1", "title": "O piloto real e os testes de aceitação", "topics": 6, "href": "curso/trilha6/modulo-6-1.html" },
+        { "id": "6-2", "title": "Ingestão contínua, atualização e reuso", "topics": 6, "href": "curso/trilha6/modulo-6-2.html" }
+      ]}
+    ]
+  }
+  </script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../../assets/learn.css" rel="stylesheet"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+    [id^="topico-"], [id^="modulo-"] { scroll-margin-top: 5rem; }
+    html:not(.dark) svg[role="img"] { filter: saturate(0.82) brightness(0.96); }
+    @keyframes wf-pulse { 0%,100% { opacity:.55 } 50% { opacity:1 } }
+    @media (prefers-reduced-motion: no-preference) {
+      .wf-a { animation: wf-pulse 2.6s ease-in-out infinite; }
+      .wf-a:nth-child(2){animation-delay:.25s} .wf-a:nth-child(3){animation-delay:.5s}
+      .wf-a:nth-child(4){animation-delay:.75s} .wf-a:nth-child(5){animation-delay:1s}
+    }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .text-white { color: #111827; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5,150,105,0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) .hover\:bg-emerald-500\/30:hover { background-color: rgba(5,150,105,0.18); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .group:hover .group-hover\:text-emerald-400 { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
+    html:not(.dark) .hover\:bg-amber-500\/10:hover { background-color: rgba(217,119,6,0.08); }
+    html:not(.dark) .hover\:text-teal-400:hover { color: #0d9488; }
+    html:not(.dark) .hover\:bg-teal-500\/10:hover { background-color: rgba(13,148,136,0.08); }
+    html:not(.dark) .hover\:text-rose-400:hover { color: #9f1239; }
+    html:not(.dark) .hover\:bg-rose-500\/10:hover { background-color: rgba(225,29,72,0.08); }
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/30 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .text-red-400 { color: #b91c1c; }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(185,28,28,0.25); }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+
+    .dark .border-dark-600 { border-color: #374151; }
+    .dark .divide-dark-600 > :not([hidden]) ~ :not([hidden]) { border-color: #374151; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+<a class="skip sr-only focus:not-sr-only" href="#conteudo">Pular para o conteúdo</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🧭</span><span class="font-bold text-lg hidden sm:inline">Mentor-Especialista</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+<span class="text-neutral-600">-</span>
+<a class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200 text-sm font-medium" href="https://inema.pro" target="_blank">PRO</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10" href="index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Por quê</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Coleta</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Wiki</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors" href="../trilha4/index.html"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Regras</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors" href="../trilha5/index.html"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Agente</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors" href="../trilha6/index.html"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Prova</span></a>
+<button class="hidden md:inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-neutral-300 hover:text-neutral-100 transition-colors text-sm" data-inema-journey-open="" type="button">
+<span aria-hidden="true">◷</span><span>Minha jornada</span><span aria-hidden="true" class="inema-journey-badge hidden"></span>
+</button>
+<button aria-label="Alternar tema claro/escuro" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<nav aria-label="Trilha de navegação" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+<div class="flex items-center space-x-2 text-sm text-neutral-400">
+<a class="hover:text-emerald-400" href="../../index.html">Início</a><span>/</span>
+<a class="hover:text-emerald-400" href="index.html">Trilha 1</a><span>/</span>
+<span class="text-emerald-400">Módulo 1.1</span>
+</div>
+</nav>
+<header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600" data-inema-module="1-1" data-inema-track="1">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.1</span>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">🩺 Os maus hábitos da IA quando ensina</h1>
+<p class="text-lg text-neutral-400 max-w-3xl">
+        Peça para uma IA te ensinar algo e ela vai responder rápido, com tom seguro e cara de certa. O problema mora aí.
+        Este módulo dá nome aos quatro maus hábitos que aparecem quando a IA ensina, mostra cada um acontecendo no piloto real
+        e explica por que a saída é um <strong class="text-emerald-400">mentor</strong>, não mais um prompt.
+      </p>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 max-w-2xl">
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">~50</div><div class="text-xs text-neutral-400">Minutos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Base</div><div class="text-xs text-neutral-400">Nível</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Fundamento</div><div class="text-xs text-neutral-400">Tipo</div></div>
+</div>
+<div class="mt-6 max-w-2xl">
+<div aria-label="Progresso do módulo 1.1" aria-valuemax="100" aria-valuemin="0" class="inema-meter" data-inema-meter="modulo:1-1" role="progressbar">
+<span class="inema-meter-pct">0%</span><span class="inema-meter-count">0 de 6</span>
+</div>
+</div>
+</div>
+</header>
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:grid lg:grid-cols-[220px_1fr] lg:gap-10">
+<nav aria-label="Índice da página" class="hidden lg:block sticky top-24 self-start" data-inema-toc="">
+<p class="text-sm text-neutral-400 mb-2">Seção <span class="inema-toc-pos">1</span> de <span class="inema-toc-total">6</span></p>
+<ul class="space-y-1 text-sm">
+<li><a class="inema-toc-link hover:text-emerald-400" href="#topico-1">1. Demais ou de menos</a></li>
+<li><a class="inema-toc-link hover:text-emerald-400" href="#topico-2">2. Parece certa</a></li>
+<li><a class="inema-toc-link hover:text-emerald-400" href="#topico-3">3. Supõe sem avisar</a></li>
+<li><a class="inema-toc-link hover:text-emerald-400" href="#topico-4">4. Genérico</a></li>
+<li><a class="inema-toc-link hover:text-emerald-400" href="#topico-5">5. Mentor, não prompt</a></li>
+<li><a class="inema-toc-link hover:text-emerald-400" href="#topico-6">6. O entendimento é seu</a></li>
+</ul>
+</nav>
+<main class="inema-prose" id="conteudo">
+<!-- TOPICO 1 -->
+<section class="mb-16" data-inema-topic="modulo-1-1#topico-1" id="topico-1">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span>
+<h2 class="text-2xl font-bold">🎚️ Reconheça quando a IA explica demais ou de menos</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m1-1-t1-p1">
+          O primeiro mau hábito é de calibragem. Você pergunta uma coisa pontual e recebe uma aula de seis seções, com
+          história, alternativas e ressalvas. Ou o contrário: pede para entender e recebe só o código pronto, sem o porquê.
+          Nos dois casos você sai <strong class="text-emerald-400">mais perdido do que entrou</strong>. A IA não sabe o que
+          você já sabe, e também não pergunta.
+        </p>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🆕</span> Novo aqui?</h3>
+<p class="text-neutral-300 text-sm">
+<strong>Claude Code</strong> é o assistente da Anthropic que roda no terminal: lê os arquivos da pasta, escreve código e
+            executa comandos no seu computador. <strong>Mentor</strong>, neste curso, é um agente dentro do Claude Code que
+            ensina no método de um especialista: em vez de despejar resposta, ele constrói junto com você e prova o que diz.
+            O kit que monta esse mentor se chama <strong>Mentor-Especialista</strong>.
+          </p>
+</div>
+<div class="rounded-2xl border border-emerald-500/30 bg-dark-900/40 p-3 sm:p-4 mb-4 overflow-hidden">
+<svg aria-label="Régua de calibragem: à esquerda, resposta curta demais (só o código); à direita, aula longa demais; no centro, a faixa útil, que parte do que o aluno já sabe e entrega um passo por vez" class="w-full h-auto" role="img" viewbox="0 0 1000 230">
+<defs>
+<linearGradient id="m11a-grad" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#38bdf8"></stop><stop offset="0.5" stop-color="#34d399"></stop><stop offset="1" stop-color="#38bdf8"></stop></linearGradient>
+<filter height="180%" id="m11a-glow" width="180%" x="-40%" y="-40%"><feGaussianBlur result="b" stdDeviation="1.8"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+<pattern height="32" id="m11a-grid" patternUnits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#10b981" opacity="0.12" r="1.3"></circle></pattern>
+</defs>
+<rect fill="url(#m11a-grid)" height="230" width="1000" x="0" y="0"></rect>
+<rect fill="url(#m11a-grad)" height="14" opacity="0.55" rx="7" width="840" x="80" y="110"></rect>
+<g filter="url(#m11a-glow)"><rect fill="#0e2018" height="70" rx="16" stroke="#34d399" stroke-width="2.4" width="260" x="370" y="82"></rect></g>
+<text fill="#34d399" font-family="Inter,sans-serif" font-size="17" font-weight="700" text-anchor="middle" x="500" y="112">faixa útil</text>
+<text fill="#a7f3d0" font-family="Inter,sans-serif" font-size="12.5" text-anchor="middle" x="500" y="134">parte do que você sabe · um passo por vez</text>
+<rect fill="#0e1b26" height="58" rx="12" stroke="#38bdf8" stroke-width="2" width="220" x="80" y="20"></rect>
+<text fill="#bfe6ff" font-family="Inter,sans-serif" font-size="15" font-weight="600" text-anchor="middle" x="190" y="45">de menos</text>
+<text fill="#9ad6ff" font-family="Inter,sans-serif" font-size="12" text-anchor="middle" x="190" y="65">só o código pronto, sem porquê</text>
+<rect fill="#0e1b26" height="58" rx="12" stroke="#38bdf8" stroke-width="2" width="220" x="700" y="20"></rect>
+<text fill="#bfe6ff" font-family="Inter,sans-serif" font-size="15" font-weight="600" text-anchor="middle" x="810" y="45">demais</text>
+<text fill="#9ad6ff" font-family="Inter,sans-serif" font-size="12" text-anchor="middle" x="810" y="65">aula de seis seções para uma dúvida</text>
+<path d="M190,78 L190,104" stroke="#38bdf8" stroke-dasharray="4 4" stroke-width="1.6"></path>
+<path d="M810,78 L810,104" stroke="#38bdf8" stroke-dasharray="4 4" stroke-width="1.6"></path>
+<text fill="#a7f3d0" font-family="Inter,sans-serif" font-size="12.5" text-anchor="middle" x="500" y="190">o mentor mira o centro: menor versão que roda → você entende → próximo passo</text>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-emerald-400">Como ler:</strong> as duas pontas em ciano são onde a IA cai sozinha. O centro em verde é estreito
+            de propósito: ele só existe quando a explicação começa numa <em>menor versão que roda</em> e avança um passo de cada vez.
+            É por isso que o loop do mentor tem um passo chamado "Menor versão".
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ Explicação calibrada</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Começa dizendo o que é "pronto" para aquela dúvida</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Mostra a menor peça que roda, antes de empilhar o resto</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Cada passo novo vem com a saída real que ele produziu</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ Explicação descalibrada</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Arquivo inteiro de uma vez, "agora é só colar"</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Três alternativas e nenhuma recomendação</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Teoria longa antes de qualquer coisa rodar</span></li>
+</ul>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Calibragem</p><p class="text-xs text-neutral-400">Partir do que você já sabe</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Menor versão</p><p class="text-xs text-neutral-400">Uma peça que roda</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Um passo</p><p class="text-xs text-neutral-400">Uma coisa de cada vez</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Sintoma</p><p class="text-xs text-neutral-400">Sair mais perdido</p></div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 2 -->
+<section class="mb-16" data-inema-topic="modulo-1-1#topico-2" id="topico-2">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span>
+<h2 class="text-2xl font-bold">🎭 Desconfie da resposta que parece certa sem estar</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m1-1-t2-p1">
+          O segundo hábito é o mais caro. O tom da resposta não muda com a qualidade dela: a IA diz "funciona" com a mesma
+          segurança quando rodou e quando só imaginou que rodaria. Para quem está aprendendo, não há como separar as duas
+          coisas pelo texto. A única saída é <strong class="text-emerald-400">a prova</strong>: o comando que rodou e a saída que voltou.
+        </p>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🆕</span> Novo aqui?</h3>
+<p class="text-neutral-300 text-sm">
+<strong>Validador</strong> é um script pequeno que confere uma coisa e responde sim ou não, sem opinião.
+            <strong>Exit code</strong> é o número que todo comando devolve ao terminar: <code class="font-mono text-xs">0</code> quer
+            dizer "deu certo", qualquer outro número quer dizer "falhou". Você vê o último com <code class="font-mono text-xs">echo $?</code>.
+            <strong>Transcript</strong> é o registro completo da sessão do Claude Code: tudo o que foi pedido, rodado e respondido.
+          </p>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-4 flex items-center"><span class="mr-2">🔬</span> Caso real do piloto: "o validador passa"</h3>
+<p class="text-neutral-300 text-sm mb-4" data-inema-block="m1-1-t2-p2">No piloto com o mentor do Nei, o teste 2 pedia para revisar um script que funciona mas quebra em certas condições. Na segunda rodada aconteceu exatamente este hábito:</p>
+<div class="space-y-4">
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold text-sm">1</span></div>
+<div class="flex-1"><p class="font-semibold text-sm mb-1">O mentor faz a revisão completa</p><p class="text-neutral-400 text-sm">Reproduz o erro, corrige, prova lado a lado. As cinco seções estão lá.</p></div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold text-sm">2</span></div>
+<div class="flex-1"><p class="font-semibold text-sm mb-1">Mas roda antes de prever</p><p class="text-neutral-400 text-sm">Escreve "Vou ler… sem executar nada", executa, e depois anota "A previsão se confirmou".</p></div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center"><span class="text-red-400 font-bold text-sm">3</span></div>
+<div class="flex-1"><p class="font-semibold text-sm mb-1">A sessão declara: "o validador passa"</p><p class="text-neutral-400 text-sm">Ela tinha rodado o validador <em>sem</em> o log da sessão, ou seja, sem a parte que confere a ordem.</p></div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold text-sm">4</span></div>
+<div class="flex-1"><p class="font-semibold text-sm mb-1">O validador de fora, com o transcript, reprova</p><p class="text-neutral-400 text-sm">A falha que a própria sessão chamou de OK foi pega por quem olhou de fora, com a prova completa.</p></div>
+</div>
+</div>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> A lição</h3>
+<p class="text-neutral-300 text-sm">"Funciona", vindo da própria IA, é afirmação, não evidência. Isso vale até para o mentor bem montado. Por isso o kit
+            tem verificação <strong>de fora</strong> (validadores que você roda) e, no Claude Code, um portão que não deixa o turno terminar
+            com código escrito e não executado. Você vai montar os dois nas trilhas 4 e 5.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Tom ≠ acerto</p><p class="text-xs text-neutral-400">Segurança não é sinal</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Prova</p><p class="text-xs text-neutral-400">Comando + saída real</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">De fora</p><p class="text-xs text-neutral-400">Quem confere não é quem fez</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Exit code</p><p class="text-xs text-neutral-400">0 passou, resto falhou</p></div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 3 -->
+<section class="mb-16" data-inema-topic="modulo-1-1#topico-3" id="topico-3">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span>
+<h2 class="text-2xl font-bold">🤫 Peça para a IA dizer o que ela supôs</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m1-1-t3-p1">
+          Todo pedido tem buracos. Onde fica o arquivo? O que acontece se ele não existir? Até quando tentar? A IA preenche
+          cada buraco com a escolha mais plausível e segue em frente <strong class="text-emerald-400">sem te contar</strong>.
+          Quando o resultado não bate com o que você queria, você nem sabe em que ponto a conversa se separou.
+        </p>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">📄</span> Como o mentor do piloto faz</h3>
+<p class="text-neutral-300 text-sm mb-3">No teste 1, o pedido foi "me ensina a fazer um hook Stop que bloqueia enquanto o TODO.md tiver itens abertos". Antes de escrever uma linha de código, a resposta do mentor abriu assim (trecho real):</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-3">Suposições (não estavam no pedido):
+- O TODO.md fica na raiz do projeto ($CLAUDE_PROJECT_DIR).
+- Se o arquivo não existir, o turno termina normalmente.
+- O hook bloqueia no máximo 3 vezes seguidas por sessão.
+  Esse é o critério de aborto.</pre>
+<p class="text-neutral-400 text-sm">Três decisões que o pedido não tomava, agora visíveis. Se alguma estiver errada para você, dá para corrigir antes de qualquer código existir.</p>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🆕</span> Novo aqui?</h3>
+<p class="text-neutral-300 text-sm"><strong>Hook</strong> é um script que o Claude Code dispara sozinho num momento fixo da sessão. O hook <strong>Stop</strong> roda quando o Claude vai encerrar a resposta e pode dizer "ainda não, falta isto". <strong>Critério de aborto</strong> é a regra de quando desistir, para nada ficar girando para sempre.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ Suposição declarada</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Listada antes do código, numa seção própria</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Cada uma vira um critério que dá para testar</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Você pode trocar qualquer uma no começo</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ Suposição escondida</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Aparece só dentro do código, como um caminho fixo</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Você descobre quando quebra no seu caso</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Ninguém sabe se foi decisão ou acidente</span></li>
+</ul>
+</div>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">🧪</span> Exercício copiável: arranque as suposições</h3>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-emerald-400">Objetivo:</strong> ver quantas decisões um pedido curto esconde. Funciona no Claude Code comum, sem o mentor.</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-3">Quero &lt;descreva aqui uma tarefa pequena que você faria hoje&gt;.
+Antes de escrever qualquer código, liste numa seção "Suposições (não estavam
+no pedido)" cada decisão que você teria de tomar sozinho. Para cada uma, diga
+a escolha que faria e como eu verificaria se ela está certa. Pare depois da
+lista e espere a minha resposta.</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-emerald-400">Como verificar:</strong> conte os itens da lista. Se você não tinha pensado em pelo menos um deles, o hábito estava lá, invisível. Corrija o que estiver errado e só então peça o código.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Buraco</p><p class="text-xs text-neutral-400">Decisão que o pedido não tomou</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Declarar</p><p class="text-xs text-neutral-400">Antes do código</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Testável</p><p class="text-xs text-neutral-400">Suposição vira critério</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Aborto</p><p class="text-xs text-neutral-400">Quando desistir</p></div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 4 -->
+<section class="mb-16" data-inema-topic="modulo-1-1#topico-4" id="topico-4">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span>
+<h2 class="text-2xl font-bold">🌫️ Troque o conhecimento genérico por um acervo real</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m1-1-t4-p1">
+          O quarto hábito é responder com a média da internet. A resposta não está errada, mas é de ninguém: não traz o jeito
+          de um especialista que você confia, os atalhos dele, os erros que ele já cometeu e não repete. O mentor resolve isso
+          ancorando cada regra num <strong class="text-emerald-400">trecho real</strong> do que a pessoa publicou.
+        </p>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🆕</span> Novo aqui?</h3>
+<p class="text-neutral-300 text-sm"><strong>Acervo</strong> é tudo o que o especialista publicou, coletado numa pasta (o kit chama de <code class="font-mono text-xs">raw/</code>): legendas de vídeos, textos de blog, guias, repositórios. <strong>Wiki</strong> é esse acervo compilado em páginas curtas e ligadas entre si (princípios, métodos, temas), para a IA consultar sem se perder. <strong>Citação com localizador</strong> é um trecho copiado do acervo mais o endereço exato dele, como <code class="font-mono text-xs">arquivo@00:12:30</code>.</p>
+</div>
+<div class="rounded-2xl border border-emerald-500/30 bg-dark-900/40 p-3 sm:p-4 mb-4 overflow-hidden">
+<svg aria-label="Duas respostas lado a lado. A genérica sai do modelo sozinho, sem origem. A ancorada passa pela regra, que aponta para uma citação no acervo com o endereço exato" class="w-full h-auto" role="img" viewbox="0 0 1000 250">
+<defs>
+<linearGradient id="m11b-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#34d399"></stop><stop offset="1" stop-color="#10b981"></stop></linearGradient>
+<filter height="180%" id="m11b-glow" width="180%" x="-40%" y="-40%"><feGaussianBlur result="b" stdDeviation="1.8"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+<pattern height="32" id="m11b-grid" patternUnits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#10b981" opacity="0.12" r="1.3"></circle></pattern>
+<marker id="m11b-ah" markerHeight="9" markerWidth="9" orient="auto" refX="6.5" refY="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#34d399"></path></marker>
+<marker id="m11b-ahc" markerHeight="9" markerWidth="9" orient="auto" refX="6.5" refY="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#38bdf8"></path></marker>
+</defs>
+<rect fill="url(#m11b-grid)" height="250" width="1000" x="0" y="0"></rect>
+<line stroke="#38bdf8" stroke-dasharray="6 8" stroke-opacity="0.35" x1="500" x2="500" y1="20" y2="230"></line>
+<text fill="#9ad6ff" font-family="Inter,sans-serif" font-size="14" font-weight="600" text-anchor="middle" x="250" y="34">resposta genérica</text>
+<rect fill="#0e1b26" height="50" rx="12" stroke="#38bdf8" stroke-width="2" width="200" x="150" y="70"></rect>
+<text fill="#bfe6ff" font-family="Inter,sans-serif" font-size="14" text-anchor="middle" x="250" y="100">modelo sozinho</text>
+<path d="M250,120 L250,166" fill="none" marker-end="url(#m11b-ahc)" stroke="#38bdf8" stroke-width="1.8"></path>
+<rect fill="#0e1b26" height="44" rx="12" stroke="#38bdf8" stroke-dasharray="5 5" stroke-width="2" width="260" x="120" y="170"></rect>
+<text fill="#bfe6ff" font-family="Inter,sans-serif" font-size="13" text-anchor="middle" x="250" y="197">"boa prática" sem origem</text>
+<text fill="#a7f3d0" font-family="Inter,sans-serif" font-size="14" font-weight="600" text-anchor="middle" x="750" y="34">resposta ancorada</text>
+<g filter="url(#m11b-glow)"><rect fill="#0e2018" height="44" rx="12" stroke="url(#m11b-grad)" stroke-width="2" width="150" x="545" y="70"></rect></g>
+<text fill="#34d399" font-family="Inter,sans-serif" font-size="14" font-weight="600" text-anchor="middle" x="620" y="97">regra R1</text>
+<path d="M695,92 L770,92" fill="none" marker-end="url(#m11b-ah)" stroke="#34d399" stroke-width="1.8"></path>
+<rect fill="#0e2018" height="44" rx="12" stroke="#34d399" stroke-width="2" width="180" x="775" y="70"></rect>
+<text fill="#a7f3d0" font-family="Inter,sans-serif" font-size="13" text-anchor="middle" x="865" y="97">citação no acervo</text>
+<path d="M865,114 L865,166" fill="none" marker-end="url(#m11b-ah)" stroke="#34d399" stroke-width="1.8"></path>
+<rect fill="#0e2018" height="44" rx="12" stroke="#34d399" stroke-width="2" width="300" x="660" y="170"></rect>
+<text fill="#a7f3d0" font-family="Inter,sans-serif" font-size="12.5" text-anchor="middle" x="810" y="197">raw/videos/…dia-3….txt@02:38:55</text>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-emerald-400">Como ler:</strong> à esquerda, a resposta para no modelo; não tem de onde veio. À direita, a regra aponta
+            para uma citação e a citação aponta para um endereço que você abre e confere. A seta verde é a diferença inteira: rastreabilidade.
+          </p>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">📌</span> Uma regra real do mentor do Nei</h3>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-3">## R1 — Conferir o resultado real antes de dizer "pronto"
+- status: ativa
+- citacoes:
+  - "ele passou dizendo que tinha OK, mas não"
+    — raw/videos/inema-vibecode-do-zero-dia-3-basico-de-infra.txt@02:38:55
+  - "Arquivo existir não é prova. O agente ter lido e usado é."
+    — raw/guia/agente-claude-codex-migrar-do-claude-pro-codex-ou--ac8311.md</pre>
+<p class="text-neutral-400 text-sm">Repare: a regra não é uma frase bonita sobre qualidade. É um comportamento que aparece em várias fontes diferentes, e cada aparição tem endereço. No piloto, o Nei deu nota 8 de 10 para "reconheço a pessoa nas regras".</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Média</p><p class="text-xs text-neutral-400">Resposta de ninguém</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Acervo</p><p class="text-xs text-neutral-400">O que a pessoa publicou</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Localizador</p><p class="text-xs text-neutral-400">Endereço do trecho</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Reconhecível</p><p class="text-xs text-neutral-400">"É ela, não IA genérica"</p></div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 5 -->
+<section class="mb-16" data-inema-topic="modulo-1-1#topico-5" id="topico-5">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span>
+<h2 class="text-2xl font-bold">🧭 Entenda por que um mentor, e não mais um prompt</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m1-1-t5-p1">
+          Dá para escrever um prompt pedindo "explique na medida, não suponha, prove o que diz". Ajuda por uma conversa, e
+          some na seguinte. Prompt é instrução; o piloto mostrou que <strong class="text-emerald-400">instrução sozinha não segura
+          comportamento</strong>. O mentor troca instrução por quatro peças com mecanismo, cada uma atacando um hábito.
+        </p>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🆕</span> Novo aqui?</h3>
+<p class="text-neutral-300 text-sm"><strong>Prompt</strong> é o texto que você manda para a IA. <strong>Skill</strong> é uma receita salva em arquivo que o Claude Code carrega quando você chama, por exemplo, <code class="font-mono text-xs">/nei-ensina</code>. <strong>Subagente</strong> é uma segunda instância do Claude, com contexto próprio, que recebe uma tarefa e devolve o resultado. <strong>Mecanismo</strong>, aqui, é algo que roda sozinho e não depende de a IA lembrar da instrução.</p>
+</div>
+<div class="rounded-2xl border border-emerald-500/30 bg-dark-900/40 p-3 sm:p-4 mb-4 overflow-hidden">
+<svg aria-label="Cada mau hábito à esquerda ligado à peça do mentor que o corrige à direita: explicar demais ou de menos ao loop obrigatório; parecer certa ao portão de execução; supor sem avisar ao loop com seção Pronto; conhecimento genérico ao acervo, wiki e regras com prova" class="w-full h-auto" role="img" viewbox="0 0 1000 300">
+<defs>
+<linearGradient id="m11c-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#34d399"></stop><stop offset="1" stop-color="#10b981"></stop></linearGradient>
+<filter height="180%" id="m11c-glow" width="180%" x="-40%" y="-40%"><feGaussianBlur result="b" stdDeviation="1.8"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+<pattern height="32" id="m11c-grid" patternUnits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#10b981" opacity="0.12" r="1.3"></circle></pattern>
+<marker id="m11c-ah" markerHeight="9" markerWidth="9" orient="auto" refX="6.5" refY="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#34d399"></path></marker>
+</defs>
+<rect fill="url(#m11c-grid)" height="300" width="1000" x="0" y="0"></rect>
+<text fill="#9ad6ff" font-family="Inter,sans-serif" font-size="13" font-weight="600" x="60" y="26">MAU HÁBITO</text>
+<text fill="#a7f3d0" font-family="Inter,sans-serif" font-size="13" font-weight="600" text-anchor="end" x="940" y="26">PEÇA DO MENTOR</text>
+<g font-family="Inter,sans-serif" font-size="14">
+<g class="wf-a"><rect fill="#0e1b26" height="44" rx="10" stroke="#38bdf8" stroke-width="2" width="300" x="60" y="44"></rect><text fill="#bfe6ff" text-anchor="middle" x="210" y="71">explica demais ou de menos</text></g>
+<g class="wf-a"><rect fill="#0e1b26" height="44" rx="10" stroke="#38bdf8" stroke-width="2" width="300" x="60" y="104"></rect><text fill="#bfe6ff" text-anchor="middle" x="210" y="131">parece certa sem estar</text></g>
+<g class="wf-a"><rect fill="#0e1b26" height="44" rx="10" stroke="#38bdf8" stroke-width="2" width="300" x="60" y="164"></rect><text fill="#bfe6ff" text-anchor="middle" x="210" y="191">supõe sem avisar</text></g>
+<g class="wf-a"><rect fill="#0e1b26" height="44" rx="10" stroke="#38bdf8" stroke-width="2" width="300" x="60" y="224"></rect><text fill="#bfe6ff" text-anchor="middle" x="210" y="251">conhecimento genérico</text></g>
+</g>
+<g fill="none" marker-end="url(#m11c-ah)" opacity="0.75" stroke="#34d399" stroke-width="1.8">
+<path d="M360,66 C470,66 520,96 636,96"></path>
+<path d="M360,126 C470,126 520,166 636,166"></path>
+<path d="M360,186 C470,186 520,104 636,104"></path>
+<path d="M360,246 C470,246 520,236 636,236"></path>
+</g>
+<g filter="url(#m11c-glow)">
+<rect fill="#0e2018" height="56" rx="12" stroke="url(#m11c-grad)" stroke-width="2" width="300" x="640" y="72"></rect>
+<rect fill="#0e2018" height="44" rx="12" stroke="url(#m11c-grad)" stroke-width="2" width="300" x="640" y="144"></rect>
+<rect fill="#0e2018" height="44" rx="12" stroke="url(#m11c-grad)" stroke-width="2" width="300" x="640" y="214"></rect>
+</g>
+<text fill="#34d399" font-family="Inter,sans-serif" font-size="14" font-weight="600" text-anchor="middle" x="790" y="96">loop obrigatório</text>
+<text fill="#a7f3d0" font-family="Inter,sans-serif" font-size="12" text-anchor="middle" x="790" y="115">pronto · menor versão · previsão</text>
+<text fill="#34d399" font-family="Inter,sans-serif" font-size="14" font-weight="600" text-anchor="middle" x="790" y="171">portão de execução</text>
+<text fill="#34d399" font-family="Inter,sans-serif" font-size="14" font-weight="600" text-anchor="middle" x="790" y="241">acervo + wiki + regras com prova</text>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-emerald-400">Como ler:</strong> siga cada fio verde. Dois hábitos caem no mesmo lugar, o loop: ele começa definindo
+            "pronto" e listando suposições, e anda em menor versão. O "parece certa" só cai com algo que roda sem pedir licença: o portão.
+            O genérico cai com acervo e regras citadas. Nenhuma peça é "um prompt melhor".
+          </p>
+</div>
+<div class="overflow-x-auto mb-6">
+<table class="w-full text-sm border border-dark-600 rounded-xl overflow-hidden">
+<thead class="bg-dark-800"><tr><th class="text-left p-3 text-emerald-400">Peça</th><th class="text-left p-3 text-emerald-400">O que faz</th><th class="text-left p-3 text-emerald-400">Trilha</th></tr></thead>
+<tbody class="divide-y divide-dark-600 text-neutral-300">
+<tr><td class="p-3 font-semibold">Acervo + wiki</td><td class="p-3">Tudo o que o especialista publicou, compilado em páginas ligadas que a IA consulta sem se perder</td><td class="p-3">2 e 3</td></tr>
+<tr><td class="p-3 font-semibold">Regras com prova</td><td class="p-3">Cada regra de conduta tem citação + localizador, conferidos por script</td><td class="p-3">4</td></tr>
+<tr><td class="p-3 font-semibold">Loop obrigatório</td><td class="p-3">Pronto → menor versão → previsão → saída real → versão quebrada → relatório por regra</td><td class="p-3">5</td></tr>
+<tr><td class="p-3 font-semibold">Portão de execução</td><td class="p-3">Um hook impede o turno de terminar se houve código escrito e não executado</td><td class="p-3">5</td></tr>
+</tbody>
+</table>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">🧪</span> Copie e rode: veja um mentor passando nos validadores</h3>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-emerald-400">Objetivo:</strong> antes de construir o seu, ver as peças funcionando no <code class="font-mono text-xs">exemplo/</code> do kit, um mentor completo de uma especialista fictícia (a Profa. Lia), com 3 fontes e 7 regras. Precisa só de Python 3.10+ e git.</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-3">git clone https://github.com/inematds/mentor-especialista.git
+cd mentor-especialista
+python3 exemplo/tools/stats.py --raiz exemplo; echo "stats exit=$?"
+python3 exemplo/tools/validar_citacoes.py --raiz exemplo; echo "citacoes exit=$?"</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-emerald-400">Como verificar:</strong> as duas linhas finais devem mostrar <code class="font-mono text-xs">exit=0</code>. O primeiro confere o acervo (metas e integridade de cada item); o segundo procura cada citação das regras dentro do acervo. Quer ver o validador reprovar? Abra <code class="font-mono text-xs">exemplo/regras.md</code>, troque uma palavra dentro de uma citação, rode de novo (deve mostrar <code class="font-mono text-xs">1 faltando</code> e <code class="font-mono text-xs">exit=1</code>) e desfaça com <code class="font-mono text-xs">git checkout exemplo/regras.md</code>.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Instrução</p><p class="text-xs text-neutral-400">Some na próxima conversa</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Mecanismo</p><p class="text-xs text-neutral-400">Roda sem a IA lembrar</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">4 peças</p><p class="text-xs text-neutral-400">Acervo, regras, loop, portão</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Gabarito</p><p class="text-xs text-neutral-400">O exemplo/ do kit</p></div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 6 -->
+<section class="mb-16" data-inema-topic="modulo-1-1#topico-6" id="topico-6">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span>
+<h2 class="text-2xl font-bold">🧠 Deixe a IA fazer o trabalho, mas guarde o entendimento para você</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m1-1-t6-p1">
+          A IA pode fazer o trabalho pesado. Compreender continua sendo tarefa de quem usa. O mentor existe para você
+          <strong class="text-emerald-400">entender</strong>, não só para receber código pronto. Na prática, isso aparece em
+          dois lugares da resposta: a previsão (você vê o que se espera antes de rodar) e a seção "Sua vez", em que o mentor
+          devolve um exercício para você fazer com as próprias mãos.
+        </p>
+<div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> "Sua vez" real, do teste 1 do piloto</h3>
+<p class="text-neutral-300 text-sm mb-3">Depois de construir o hook Stop com você, o mentor fechou assim (trecho real):</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-3">No seu próprio projeto (R6):
+1. Copie a pasta .claude/ da sandbox e crie um TODO.md com 2 itens.
+2. Mude a regex para ignorar - [ ] que estejam dentro de blocos de código.
+   Antes de rodar, escreva quantos itens você espera que o hook liste.
+3. Rode o hook e compare com a sua previsão.
+4. Critério de pronto: o item dentro do bloco de código não aparece no
+   reason, e os itens de fora aparecem. Você tem 3 tentativas.</pre>
+<p class="text-neutral-400 text-sm">Note os ingredientes: a tarefa é sua (não do mentor), pede previsão antes de rodar, tem critério de pronto verificável e um limite de tentativas. É o mesmo loop que o mentor segue, agora na sua mão.</p>
+</div>
+<div class="space-y-4 mb-6">
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">1</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600"><h4 class="font-semibold mb-1">Pronto</h4><p class="text-sm text-neutral-400">O que é "terminado", antes de tocar no código.</p></div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">2</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600"><h4 class="font-semibold mb-1">Menor versão e previsão</h4><p class="text-sm text-neutral-400">A peça mínima que roda, e o resultado esperado dito antes de rodar.</p></div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">3</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600"><h4 class="font-semibold mb-1">Saída real e versão quebrada</h4><p class="text-sm text-neutral-400">Rodar de verdade, comparar, e mostrar uma variação que quebra com a causa explicada.</p></div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">4</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-5 border border-emerald-500/30"><h4 class="font-semibold mb-1">Relatório e "Sua vez"</h4><p class="text-sm text-neutral-400">Passo → o que rodou → o que saiu → regra que guiou. E o exercício que devolve o trabalho para você.</p></div>
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> O que o Nei aprendeu no próprio teste</h3>
+<p class="text-neutral-300 text-sm">No teste 1, o mentor mostrou a versão ingênua do hook em loop infinito: com um item que o agente não consegue fechar sozinho, ela bloqueou 6 de 6 tentativas. A correção foi um teto de 3 bloqueios por sessão. O registro do piloto diz: "Aprendi: o bloqueio sem teto prende a sessão para sempre". É isso que se espera de um mentor: que você saia sabendo algo que não sabia.</p>
+</div>
+<div class="inema-check mt-8 mb-6 bg-dark-800 border border-dark-600 rounded-xl p-6" data-inema-check="modulo-1-1#q1">
+<p class="font-medium mb-4">Checagem rápida (não bloqueia nada): a sessão do Claude diz "rodei o validador e passou". O que você faz?</p>
+<div class="inema-check-options space-y-2">
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="0" type="button">Aceito: se ela rodou, está provado.</button>
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="1" type="button">Rodo eu mesmo o validador, com a prova completa, e olho o exit code.</button>
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="2" type="button">Peço para ela rodar de novo e confirmar com mais certeza.</button>
+</div>
+<div aria-live="polite" class="mt-4 text-sm" data-inema-check-feedback="" role="status"></div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Trabalho</p><p class="text-xs text-neutral-400">Pode ser da IA</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Entendimento</p><p class="text-xs text-neutral-400">É sempre seu</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Sua vez</p><p class="text-xs text-neutral-400">Exercício com critério de pronto</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Aprender algo</p><p class="text-xs text-neutral-400">A medida de um bom mentor</p></div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- RESUMO -->
+<section class="mb-12">
+<div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📌</span> Resumo do Módulo</h2>
+<div class="space-y-4 mb-8">
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Demais ou de menos</strong><span class="text-neutral-400"> - a faixa útil começa na menor versão que roda e anda um passo por vez.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Parece certa</strong><span class="text-neutral-400"> - "funciona" da IA é afirmação; prova é comando + saída, conferida de fora.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Supõe sem avisar</strong><span class="text-neutral-400"> - suposições declaradas antes do código viram critérios testáveis.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Genérico</strong><span class="text-neutral-400"> - regra do mentor aponta para um trecho real do acervo, com endereço.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Mentor, não prompt</strong><span class="text-neutral-400"> - quatro peças com mecanismo: acervo e wiki, regras com prova, loop e portão.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">O entendimento é seu</strong><span class="text-neutral-400"> - previsão e "Sua vez" devolvem o aprendizado para quem usa.</span></div></div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+<h3 class="font-semibold text-emerald-400 mb-2">Próximo Módulo:</h3>
+<p class="text-neutral-300">1.2 - Método não é persona: o que copiar do especialista, o domínio numa frase e o seu primeiro mentor gerado.</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="index.html">← Voltar para Trilha</a>
+<a class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors" href="modulo-1-2.html">Próximo Módulo →</a>
+</div>
+</div>
+</section>
+</main>
+</div>
+<footer class="border-t border-dark-600 py-8 mt-16">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+<p>Mentor-Especialista: o método de um especialista virando seu mentor no Claude Code — 2026</p>
+<p class="mt-2">
+<a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+<span class="text-neutral-600 mx-1">-</span>
+<a class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200" href="https://inema.pro" target="_blank">PRO</a>
+</p>
+</div>
+</footer>
+<script>
+    function toggleTopic(button) {
+      const topicItem = button.closest('.topic-item');
+      const explanation = topicItem.querySelector('.topic-explanation');
+      const willOpen = !explanation.classList.contains('active');
+      explanation.classList.toggle('active');
+      button.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    }
+    function openModal(modalId) { const m = document.getElementById(modalId); if (m) { m.classList.remove('hidden'); document.body.style.overflow = 'hidden'; } }
+    function closeModal() { document.querySelectorAll('.modal').forEach(m => m.classList.add('hidden')); document.body.style.overflow = 'auto'; }
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const htmlEl = document.documentElement;
+    if (htmlEl.classList.contains('dark')) themeToggleLightIcon.classList.remove('hidden'); else themeToggleDarkIcon.classList.remove('hidden');
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden');
+      htmlEl.classList.toggle('dark');
+      const dark = htmlEl.classList.contains('dark');
+      localStorage.setItem('theme', dark ? 'dark' : 'light');
+      try { const p = JSON.parse(localStorage.getItem('inema.prefs') || '{}'); p.theme = dark ? 'inema-dark' : 'claro'; localStorage.setItem('inema.prefs', JSON.stringify(p)); } catch (e) {}
+    });
+  </script>
+<script src="../../assets/learn.js"></script>
+<script>
+    if (window.INEMA && typeof window.INEMA.init === 'function') window.INEMA.init();
+    window.addEventListener('DOMContentLoaded', function () {
+      if (window.INEMA && INEMA.registerCheck) {
+        INEMA.registerCheck('modulo-1-1#q1', {
+          answer: 1,
+          explain: {
+            0: 'Foi exatamente o que falhou no piloto: a sessão disse "o validador passa" porque rodou sem o log. Afirmação da própria sessão não é prova.',
+            1: 'Isso. Verificação de fora, com a prova completa (no kit, o transcript da sessão), e o exit code como resposta sem opinião.',
+            2: 'Pedir mais certeza só muda o tom. Quem confere precisa ser você ou um script, com a prova em mãos.'
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

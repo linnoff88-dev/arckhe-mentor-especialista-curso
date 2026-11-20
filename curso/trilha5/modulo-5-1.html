@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="mentor-especialista-curso" name="inema-course"/>
+<title>Módulo 5.1 · Mapa: settings, agente e skills | Mentor-Especialista</title>
+<script src="../../assets/boot.js"></script>
+<script data-inema-manifest="" type="application/json">
+  {
+    "course": "mentor-especialista-curso",
+    "tracks": [
+      { "n": "1", "title": "Por que um mentor", "modules": [
+        { "id": "1-1", "title": "Os maus hábitos da IA quando ensina", "topics": 6, "href": "curso/trilha1/modulo-1-1.html" },
+        { "id": "1-2", "title": "Método não é persona: escopo do mentor", "topics": 6, "href": "curso/trilha1/modulo-1-2.html" }
+      ]},
+      { "n": "2", "title": "Coleta do acervo", "modules": [
+        { "id": "2-1", "title": "Fontes e coletores", "topics": 6, "href": "curso/trilha2/modulo-2-1.html" },
+        { "id": "2-2", "title": "Subagentes, manifesto e falhas", "topics": 6, "href": "curso/trilha2/modulo-2-2.html" }
+      ]},
+      { "n": "3", "title": "Wiki compilada", "modules": [
+        { "id": "3-1", "title": "Raw imutável, wiki viva", "topics": 6, "href": "curso/trilha3/modulo-3-1.html" },
+        { "id": "3-2", "title": "Fontes, temas, princípios e métodos", "topics": 6, "href": "curso/trilha3/modulo-3-2.html" }
+      ]},
+      { "n": "4", "title": "Regras com prova", "modules": [
+        { "id": "4-1", "title": "Conduta, não frase de efeito", "topics": 6, "href": "curso/trilha4/modulo-4-1.html" },
+        { "id": "4-2", "title": "Citação, status e validador", "topics": 6, "href": "curso/trilha4/modulo-4-2.html" }
+      ]},
+      { "n": "5", "title": "Agente, skills e portão", "modules": [
+        { "id": "5-1", "title": "Mapa: settings, agente e skills", "topics": 6, "href": "curso/trilha5/modulo-5-1.html" },
+        { "id": "5-2", "title": "O loop obrigatório do mentor", "topics": 6, "href": "curso/trilha5/modulo-5-2.html" },
+        { "id": "5-3", "title": "Skills: ensina, revisa, ingere", "topics": 6, "href": "curso/trilha5/modulo-5-3.html" },
+        { "id": "5-4", "title": "Portão de execução", "topics": 6, "href": "curso/trilha5/modulo-5-4.html" }
+      ]},
+      { "n": "6", "title": "Prova e evolução", "modules": [
+        { "id": "6-1", "title": "O piloto real e os testes de aceitação", "topics": 6, "href": "curso/trilha6/modulo-6-1.html" },
+        { "id": "6-2", "title": "Ingestão contínua, atualização e reuso", "topics": 6, "href": "curso/trilha6/modulo-6-2.html" }
+      ]}
+    ]
+  }
+  </script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../../assets/curso.css" rel="stylesheet"/>
+<link href="../../assets/learn.css" rel="stylesheet"/>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+<a class="skip sr-only focus:not-sr-only" href="#conteudo">Pular para o conteúdo</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🧭</span><span class="font-bold text-lg hidden sm:inline">Mentor-Especialista</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+<span class="text-neutral-600">-</span>
+<a class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200 text-sm font-medium" href="https://inema.pro" target="_blank">PRO</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Por quê</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Coleta</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Wiki</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors" href="../trilha4/index.html"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Regras</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-teal-400 bg-teal-500/10" href="index.html"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Agente</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors" href="../trilha6/index.html"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Prova</span></a>
+<button class="hidden md:inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-neutral-300 hover:text-neutral-100 transition-colors text-sm" data-inema-journey-open="" type="button">
+<span aria-hidden="true">◷</span><span>Minha jornada</span><span aria-hidden="true" class="inema-journey-badge hidden"></span>
+</button>
+<button aria-label="Alternar tema claro/escuro" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<nav aria-label="Trilha de navegação" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+<div class="flex items-center space-x-2 text-sm text-neutral-400">
+<a class="hover:text-teal-400" href="../../index.html">Início</a><span>/</span>
+<a class="hover:text-teal-400" href="index.html">Trilha 5</a><span>/</span>
+<span class="text-teal-400">Módulo 5.1</span>
+</div>
+</nav>
+<header class="bg-gradient-to-br from-teal-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600" data-inema-module="5-1" data-inema-track="5">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<span class="inline-block px-3 py-1 bg-teal-500/20 text-teal-400 text-xs font-semibold rounded-full mb-4">MÓDULO 5.1</span>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">🗺️ Mapa: settings, agente e skills</h1>
+<p class="text-lg text-neutral-400 max-w-3xl">
+        Antes de mexer no mentor, você precisa saber onde cada peça mora e quem chama quem. São três pastas dentro de
+        <span class="font-mono text-base">.claude/</span> e um arquivo de registro. Errar esse mapa é a causa mais comum de
+        "escrevi o hook e ele não faz nada".
+      </p>
+<div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">50</div><div class="text-xs text-neutral-400">Minutos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Base</div><div class="text-xs text-neutral-400">Nível</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Mapa</div><div class="text-xs text-neutral-400">Tipo</div></div>
+</div>
+<div class="mt-6 max-w-2xl">
+<div aria-label="Progresso do módulo 5.1" aria-valuemax="100" aria-valuemin="0" class="inema-meter" data-inema-meter="modulo:5-1" role="progressbar">
+<span class="inema-meter-pct">0%</span><span class="inema-meter-count">0 de 6</span>
+</div>
+</div>
+</div>
+</header>
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:grid lg:grid-cols-[220px_1fr] lg:gap-10">
+<nav aria-label="Índice da página" class="hidden lg:block sticky top-24 self-start" data-inema-toc="">
+<p class="text-sm text-neutral-400 mb-2">Seção <span class="inema-toc-pos">1</span> de <span class="inema-toc-total">6</span></p>
+<ul class="space-y-1 text-sm">
+<li><a class="inema-toc-link hover:text-teal-400" href="#topico-1">1. As três peças</a></li>
+<li><a class="inema-toc-link hover:text-teal-400" href="#topico-2">2. settings.json</a></li>
+<li><a class="inema-toc-link hover:text-teal-400" href="#topico-3">3. Subagente</a></li>
+<li><a class="inema-toc-link hover:text-teal-400" href="#topico-4">4. Skill</a></li>
+<li><a class="inema-toc-link hover:text-teal-400" href="#topico-5">5. Stop × SubagentStop</a></li>
+<li><a class="inema-toc-link hover:text-teal-400" href="#topico-6">6. Projeto × global</a></li>
+</ul>
+</nav>
+<main class="inema-prose" id="conteudo">
+<!-- TOPICO 1 -->
+<section class="mb-16" data-inema-topic="modulo-5-1#topico-1" id="topico-1">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">1</span>
+<h2 class="text-2xl font-bold">🧱 As três peças e quem chama quem</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m5-1-t1-p1">
+          Nas trilhas 2 a 4 você construiu o <strong class="text-teal-400">cérebro</strong> do mentor: acervo, wiki e regras.
+          Agora entra o <strong class="text-teal-400">comportamento</strong>: um agente que segue o método, skills que o
+          acionam e um portão que impede o turno de terminar com código que ninguém rodou. Tudo isso fica dentro da pasta
+          oculta <span class="font-mono text-sm">.claude/</span> do projeto do mentor.
+        </p>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🆕</span> Novo aqui?</h3>
+<ul class="text-neutral-300 text-sm space-y-2">
+<li><strong>Hook</strong> é um script que o Claude Code roda sozinho quando algo acontece (o modelo editou um arquivo, o turno vai terminar). O hook não é IA: é um programa comum que lê um JSON e responde.</li>
+<li><strong>Subagente</strong> é um segundo Claude, com instruções próprias, que a sessão principal chama para uma tarefa e que devolve o resultado.</li>
+<li><strong>Skill</strong> é uma receita salva em arquivo que você dispara com <span class="font-mono text-xs">/nome</span>. Ela diz ao Claude o passo a passo de uma tarefa.</li>
+</ul>
+</div>
+<div class="rounded-2xl border border-teal-500/30 bg-dark-900/40 p-3 sm:p-4 mb-4 overflow-hidden">
+<svg aria-label="Mapa do mentor: o usuário dispara uma skill, a skill chama o subagente mentor, e o settings.json registra o hook do portão, que vigia a sessão principal e o subagente" class="w-full h-auto" role="img" viewbox="0 0 1000 260">
+<defs>
+<lineargradient id="m51a-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#2dd4bf"></stop><stop offset="1" stop-color="#14b8a6"></stop></lineargradient>
+<filter height="180%" id="m51a-glow" width="180%" x="-40%" y="-40%"><fegaussianblur result="b" stddeviation="1.8"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
+<pattern height="32" id="m51a-grid" patternunits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#14b8a6" opacity="0.12" r="1.3"></circle></pattern>
+<marker id="m51a-ah" markerheight="9" markerwidth="9" orient="auto" refx="6.5" refy="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#2dd4bf"></path></marker>
+<marker id="m51a-ahc" markerheight="9" markerwidth="9" orient="auto" refx="6.5" refy="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#38bdf8"></path></marker>
+</defs>
+<rect fill="url(#m51a-grid)" height="260" width="1000" x="0" y="0"></rect>
+<g font-family="Inter,sans-serif" font-weight="600">
+<rect fill="#0c1f1c" height="52" rx="12" stroke="#2dd4bf" stroke-width="2" width="160" x="30" y="60"></rect>
+<text fill="#99f6e4" font-size="14" text-anchor="middle" x="110" y="84">você</text>
+<text fill="#5eead4" font-size="11" font-weight="400" text-anchor="middle" x="110" y="101">/nei-ensina …</text>
+<rect fill="#0c1f1c" height="52" rx="12" stroke="#2dd4bf" stroke-width="2" width="200" x="260" y="60"></rect>
+<text fill="#99f6e4" font-size="14" text-anchor="middle" x="360" y="84">skill</text>
+<text fill="#5eead4" font-size="11" font-weight="400" text-anchor="middle" x="360" y="101">skills/nei-ensina/SKILL.md</text>
+</g>
+<g filter="url(#m51a-glow)"><rect fill="#0c1f1c" height="52" rx="12" stroke="url(#m51a-grad)" stroke-width="2.4" width="220" x="530" y="60"></rect></g>
+<text fill="#2dd4bf" font-family="Inter,sans-serif" font-size="14" font-weight="700" text-anchor="middle" x="640" y="84">subagente mentor</text>
+<text fill="#99f6e4" font-family="Inter,sans-serif" font-size="11" text-anchor="middle" x="640" y="101">agents/nei-mentor.md</text>
+<g fill="none" stroke="#2dd4bf" stroke-width="2">
+<path d="M190,86 L254,86" marker-end="url(#m51a-ah)"></path>
+<path d="M460,86 L524,86" marker-end="url(#m51a-ah)"></path>
+</g>
+<rect fill="#0e1b26" height="60" rx="12" stroke="#38bdf8" stroke-width="2" width="300" x="350" y="176"></rect>
+<text fill="#bfe6ff" font-family="Inter,sans-serif" font-size="14" font-weight="600" text-anchor="middle" x="500" y="201">settings.json → hook do portão</text>
+<text fill="#9ad6ff" font-family="Inter,sans-serif" font-size="11" text-anchor="middle" x="500" y="220">PostToolUse · Stop · SubagentStop</text>
+<g fill="none" opacity="0.8" stroke="#38bdf8" stroke-dasharray="6 6" stroke-width="1.8">
+<path d="M450,176 C420,150 380,130 360,116" marker-end="url(#m51a-ahc)"></path>
+<path d="M560,176 C600,150 630,130 640,116" marker-end="url(#m51a-ahc)"></path>
+</g>
+<text fill="#9ad6ff" font-family="Inter,sans-serif" font-size="11" x="770" y="206">vigia a sessão e o subagente</text>
+<text fill="#5eead4" font-family="Inter,sans-serif" font-size="11" x="780" y="90">devolve a resposta</text>
+<path d="M750,86 L770,86" fill="none" stroke="#2dd4bf" stroke-width="2"></path>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-teal-400">Como ler:</strong> a linha de cima é o caminho do pedido (você → skill → subagente). A caixa de baixo
+            não está nesse caminho: o hook registrado no <span class="font-mono text-xs">settings.json</span> observa de fora, pelas setas
+            tracejadas. É por isso que ele consegue barrar o fim do turno mesmo quando o agente "esquece" a instrução.
+          </p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-teal-400 text-sm font-semibold mb-1">settings.json</p><p class="text-xs text-neutral-400">Registra os hooks</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-teal-400 text-sm font-semibold mb-1">agents/</p><p class="text-xs text-neutral-400">O mentor e seu loop</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-teal-400 text-sm font-semibold mb-1">skills/</p><p class="text-xs text-neutral-400">As 6 receitas com /</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-teal-400 text-sm font-semibold mb-1">hooks/</p><p class="text-xs text-neutral-400">O script do portão</p></div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-teal-500/20 border border-teal-500/30 text-teal-400 hover:bg-teal-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 2 -->
+<section class="mb-16" data-inema-topic="modulo-5-1#topico-2" id="topico-2">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">2</span>
+<h2 class="text-2xl font-bold">⚙️ settings.json: hook só roda se estiver registrado</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m5-1-t2-p1">
+          Colocar um script em <span class="font-mono text-sm">.claude/hooks/</span> não faz nada sozinho. O Claude Code só
+          executa o que estiver listado em <span class="font-mono text-sm">.claude/settings.json</span>, debaixo do nome do
+          evento. O kit registra <strong class="text-teal-400">um único script em três eventos</strong>. Este é o arquivo real:
+        </p>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<p class="text-sm text-neutral-400 mb-2 font-mono">.claude/settings.json (kit 1.2, igual no mentor-nei)</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto">{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit|Bash",
+        "hooks": [
+          { "type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/portao-execucao.py\"", "timeout": 10 }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/portao-execucao.py\"", "timeout": 10 }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/portao-execucao.py\"", "timeout": 10 }
+        ]
+      }
+    ]
+  }
+}</pre>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🆕</span> O que é cada campo?</h3>
+<ul class="text-neutral-300 text-sm space-y-2">
+<li><strong>Evento</strong> é o momento em que o hook dispara. <span class="font-mono text-xs">PostToolUse</span> = logo depois de o Claude usar uma ferramenta. <span class="font-mono text-xs">Stop</span> = quando a sessão principal vai encerrar o turno. <span class="font-mono text-xs">SubagentStop</span> = quando um subagente vai encerrar o dele.</li>
+<li><strong>matcher</strong> filtra por nome de ferramenta, como expressão regular: aqui, só <span class="font-mono text-xs">Write</span>, <span class="font-mono text-xs">Edit</span>, <span class="font-mono text-xs">MultiEdit</span> e <span class="font-mono text-xs">Bash</span>. Os eventos de parada não têm ferramenta, por isso não levam matcher.</li>
+<li><strong><span class="font-mono text-xs">$CLAUDE_PROJECT_DIR</span></strong> é uma variável que o Claude Code preenche com a raiz do projeto. Com ela, o caminho funciona de qualquer subpasta.</li>
+<li><strong>timeout</strong> (em segundos) é o teto: se o script travar, o Claude Code segue em frente depois de 10 s.</li>
+</ul>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ Registrado do jeito certo</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Script em <span class="font-mono text-xs">.claude/hooks/</span> e listado no <span class="font-mono text-xs">settings.json</span></span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Caminho com <span class="font-mono text-xs">$CLAUDE_PROJECT_DIR</span> entre aspas</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Um script, vários eventos: a lógica fica num lugar só</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ Por que "o hook não faz nada"</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Script copiado para <span class="font-mono text-xs">hooks/</span>, mas sem entrada no <span class="font-mono text-xs">settings.json</span></span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>JSON com vírgula sobrando: o arquivo inteiro é ignorado</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Caminho relativo que só funciona quando você está na raiz</span></li>
+</ul>
+</div>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">🧪</span> Copie e rode: o registro está válido?</h3>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-teal-400">Objetivo:</strong> confirmar que o <span class="font-mono text-xs">settings.json</span> do seu mentor é JSON válido e lista os três eventos.</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">cd &lt;pasta do seu mentor&gt;
+python3 -c 'import json; d = json.load(open(".claude/settings.json")); print(sorted(d["hooks"]))'</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-teal-400">Como verificar:</strong> a saída deve ser <span class="font-mono text-xs">['PostToolUse', 'Stop', 'SubagentStop']</span>. Se aparecer <span class="font-mono text-xs">JSONDecodeError</span>, o Claude Code também não está lendo o arquivo: conserte antes de seguir.</p>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-teal-500/20 border border-teal-500/30 text-teal-400 hover:bg-teal-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 3 -->
+<section class="mb-16" data-inema-topic="modulo-5-1#topico-3" id="topico-3">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">3</span>
+<h2 class="text-2xl font-bold">🤖 Subagente: .claude/agents/*.md e o frontmatter</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m5-1-t3-p1">
+          O mentor é um <strong class="text-teal-400">subagente</strong>: um arquivo Markdown em
+          <span class="font-mono text-sm">.claude/agents/</span>. O topo do arquivo, entre duas linhas <span class="font-mono text-sm">---</span>,
+          é o <strong class="text-teal-400">frontmatter</strong>: um cabeçalho com campos que o Claude Code lê para saber o nome
+          do agente e quando chamá-lo. O resto do arquivo é a instrução que o subagente recebe.
+        </p>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<p class="text-sm text-neutral-400 mb-2 font-mono">.claude/agents/nei-mentor.md (início; no arquivo, a description ocupa uma linha só)</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto">---
+name: nei-mentor
+description: "Mentor que ensina e revisa no método de Nei Maldaner (INEMA) (ensinar a usar
+  Claude Code e agentes de IA na prática, construindo junto). Use quando o usuário quiser
+  APRENDER algo construindo junto, entender um código, ou revisar um trabalho antes de
+  entregar. Segue as regras de regras.md, consulta a wiki e só afirma o que rodou."
+---
+
+Você é um mentor que ensina **no método** de Nei Maldaner (INEMA), em …
+Você NÃO é Nei Maldaner (INEMA): não fala em nome da pessoa, não imita voz nem bordões,
+não inventa opiniões dela. Copia o **método**: como explica, constrói, depura e verifica.</pre>
+</div>
+<div class="overflow-x-auto mb-6">
+<table class="w-full text-sm border border-dark-600 rounded-lg overflow-hidden">
+<thead class="bg-dark-800">
+<tr><th class="text-left p-3 text-teal-400">Parte</th><th class="text-left p-3 text-teal-400">Para que serve</th><th class="text-left p-3 text-teal-400">Erro comum</th></tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr><td class="p-3 font-mono text-xs">name</td><td class="p-3 text-neutral-300">Identificador que a skill usa para chamar o agente</td><td class="p-3 text-neutral-400">Nome diferente do que a skill chama</td></tr>
+<tr><td class="p-3 font-mono text-xs">description</td><td class="p-3 text-neutral-300">Diz <em>quando</em> usar. É o gatilho, não um enfeite</td><td class="p-3 text-neutral-400">Descrever o que ele "é" em vez de quando chamar</td></tr>
+<tr><td class="p-3 font-mono text-xs">corpo</td><td class="p-3 text-neutral-300">Antes de responder, loop obrigatório, revisão, proibido</td><td class="p-3 text-neutral-400">Imitar a voz do especialista (persona, não método)</td></tr>
+</tbody>
+</table>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ Frontmatter que funciona</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>description diz <em>quando</em> chamar: "Use quando o usuário quiser APRENDER algo construindo junto…"</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span><span class="font-mono text-xs">name</span> igual ao que a skill chama (<span class="font-mono text-xs">nei-mentor</span>)</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Corpo descreve o método: como explica, constrói, depura e verifica</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ Frontmatter que atrapalha</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>description que só diz o que o agente "é" ("um mentor experiente")</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span><span class="font-mono text-xs">name</span> diferente do que a skill referencia: a chamada falha</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Corpo que imita a voz e os bordões do especialista</span></li>
+</ul>
+</div>
+</div>
+<div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-teal-400 mb-3 flex items-center"><span class="mr-2">🧭</span> Por que o mentor é subagente e não a sessão principal</h3>
+<p class="text-neutral-300 text-sm">O subagente começa com contexto limpo e com as instruções do arquivo. A sessão principal fica livre para
+            <strong>orquestrar e conferir</strong>: ela salva a resposta e roda o validador de fora. Quem ensina não é quem dá a nota.
+            Esse corte é o mesmo da trilha 1: autoavaliação não vale como prova.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-teal-400 text-sm font-semibold mb-1">Arquivo .md</p><p class="text-xs text-neutral-400">Em .claude/agents/</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-teal-400 text-sm font-semibold mb-1">Frontmatter</p><p class="text-xs text-neutral-400">name + description</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-teal-400 text-sm font-semibold mb-1">Contexto limpo</p><p class="text-xs text-neutral-400">Só o método</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-teal-400 text-sm font-semibold mb-1">Método</p><p class="text-xs text-neutral-400">Não persona</p></div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-teal-500/20 border border-teal-500/30 text-teal-400 hover:bg-teal-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 4 -->
+<section class="mb-16" data-inema-topic="modulo-5-1#topico-4" id="topico-4">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">4</span>
+<h2 class="text-2xl font-bold">🧩 Skill: .claude/skills/&lt;nome&gt;/SKILL.md</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m5-1-t4-p1">
+          Cada skill é uma <strong class="text-teal-400">pasta</strong> com um arquivo <span class="font-mono text-sm">SKILL.md</span> dentro.
+          O nome da pasta vira o comando: <span class="font-mono text-sm">skills/nei-ensina/</span> responde a
+          <span class="font-mono text-sm">/nei-ensina</span>. Assim como o agente, ela tem frontmatter com
+          <span class="font-mono text-sm">name</span> e <span class="font-mono text-sm">description</span>. A diferença é o papel: a skill
+          é a <em>receita</em> que a sessão principal segue; o agente é <em>quem</em> executa a parte que exige o método.
+        </p>
+<div class="rounded-2xl border border-teal-500/30 bg-dark-900/40 p-3 sm:p-4 mb-4 overflow-hidden">
+<svg aria-label="As seis skills do mentor em dois grupos: construção (coletar, compilar, regras) monta o cérebro uma vez; uso (ensina, revisa, ingere) roda no dia a dia, e ensina e revisa chamam o subagente mentor" class="w-full h-auto" role="img" viewbox="0 0 1000 220">
+<defs>
+<filter height="180%" id="m51b-glow" width="180%" x="-40%" y="-40%"><fegaussianblur result="b" stddeviation="1.8"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
+<pattern height="32" id="m51b-grid" patternunits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#14b8a6" opacity="0.12" r="1.3"></circle></pattern>
+<marker id="m51b-ahc" markerheight="9" markerwidth="9" orient="auto" refx="6.5" refy="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#38bdf8"></path></marker>
+</defs>
+<rect fill="url(#m51b-grid)" height="220" width="1000" x="0" y="0"></rect>
+<text fill="#5eead4" font-family="Inter,sans-serif" font-size="12" font-weight="700" x="30" y="30">CONSTRUÇÃO · uma vez</text>
+<text fill="#9ad6ff" font-family="Inter,sans-serif" font-size="12" font-weight="700" x="530" y="30">USO · todo dia</text>
+<g font-family="Inter,sans-serif" font-size="13" font-weight="600">
+<rect fill="#0c1f1c" height="40" rx="10" stroke="#2dd4bf" stroke-width="2" width="140" x="30" y="48"></rect><text fill="#99f6e4" text-anchor="middle" x="100" y="73">coletar</text>
+<rect fill="#0c1f1c" height="40" rx="10" stroke="#2dd4bf" stroke-width="2" width="140" x="190" y="48"></rect><text fill="#99f6e4" text-anchor="middle" x="260" y="73">compilar</text>
+<rect fill="#0c1f1c" height="40" rx="10" stroke="#2dd4bf" stroke-width="2" width="140" x="350" y="48"></rect><text fill="#99f6e4" text-anchor="middle" x="420" y="73">regras</text>
+<rect fill="#0e1b26" height="40" rx="10" stroke="#38bdf8" stroke-width="2" width="130" x="530" y="48"></rect><text fill="#bfe6ff" text-anchor="middle" x="595" y="73">ensina</text>
+<rect fill="#0e1b26" height="40" rx="10" stroke="#38bdf8" stroke-width="2" width="130" x="680" y="48"></rect><text fill="#bfe6ff" text-anchor="middle" x="745" y="73">revisa</text>
+<rect fill="#0e1b26" height="40" rx="10" stroke="#38bdf8" stroke-width="2" width="130" x="830" y="48"></rect><text fill="#bfe6ff" text-anchor="middle" x="895" y="73">ingere</text>
+</g>
+<g fill="none" stroke="#38bdf8" stroke-width="1.8">
+<path d="M595,88 C595,120 640,140 660,150" marker-end="url(#m51b-ahc)"></path>
+<path d="M745,88 C745,120 720,140 700,150" marker-end="url(#m51b-ahc)"></path>
+</g>
+<g filter="url(#m51b-glow)"><rect fill="#0c1f1c" height="44" rx="12" stroke="#2dd4bf" stroke-width="2.4" width="200" x="580" y="152"></rect></g>
+<text fill="#2dd4bf" font-family="Inter,sans-serif" font-size="13" font-weight="700" text-anchor="middle" x="680" y="179">subagente mentor</text>
+<text fill="#5eead4" font-family="Inter,sans-serif" font-size="11" x="30" y="120">raw/ → wiki/ → regras.md</text>
+<text fill="#5eead4" font-family="Inter,sans-serif" font-size="11" x="30" y="138">(trilhas 2, 3 e 4)</text>
+<text fill="#9ad6ff" font-family="Inter,sans-serif" font-size="11" x="830" y="120">raw + wiki + regras</text>
+<text fill="#9ad6ff" font-family="Inter,sans-serif" font-size="11" x="830" y="138">sem chamar o mentor</text>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-teal-400">Como ler:</strong> as três skills da esquerda montam o cérebro e você já as usou nas trilhas anteriores.
+            As três da direita são as de uso. Repare nas setas: só <em>ensina</em> e <em>revisa</em> passam pelo subagente mentor;
+            <em>ingere</em> mexe no acervo, na wiki e nas regras e não precisa dele.
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+<h4 class="font-bold text-teal-400 mb-3">Skill</h4>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li>• Disparada por você com <span class="font-mono text-xs">/nome</span></li>
+<li>• Roda na sessão principal</li>
+<li>• Passos, comandos e "pronto quando"</li>
+<li>• Pode chamar um subagente</li>
+</ul>
+</div>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+<h4 class="font-bold text-sky-400 mb-3">Subagente</h4>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li>• Chamado pela sessão (ou por uma skill)</li>
+<li>• Roda com contexto próprio</li>
+<li>• Método, loop e proibições</li>
+<li>• Devolve uma resposta, não confere a si mesmo</li>
+</ul>
+</div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-teal-500/20 border border-teal-500/30 text-teal-400 hover:bg-teal-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 5 -->
+<section class="mb-16" data-inema-topic="modulo-5-1#topico-5" id="topico-5">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">5</span>
+<h2 class="text-2xl font-bold">🛑 Stop × SubagentStop: por que registrar os dois</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m5-1-t5-p1">
+          Quem escreve código no kit é o <strong class="text-teal-400">mentor</strong>, e ele roda como subagente. Quando ele termina,
+          o evento que dispara é <span class="font-mono text-sm">SubagentStop</span>, não <span class="font-mono text-sm">Stop</span>.
+          Se o portão escutasse só o <span class="font-mono text-sm">Stop</span>, o mentor poderia entregar código sem rodar e a
+          barreira só apareceria depois, na sessão principal. Registrar os dois fecha as duas portas de saída.
+        </p>
+<div class="space-y-6 mb-6">
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center"><span class="text-teal-400 font-bold">1</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+<h4 class="font-semibold text-white mb-2">Você chama /nei-ensina</h4>
+<p class="text-neutral-300 text-sm">A sessão principal segue a skill e passa a dúvida ao subagente <span class="font-mono text-xs">nei-mentor</span>.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center"><span class="text-teal-400 font-bold">2</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+<h4 class="font-semibold text-white mb-2">O mentor escreve e roda código</h4>
+<p class="text-neutral-300 text-sm">Cada <span class="font-mono text-xs">Write</span>/<span class="font-mono text-xs">Edit</span> e cada <span class="font-mono text-xs">Bash</span> disparam o <span class="font-mono text-xs">PostToolUse</span>, que anota o que está pendente.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center"><span class="text-teal-400 font-bold">3</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-teal-500/30">
+<h4 class="font-semibold text-white mb-2">O mentor tenta terminar → SubagentStop</h4>
+<p class="text-neutral-300 text-sm">Se ficou código sem rodar, o portão devolve o turno <em>ao mentor</em>, que ainda tem o contexto para rodar.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-sky-500/20 flex items-center justify-center"><span class="text-sky-400 font-bold">4</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+<h4 class="font-semibold text-white mb-2">A sessão principal tenta terminar → Stop</h4>
+<p class="text-neutral-300 text-sm">Mesma checagem, para o código que a própria sessão principal tenha escrito sem rodar.</p>
+</div>
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🆕</span> Novo aqui? stop_hook_active</h3>
+<p class="text-neutral-300 text-sm">Quando um hook de parada já bloqueou uma vez, o Claude Code manda no JSON do evento seguinte o campo
+            <span class="font-mono text-xs">"stop_hook_active": true</span>. É o aviso "você já insistiu". Um hook bem escrito usa esse sinal
+            para não prender a sessão num laço sem fim. O módulo 5.2 mostra o que acontece quando ele é ignorado, e o 5.4 mostra como o portão o usa.</p>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-teal-500/20 border border-teal-500/30 text-teal-400 hover:bg-teal-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 6 -->
+<section class="mb-16" data-inema-topic="modulo-5-1#topico-6" id="topico-6">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">6</span>
+<h2 class="text-2xl font-bold">🌳 Projeto × global, e a árvore real do mentor-nei</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m5-1-t6-p1">
+          A pasta <span class="font-mono text-sm">.claude/</span> existe em dois lugares. A do <strong class="text-teal-400">projeto</strong>
+          vale só quando você abre o Claude Code naquela pasta. A <strong class="text-sky-400">global</strong>
+          (<span class="font-mono text-sm">~/.claude/</span>, na sua pasta de usuário) vale em todos os projetos. O mentor mora inteiro
+          no projeto: o portão só vigia o mentor e não atrapalha seus outros trabalhos.
+        </p>
+<div class="overflow-x-auto mb-6">
+<table class="w-full text-sm border border-dark-600 rounded-lg overflow-hidden">
+<thead class="bg-dark-800">
+<tr><th class="text-left p-3 text-teal-400">Peça</th><th class="text-left p-3 text-teal-400">No projeto (mentor)</th><th class="text-left p-3 text-sky-400">Global</th></tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr><td class="p-3 text-neutral-300">Hooks</td><td class="p-3 font-mono text-xs">.claude/settings.json</td><td class="p-3 font-mono text-xs">~/.claude/settings.json</td></tr>
+<tr><td class="p-3 text-neutral-300">Subagentes</td><td class="p-3 font-mono text-xs">.claude/agents/</td><td class="p-3 font-mono text-xs">~/.claude/agents/</td></tr>
+<tr><td class="p-3 text-neutral-300">Skills</td><td class="p-3 font-mono text-xs">.claude/skills/</td><td class="p-3 font-mono text-xs">~/.claude/skills/</td></tr>
+<tr><td class="p-3 text-neutral-300">Quando vale</td><td class="p-3 text-neutral-300">Só dentro da pasta do mentor</td><td class="p-3 text-neutral-300">Em toda sessão</td></tr>
+</tbody>
+</table>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<p class="text-sm text-neutral-400 mb-2">Árvore real de <span class="font-mono">.claude/</span> no piloto <span class="font-mono">mentor-nei</span> (9 arquivos):</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto">.claude/
+├── settings.json                 ← registra o portão em 3 eventos
+├── hooks/
+│   └── portao-execucao.py        ← o portão (módulo 5.4)
+├── agents/
+│   └── nei-mentor.md             ← o mentor e o loop (módulo 5.2)
+└── skills/
+    ├── nei-coletar/SKILL.md      ← fase 1
+    ├── nei-compilar/SKILL.md     ← fase 2
+    ├── nei-regras/SKILL.md       ← fase 3
+    ├── nei-ensina/SKILL.md       ← uso (módulo 5.3)
+    ├── nei-revisa/SKILL.md       ← uso
+    └── nei-ingere/SKILL.md       ← evolução</pre>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">🧪</span> Copie e rode: conferir a árvore do seu mentor</h3>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-teal-400">Objetivo:</strong> ver que o <span class="font-mono text-xs">novo-mentor.py</span> gerou as peças com o seu slug no lugar de <span class="font-mono text-xs">{{SLUG}}</span>.</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">cd &lt;pasta do seu mentor&gt;
+find .claude -type f | sort
+grep -h '^name:' .claude/agents/*.md .claude/skills/*/SKILL.md</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-teal-400">Como verificar:</strong> 9 arquivos, como na árvore acima, e 7 linhas <span class="font-mono text-xs">name:</span> (1 agente + 6 skills), todas com o seu slug. Se aparecer <span class="font-mono text-xs">{{SLUG}}</span> em algum nome, a pasta foi copiada à mão em vez de gerada.</p>
+</div>
+<div class="bg-amber-900/20 rounded-xl border border-amber-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-amber-400 mb-3 flex items-center"><span class="mr-2">💡</span> Do piloto: testar hook novo longe do portão</h3>
+<p class="text-neutral-300">No teste 1 do piloto, o mentor criou um hook de <span class="font-mono text-sm">Stop</span> novo numa pasta separada,
+            <span class="font-mono text-sm">exemplos/hook-todo-stop/</span>, com o próprio <span class="font-mono text-sm">.claude/settings.json</span>.
+            O motivo, nas palavras da resposta: assim ele "não se empilha no portão que este projeto já usa". Dois hooks de <span class="font-mono text-sm">Stop</span>
+            no mesmo projeto rodam juntos, e basta um bloquear para o turno continuar.</p>
+</div>
+<div class="inema-check mt-8 mb-6 bg-dark-800 border border-dark-600 rounded-xl p-6" data-inema-check="modulo-5-1#q1">
+<p class="font-medium mb-4">Checagem rápida: você copiou <span class="font-mono text-sm">portao-execucao.py</span> para <span class="font-mono text-sm">.claude/hooks/</span> de outro projeto e o portão não bloqueia nada. Qual é a causa mais provável?</p>
+<div class="inema-check-options space-y-2">
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="0" type="button">O script precisa de permissão de execução (chmod +x).</button>
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="1" type="button">Faltou registrar o script nos eventos do .claude/settings.json desse projeto.</button>
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="2" type="button">O subagente mentor precisa estar na pasta global ~/.claude/agents/.</button>
+</div>
+<div aria-live="polite" class="mt-4 text-sm" data-inema-check-feedback="" role="status"></div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-teal-500/20 border border-teal-500/30 text-teal-400 hover:bg-teal-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<section class="mb-12">
+<div class="bg-gradient-to-br from-teal-900/40 via-dark-800 to-dark-800 rounded-xl border border-teal-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📌</span> Resumo do Módulo</h2>
+<div class="space-y-4 mb-8">
+<div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Três peças</strong><span class="text-neutral-400"> - settings (registro), agents (o mentor), skills (as receitas com /).</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">settings.json</strong><span class="text-neutral-400"> - hook fora do registro não roda; o kit usa 1 script em 3 eventos.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Subagente</strong><span class="text-neutral-400"> - frontmatter com name e description; o corpo é o método, não a persona.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Skill</strong><span class="text-neutral-400"> - pasta com SKILL.md; ensina e revisa chamam o mentor, ingere não.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Stop × SubagentStop</strong><span class="text-neutral-400"> - o mentor é subagente, então as duas saídas precisam do portão.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Projeto × global</strong><span class="text-neutral-400"> - o mentor mora no projeto; hook experimental vai para uma pasta separada.</span></div></div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+<h3 class="font-semibold text-teal-400 mb-2">Próximo Módulo:</h3>
+<p class="text-neutral-300">5.2 - O loop obrigatório do mentor: Pronto, Menor versão, Previsão, Saída real, Versão quebrada e Relatório.</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="index.html">← Voltar para Trilha</a>
+<a class="flex-1 text-center px-6 py-3 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-500 transition-colors" href="modulo-5-2.html">Próximo Módulo →</a>
+</div>
+</div>
+</section>
+</main>
+</div>
+<footer class="border-t border-dark-600 py-8 mt-16">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+<p>Mentor-Especialista: o método de um especialista virando seu mentor no Claude Code — 2026</p>
+<p class="mt-2">
+<a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+<span class="text-neutral-600 mx-1">-</span>
+<a class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200" href="https://inema.pro" target="_blank">PRO</a>
+</p>
+</div>
+</footer>
+<script src="../../assets/curso.js"></script>
+<script src="../../assets/learn.js"></script>
+<script>
+    if (window.INEMA && typeof window.INEMA.init === 'function') window.INEMA.init();
+    window.addEventListener('DOMContentLoaded', function () {
+      if (window.INEMA && INEMA.registerCheck) {
+        INEMA.registerCheck('modulo-5-1#q1', {
+          answer: 1,
+          explain: {
+            0: 'Permissão não é o problema: o comando registrado é "python3 caminho", que roda o arquivo mesmo sem +x.',
+            1: 'Isso. O Claude Code só executa hooks listados no settings.json, debaixo do evento certo.',
+            2: 'O portão não depende do agente: ele é registrado no settings.json e vigia qualquer sessão do projeto.'
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

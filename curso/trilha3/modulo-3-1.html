@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="mentor-especialista-curso" name="inema-course"/>
+<title>Módulo 3.1 · Raw imutável, wiki viva | Mentor-Especialista</title>
+<script src="../../assets/boot.js"></script>
+<script data-inema-manifest="" type="application/json">
+  {
+    "course": "mentor-especialista-curso",
+    "tracks": [
+      { "n": "1", "title": "Por que um mentor", "modules": [
+        { "id": "1-1", "title": "Os maus hábitos da IA quando ensina", "topics": 6, "href": "curso/trilha1/modulo-1-1.html" },
+        { "id": "1-2", "title": "Método não é persona: escopo do mentor", "topics": 6, "href": "curso/trilha1/modulo-1-2.html" }
+      ]},
+      { "n": "2", "title": "Coleta do acervo", "modules": [
+        { "id": "2-1", "title": "Fontes e coletores", "topics": 6, "href": "curso/trilha2/modulo-2-1.html" },
+        { "id": "2-2", "title": "Subagentes, manifesto e falhas", "topics": 6, "href": "curso/trilha2/modulo-2-2.html" }
+      ]},
+      { "n": "3", "title": "Wiki compilada", "modules": [
+        { "id": "3-1", "title": "Raw imutável, wiki viva", "topics": 6, "href": "curso/trilha3/modulo-3-1.html" },
+        { "id": "3-2", "title": "Fontes, temas, princípios e métodos", "topics": 6, "href": "curso/trilha3/modulo-3-2.html" }
+      ]},
+      { "n": "4", "title": "Regras com prova", "modules": [
+        { "id": "4-1", "title": "Conduta, não frase de efeito", "topics": 6, "href": "curso/trilha4/modulo-4-1.html" },
+        { "id": "4-2", "title": "Citação, status e validador", "topics": 6, "href": "curso/trilha4/modulo-4-2.html" }
+      ]},
+      { "n": "5", "title": "Agente, skills e portão", "modules": [
+        { "id": "5-1", "title": "Mapa: settings, agente e skills", "topics": 6, "href": "curso/trilha5/modulo-5-1.html" },
+        { "id": "5-2", "title": "O loop obrigatório do mentor", "topics": 6, "href": "curso/trilha5/modulo-5-2.html" },
+        { "id": "5-3", "title": "Skills: ensina, revisa, ingere", "topics": 6, "href": "curso/trilha5/modulo-5-3.html" },
+        { "id": "5-4", "title": "Portão de execução", "topics": 6, "href": "curso/trilha5/modulo-5-4.html" }
+      ]},
+      { "n": "6", "title": "Prova e evolução", "modules": [
+        { "id": "6-1", "title": "O piloto real e os testes de aceitação", "topics": 6, "href": "curso/trilha6/modulo-6-1.html" },
+        { "id": "6-2", "title": "Ingestão contínua, atualização e reuso", "topics": 6, "href": "curso/trilha6/modulo-6-2.html" }
+      ]}
+    ]
+  }
+  </script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../../assets/curso.css" rel="stylesheet"/>
+<link href="../../assets/learn.css" rel="stylesheet"/>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+<a class="skip sr-only focus:not-sr-only" href="#conteudo">Pular para o conteúdo</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🧭</span><span class="font-bold text-lg hidden sm:inline">Mentor-Especialista</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+<span class="text-neutral-600">-</span>
+<a class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200 text-sm font-medium" href="https://inema.pro" target="_blank">PRO</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Por quê</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Coleta</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10" href="index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Wiki</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors" href="../trilha4/index.html"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Regras</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors" href="../trilha5/index.html"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Agente</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors" href="../trilha6/index.html"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Prova</span></a>
+<button class="hidden md:inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-neutral-300 hover:text-neutral-100 transition-colors text-sm" data-inema-journey-open="" type="button">
+<span aria-hidden="true">◷</span><span>Minha jornada</span><span aria-hidden="true" class="inema-journey-badge hidden"></span>
+</button>
+<button aria-label="Alternar tema claro/escuro" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<nav aria-label="Trilha de navegação" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+<div class="flex items-center space-x-2 text-sm text-neutral-400">
+<a class="hover:text-purple-400" href="../../index.html">Início</a><span>/</span>
+<a class="hover:text-purple-400" href="index.html">Trilha 3</a><span>/</span>
+<span class="text-purple-400">Módulo 3.1</span>
+</div>
+</nav>
+<header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600" data-inema-module="3-1" data-inema-track="3">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 3.1</span>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">🗄️ Raw imutável, wiki viva</h1>
+<p class="text-lg text-neutral-400 max-w-3xl">
+        Na trilha 2 você juntou o acervo do especialista. Ele é grande, cru e repetitivo, e por isso não serve como memória
+        do mentor. Aqui você aprende a congelar esse acervo, compilar uma wiki curta e interligada a partir dele, e provar
+        com um comando que a wiki está pronta.
+      </p>
+<div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">50</div><div class="text-xs text-neutral-400">Minutos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Core</div><div class="text-xs text-neutral-400">Nível</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Prático</div><div class="text-xs text-neutral-400">Tipo</div></div>
+</div>
+<div class="mt-6 max-w-2xl">
+<div aria-label="Progresso do módulo 3.1" aria-valuemax="100" aria-valuemin="0" class="inema-meter" data-inema-meter="modulo:3-1" role="progressbar">
+<span class="inema-meter-pct">0%</span><span class="inema-meter-count">0 de 6</span>
+</div>
+</div>
+</div>
+</header>
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:grid lg:grid-cols-[220px_1fr] lg:gap-10">
+<nav aria-label="Índice da página" class="hidden lg:block sticky top-24 self-start" data-inema-toc="">
+<p class="text-sm text-neutral-400 mb-2">Seção <span class="inema-toc-pos">1</span> de <span class="inema-toc-total">6</span></p>
+<ul class="space-y-1 text-sm">
+<li><a class="inema-toc-link hover:text-purple-400" href="#topico-1">1. Acervo não é memória</a></li>
+<li><a class="inema-toc-link hover:text-purple-400" href="#topico-2">2. Raw somente leitura</a></li>
+<li><a class="inema-toc-link hover:text-purple-400" href="#topico-3">3. Compilar ≠ copiar</a></li>
+<li><a class="inema-toc-link hover:text-purple-400" href="#topico-4">4. Subagentes por lote</a></li>
+<li><a class="inema-toc-link hover:text-purple-400" href="#topico-5">5. validar_links.py</a></li>
+<li><a class="inema-toc-link hover:text-purple-400" href="#topico-6">6. Fase 2 do piloto</a></li>
+</ul>
+</nav>
+<main class="inema-prose" id="conteudo">
+<!-- TOPICO 1 -->
+<section class="mb-16" data-inema-topic="modulo-3-1#topico-1" id="topico-1">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span>
+<h2 class="text-2xl font-bold">📚 Por que o acervo cru não serve como memória</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m3-1-t1-p1">
+          No piloto, o acervo do Nei terminou com <strong class="text-purple-400">22 fontes e 189.406 palavras</strong>: 14 lives
+          (177.982 palavras, quase 13 mil por live) e 8 guias (11.424 palavras). É muito texto para o mentor ler a cada pergunta,
+          e o pior não é o tamanho: é a forma. Legenda de live é fala picada, cheia de conversa com a turma, e a mesma ideia
+          aparece espalhada em dezenas de pontos diferentes.
+        </p>
+<div class="bg-sky-900/20 rounded-xl border border-sky-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-sky-400 mb-3 flex items-center"><span class="mr-2">🆕</span> Novo aqui? Quatro palavras deste módulo</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li><strong class="text-white">Acervo:</strong> tudo o que você coletou do especialista na trilha 2 (legendas de lives, guias, textos), do jeito que chegou.</li>
+<li><strong class="text-white">Raw:</strong> a pasta <code>raw/</code> do projeto, onde o acervo fica guardado sem edição. "Raw" é "cru" em inglês.</li>
+<li><strong class="text-white">Wiki:</strong> a pasta <code>wiki/</code>, com páginas curtas em Markdown, uma por assunto, ligadas entre si por links do tipo <code>[[nome-da-pagina]]</code>.</li>
+<li><strong class="text-white">Contexto:</strong> o texto que o modelo tem "na frente" quando responde. Tem limite de tamanho e custa a cada chamada, por isso o que entra nele precisa ser curto e certeiro.</li>
+</ul>
+</div>
+<div class="rounded-2xl border border-purple-500/30 bg-dark-900/40 p-3 sm:p-4 mb-6 overflow-hidden">
+<svg aria-label="À esquerda, 22 documentos crus empilhados; uma seta chamada compilar leva a uma rede de páginas curtas ligadas entre si, com o hot no centro como porta de entrada" class="w-full h-auto" role="img" viewbox="0 0 1000 260">
+<defs>
+<lineargradient id="m31a-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#c084fc"></stop><stop offset="1" stop-color="#a855f7"></stop></lineargradient>
+<filter height="180%" id="m31a-glow" width="180%" x="-40%" y="-40%"><fegaussianblur result="b" stddeviation="2"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
+<pattern height="32" id="m31a-grid" patternunits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#a855f7" opacity="0.12" r="1.3"></circle></pattern>
+<marker id="m31a-ah" markerheight="9" markerwidth="9" orient="auto" refx="6.5" refy="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#c084fc"></path></marker>
+</defs>
+<rect fill="url(#m31a-grid)" height="260" width="1000" x="0" y="0"></rect>
+<g fill="#151b26" stroke="#4b5563" stroke-width="1.5">
+<rect height="150" rx="8" width="120" x="70" y="40"></rect><rect height="150" rx="8" width="120" x="60" y="52"></rect><rect height="150" rx="8" width="120" x="50" y="64"></rect>
+</g>
+<g stroke="#6b7280" stroke-width="2"><path d="M66,92 H154"></path><path d="M66,108 H140"></path><path d="M66,124 H158"></path><path d="M66,140 H128"></path><path d="M66,156 H150"></path><path d="M66,172 H136"></path><path d="M66,188 H146"></path></g>
+<text fill="#d1d5db" font-family="Inter,sans-serif" font-size="14" font-weight="600" text-anchor="middle" x="120" y="236">raw/ · 22 fontes</text>
+<text fill="#9ca3af" font-family="Inter,sans-serif" font-size="12" text-anchor="middle" x="120" y="254">189 mil palavras, fala picada</text>
+<path d="M230,130 L380,130" fill="none" marker-end="url(#m31a-ah)" opacity="0.7" stroke="#c084fc" stroke-width="2.5"></path>
+<text fill="#e9d5ff" font-family="Inter,sans-serif" font-size="14" font-weight="600" text-anchor="middle" x="305" y="118">compilar</text>
+<text fill="#9ca3af" font-family="Inter,sans-serif" font-size="11" text-anchor="middle" x="305" y="152">ler, resumir, ligar</text>
+<g opacity="0.55" stroke="#38bdf8" stroke-width="1.5">
+<path d="M640,130 L500,60"></path><path d="M640,130 L500,200"></path><path d="M640,130 L780,55"></path><path d="M640,130 L800,205"></path><path d="M640,130 L880,130"></path><path d="M640,130 L450,130"></path>
+<path d="M500,60 L450,130"></path><path d="M780,55 L880,130"></path><path d="M500,200 L800,205"></path>
+</g>
+<g font-family="Inter,sans-serif" font-size="12" font-weight="600">
+<rect fill="#0e1b26" height="30" rx="8" stroke="#38bdf8" stroke-width="1.8" width="96" x="452" y="45"></rect><text fill="#bfe6ff" text-anchor="middle" x="500" y="65">fontes/</text>
+<rect fill="#0e1b26" height="30" rx="8" stroke="#38bdf8" stroke-width="1.8" width="96" x="402" y="115"></rect><text fill="#bfe6ff" text-anchor="middle" x="450" y="135">temas/</text>
+<rect fill="#0e1b26" height="30" rx="8" stroke="#38bdf8" stroke-width="1.8" width="96" x="452" y="185"></rect><text fill="#bfe6ff" text-anchor="middle" x="500" y="205">métodos/</text>
+<rect fill="#0e1b26" height="30" rx="8" stroke="#38bdf8" stroke-width="1.8" width="110" x="725" y="40"></rect><text fill="#bfe6ff" text-anchor="middle" x="780" y="60">princípios/</text>
+<rect fill="#0e1b26" height="30" rx="8" stroke="#38bdf8" stroke-width="1.8" width="96" x="832" y="115"></rect><text fill="#bfe6ff" text-anchor="middle" x="880" y="135">index</text>
+<rect fill="#0e1b26" height="30" rx="8" stroke="#38bdf8" stroke-width="1.8" width="96" x="752" y="190"></rect><text fill="#bfe6ff" text-anchor="middle" x="800" y="210">log</text>
+</g>
+<g filter="url(#m31a-glow)"><circle cx="640" cy="130" fill="#1a1230" r="40" stroke="url(#m31a-grad)" stroke-width="2.5"></circle></g>
+<text fill="#c084fc" font-family="Inter,sans-serif" font-size="17" font-weight="700" text-anchor="middle" x="640" y="128">hot</text>
+<text fill="#e9d5ff" font-family="Inter,sans-serif" font-size="10" text-anchor="middle" x="640" y="144">porta de entrada</text>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-purple-400">Como ler:</strong> à esquerda está o que você tem depois da coleta: muito texto, sem estrutura.
+            À direita está o que o mentor consulta: páginas curtas, cada uma sobre uma coisa, ligadas entre si. O mentor entra pelo
+            <code>hot</code> (20 linhas), segue os links e só abre o arquivo cru quando precisa conferir uma citação.
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ Mentor lendo o acervo cru</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>189 mil palavras não cabem numa resposta; ele lê pedaços e não sabe o que deixou de fora</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Cita o primeiro trecho que acha, não o que mais pesa no método da pessoa</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Não enxerga que uma ideia volta em 18 fontes, o que a torna central</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Mistura conversa de live ("boa noite, galera") com ensinamento</span></li>
+</ul>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ Mentor lendo a wiki compilada</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Uma página por conceito, com o enunciado e trechos curtos entre aspas</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Sabe quantas fontes sustentam cada ideia e começa pelas mais citadas</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Cada trecho aponta o arquivo do <code>raw/</code> de onde veio, para conferir</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Entra pelo <code>hot.md</code>, que cabe inteiro no contexto</span></li>
+</ul>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-purple-400 text-sm font-semibold mb-1">Raw guarda</p><p class="text-xs text-neutral-400">A prova do que foi dito</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-purple-400 text-sm font-semibold mb-1">Wiki ensina</p><p class="text-xs text-neutral-400">O que o mentor consulta</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-purple-400 text-sm font-semibold mb-1">Hot abre</p><p class="text-xs text-neutral-400">20 linhas de porta</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-purple-400 text-sm font-semibold mb-1">Peso</p><p class="text-xs text-neutral-400">Nº de fontes que citam</p></div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-500/20 border border-purple-500/30 text-purple-400 hover:bg-purple-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 2 -->
+<section class="mb-16" data-inema-topic="modulo-3-1#topico-2" id="topico-2">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span>
+<h2 class="text-2xl font-bold">🔒 Raw somente leitura: o hash denuncia alteração</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m3-1-t2-p1">
+          Depois da coleta, ninguém edita o <code>raw/</code>: nem você, nem o agente. A wiki e, na trilha 4, as regras citam
+          trechos desse acervo. Se o raw muda, a citação passa a apontar para um texto que o especialista nunca disse, e você
+          perde a única forma de separar a fala dele da "correção" de alguém. A regra vale até quando o raw está feio: no piloto,
+          as legendas picadas continuaram como foram coletadas, e o conserto foi no coletor e no validador (módulo 3.2).
+        </p>
+<div class="bg-sky-900/20 rounded-xl border border-sky-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-sky-400 mb-3 flex items-center"><span class="mr-2">🆕</span> O que é um hash sha256?</h3>
+<p class="text-neutral-300 text-sm">É uma "impressão digital" de 64 caracteres calculada a partir do conteúdo de um arquivo. Mudou um único espaço, a impressão
+            muda inteira. O coletor grava essa impressão no <code>raw/MANIFESTO.json</code> no momento da coleta; o <code>tools/stats.py</code>
+            recalcula e compara. Se não bater, ele acusa. Não é cadeado: é alarme.</p>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3">Um item real do <code>raw/MANIFESTO.json</code> do piloto</h3>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto">{
+  "id": "guia-maestro-roteador-triagem-de-modelo-e-esforco-para-ded1b",
+  "tipo": "guia",
+  "url": "https://inematds.github.io/maestro-roteador/guia/",
+  "titulo": "maestro-roteador — triagem de modelo e esforço para Claude Code",
+  "arquivo": "raw/guia/maestro-roteador-triagem-de-modelo-e-esforco-para--ded1bc.md",
+  "coletado_em": "2026-10-05",
+  "palavras": 1418,
+  "sha256": "b8540f7c45b432d3779817b05f659e1a84a82a9d46c33d38a00d8ecc0b351039"
+}</pre>
+<p class="text-neutral-400 text-sm mt-3">O <code>id</code> vira o nome da página em <code>wiki/fontes/</code>; o <code>sha256</code> é a impressão digital que trava o arquivo.</p>
+</div>
+<div class="rounded-2xl border border-purple-500/30 bg-dark-900/40 p-3 sm:p-4 mb-6 overflow-hidden">
+<svg aria-label="O arquivo do raw passa pelo cálculo sha256; o resultado é comparado com o sha256 gravado no manifesto; se bate, OK; se não bate, o stats.py reprova com raw alterado depois da coleta" class="w-full h-auto" role="img" viewbox="0 0 1000 210">
+<defs>
+<filter height="180%" id="m31b-glow" width="180%" x="-40%" y="-40%"><fegaussianblur result="b" stddeviation="1.8"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
+<pattern height="32" id="m31b-grid" patternunits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#a855f7" opacity="0.12" r="1.3"></circle></pattern>
+<marker id="m31b-ah" markerheight="9" markerwidth="9" orient="auto" refx="6.5" refy="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#c084fc"></path></marker>
+</defs>
+<rect fill="url(#m31b-grid)" height="210" width="1000" x="0" y="0"></rect>
+<g fill="none" opacity="0.6" stroke="#c084fc" stroke-width="2">
+<path d="M190,80 L250,80" marker-end="url(#m31b-ah)"></path><path d="M420,80 L480,80" marker-end="url(#m31b-ah)"></path>
+<path d="M420,160 C450,160 450,95 480,90" marker-end="url(#m31b-ah)"></path>
+<path d="M660,80 C700,80 700,50 740,50" marker-end="url(#m31b-ah)"></path><path d="M660,80 C700,80 700,140 740,140" marker-end="url(#m31b-ah)"></path>
+</g>
+<g font-family="Inter,sans-serif" font-size="13" font-weight="600">
+<rect fill="#1a1230" height="50" rx="10" stroke="#c084fc" stroke-width="2" width="160" x="30" y="55"></rect><text fill="#e9d5ff" text-anchor="middle" x="110" y="78">arquivo em raw/</text><text fill="#9ca3af" font-size="11" font-weight="400" text-anchor="middle" x="110" y="95">hoje</text>
+<rect fill="#0e1b26" height="50" rx="10" stroke="#38bdf8" stroke-width="2" width="170" x="250" y="55"></rect><text fill="#bfe6ff" text-anchor="middle" x="335" y="78">sha256 agora</text><text fill="#9ca3af" font-size="11" font-weight="400" text-anchor="middle" x="335" y="95">recalculado</text>
+<rect fill="#0e1b26" height="50" rx="10" stroke="#38bdf8" stroke-width="2" width="170" x="250" y="135"></rect><text fill="#bfe6ff" text-anchor="middle" x="335" y="158">sha256 gravado</text><text fill="#9ca3af" font-size="11" font-weight="400" text-anchor="middle" x="335" y="175">MANIFESTO.json</text>
+<g filter="url(#m31b-glow)"><rect fill="#1a1230" height="50" rx="10" stroke="#c084fc" stroke-width="2" width="180" x="480" y="55"></rect></g><text fill="#c084fc" text-anchor="middle" x="570" y="78">stats.py compara</text><text fill="#e9d5ff" font-size="11" font-weight="400" text-anchor="middle" x="570" y="95">iguais?</text>
+<rect fill="#0f2a1e" height="44" rx="10" stroke="#34d399" stroke-width="2" width="220" x="740" y="28"></rect><text fill="#a7f3d0" text-anchor="middle" x="850" y="55">igual → exit 0</text>
+<rect fill="#2a1215" height="44" rx="10" stroke="#f87171" stroke-width="2" width="250" x="740" y="118"></rect><text fill="#fecaca" text-anchor="middle" x="865" y="139">diferente → exit 1</text><text fill="#fca5a5" font-size="10" font-weight="400" text-anchor="middle" x="865" y="155">"raw alterado depois da coleta"</text>
+</g>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-purple-400">Como ler:</strong> a impressão gravada no dia da coleta não muda nunca. O <code>stats.py</code> tira uma
+            impressão nova e compara as duas. Um espaço a mais no fim de um guia já basta para cair no caminho vermelho.
+          </p>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">🧪</span> Copy-run A — confira que o seu raw está intacto</h3>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-purple-400">Objetivo:</strong> rodar a mesma checagem que fecha a fase 1, agora como prova de que ninguém tocou no acervo.</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">cd ~/projetos/mentor-&lt;slug&gt;
+python3 tools/stats.py; echo "exit=$?"</pre>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-purple-400">Saída real no piloto (mentor-nei):</strong></p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">tipo          itens   palavras   meta
+guia              8      11424   ≥5 itens / ≥8000 pal.
+video            14     177982   ≥10 itens / ≥60000 pal.
+TOTAL            22     189406
+
+OK: acervo dentro das metas
+exit=0</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-purple-400">Como verificar:</strong> a última linha tem que ser <code>exit=0</code>. Qualquer linha começando com "raw alterado" significa que algo foi editado depois da coleta.</p>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">🧪</span> Copy-run B — teste negativo numa cópia</h3>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-purple-400">Objetivo:</strong> ver o alarme tocar. Um validador que nunca reprovou não provou nada. O teste roda numa cópia descartável, nunca no projeto.</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">rm -rf /tmp/raw-teste
+cp -r ~/projetos/mentor-&lt;slug&gt; /tmp/raw-teste
+cd /tmp/raw-teste
+echo " " &gt;&gt; raw/guia/&lt;um-arquivo-do-seu-raw&gt;.md
+python3 tools/stats.py; echo "exit=$?"
+cd ~ &amp;&amp; rm -rf /tmp/raw-teste</pre>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-purple-400">Saída real no piloto</strong> (um espaço acrescentado ao guia do makeshorts):</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">REPROVADO:
+  - raw alterado depois da coleta (sha256 diferente): raw/guia/makeshorts-fabrica-de-shorts-com-ia-70fe54.md
+exit=1</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-purple-400">Como verificar:</strong> <code>exit=1</code> e o nome exato do arquivo que você mexeu. Depois do <code>rm -rf</code>, o projeto original continua dando <code>exit=0</code>.</p>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+<p class="text-neutral-300">Commite o <code>raw/</code> logo depois que a fase 1 der <code>exit=0</code> (o piloto fez isso: "fase 1: acervo (21 itens, 187k palavras)").
+            Assim, se algo mexer no acervo, o <code>git diff raw/</code> mostra o que foi e o <code>git checkout raw/</code> desfaz.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-purple-400 text-sm font-semibold mb-1">Somente leitura</p><p class="text-xs text-neutral-400">Depois da coleta</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-purple-400 text-sm font-semibold mb-1">sha256</p><p class="text-xs text-neutral-400">Impressão digital</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-purple-400 text-sm font-semibold mb-1">stats.py</p><p class="text-xs text-neutral-400">Recalcula e compara</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-purple-400 text-sm font-semibold mb-1">Teste negativo</p><p class="text-xs text-neutral-400">Sempre numa cópia</p></div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-500/20 border border-purple-500/30 text-purple-400 hover:bg-purple-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 3 -->
+<section class="mb-16" data-inema-topic="modulo-3-1#topico-3" id="topico-3">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span>
+<h2 class="text-2xl font-bold">🧪 Compilar não é copiar</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m3-1-t3-p1">
+<strong class="text-purple-400">Compilar</strong>, aqui, é ler uma fonte inteira e escrever uma página nova e curta com o que ela ensina,
+          trechos literais pequenos que provam isso e links para os conceitos que ela toca. Copiar é colar blocos do raw na wiki:
+          o tamanho não cai, a estrutura não aparece e o mentor continua lendo fala picada.
+        </p>
+<div class="overflow-x-auto mb-6">
+<table class="w-full text-sm border border-dark-600 rounded-xl overflow-hidden">
+<thead class="bg-dark-800"><tr><th class="text-left p-3 text-purple-400">Seção da página de fonte</th><th class="text-left p-3 text-purple-400">O que vai nela</th></tr></thead>
+<tbody class="divide-y divide-dark-600 text-neutral-300">
+<tr><td class="p-3 font-mono">Cabeçalho</td><td class="p-3">Tipo, origem (URL) e <code>Arquivo: raw/...</code>, o caminho exato para conferir</td></tr>
+<tr><td class="p-3 font-mono">## Resumo</td><td class="p-3">5 a 10 linhas: do que a fonte trata e o que ela defende</td></tr>
+<tr><td class="p-3 font-mono">## Ideias centrais</td><td class="p-3">Uma ideia por linha, cada uma com um trecho curto entre aspas</td></tr>
+<tr><td class="p-3 font-mono">## Como ele ensina aqui</td><td class="p-3">O jeito de ensinar que aparece nessa fonte (é o que vira método, não persona)</td></tr>
+<tr><td class="p-3 font-mono">## Ligações</td><td class="p-3">Links <code>[[...]]</code> para temas, princípios e métodos</td></tr>
+</tbody>
+</table>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3">Trecho real: <code>wiki/fontes/guia-execucao-longa-...-b4357.md</code></h3>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto">- Tipo: guia
+- Arquivo: raw/guia/execucao-longa-agentes-que-trabalham-horas-e-dias--b43579.md
+
+## Ideias centrais
+- O objetivo precisa ser provado por comando: "comandos cuja saída prova que terminou."
+- Parar por estagnação: "Três ciclos sem avanço mensurável = parar e chamar o humano."
+- Cache custa: "Perder o cache custa 12,5x a 25x."
+
+## Como ele ensina aqui
+- Pede conferência independente no fim: "Confira você mesmo (rode o teste final,
+  veja o hash dos testes)"
+
+## Ligações
+- Princípios: [[criterio-de-pronto-explicito]], [[verificar-antes-de-afirmar]],
+  [[medir-antes-de-acreditar]]
+- Métodos: [[execucao-longa-com-estado-em-arquivos]], [[guia-de-projeto-landing]]</pre>
+<p class="text-neutral-400 text-sm mt-3">Repare: a ideia vem em palavras da wiki, o trecho entre aspas vem literal do raw, e os links levam a páginas que outras fontes também alimentam.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ Compilado</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Página de fonte cabe numa tela</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Trechos curtos, literais, com o arquivo de origem</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Cada fonte liga ao menos um conceito</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Separa o que a pessoa defende de como ela ensina</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ Copiado</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Blocos longos de legenda colados na página</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Trecho "melhorado" que já não existe no raw</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Página isolada, sem link de saída</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Resumo genérico que serviria para qualquer especialista</span></li>
+</ul>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-purple-400 text-sm font-semibold mb-1">Uma por fonte</p><p class="text-xs text-neutral-400">Nome = id do manifesto</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-purple-400 text-sm font-semibold mb-1">Trecho literal</p><p class="text-xs text-neutral-400">Curto e conferível</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-purple-400 text-sm font-semibold mb-1">Como ensina</p><p class="text-xs text-neutral-400">Matéria-prima do método</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-purple-400 text-sm font-semibold mb-1">Ligações</p><p class="text-xs text-neutral-400">≥1 link de saída</p></div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-500/20 border border-purple-500/30 text-purple-400 hover:bg-purple-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 4 -->
+<section class="mb-16" data-inema-topic="modulo-3-1#topico-4" id="topico-4">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span>
+<h2 class="text-2xl font-bold">🛰️ Subagentes por lote</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m3-1-t4-p1">
+          Uma sessão só não lê 189 mil palavras com atenção. A skill <code>/&lt;slug&gt;-compilar</code> divide as fontes em lotes e entrega
+          cada lote a um subagente. Cada um escreve as páginas de fonte do seu lote e devolve uma lista de temas, princípios e métodos
+          <em>candidatos</em>. O agente principal junta tudo: mesmo conceito vira uma página só.
+        </p>
+<div class="bg-sky-900/20 rounded-xl border border-sky-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-sky-400 mb-3 flex items-center"><span class="mr-2">🆕</span> Novo aqui? Subagente e lote</h3>
+<p class="text-neutral-300 text-sm"><strong class="text-white">Subagente</strong> é uma segunda sessão do Claude Code que o agente principal dispara com
+            uma tarefa fechada. Ele tem contexto próprio (não enxerga a conversa principal) e devolve só o resultado. <strong class="text-white">Lote</strong>
+            é um grupo de fontes. No piloto, 21 fontes viraram 5 lotes, 4 ou 5 fontes por subagente.</p>
+</div>
+<div class="rounded-2xl border border-purple-500/30 bg-dark-900/40 p-3 sm:p-4 mb-6 overflow-hidden">
+<svg aria-label="O raw é dividido em 5 lotes; cada lote vai a um subagente em ciano; os 5 devolvem páginas de fonte e candidatos; o agente principal junta os candidatos e escreve temas, princípios, métodos, index, hot e log" class="w-full h-auto" role="img" viewbox="0 0 1000 280">
+<defs>
+<lineargradient id="m31c-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#c084fc"></stop><stop offset="1" stop-color="#a855f7"></stop></lineargradient>
+<filter height="180%" id="m31c-glow" width="180%" x="-40%" y="-40%"><fegaussianblur result="b" stddeviation="1.8"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
+<pattern height="32" id="m31c-grid" patternunits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#a855f7" opacity="0.12" r="1.3"></circle></pattern>
+<marker id="m31c-ah" markerheight="9" markerwidth="9" orient="auto" refx="6.5" refy="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#c084fc"></path></marker>
+<marker id="m31c-ahc" markerheight="9" markerwidth="9" orient="auto" refx="6.5" refy="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#38bdf8"></path></marker>
+</defs>
+<rect fill="url(#m31c-grid)" height="280" width="1000" x="0" y="0"></rect>
+<g fill="none" opacity="0.5" stroke="#c084fc" stroke-width="1.8">
+<path d="M170,140 C240,140 250,36 330,36" marker-end="url(#m31c-ah)"></path><path d="M170,140 C240,140 250,88 330,88" marker-end="url(#m31c-ah)"></path>
+<path d="M170,140 L330,140" marker-end="url(#m31c-ah)"></path><path d="M170,140 C240,140 250,192 330,192" marker-end="url(#m31c-ah)"></path>
+<path d="M170,140 C240,140 250,244 330,244" marker-end="url(#m31c-ah)"></path>
+</g>
+<g fill="none" opacity="0.5" stroke="#38bdf8" stroke-width="1.8">
+<path d="M510,36 C580,36 590,140 650,140" marker-end="url(#m31c-ahc)"></path><path d="M510,88 C580,88 590,140 650,140" marker-end="url(#m31c-ahc)"></path>
+<path d="M510,140 L650,140" marker-end="url(#m31c-ahc)"></path><path d="M510,192 C580,192 590,140 650,140" marker-end="url(#m31c-ahc)"></path>
+<path d="M510,244 C580,244 590,140 650,140" marker-end="url(#m31c-ahc)"></path>
+</g>
+<g filter="url(#m31c-glow)"><rect fill="#1a1230" height="64" rx="14" stroke="url(#m31c-grad)" stroke-width="2" width="140" x="30" y="108"></rect></g>
+<text fill="#c084fc" font-family="Inter,sans-serif" font-size="16" font-weight="700" text-anchor="middle" x="100" y="136">raw/</text>
+<text fill="#e9d5ff" font-family="Inter,sans-serif" font-size="11" text-anchor="middle" x="100" y="154">21 fontes</text>
+<g font-family="Inter,sans-serif" font-size="12" font-weight="600">
+<rect fill="#0e1b26" height="34" rx="9" stroke="#38bdf8" stroke-width="2" width="180" x="330" y="19"></rect><text fill="#bfe6ff" text-anchor="middle" x="420" y="41">subagente · lote 1</text>
+<rect fill="#0e1b26" height="34" rx="9" stroke="#38bdf8" stroke-width="2" width="180" x="330" y="71"></rect><text fill="#bfe6ff" text-anchor="middle" x="420" y="93">subagente · lote 2</text>
+<rect fill="#0e1b26" height="34" rx="9" stroke="#38bdf8" stroke-width="2" width="180" x="330" y="123"></rect><text fill="#bfe6ff" text-anchor="middle" x="420" y="145">subagente · lote 3</text>
+<rect fill="#0e1b26" height="34" rx="9" stroke="#38bdf8" stroke-width="2" width="180" x="330" y="175"></rect><text fill="#bfe6ff" text-anchor="middle" x="420" y="197">subagente · lote 4</text>
+<rect fill="#0e1b26" height="34" rx="9" stroke="#38bdf8" stroke-width="2" width="180" x="330" y="227"></rect><text fill="#bfe6ff" text-anchor="middle" x="420" y="249">subagente · lote 5</text>
+</g>
+<rect fill="#1a1230" height="96" rx="14" stroke="#c084fc" stroke-width="2" width="320" x="655" y="92"></rect>
+<text fill="#c084fc" font-family="Inter,sans-serif" font-size="15" font-weight="700" text-anchor="middle" x="815" y="120">agente principal junta</text>
+<text fill="#e9d5ff" font-family="Inter,sans-serif" font-size="12" text-anchor="middle" x="815" y="142">mesmo conceito = mesma página</text>
+<text fill="#9ad6ff" font-family="Inter,sans-serif" font-size="12" text-anchor="middle" x="815" y="164">18 temas · 12 princípios · 19 métodos</text>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-purple-400">Como ler:</strong> o leque roxo divide o trabalho; o leque ciano traz de volta só o essencial (páginas de fonte
+            e candidatos). A parte que exige visão do todo, decidir que "conferir o resultado real" e "o OK da ferramenta não prova nada" são
+            o mesmo princípio, fica com o agente principal, que é o único que vê todos os lotes.
+          </p>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">🧪</span> Copy-run — pedido de compilação para colar no Claude Code</h3>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-purple-400">Objetivo:</strong> rodar a fase 2 no seu mentor com lotes explícitos e raw protegido. Abra o Claude Code na pasta do projeto do mentor e cole:</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">/&lt;slug&gt;-compilar
+
+Acervo: raw/MANIFESTO.json (&lt;N&gt; itens). Divida as fontes em &lt;5&gt; lotes e use um
+subagente por lote.
+
+Cada subagente:
+- escreve wiki/fontes/&lt;id&gt;.md para cada item do lote (Resumo de 5 a 10 linhas,
+  Ideias centrais com trechos curtos e literais entre aspas, "Arquivo: raw/...",
+  Como ele ensina aqui, Ligações);
+- devolve uma lista de temas, princípios e métodos candidatos, cada um com as
+  fontes que o sustentam.
+
+Depois junte os candidatos (mesmo conceito = mesma página), escreva temas/,
+principios/, metodos/, index.md, hot.md e log.md, rode
+python3 tools/validar_links.py e mostre a saída completa.
+Não altere nada em raw/.</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-purple-400">Como verificar:</strong> três comandos, todos seus, não do agente:
+            <code>ls wiki/fontes | wc -l</code> deve dar o mesmo número de itens do manifesto; <code>python3 tools/validar_links.py; echo "exit=$?"</code> deve terminar em <code>exit=0</code>;
+            e <code>python3 tools/stats.py; echo "exit=$?"</code> continua em <code>exit=0</code> (raw intacto depois da compilação).</p>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Atenção</h3>
+<p class="text-neutral-300">Subagente não decide o que é tema ou princípio: ele só <em>propõe</em>. Se cada lote criar suas próprias páginas de princípio,
+            você termina com "verificar-antes", "conferir-resultado" e "nao-confiar-no-ok" como três páginas diferentes, e a contagem de fontes
+            de cada uma fica baixa. A junção é o passo que dá peso às ideias.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-purple-400 text-sm font-semibold mb-1">Lote</p><p class="text-xs text-neutral-400">4–5 fontes por subagente</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-purple-400 text-sm font-semibold mb-1">Candidatos</p><p class="text-xs text-neutral-400">Proposta, não página</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-purple-400 text-sm font-semibold mb-1">Junção</p><p class="text-xs text-neutral-400">Só o principal vê tudo</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-purple-400 text-sm font-semibold mb-1">Raw intocado</p><p class="text-xs text-neutral-400">stats.py depois</p></div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-500/20 border border-purple-500/30 text-purple-400 hover:bg-purple-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 5 -->
+<section class="mb-16" data-inema-topic="modulo-3-1#topico-5" id="topico-5">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span>
+<h2 class="text-2xl font-bold">✅ validar_links.py: o "pronto" da fase 2</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m3-1-t5-p1">
+          "A wiki ficou boa" não é critério. O kit define pronto como um comando com saída esperada:
+          <code>python3 tools/validar_links.py</code> terminando com <strong class="text-purple-400">exit 0</strong>. O script só usa a
+          biblioteca padrão do Python e checa a estrutura da wiki inteira em segundos.
+        </p>
+<div class="bg-sky-900/20 rounded-xl border border-sky-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-sky-400 mb-3 flex items-center"><span class="mr-2">🆕</span> O que é exit code?</h3>
+<p class="text-neutral-300 text-sm">Todo programa de terminal devolve um número ao terminar. <code>0</code> quer dizer "deu certo"; qualquer outro número quer dizer falha.
+            O <code>echo "exit=$?"</code> logo depois do comando mostra esse número. É ele que o mentor (e você) usa para dizer "pronto", e não a frase do agente.</p>
+</div>
+<div class="space-y-6 mb-6">
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">1</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+<h4 class="font-semibold text-white mb-2">Todo <code>[[link]]</code> aponta para uma página que existe</h4>
+<p class="text-neutral-300 text-sm">Link quebrado é caminho sem saída para o mentor. Nomes repetidos em pastas diferentes também reprovam, porque deixam o link ambíguo.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">2</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+<h4 class="font-semibold text-white mb-2">Toda página de fonte tem ≥1 link de saída</h4>
+<p class="text-neutral-300 text-sm">Fonte sem link é fonte que não alimentou nenhum conceito: foi lida e esquecida.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">3</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+<h4 class="font-semibold text-white mb-2">Todo princípio liga pelo menos uma fonte</h4>
+<p class="text-neutral-300 text-sm">Princípio sem fonte é opinião da IA vestida de especialista. Esta é a regra que mais protege o "método, não persona".</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">4</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-purple-500/30">
+<h4 class="font-semibold text-white mb-2">Nº de páginas em <code>fontes/</code> = nº de itens do manifesto, e existem index, hot e log</h4>
+<p class="text-neutral-300 text-sm">Garante que nenhuma fonte ficou de fora e que os três arquivos de controle (módulo 3.2) estão lá.</p>
+</div>
+</div>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">🧪</span> Copy-run — rode o validador e depois force uma reprovação</h3>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-purple-400">Objetivo:</strong> ver o "pronto" passar no projeto e reprovar numa cópia com um link inventado.</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">cd ~/projetos/mentor-&lt;slug&gt;
+python3 tools/validar_links.py; echo "exit=$?"
+
+rm -rf /tmp/wiki-teste
+cp -r ~/projetos/mentor-&lt;slug&gt; /tmp/wiki-teste
+cd /tmp/wiki-teste
+echo '[[pagina-que-nao-existe]]' &gt;&gt; wiki/hot.md
+python3 tools/validar_links.py; echo "exit=$?"
+cd ~ &amp;&amp; rm -rf /tmp/wiki-teste</pre>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-purple-400">Saída real no piloto</strong> (primeiro no projeto, depois na cópia):</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">76 páginas, 1304 links, 22 fontes
+OK: 0 links quebrados
+exit=0
+
+76 páginas, 1305 links, 22 fontes
+REPROVADO:
+  - link quebrado em hot.md: [[pagina-que-nao-existe]]
+exit=1</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-purple-400">Como verificar:</strong> o primeiro bloco termina em <code>exit=0</code>; o segundo conta um link a mais, nomeia o arquivo e o link quebrado e termina em <code>exit=1</code>.</p>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+<p class="text-neutral-300">O validador prova estrutura, não qualidade. Uma wiki pode dar <code>exit 0</code> e ainda soar como IA genérica.
+            A segunda metade do "pronto" é humana: ler o <code>hot.md</code> e responder se reconhece o especialista. Isso é o módulo 3.2.</p>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-500/20 border border-purple-500/30 text-purple-400 hover:bg-purple-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 6 -->
+<section class="mb-16" data-inema-topic="modulo-3-1#topico-6" id="topico-6">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span>
+<h2 class="text-2xl font-bold">📊 A fase 2 do piloto em números</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m3-1-t6-p1">
+          Com a fase 1 aprovada (21 itens, <code>stats.py</code> exit 0), o Nei rodou <code>/nei-compilar</code> no mentor dele. O diário
+          do piloto registrou o resultado em uma linha. Estes são os números, sem arredondar para cima.
+        </p>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+<div class="bg-dark-800 border border-purple-500/30 rounded-xl p-5"><div class="text-3xl font-bold text-purple-400">5</div><div class="text-sm text-neutral-400">subagentes, um por lote</div></div>
+<div class="bg-dark-800 border border-purple-500/30 rounded-xl p-5"><div class="text-3xl font-bold text-purple-400">3,3 min</div><div class="text-sm text-neutral-400">de compilação</div></div>
+<div class="bg-dark-800 border border-purple-500/30 rounded-xl p-5"><div class="text-3xl font-bold text-purple-400">73</div><div class="text-sm text-neutral-400">páginas na wiki</div></div>
+<div class="bg-dark-800 border border-purple-500/30 rounded-xl p-5"><div class="text-3xl font-bold text-purple-400">1.223</div><div class="text-sm text-neutral-400">links entre páginas</div></div>
+<div class="bg-dark-800 border border-purple-500/30 rounded-xl p-5"><div class="text-3xl font-bold text-purple-400">exit 0</div><div class="text-sm text-neutral-400">validar_links, raw intacto</div></div>
+<div class="bg-dark-800 border border-purple-500/30 rounded-xl p-5"><div class="text-3xl font-bold text-purple-400">8/10</div><div class="text-sm text-neutral-400">"hot reconhecível"</div></div>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3">De onde vêm as 73 páginas</h3>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto">fontes/       21   uma por item do manifesto
+temas/        18   o que ele domina
+principios/   12   o que ele defende repetidamente
+metodos/      19   como ele faz
+controle       3   index.md, hot.md, log.md
+-----------------
+total         73</pre>
+<p class="text-neutral-400 text-sm mt-3">Depois do teste de ingestão da trilha 6 (um guia novo), a wiki foi para 76 páginas, 22 fontes e cerca de 1.300 links (1.304 na saída real acima).</p>
+</div>
+<div class="space-y-4 mb-6">
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-14 h-14 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold text-xs">16:05</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600"><p class="text-neutral-300 text-sm"><strong class="text-white">Fase 1 aprovada:</strong> 21 itens, 187.382 palavras, <code>stats.py</code> exit 0. Acervo commitado.</p></div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-14 h-14 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold text-xs">16:15</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600"><p class="text-neutral-300 text-sm"><strong class="text-white">Fase 2:</strong> <code>/nei-compilar</code> com 5 subagentes, 3,3 min, 73 páginas, 1.223 links, <code>validar_links</code> exit 0, raw intacto.</p></div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-14 h-14 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold text-xs">16:15</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-4 border border-purple-500/30"><p class="text-neutral-300 text-sm"><strong class="text-white">Leitura humana:</strong> hot reconhecível, nota 8/10. E um problema anotado: trechos de vídeo picados no meio da frase (o caso real do módulo 3.2).</p></div>
+</div>
+</div>
+<div class="inema-check mt-8 mb-6 bg-dark-800 border border-dark-600 rounded-xl p-6" data-inema-check="modulo-3-1#q1">
+<p class="font-medium mb-4">Checagem rápida: o agente terminou a compilação e escreveu "wiki pronta, tudo interligado". O que prova que a fase 2 acabou?</p>
+<div class="inema-check-options space-y-2">
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="0" type="button">A frase do agente, já que ele leu todas as fontes.</button>
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="1" type="button">Você rodar validar_links.py e stats.py e os dois terminarem em exit=0.</button>
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="2" type="button">A pasta wiki/ ter mais de 70 arquivos.</button>
+</div>
+<div aria-live="polite" class="mt-4 text-sm" data-inema-check-feedback="" role="status"></div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-purple-400 text-sm font-semibold mb-1">Minutos</p><p class="text-xs text-neutral-400">Não horas</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-purple-400 text-sm font-semibold mb-1">Exit 0</p><p class="text-xs text-neutral-400">Estrutura provada</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-purple-400 text-sm font-semibold mb-1">Nota humana</p><p class="text-xs text-neutral-400">Reconhecível ou não</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-purple-400 text-sm font-semibold mb-1">Diário</p><p class="text-xs text-neutral-400">Problema anotado na hora</p></div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-500/20 border border-purple-500/30 text-purple-400 hover:bg-purple-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<section class="mb-12">
+<div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📌</span> Resumo do Módulo</h2>
+<div class="space-y-4 mb-8">
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Acervo não é memória</strong><span class="text-neutral-400"> - 189 mil palavras de fala picada não cabem nem ensinam; a wiki curta e ligada, sim.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Raw somente leitura</strong><span class="text-neutral-400"> - o sha256 no manifesto denuncia qualquer alteração; o stats.py é o alarme.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Compilar ≠ copiar</strong><span class="text-neutral-400"> - resumo, ideias com trecho literal, como ensina, ligações.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Subagentes por lote</strong><span class="text-neutral-400"> - eles propõem candidatos; o agente principal junta.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Pronto = exit 0</strong><span class="text-neutral-400"> - validar_links.py, com teste negativo numa cópia.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Piloto real</strong><span class="text-neutral-400"> - 5 subagentes, 3,3 min, 73 páginas, 1.223 links, nota 8.</span></div></div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+<h3 class="font-semibold text-purple-400 mb-2">Próximo Módulo:</h3>
+<p class="text-neutral-300">3.2 - Fontes, temas, princípios e métodos: o que vai em cada página, o hot do Nei e como julgar se a wiki é a pessoa ou IA genérica.</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="index.html">← Voltar para Trilha</a>
+<a class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors" href="modulo-3-2.html">Próximo Módulo →</a>
+</div>
+</div>
+</section>
+</main>
+</div>
+<footer class="border-t border-dark-600 py-8 mt-16">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+<p>Mentor-Especialista: o método de um especialista virando seu mentor no Claude Code — 2026</p>
+<p class="mt-2">
+<a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+<span class="text-neutral-600 mx-1">-</span>
+<a class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200" href="https://inema.pro" target="_blank">PRO</a>
+</p>
+</div>
+</footer>
+<script src="../../assets/curso.js"></script>
+<script src="../../assets/learn.js"></script>
+<script>
+    if (window.INEMA && typeof window.INEMA.init === 'function') window.INEMA.init();
+    window.addEventListener('DOMContentLoaded', function () {
+      if (window.INEMA && INEMA.registerCheck) {
+        INEMA.registerCheck('modulo-3-1#q1', {
+          answer: 1,
+          explain: {
+            0: 'A frase do agente é justamente o que não prova nada. Pronto é um comando com saída esperada, rodado por você.',
+            1: 'Isso. validar_links.py prova a estrutura da wiki e stats.py prova que o raw não foi tocado na compilação.',
+            2: 'Contar arquivos não mostra link quebrado, fonte esquecida nem princípio sem fonte.'
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

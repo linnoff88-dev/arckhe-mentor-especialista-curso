@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="mentor-especialista-curso" name="inema-course"/>
+<title>Trilha 5 · Agente, skills e portão | Mentor-Especialista</title>
+<script src="../../assets/boot.js"></script>
+<script data-inema-manifest="" type="application/json">
+  {
+    "course": "mentor-especialista-curso",
+    "tracks": [
+      { "n": "1", "title": "Por que um mentor", "modules": [
+        { "id": "1-1", "title": "Os maus hábitos da IA quando ensina", "topics": 6, "href": "curso/trilha1/modulo-1-1.html" },
+        { "id": "1-2", "title": "Método não é persona: escopo do mentor", "topics": 6, "href": "curso/trilha1/modulo-1-2.html" }
+      ]},
+      { "n": "2", "title": "Coleta do acervo", "modules": [
+        { "id": "2-1", "title": "Fontes e coletores", "topics": 6, "href": "curso/trilha2/modulo-2-1.html" },
+        { "id": "2-2", "title": "Subagentes, manifesto e falhas", "topics": 6, "href": "curso/trilha2/modulo-2-2.html" }
+      ]},
+      { "n": "3", "title": "Wiki compilada", "modules": [
+        { "id": "3-1", "title": "Raw imutável, wiki viva", "topics": 6, "href": "curso/trilha3/modulo-3-1.html" },
+        { "id": "3-2", "title": "Fontes, temas, princípios e métodos", "topics": 6, "href": "curso/trilha3/modulo-3-2.html" }
+      ]},
+      { "n": "4", "title": "Regras com prova", "modules": [
+        { "id": "4-1", "title": "Conduta, não frase de efeito", "topics": 6, "href": "curso/trilha4/modulo-4-1.html" },
+        { "id": "4-2", "title": "Citação, status e validador", "topics": 6, "href": "curso/trilha4/modulo-4-2.html" }
+      ]},
+      { "n": "5", "title": "Agente, skills e portão", "modules": [
+        { "id": "5-1", "title": "Mapa: settings, agente e skills", "topics": 6, "href": "curso/trilha5/modulo-5-1.html" },
+        { "id": "5-2", "title": "O loop obrigatório do mentor", "topics": 6, "href": "curso/trilha5/modulo-5-2.html" },
+        { "id": "5-3", "title": "Skills: ensina, revisa, ingere", "topics": 6, "href": "curso/trilha5/modulo-5-3.html" },
+        { "id": "5-4", "title": "Portão de execução", "topics": 6, "href": "curso/trilha5/modulo-5-4.html" }
+      ]},
+      { "n": "6", "title": "Prova e evolução", "modules": [
+        { "id": "6-1", "title": "O piloto real e os testes de aceitação", "topics": 6, "href": "curso/trilha6/modulo-6-1.html" },
+        { "id": "6-2", "title": "Ingestão contínua, atualização e reuso", "topics": 6, "href": "curso/trilha6/modulo-6-2.html" }
+      ]}
+    ]
+  }
+  </script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../../assets/curso.css" rel="stylesheet"/>
+<link href="../../assets/learn.css" rel="stylesheet"/>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+<a class="skip sr-only focus:not-sr-only" href="#conteudo">Pular para o conteúdo</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🧭</span><span class="font-bold text-lg hidden sm:inline">Mentor-Especialista</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+<span class="text-neutral-600">-</span>
+<a class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200 text-sm font-medium" href="https://inema.pro" target="_blank">PRO</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Por quê</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Coleta</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Wiki</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors" href="../trilha4/index.html"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Regras</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-teal-400 bg-teal-500/10" href="index.html"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Agente</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors" href="../trilha6/index.html"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Prova</span></a>
+<button class="hidden md:inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-neutral-300 hover:text-neutral-100 transition-colors text-sm" data-inema-journey-open="" type="button">
+<span aria-hidden="true">◷</span><span>Minha jornada</span><span aria-hidden="true" class="inema-journey-badge hidden"></span>
+</button>
+<button aria-label="Alternar tema claro/escuro" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<header class="bg-gradient-to-br from-teal-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600" data-inema-track="5">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<span class="inline-block px-3 py-1 bg-teal-500/20 text-teal-400 text-xs font-semibold rounded-full mb-4">TRILHA 5</span>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">🤖 Agente, skills e portão</h1>
+<p class="text-lg text-neutral-400 max-w-3xl">
+        O cérebro está pronto: acervo, wiki e regras. Esta trilha dá ao mentor o comportamento: onde cada peça mora no
+        <span class="font-mono text-base">.claude/</span>, o loop que toda resposta segue, as skills de uso do dia a dia e o portão que
+        não deixa o turno terminar com código que ninguém rodou.
+      </p>
+<div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">4</div><div class="text-xs text-neutral-400">Módulos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">24</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">~3h20</div><div class="text-xs text-neutral-400">Duração</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Médio</div><div class="text-xs text-neutral-400">Nível</div></div>
+</div>
+<div class="mt-6 max-w-2xl">
+<div aria-label="Progresso da trilha 5" aria-valuemax="100" aria-valuemin="0" class="inema-meter" data-inema-meter="trilha:5" role="progressbar">
+<span class="inema-meter-pct">0%</span><span class="inema-meter-count">0 de 24</span>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="conteudo">
+<div class="rounded-2xl border border-teal-500/30 bg-dark-900/40 p-3 sm:p-4 mb-12 overflow-hidden">
+<svg aria-label="As quatro estações da trilha 5 em sequência: o mapa do .claude com settings, agente e skills; o loop de seis seções do mentor; as skills de uso ensina, revisa e ingere; e o portão de execução, que vigia as saídas do turno" class="w-full h-auto" role="img" viewbox="0 0 1000 240">
+<defs>
+<lineargradient id="t5h-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#2dd4bf"></stop><stop offset="1" stop-color="#14b8a6"></stop></lineargradient>
+<filter height="180%" id="t5h-glow" width="180%" x="-40%" y="-40%"><fegaussianblur result="b" stddeviation="1.8"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
+<pattern height="32" id="t5h-grid" patternunits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#14b8a6" opacity="0.12" r="1.3"></circle></pattern>
+<marker id="t5h-ah" markerheight="9" markerwidth="9" orient="auto" refx="6.5" refy="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#2dd4bf"></path></marker>
+</defs>
+<rect fill="url(#t5h-grid)" height="240" width="1000" x="0" y="0"></rect>
+<g font-family="Inter,sans-serif" font-weight="600">
+<rect fill="#0c1f1c" height="96" rx="14" stroke="#2dd4bf" stroke-width="2" width="200" x="20" y="60"></rect>
+<text fill="#5eead4" font-size="11" text-anchor="middle" x="120" y="82">5.1</text>
+<text fill="#99f6e4" font-size="15" text-anchor="middle" x="120" y="104">Mapa</text>
+<text fill="#5eead4" font-size="11" font-weight="400" text-anchor="middle" x="120" y="124">settings · agents · skills</text>
+<text fill="#5eead4" font-size="11" font-weight="400" text-anchor="middle" x="120" y="140">quem chama quem</text>
+<rect fill="#0c1f1c" height="96" rx="14" stroke="#2dd4bf" stroke-width="2" width="200" x="265" y="60"></rect>
+<text fill="#5eead4" font-size="11" text-anchor="middle" x="365" y="82">5.2</text>
+<text fill="#99f6e4" font-size="15" text-anchor="middle" x="365" y="104">Loop</text>
+<text fill="#5eead4" font-size="11" font-weight="400" text-anchor="middle" x="365" y="124">Pronto → … → Relatório</text>
+<text fill="#5eead4" font-size="11" font-weight="400" text-anchor="middle" x="365" y="140">previsão antes de rodar</text>
+<rect fill="#0c1f1c" height="96" rx="14" stroke="#2dd4bf" stroke-width="2" width="200" x="510" y="60"></rect>
+<text fill="#5eead4" font-size="11" text-anchor="middle" x="610" y="82">5.3</text>
+<text fill="#99f6e4" font-size="15" text-anchor="middle" x="610" y="104">Skills de uso</text>
+<text fill="#5eead4" font-size="11" font-weight="400" text-anchor="middle" x="610" y="124">ensina · revisa · ingere</text>
+<text fill="#5eead4" font-size="11" font-weight="400" text-anchor="middle" x="610" y="140">nota dada de fora</text>
+</g>
+<g filter="url(#t5h-glow)"><rect fill="#0e1b26" height="96" rx="14" stroke="#38bdf8" stroke-width="2.6" width="225" x="755" y="60"></rect></g>
+<text fill="#9ad6ff" font-family="Inter,sans-serif" font-size="11" font-weight="600" text-anchor="middle" x="867" y="82">5.4</text>
+<text fill="#bfe6ff" font-family="Inter,sans-serif" font-size="15" font-weight="700" text-anchor="middle" x="867" y="104">Portão</text>
+<text fill="#9ad6ff" font-family="Inter,sans-serif" font-size="11" text-anchor="middle" x="867" y="124">escreveu e não rodou?</text>
+<text fill="#9ad6ff" font-family="Inter,sans-serif" font-size="11" text-anchor="middle" x="867" y="140">o turno não termina</text>
+<g fill="none" stroke="#2dd4bf" stroke-width="2">
+<path d="M220,108 L259,108" marker-end="url(#t5h-ah)"></path>
+<path d="M465,108 L504,108" marker-end="url(#t5h-ah)"></path>
+<path d="M710,108 L749,108" marker-end="url(#t5h-ah)"></path>
+</g>
+<path d="M867,156 C867,215 120,215 120,160" fill="none" opacity="0.6" stroke="#38bdf8" stroke-dasharray="6 6" stroke-width="1.6"></path>
+<text fill="#9ad6ff" font-family="Inter,sans-serif" font-size="11" text-anchor="middle" x="494" y="230">o portão é registrado no mesmo settings.json do mapa</text>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-teal-400">Como ler:</strong> as três primeiras estações descrevem o que o mentor <em>deve</em> fazer; a quarta, em ciano, é o que
+        <em>impede</em> que ele deixe de fazer a parte mais importante. A linha tracejada fecha o círculo: o portão não é uma peça à parte, ele mora
+        no mesmo <span class="font-mono text-xs">.claude/settings.json</span> que você conhece no módulo 5.1.
+      </p>
+</div>
+<section class="mb-12">
+<h2 class="text-2xl font-bold mb-6">Mapa da trilha</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<a class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-teal-500/30 p-5 transition-all" href="#modulo-5-1">
+<div class="flex items-center justify-between mb-2"><span class="text-teal-400 font-bold text-sm">5.1</span><span class="text-xs text-neutral-500">~50 min</span></div>
+<h3 class="font-semibold mb-1 group-hover:text-teal-400 transition-colors">🗺️ Mapa</h3>
+<p class="text-xs text-neutral-400">Sem registro, o hook não existe</p>
+</a>
+<a class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-teal-500/30 p-5 transition-all" href="#modulo-5-2">
+<div class="flex items-center justify-between mb-2"><span class="text-teal-400 font-bold text-sm">5.2</span><span class="text-xs text-neutral-500">~50 min</span></div>
+<h3 class="font-semibold mb-1 group-hover:text-teal-400 transition-colors">🔁 O loop</h3>
+<p class="text-xs text-neutral-400">Prever antes, provar depois</p>
+</a>
+<a class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-teal-500/30 p-5 transition-all" href="#modulo-5-3">
+<div class="flex items-center justify-between mb-2"><span class="text-teal-400 font-bold text-sm">5.3</span><span class="text-xs text-neutral-500">~50 min</span></div>
+<h3 class="font-semibold mb-1 group-hover:text-teal-400 transition-colors">🧰 Skills de uso</h3>
+<p class="text-xs text-neutral-400">A nota vem de fora</p>
+</a>
+<a class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-teal-500/30 p-5 transition-all" href="#modulo-5-4">
+<div class="flex items-center justify-between mb-2"><span class="text-teal-400 font-bold text-sm">5.4</span><span class="text-xs text-neutral-500">~50 min</span></div>
+<h3 class="font-semibold mb-1 group-hover:text-teal-400 transition-colors">🚧 Portão</h3>
+<p class="text-xs text-neutral-400">Não rodou? Não terminou</p>
+</a>
+</div>
+</section>
+<h2 class="text-2xl font-bold mb-6">Conteúdo detalhado</h2>
+<!-- MODULO 5.1 -->
+<div class="bg-dark-800 rounded-xl border border-dark-600 mb-6" data-inema-module="5-1" data-inema-track="5" id="modulo-5-1">
+<div class="p-6 border-b border-dark-600">
+<div class="flex items-center justify-between mb-2"><span class="text-teal-400 font-bold">5.1</span><span class="text-xs text-neutral-500">~50 min</span></div>
+<h3 class="text-2xl font-bold mb-2">🗺️ Mapa: settings, agente e skills</h3>
+<p class="text-neutral-400 text-sm">Onde cada peça mora em .claude/, quem chama quem, por que o portão escuta Stop e SubagentStop, e o que é do projeto e o que é global.</p>
+</div>
+<div class="divide-y divide-dark-600">
+<div class="topic-item">
+<button aria-controls="t51-1" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+<span class="text-lg">🧱</span>
+<div><span class="font-medium">As três peças e quem chama quem</span><span class="text-neutral-500 text-sm ml-2">- Hook, subagente, skill</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t51-1">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-teal-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">O mapa do comportamento do mentor: você dispara uma skill, a skill chama o subagente mentor, e um hook registrado no settings.json vigia tudo de fora.</p></div>
+<div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem esse mapa, ajustar o mentor vira tentativa e erro: você edita o arquivo errado e não entende por que nada muda.</p></div>
+<div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Hook é programa, não IA · Subagente tem contexto próprio · Skill é a receita disparada com /.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t51-2" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+<span class="text-lg">⚙️</span>
+<div><span class="font-medium">settings.json: hook só roda se estiver registrado</span><span class="text-neutral-500 text-sm ml-2">- Um script, três eventos</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t51-2">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-teal-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">O arquivo .claude/settings.json que liga o portao-execucao.py aos eventos PostToolUse (matcher Write|Edit|MultiEdit|Bash), Stop e SubagentStop, com timeout de 10 s.</p></div>
+<div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É a causa número um de "escrevi o hook e ele não faz nada": o script está na pasta, mas não está no registro.</p></div>
+<div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Evento · matcher · $CLAUDE_PROJECT_DIR · timeout · JSON inválido = arquivo ignorado.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t51-3" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+<span class="text-lg">🤖</span>
+<div><span class="font-medium">Subagente: .claude/agents/*.md e o frontmatter</span><span class="text-neutral-500 text-sm ml-2">- name, description, corpo</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t51-3">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-teal-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">O arquivo do mentor: um cabeçalho (frontmatter) com nome e quando usar, e um corpo com o método, o loop obrigatório e as proibições.</p></div>
+<div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">O mentor roda como subagente para que quem ensina não seja quem dá a nota: a sessão principal confere de fora.</p></div>
+<div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">description é o gatilho · Contexto limpo · Método, não persona.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t51-4" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+<span class="text-lg">🧩</span>
+<div><span class="font-medium">Skill: .claude/skills/&lt;nome&gt;/SKILL.md</span><span class="text-neutral-500 text-sm ml-2">- Pasta vira comando</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t51-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-teal-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Uma pasta com SKILL.md; o nome da pasta vira o comando /nome. O kit traz 6: coletar, compilar e regras (construção); ensina, revisa e ingere (uso).</p></div>
+<div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Saber o que é skill e o que é agente diz onde mexer: a receita na skill, o método no agente.</p></div>
+<div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Skill roda na sessão principal · ensina e revisa chamam o mentor · ingere não chama.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t51-5" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+<span class="text-lg">🛑</span>
+<div><span class="font-medium">Stop × SubagentStop: por que registrar os dois</span><span class="text-neutral-500 text-sm ml-2">- Duas portas de saída</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t51-5">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-teal-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Stop dispara quando a sessão principal vai encerrar o turno; SubagentStop, quando um subagente vai encerrar o dele. O mentor é subagente.</p></div>
+<div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Se o portão escutasse só o Stop, o mentor entregaria código sem rodar e a barreira só apareceria depois, longe de quem escreveu.</p></div>
+<div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Barrar perto de quem escreveu · stop_hook_active = "já insisti" · Hook de parada precisa de saída.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t51-6" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+<span class="text-lg">🌳</span>
+<div><span class="font-medium">Projeto × global, e a árvore real do mentor-nei</span><span class="text-neutral-500 text-sm ml-2">- 9 arquivos em .claude/</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t51-6">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-teal-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">A diferença entre .claude/ do projeto (vale só ali) e ~/.claude/ (vale em todo lugar), com a árvore real do piloto: settings, 1 hook, 1 agente, 6 skills.</p></div>
+<div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">O mentor mora no projeto para que o portão vigie só ele; hook experimental vai para uma pasta separada, como o piloto fez no teste 1.</p></div>
+<div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Projeto isola · Dois Stop hooks rodam juntos · Conferir a árvore gerada.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+<button class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors" onclick="openModal('modal-5-1')">Ver em Modal</button>
+<a class="px-4 py-2 text-sm bg-teal-600 hover:bg-teal-500 text-white rounded-lg transition-colors" href="modulo-5-1.html">Ver Completo</a>
+</div>
+</div>
+<!-- MODULO 5.2 -->
+<div class="bg-dark-800 rounded-xl border border-dark-600 mb-6" data-inema-module="5-2" data-inema-track="5" id="modulo-5-2">
+<div class="p-6 border-b border-dark-600">
+<div class="flex items-center justify-between mb-2"><span class="text-teal-400 font-bold">5.2</span><span class="text-xs text-neutral-500">~50 min</span></div>
+<h3 class="text-2xl font-bold mb-2">🔁 O loop obrigatório do mentor</h3>
+<p class="text-neutral-400 text-sm">Pronto → Menor versão → Previsão → Saída real → Versão quebrada → Relatório: por que cada passo existe, as seções do especialista, a lição real do teste 1 e o validador de fora.</p>
+</div>
+<div class="divide-y divide-dark-600">
+<div class="topic-item">
+<button aria-controls="t52-1" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+<span class="text-lg">🔁</span>
+<div><span class="font-medium">Seis seções, nesta ordem, com estes títulos</span><span class="text-neutral-500 text-sm ml-2">- O script lê cabeçalhos</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t52-1">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-teal-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">O formato fixo de toda resposta com código: Pronto, Menor versão, Previsão, Saída real, Versão quebrada e Relatório.</p></div>
+<div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Com títulos exatos, um programa consegue conferir a resposta; a nota deixa de depender da sua impressão.</p></div>
+<div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Previsão = palpite concreto · Saída real = colada do terminal · Versão quebrada = falha provocada.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t52-2" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+<span class="text-lg">🎯</span>
+<div><span class="font-medium">Por que cada passo existe</span><span class="text-neutral-500 text-sm ml-2">- Um hábito barrado por seção</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t52-2">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-teal-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">A ligação de cada seção com um mau hábito da trilha 1 e com uma regra do Nei: Pronto/R2, Menor versão/R7, Previsão/R3, Saída real/R1, Versão quebrada/R8.</p></div>
+<div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Quando uma seção falta, você sabe qual hábito voltou e qual regra foi quebrada.</p></div>
+<div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Previsão útil tem número · "A previsão se confirmou" depois de rodar não vale · Relatório aponta a regra.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t52-3" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+<span class="text-lg">🧑‍🏫</span>
+<div><span class="font-medium">Seções do especialista: "Sua vez", "Custo" e cia.</span><span class="text-neutral-500 text-sm ml-2">- A cara do mentor</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t52-3">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-teal-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Seções extras pedidas pelas linhas "no mentor:" das regras, como Custo (R4), Por baixo (R5), Sua vez (R6), Corte (R7) e Risco (R8, R10).</p></div>
+<div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É o que diferencia um mentor de outro com o mesmo esqueleto. Só são cobradas se estiverem em secoes_resposta.</p></div>
+<div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">"no mentor:" · secoes_resposta · 1 a 3 seções novas, no máximo.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t52-4" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+<span class="text-lg">🌐</span>
+<div><span class="font-medium">Antes de responder: idioma do pedido e regras da casa</span><span class="text-neutral-500 text-sm ml-2">- Cinco hábitos fixos</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t52-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-teal-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">O que o mentor faz antes do Pronto: lê regras, consulta hot → index → páginas, pergunta se o pedido for vago, responde no idioma do pedido e usa .mentor/tmp/.</p></div>
+<div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Duas dessas regras vieram de falhas do piloto: resumo em inglês numa lição em português e temporários em /tmp.</p></div>
+<div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">ativa/banco/inferência · Nunca o raw inteiro · Suposição escrita.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t52-5" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+<span class="text-lg">🪝</span>
+<div><span class="font-medium">Lição real do teste 1: o hook que prendia a sessão</span><span class="text-neutral-500 text-sm ml-2">- Teto de 3</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t52-5">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-teal-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Um hook de Stop para TODO.md cuja versão ingênua bloqueou 6 de 6 vezes; a correção com contador por sessão libera na 4ª tentativa.</p></div>
+<div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Mostra a Versão quebrada ensinando de verdade: bloqueio sem teto prende a sessão quando o item não depende do agente.</p></div>
+<div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Critério de aborto · stop_hook_active · Medir em vez de supor (CRLF não quebrou).</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t52-6" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+<span class="text-lg">✅</span>
+<div><span class="font-medium">validar_resposta.py: a prova vem de fora</span><span class="text-neutral-500 text-sm ml-2">- Seções, regras, transcript</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t52-6">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-teal-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">O script que confere seções, regras citadas e, com --transcript, se houve execução real e se a previsão veio antes dela.</p></div>
+<div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Autoavaliação não é prova. No teste 1, ele contou 14 execuções Bash e aprovou; sem o transcript, metade da checagem some.</p></div>
+<div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Transcript .jsonl · Perfil ensino × revisao · Exit 0 = OK.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+<button class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors" onclick="openModal('modal-5-2')">Ver em Modal</button>
+<a class="px-4 py-2 text-sm bg-teal-600 hover:bg-teal-500 text-white rounded-lg transition-colors" href="modulo-5-2.html">Ver Completo</a>
+</div>
+</div>
+<!-- MODULO 5.3 -->
+<div class="bg-dark-800 rounded-xl border border-dark-600 mb-6" data-inema-module="5-3" data-inema-track="5" id="modulo-5-3">
+<div class="p-6 border-b border-dark-600">
+<div class="flex items-center justify-between mb-2"><span class="text-teal-400 font-bold">5.3</span><span class="text-xs text-neutral-500">~50 min</span></div>
+<h3 class="text-2xl font-bold mb-2">🧰 Skills: ensina, revisa, ingere</h3>
+<p class="text-neutral-400 text-sm">As três skills de uso com os resultados reais dos testes do piloto, as três de construção revisitadas, comandos para rodar e onde cada resposta fica.</p>
+</div>
+<div class="divide-y divide-dark-600">
+<div class="topic-item">
+<button aria-controls="t53-1" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+<span class="text-lg">🧰</span>
+<div><span class="font-medium">Seis skills: três constroem, três usam</span><span class="text-neutral-500 text-sm ml-2">- Pronto = exit 0</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t53-1">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-teal-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">A tabela das 6 skills com fase, "pronto quando" e o tempo medido no piloto (de 0,9 a 3,3 min por skill).</p></div>
+<div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Todas terminam num script com exit 0: a skill não depende da própria palavra para dizer que acabou.</p></div>
+<div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Exit code · Mesmo formato em todas · Só biblioteca padrão.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t53-2" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+<span class="text-lg">🧑‍🏫</span>
+<div><span class="font-medium">/ensina: checklist por regra e validação de fora</span><span class="text-neutral-500 text-sm ml-2">- Coordena, não ensina</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t53-2">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-teal-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Repassa a dúvida ao mentor sem reescrever, salva a resposta, roda o validador e mostra um checklist de 1 linha por regra ativa.</p></div>
+<div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Cada ✓ aponta um trecho da resposta; se houver ✗, o mentor corrige uma vez só. Nada de autoavaliação.</p></div>
+<div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Repassar sem reescrever · R1 ✓ / R3 ✗ · Uma correção, não um laço.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t53-3" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+<span class="text-lg">🔍</span>
+<div><span class="font-medium">/revisa em 5 seções</span><span class="text-neutral-500 text-sm ml-2">- Previsão → … → Relatório</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t53-3">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-teal-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Previsão (só lendo), Reprodução, Correção num arquivo .revisado ao lado, Lado a lado com a mesma entrada, e Relatório.</p></div>
+<div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">No teste 2, a revisão reproduziu o UnicodeEncodeError em cp1252 e achou um 2º ponto de quebra que o Nei não tinha previsto: o emoji dentro dos dados.</p></div>
+<div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Original intacto · Mesma saída útil · Medir o tamanho, não supor.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t53-4" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+<span class="text-lg">📥</span>
+<div><span class="font-medium">/ingere: o mentor aprende uma fonte nova</span><span class="text-neutral-500 text-sm ml-2">- 8 → 10 regras</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t53-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-teal-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Coleta, página de fonte, propagação na wiki, promoção de regras, controle (index, hot, log) e três validadores.</p></div>
+<div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">No teste 3, um guia novo virou 2 métodos e duas regras ativas (R9, R10) em 2,4 min: de 31 para 40 citações.</p></div>
+<div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">banco → ativa com a 2ª fonte · Links nos dois sentidos · log.md só acrescenta.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t53-5" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+<span class="text-lg">🏗️</span>
+<div><span class="font-medium">coletar, compilar, regras: as skills de construção, revisitadas</span><span class="text-neutral-500 text-sm ml-2">- O que o 1.2 mudou</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t53-5">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-teal-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">As fases 1 a 3 vistas como arquivos ajustáveis, com as correções do piloto: trava no manifesto, nome por título + ID, parágrafos de 30 s, seções no config.</p></div>
+<div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Instrução que se repete pertence ao SKILL.md, não ao pedido do dia.</p></div>
+<div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Ajuste a skill · Rode uma vez depois de editar · Nunca relaxe o validador.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t53-6" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+<span class="text-lg">▶️</span>
+<div><span class="font-medium">Rode as três e saiba onde cada resposta fica</span><span class="text-neutral-500 text-sm ml-2">- Copie e rode</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t53-6">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-teal-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Os três comandos prontos (ensina, revisa com o script_emoji.py, ingere) e a tabela de onde fica cada arquivo.</p></div>
+<div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">São os três testes de aceitação do mentor; rodar os três é o jeito de saber se o seu está pronto.</p></div>
+<div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">testes/respostas/ · &lt;nome&gt;.revisado.&lt;ext&gt; · .mentor/tmp/.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+<button class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors" onclick="openModal('modal-5-3')">Ver em Modal</button>
+<a class="px-4 py-2 text-sm bg-teal-600 hover:bg-teal-500 text-white rounded-lg transition-colors" href="modulo-5-3.html">Ver Completo</a>
+</div>
+</div>
+<!-- MODULO 5.4 -->
+<div class="bg-dark-800 rounded-xl border border-dark-600 mb-6" data-inema-module="5-4" data-inema-track="5" id="modulo-5-4">
+<div class="p-6 border-b border-dark-600">
+<div class="flex items-center justify-between mb-2"><span class="text-teal-400 font-bold">5.4</span><span class="text-xs text-neutral-500">~50 min</span></div>
+<h3 class="text-2xl font-bold mb-2">🚧 Portão de execução</h3>
+<p class="text-neutral-400 text-sm">O hook que transforma "não diga que funciona sem rodar" em mecanismo: estado por sessão, o que não conta como execução, anti-loop, a prova no piloto e como provocá-lo.</p>
+</div>
+<div class="divide-y divide-dark-600">
+<div class="topic-item">
+<button aria-controls="t54-1" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+<span class="text-lg">😶</span>
+<div><span class="font-medium">O problema: "parece certo sem estar"</span><span class="text-neutral-500 text-sm ml-2">- Regra vira mecanismo</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t54-1">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-teal-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Um hook que responde {"decision": "block"} no evento de parada quando há código escrito e não executado.</p></div>
+<div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Proibição em texto depende de o modelo lembrar; o portão não depende de obediência.</p></div>
+<div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Exige execução, não julga resultado · Zero tokens · Erro interno = exit 0.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t54-2" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+<span class="text-lg">🧠</span>
+<div><span class="font-medium">Estado por sessão: marca, limpa, bloqueia</span><span class="text-neutral-500 text-sm ml-2">- sujos e avisados</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t54-2">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-teal-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">PostToolUse de Write/Edit marca o arquivo, PostToolUse de Bash limpa o que foi executado, Stop/SubagentStop bloqueia; tudo em .mentor/estado/&lt;sessão&gt;.json.</p></div>
+<div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Entender o estado explica cada bloqueio e cada liberação, e mostra onde configurar extensões e pastas ignoradas.</p></div>
+<div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Por session_id · Não lê o transcript · Estados de 7+ dias apagados.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t54-3" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+<span class="text-lg">🚫</span>
+<div><span class="font-medium">O que NÃO conta como rodar</span><span class="text-neutral-500 text-sm ml-2">- ls, cat, commit, py_compile</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t54-3">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-teal-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">A lista de comandos que o portão trata como leitura: ls, cat, git, rm, chmod, linters, py_compile, bash -n, node --check, tsc --noEmit e até cat | python3.</p></div>
+<div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Um portão fácil de enganar é pior que nenhum: dá falsa segurança.</p></div>
+<div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Sintaxe ≠ comportamento · pytest limpa todos os .py · Na dúvida, bloqueia.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t54-4" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+<span class="text-lg">🔂</span>
+<div><span class="font-medium">Anti-loop: no máximo um bloqueio por arquivo editado</span><span class="text-neutral-500 text-sm ml-2">- stop_hook_active</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t54-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-teal-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Com stop_hook_active=true o portão libera e marca os sujos como avisados; o mesmo arquivo só volta a bloquear se for editado de novo.</p></div>
+<div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É a lição do teste 1 aplicada ao próprio portão: hook de parada sem saída prende a sessão.</p></div>
+<div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">avisados · Reeditar reativa · Nunca derruba a sessão.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t54-5" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+<span class="text-lg">⚠️</span>
+<div><span class="font-medium">"Stop hook error occurred" e a prova no piloto</span><span class="text-neutral-500 text-sm ml-2">- É o portão funcionando</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t54-5">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-teal-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">O rótulo que a interface mostra quando o portão bloqueia, e a prova real: uma sessão claude -p escreveu teste_portao.py sem rodar e foi barrada.</p></div>
+<div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Quem não conhece o rótulo acha que o kit quebrou e desliga o portão justamente quando ele funcionou.</p></div>
+<div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">1 bloqueio, como desenhado · test_portao.py: 28 passed · 2º portão: previsão (kit 1.3) · Kit: 81 testes.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t54-6" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+<span class="text-lg">🧪</span>
+<div><span class="font-medium">Provoque o portão de propósito</span><span class="text-neutral-500 text-sm ml-2">- Sessão real e terminal</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t54-6">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-teal-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Dois exercícios: pedir ao Claude Code um calc.py "sem rodar" e simular os eventos JSON direto no terminal, lendo o estado no fim.</p></div>
+<div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Só confie no portão depois de vê-lo bloquear; a simulação leva 30 segundos e não gasta nada.</p></div>
+<div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Evento por stdin · CLAUDE_PROJECT_DIR · Mesmo session_id.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+<button class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors" onclick="openModal('modal-5-4')">Ver em Modal</button>
+<a class="px-4 py-2 text-sm bg-teal-600 hover:bg-teal-500 text-white rounded-lg transition-colors" href="modulo-5-4.html">Ver Completo</a>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 mt-12">
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="../trilha4/index.html">← Trilha 4: Regras com prova</a>
+<a class="flex-1 text-center px-6 py-3 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-500 transition-colors" href="../trilha6/index.html">Trilha 6: Prova e evolução →</a>
+</div>
+</main>
+<div class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" id="modal-5-1" onclick="if(event.target === this) closeModal()">
+<div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+<div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+<div class="flex items-center space-x-3"><span class="text-teal-400 font-bold">5.1</span><span class="font-semibold">Mapa: settings, agente e skills</span></div>
+<button aria-label="Fechar" class="text-neutral-400 hover:text-white text-2xl leading-none" onclick="closeModal()">×</button>
+</div>
+<iframe class="flex-1 w-full rounded-b-xl" src="modulo-5-1.html" title="Módulo 5.1"></iframe>
+</div>
+</div>
+<div class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" id="modal-5-2" onclick="if(event.target === this) closeModal()">
+<div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+<div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+<div class="flex items-center space-x-3"><span class="text-teal-400 font-bold">5.2</span><span class="font-semibold">O loop obrigatório do mentor</span></div>
+<button aria-label="Fechar" class="text-neutral-400 hover:text-white text-2xl leading-none" onclick="closeModal()">×</button>
+</div>
+<iframe class="flex-1 w-full rounded-b-xl" src="modulo-5-2.html" title="Módulo 5.2"></iframe>
+</div>
+</div>
+<div class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" id="modal-5-3" onclick="if(event.target === this) closeModal()">
+<div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+<div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+<div class="flex items-center space-x-3"><span class="text-teal-400 font-bold">5.3</span><span class="font-semibold">Skills: ensina, revisa, ingere</span></div>
+<button aria-label="Fechar" class="text-neutral-400 hover:text-white text-2xl leading-none" onclick="closeModal()">×</button>
+</div>
+<iframe class="flex-1 w-full rounded-b-xl" src="modulo-5-3.html" title="Módulo 5.3"></iframe>
+</div>
+</div>
+<div class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" id="modal-5-4" onclick="if(event.target === this) closeModal()">
+<div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+<div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+<div class="flex items-center space-x-3"><span class="text-teal-400 font-bold">5.4</span><span class="font-semibold">Portão de execução</span></div>
+<button aria-label="Fechar" class="text-neutral-400 hover:text-white text-2xl leading-none" onclick="closeModal()">×</button>
+</div>
+<iframe class="flex-1 w-full rounded-b-xl" src="modulo-5-4.html" title="Módulo 5.4"></iframe>
+</div>
+</div>
+<footer class="border-t border-dark-600 py-8 mt-16">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+<p>Mentor-Especialista: o método de um especialista virando seu mentor no Claude Code — 2026</p>
+<p class="mt-2">
+<a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+<span class="text-neutral-600 mx-1">-</span>
+<a class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200" href="https://inema.pro" target="_blank">PRO</a>
+</p>
+</div>
+</footer>
+<script src="../../assets/curso.js"></script>
+<script src="../../assets/learn.js"></script>
+<script>if (window.INEMA && typeof window.INEMA.init === 'function') window.INEMA.init();</script>
+</body>
+</html>

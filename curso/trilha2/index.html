@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="mentor-especialista-curso" name="inema-course"/>
+<title>Trilha 2 · Coleta do acervo | Mentor-Especialista</title>
+<script src="../../assets/boot.js"></script>
+<script data-inema-manifest="" type="application/json">
+  {
+    "course": "mentor-especialista-curso",
+    "tracks": [
+      { "n": "1", "title": "Por que um mentor", "modules": [
+        { "id": "1-1", "title": "Os maus hábitos da IA quando ensina", "topics": 6, "href": "curso/trilha1/modulo-1-1.html" },
+        { "id": "1-2", "title": "Método não é persona: escopo do mentor", "topics": 6, "href": "curso/trilha1/modulo-1-2.html" }
+      ]},
+      { "n": "2", "title": "Coleta do acervo", "modules": [
+        { "id": "2-1", "title": "Fontes e coletores", "topics": 6, "href": "curso/trilha2/modulo-2-1.html" },
+        { "id": "2-2", "title": "Subagentes, manifesto e falhas", "topics": 6, "href": "curso/trilha2/modulo-2-2.html" }
+      ]},
+      { "n": "3", "title": "Wiki compilada", "modules": [
+        { "id": "3-1", "title": "Raw imutável, wiki viva", "topics": 6, "href": "curso/trilha3/modulo-3-1.html" },
+        { "id": "3-2", "title": "Fontes, temas, princípios e métodos", "topics": 6, "href": "curso/trilha3/modulo-3-2.html" }
+      ]},
+      { "n": "4", "title": "Regras com prova", "modules": [
+        { "id": "4-1", "title": "Conduta, não frase de efeito", "topics": 6, "href": "curso/trilha4/modulo-4-1.html" },
+        { "id": "4-2", "title": "Citação, status e validador", "topics": 6, "href": "curso/trilha4/modulo-4-2.html" }
+      ]},
+      { "n": "5", "title": "Agente, skills e portão", "modules": [
+        { "id": "5-1", "title": "Mapa: settings, agente e skills", "topics": 6, "href": "curso/trilha5/modulo-5-1.html" },
+        { "id": "5-2", "title": "O loop obrigatório do mentor", "topics": 6, "href": "curso/trilha5/modulo-5-2.html" },
+        { "id": "5-3", "title": "Skills: ensina, revisa, ingere", "topics": 6, "href": "curso/trilha5/modulo-5-3.html" },
+        { "id": "5-4", "title": "Portão de execução", "topics": 6, "href": "curso/trilha5/modulo-5-4.html" }
+      ]},
+      { "n": "6", "title": "Prova e evolução", "modules": [
+        { "id": "6-1", "title": "O piloto real e os testes de aceitação", "topics": 6, "href": "curso/trilha6/modulo-6-1.html" },
+        { "id": "6-2", "title": "Ingestão contínua, atualização e reuso", "topics": 6, "href": "curso/trilha6/modulo-6-2.html" }
+      ]}
+    ]
+  }
+  </script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../../assets/curso.css" rel="stylesheet"/>
+<link href="../../assets/learn.css" rel="stylesheet"/>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+<a class="skip sr-only focus:not-sr-only" href="#conteudo">Pular para o conteúdo</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🧭</span><span class="font-bold text-lg hidden sm:inline">Mentor-Especialista</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+<span class="text-neutral-600">-</span>
+<a class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200 text-sm font-medium" href="https://inema.pro" target="_blank">PRO</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Por quê</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10" href="index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Coleta</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Wiki</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors" href="../trilha4/index.html"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Regras</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors" href="../trilha5/index.html"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Agente</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors" href="../trilha6/index.html"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Prova</span></a>
+<button class="hidden md:inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-neutral-300 hover:text-neutral-100 transition-colors text-sm" data-inema-journey-open="" type="button">
+<span aria-hidden="true">◷</span><span>Minha jornada</span><span aria-hidden="true" class="inema-journey-badge hidden"></span>
+</button>
+<button aria-label="Alternar tema claro/escuro" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600" data-inema-track="2">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">TRILHA 2</span>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">📥 Coleta do acervo</h1>
+<p class="text-lg text-neutral-400 max-w-3xl">
+        O mentor só sabe o que você coletou. Esta trilha transforma a lista de fontes do ESCOPO.md em texto conferível:
+        quatro coletores, um subagente por fonte, um manifesto com lacre e um verificador que diz "pronto" com número.
+        No piloto do Nei, isso deu 22 fontes e cerca de 189 mil palavras — e revelou dois bugs reais.
+      </p>
+<div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">2</div><div class="text-xs text-neutral-400">Módulos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">12</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">~1h45</div><div class="text-xs text-neutral-400">Duração</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Prático</div><div class="text-xs text-neutral-400">Nível</div></div>
+</div>
+<div class="mt-6 max-w-2xl">
+<div aria-label="Progresso da trilha 2" aria-valuemax="100" aria-valuemin="0" class="inema-meter" data-inema-meter="trilha:2" role="progressbar">
+<span class="inema-meter-pct">0%</span><span class="inema-meter-count">0 de 12</span>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="conteudo">
+<div class="rounded-2xl border border-blue-500/30 bg-dark-900/40 p-3 sm:p-4 mb-12 overflow-hidden">
+<svg aria-label="Fase 1 do kit: o ESCOPO lista as fontes, subagentes rodam os coletores em paralelo, tudo cai no raw com manifesto e relatório de falhas, e o stats.py decide se está pronto" class="w-full h-auto" role="img" viewbox="0 0 1000 250">
+<defs>
+<lineargradient id="t2h-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#60a5fa"></stop><stop offset="1" stop-color="#3b82f6"></stop></lineargradient>
+<filter height="180%" id="t2h-glow" width="180%" x="-40%" y="-40%"><fegaussianblur result="b" stddeviation="1.8"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
+<pattern height="32" id="t2h-grid" patternunits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#3b82f6" opacity="0.12" r="1.3"></circle></pattern>
+<marker id="t2h-ahc" markerheight="9" markerwidth="9" orient="auto" refx="6.5" refy="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#38bdf8"></path></marker>
+</defs>
+<rect fill="url(#t2h-grid)" height="250" width="1000" x="0" y="0"></rect>
+<g font-family="Inter,sans-serif" font-size="13" font-weight="600">
+<rect fill="#0e1622" height="56" rx="12" stroke="#60a5fa" stroke-width="2" width="140" x="20" y="97"></rect><text fill="#bfdbfe" text-anchor="middle" x="90" y="121">ESCOPO.md</text><text fill="#bfdbfe" font-size="11" font-weight="400" text-anchor="middle" x="90" y="140">lista de fontes</text>
+<rect class="wf-a" fill="#0e1b26" height="34" rx="9" stroke="#38bdf8" stroke-width="2" width="170" x="220" y="30"></rect><text fill="#bfe6ff" text-anchor="middle" x="305" y="52">subagente · vídeo</text>
+<rect class="wf-a" fill="#0e1b26" height="34" rx="9" stroke="#38bdf8" stroke-width="2" width="170" x="220" y="82"></rect><text fill="#bfe6ff" text-anchor="middle" x="305" y="104">subagente · guia</text>
+<rect class="wf-a" fill="#0e1b26" height="34" rx="9" stroke="#38bdf8" stroke-width="2" width="170" x="220" y="134"></rect><text fill="#bfe6ff" text-anchor="middle" x="305" y="156">subagente · repo</text>
+<rect class="wf-a" fill="#0e1b26" height="34" rx="9" stroke="#38bdf8" stroke-width="2" width="170" x="220" y="186"></rect><text fill="#bfe6ff" text-anchor="middle" x="305" y="208">subagente · export</text>
+<rect fill="#0e1622" height="40" rx="10" stroke="#60a5fa" stroke-width="2" width="190" x="470" y="50"></rect><text fill="#bfdbfe" text-anchor="middle" x="565" y="75">raw/ + MANIFESTO.json</text>
+<rect fill="#0e1622" height="40" rx="10" stroke="#60a5fa" stroke-width="2" width="190" x="470" y="160"></rect><text fill="#bfdbfe" text-anchor="middle" x="565" y="185">RELATORIO-FALHAS.md</text>
+</g>
+<g fill="none" opacity="0.6" stroke="#38bdf8" stroke-width="1.8">
+<path d="M160,112 C190,112 190,47 214,47" marker-end="url(#t2h-ahc)"></path><path d="M160,120 L214,99" marker-end="url(#t2h-ahc)"></path>
+<path d="M160,130 L214,151" marker-end="url(#t2h-ahc)"></path><path d="M160,138 C190,138 190,203 214,203" marker-end="url(#t2h-ahc)"></path>
+<path d="M390,47 L462,66" marker-end="url(#t2h-ahc)"></path><path d="M390,99 L462,72" marker-end="url(#t2h-ahc)"></path>
+<path d="M390,151 L462,78" marker-end="url(#t2h-ahc)"></path><path d="M390,203 L462,182" marker-end="url(#t2h-ahc)"></path>
+<path d="M660,70 C700,70 700,118 732,120" marker-end="url(#t2h-ahc)"></path><path d="M660,180 C700,180 700,132 732,130" marker-end="url(#t2h-ahc)"></path>
+</g>
+<g filter="url(#t2h-glow)"><rect fill="#0e1622" height="76" rx="16" stroke="url(#t2h-grad)" stroke-width="2" width="230" x="740" y="87"></rect></g>
+<text fill="#60a5fa" font-family="Inter,sans-serif" font-size="16" font-weight="700" text-anchor="middle" x="855" y="118">stats.py → exit 0</text>
+<text fill="#bfdbfe" font-family="Inter,sans-serif" font-size="12" text-anchor="middle" x="855" y="140">metas · sha256 · relatório</text>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-blue-400">Como ler:</strong> a fase 1 vai da esquerda para a direita. O ESCOPO abre um subagente por fonte
+        (caixas pulsando, em paralelo); o que deu certo vira arquivo no raw com linha no manifesto, o que falhou vira linha no relatório.
+        Só a caixa iluminada decide se acabou. O módulo 2.1 ensina os coletores; o 2.2, o manifesto, as falhas e o "pronto".
+      </p>
+</div>
+<section class="mb-12">
+<h2 class="text-2xl font-bold mb-6">Mapa da trilha</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+<a class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-blue-500/30 p-5 transition-all" href="#modulo-2-1">
+<div class="flex items-center justify-between mb-2"><span class="text-blue-400 font-bold text-sm">2.1</span><span class="text-xs text-neutral-500">~50 min</span></div>
+<h3 class="font-semibold mb-1 group-hover:text-blue-400 transition-colors">📥 Fontes e coletores</h3>
+<p class="text-xs text-neutral-400">Legenda antes, API paga nunca</p>
+</a>
+<a class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-blue-500/30 p-5 transition-all" href="#modulo-2-2">
+<div class="flex items-center justify-between mb-2"><span class="text-blue-400 font-bold text-sm">2.2</span><span class="text-xs text-neutral-500">~55 min</span></div>
+<h3 class="font-semibold mb-1 group-hover:text-blue-400 transition-colors">🧾 Subagentes, manifesto e falhas</h3>
+<p class="text-xs text-neutral-400">Paralelo sem perder nada</p>
+</a>
+</div>
+</section>
+<h2 class="text-2xl font-bold mb-6">Conteúdo detalhado</h2>
+<!-- MODULO 2.1 -->
+<div class="bg-dark-800 rounded-xl border border-dark-600 mb-6" data-inema-module="2-1" data-inema-track="2" id="modulo-2-1">
+<div class="p-6 border-b border-dark-600">
+<div class="flex items-center justify-between mb-2"><span class="text-blue-400 font-bold">2.1</span><span class="text-xs text-neutral-500">~50 min</span></div>
+<h3 class="text-2xl font-bold mb-2">📥 Fontes e coletores</h3>
+<p class="text-neutral-400 text-sm">Os tipos de fonte, os quatro coletores do kit e a ordem que poupa tempo e dinheiro: legenda, depois transcritor local, depois exportação manual.</p>
+</div>
+<div class="divide-y divide-dark-600">
+<div class="topic-item">
+<button aria-controls="t21-1" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+<span class="text-lg">🗃️</span>
+<div><span class="font-medium">Conheça os tipos de fonte</span><span class="text-neutral-500 text-sm ml-2">- Um tipo, um coletor</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t21-1">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">A classificação das fontes do ESCOPO (vídeo, página/guia, repositório, exportação) e o coletor que atende cada uma, todos gravando em raw/ com uma linha no manifesto.</p></div>
+<div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">O mentor não lê a internet na hora de ensinar; ele lê o acervo. Fonte fora do acervo simplesmente não existe para ele.</p></div>
+<div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Acervo · raw · coletor · manifesto · no piloto, 14 lives + 8 guias.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t21-2" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+<span class="text-lg">💬</span>
+<div><span class="font-medium">Use a legenda antes da transcrição</span><span class="text-neutral-500 text-sm ml-2">- 1,6 min contra 7,7 min</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t21-2">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Buscar a legenda que o vídeo já tem com yt-dlp --skip-download, sem baixar o vídeo, antes de pensar em transcrever.</p></div>
+<div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">No piloto, 13 lives vieram por legenda em 1,6 min (169.937 palavras); uma única live transcrita localmente levou 7,7 min.</p></div>
+<div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Legenda automática · VTT/SRT · idiomas_legenda · plano A antes do plano B.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t21-3" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+<span class="text-lg">🎙️</span>
+<div><span class="font-medium">Plugue o seu transcritor</span><span class="text-neutral-500 text-sm ml-2">- Qualquer comando, com teto</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t21-3">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">O campo transcrever_cmd do mentor.config.json: qualquer comando seu, com os marcadores {url} e {saida}, que deixa um .txt/.srt/.vtt na pasta indicada.</p></div>
+<div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Vídeo sem legenda não precisa virar perda nem custo: o transcritor local resolve, desde que tenha teto de memória e de tempo.</p></div>
+<div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Transcritor plugável · placeholders · MemoryMax · timeout_video_s.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t21-4" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+<span class="text-lg">🌐</span>
+<div><span class="font-medium">Colete páginas web e repositórios</span><span class="text-neutral-500 text-sm ml-2">- Texto limpo, sem menu</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t21-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">coletar_web.py extrai o texto da página sem navegação e rodapé; coletar_repo.py junta docs e comentários de topo de um clone raso.</p></div>
+<div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Menu e rodapé no acervo viram ruído na wiki. E página com menos de 80 palavras é sinal de paywall ou JavaScript: melhor saber na hora.</p></div>
+<div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Só http/https · limite de 80 palavras · comentário de topo · guias INEMA de 885 a 1.427 palavras.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t21-5" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+<span class="text-lg">📤</span>
+<div><span class="font-medium">Exporte à mão em vez de pagar API</span><span class="text-neutral-500 text-sm ml-2">- Chave guardada não é permissão</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t21-5">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Usar a exportação oficial da plataforma e entregar o arquivo de texto ao coletar_arquivo.py, com --tipo e --origem.</p></div>
+<div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">A skill de coleta proíbe API paga sem autorização explícita (serviço + finalidade). O caminho manual mantém custo zero e origem rastreável.</p></div>
+<div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">API paga · autorização explícita · --origem vira o campo url · só arquivos de texto.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t21-6" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+<span class="text-lg">▶️</span>
+<div><span class="font-medium">Rode os 4 coletores</span><span class="text-neutral-500 text-sm ml-2">- Copiar, colar, conferir</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t21-6">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Um comando pronto por coletor, cada um com objetivo e forma de verificar, todos fechando com python3 tools/stats.py.</p></div>
+<div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Rodar à mão uma vez é o jeito de entender o que a skill de coleta vai pedir aos subagentes, e de reconhecer uma saída errada.</p></div>
+<div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Rodar de novo é seguro ("já coletado") · exit 1 se uma fonte falhou · ok com número de palavras.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+<button class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors" onclick="openModal('modal-2-1')">Ver em Modal</button>
+<a class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors" href="modulo-2-1.html">Ver Completo</a>
+</div>
+</div>
+<!-- MODULO 2.2 -->
+<div class="bg-dark-800 rounded-xl border border-dark-600 mb-6" data-inema-module="2-2" data-inema-track="2" id="modulo-2-2">
+<div class="p-6 border-b border-dark-600">
+<div class="flex items-center justify-between mb-2"><span class="text-blue-400 font-bold">2.2</span><span class="text-xs text-neutral-500">~55 min</span></div>
+<h3 class="text-2xl font-bold mb-2">🧾 Subagentes, manifesto e falhas</h3>
+<p class="text-neutral-400 text-sm">Um subagente por fonte, o manifesto com sha256, o relatório de falhas, as metas do stats.py e os dois bugs reais do piloto que viraram o kit 1.2.</p>
+</div>
+<div class="divide-y divide-dark-600">
+<div class="topic-item">
+<button aria-controls="t22-1" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+<span class="text-lg">🧑‍🤝‍🧑</span>
+<div><span class="font-medium">Um subagente por fonte</span><span class="text-neutral-500 text-sm ml-2">- Paralelo no download, fila na escrita</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t22-1">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">A skill /&lt;slug&gt;-coletar dispara um subagente para cada fonte, ao mesmo tempo, e junta só os resultados na sessão principal.</p></div>
+<div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Fonte lenta não segura as rápidas e o barulho do download não enche o contexto. Mas o paralelo cobra: todos escrevem no mesmo manifesto.</p></div>
+<div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Subagente · paralelo · skill · trava de arquivo.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t22-2" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+<span class="text-lg">📒</span>
+<div><span class="font-medium">Leia o MANIFESTO.json e o sha256</span><span class="text-neutral-500 text-sm ml-2">- O lacre do raw</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t22-2">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">A lista oficial do acervo: para cada item, tipo, url, arquivo, data, palavras e o sha256 calculado na hora da coleta.</p></div>
+<div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">O sha256 é o que permite provar, nas trilhas 3 e 4, que a wiki e as citações vêm de um raw que ninguém mexeu.</p></div>
+<div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Impressão digital · url = chave de "já coletado" · arquivo = chave de atualização.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t22-3" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+<span class="text-lg">🚩</span>
+<div><span class="font-medium">Mantenha o RELATORIO-FALHAS.md</span><span class="text-neutral-500 text-sm ml-2">- Falha tem endereço</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t22-3">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Uma tabela em raw/ com data, tipo, origem e motivo de cada fonte que não deu texto. Tem de existir mesmo vazia.</p></div>
+<div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">No piloto, a única linha ("sem legenda") levou a preencher o transcritor e recuperar 8.045 palavras que teriam ficado de fora.</p></div>
+<div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Histórico, não pendência · nunca apagar a linha · prova de que foi olhado.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t22-4" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+<span class="text-lg">🎯</span>
+<div><span class="font-medium">Defina "pronto" com metas e stats.py</span><span class="text-neutral-500 text-sm ml-2">- Exit 0, não impressão</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t22-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Metas de itens e palavras por tipo no config, conferidas pelo stats.py junto com o sha256 de cada arquivo e a existência do relatório.</p></div>
+<div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">No piloto, 6 guias deram 7.269 palavras contra 8.000: exit 1. Com +1 guia e a transcrição, 21 itens e 187.382 palavras: exit 0.</p></div>
+<div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Exit code · metas_coleta · calibrar a meta depois de listar as fontes · "faltam N palavras".</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t22-5" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+<span class="text-lg">🔒</span>
+<div><span class="font-medium">Caso real 1: o agente recusou o paralelo</span><span class="text-neutral-500 text-sm ml-2">- E estava certo</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t22-5">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">O manifesto do kit 1.1 era regravado inteiro sem trava; o agente percebeu que coletas em paralelo apagariam itens umas das outras e rodou em sequência.</p></div>
+<div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Condição de corrida perde dados em silêncio. O kit 1.2 ganhou trava de arquivo e escrita atômica, com teste de 12 coletas simultâneas.</p></div>
+<div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Ler-alterar-gravar · condição de corrida · flock · os.replace.</p></div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button aria-controls="t22-6" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+<span class="text-lg">🏷️</span>
+<div><span class="font-medium">Caso real 2: o transcript.txt que sobrescrevia</span><span class="text-neutral-500 text-sm ml-2">- Nome pela fonte, não pela ferramenta</span></div>
+</button>
+<div class="topic-explanation px-6 pb-4" id="t22-6">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">A transcrição local foi salva com o nome que o transcritor deu; a próxima live transcrita gravaria por cima e o manifesto perderia o item.</p></div>
+<div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Gravidade alta no diário do piloto. Agora o nome é título + ID do vídeo (ou hash da URL) — e o transcript.txt original segue no raw como evidência.</p></div>
+<div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Perda silenciosa · nome único por fonte · yt-dlp --print · raw imutável.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+<button class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors" onclick="openModal('modal-2-2')">Ver em Modal</button>
+<a class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors" href="modulo-2-2.html">Ver Completo</a>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 mt-12">
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="../trilha1/index.html">← Trilha 1: Por que um mentor</a>
+<a class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors" href="../trilha3/index.html">Trilha 3: Wiki compilada →</a>
+</div>
+</main>
+<div class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" id="modal-2-1" onclick="if(event.target === this) closeModal()">
+<div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+<div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+<div class="flex items-center space-x-3"><span class="text-blue-400 font-bold">2.1</span><span class="font-semibold">Fontes e coletores</span></div>
+<button aria-label="Fechar" class="text-neutral-400 hover:text-white text-2xl leading-none" onclick="closeModal()">×</button>
+</div>
+<iframe class="flex-1 w-full rounded-b-xl" src="modulo-2-1.html" title="Módulo 2.1"></iframe>
+</div>
+</div>
+<div class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" id="modal-2-2" onclick="if(event.target === this) closeModal()">
+<div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+<div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+<div class="flex items-center space-x-3"><span class="text-blue-400 font-bold">2.2</span><span class="font-semibold">Subagentes, manifesto e falhas</span></div>
+<button aria-label="Fechar" class="text-neutral-400 hover:text-white text-2xl leading-none" onclick="closeModal()">×</button>
+</div>
+<iframe class="flex-1 w-full rounded-b-xl" src="modulo-2-2.html" title="Módulo 2.2"></iframe>
+</div>
+</div>
+<footer class="border-t border-dark-600 py-8 mt-16">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+<p>Mentor-Especialista: o método de um especialista virando seu mentor no Claude Code — 2026</p>
+<p class="mt-2">
+<a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+<span class="text-neutral-600 mx-1">-</span>
+<a class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200" href="https://inema.pro" target="_blank">PRO</a>
+</p>
+</div>
+</footer>
+<script src="../../assets/curso.js"></script>
+<script src="../../assets/learn.js"></script>
+<script>if (window.INEMA && typeof window.INEMA.init === 'function') window.INEMA.init();</script>
+</body>
+</html>

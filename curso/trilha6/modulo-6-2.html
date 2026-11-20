@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="mentor-especialista-curso" name="inema-course"/>
+<title>Módulo 6.2 · Ingestão contínua, atualização e reuso | Mentor-Especialista</title>
+<script src="../../assets/boot.js"></script>
+<script data-inema-manifest="" type="application/json">
+{
+  "course": "mentor-especialista-curso",
+  "tracks": [
+    { "n": "1", "title": "Por que um mentor", "modules": [
+      { "id": "1-1", "title": "Os maus hábitos da IA quando ensina", "topics": 6, "href": "curso/trilha1/modulo-1-1.html" },
+      { "id": "1-2", "title": "Método não é persona: escopo do mentor", "topics": 6, "href": "curso/trilha1/modulo-1-2.html" }
+    ]},
+    { "n": "2", "title": "Coleta do acervo", "modules": [
+      { "id": "2-1", "title": "Fontes e coletores", "topics": 6, "href": "curso/trilha2/modulo-2-1.html" },
+      { "id": "2-2", "title": "Subagentes, manifesto e falhas", "topics": 6, "href": "curso/trilha2/modulo-2-2.html" }
+    ]},
+    { "n": "3", "title": "Wiki compilada", "modules": [
+      { "id": "3-1", "title": "Raw imutável, wiki viva", "topics": 6, "href": "curso/trilha3/modulo-3-1.html" },
+      { "id": "3-2", "title": "Fontes, temas, princípios e métodos", "topics": 6, "href": "curso/trilha3/modulo-3-2.html" }
+    ]},
+    { "n": "4", "title": "Regras com prova", "modules": [
+      { "id": "4-1", "title": "Conduta, não frase de efeito", "topics": 6, "href": "curso/trilha4/modulo-4-1.html" },
+      { "id": "4-2", "title": "Citação, status e validador", "topics": 6, "href": "curso/trilha4/modulo-4-2.html" }
+    ]},
+    { "n": "5", "title": "Agente, skills e portão", "modules": [
+      { "id": "5-1", "title": "Mapa: settings, agente e skills", "topics": 6, "href": "curso/trilha5/modulo-5-1.html" },
+      { "id": "5-2", "title": "O loop obrigatório do mentor", "topics": 6, "href": "curso/trilha5/modulo-5-2.html" },
+      { "id": "5-3", "title": "Skills: ensina, revisa, ingere", "topics": 6, "href": "curso/trilha5/modulo-5-3.html" },
+      { "id": "5-4", "title": "Portão de execução", "topics": 6, "href": "curso/trilha5/modulo-5-4.html" }
+    ]},
+    { "n": "6", "title": "Prova e evolução", "modules": [
+      { "id": "6-1", "title": "O piloto real e os testes de aceitação", "topics": 6, "href": "curso/trilha6/modulo-6-1.html" },
+      { "id": "6-2", "title": "Ingestão contínua, atualização e reuso", "topics": 6, "href": "curso/trilha6/modulo-6-2.html" }
+    ]}
+  ]
+}
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../../assets/curso.css" rel="stylesheet"/>
+<link href="../../assets/learn.css" rel="stylesheet"/>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+<a class="skip sr-only focus:not-sr-only" href="#conteudo">Pular para o conteúdo</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🧭</span><span class="font-bold text-lg hidden sm:inline">Mentor-Especialista</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+<span class="text-neutral-600">-</span>
+<a class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200 text-sm font-medium" href="https://inema.pro" target="_blank">PRO</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Por quê</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Coleta</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Wiki</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors" href="../trilha4/index.html"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Regras</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors" href="../trilha5/index.html"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Agente</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-rose-400 bg-rose-500/10" href="index.html"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Prova</span></a>
+<button class="hidden md:inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-neutral-300 hover:text-neutral-100 transition-colors text-sm" data-inema-journey-open="" type="button">
+<span aria-hidden="true">◷</span><span>Minha jornada</span><span aria-hidden="true" class="inema-journey-badge hidden"></span>
+</button>
+<button aria-label="Alternar tema claro/escuro" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewBox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<nav aria-label="Trilha de navegação" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+<div class="flex items-center space-x-2 text-sm text-neutral-400">
+<a class="hover:text-rose-400" href="../../index.html">Início</a><span>/</span>
+<a class="hover:text-rose-400" href="index.html">Trilha 6</a><span>/</span>
+<span class="text-rose-400">Módulo 6.2</span>
+</div>
+</nav>
+<header class="bg-gradient-to-br from-rose-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600" data-inema-module="6-2" data-inema-track="6">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<span class="inline-block px-3 py-1 bg-rose-500/20 text-rose-400 text-xs font-semibold rounded-full mb-4">MÓDULO 6.2 · EVOLUÇÃO</span>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">🌱 Ingestão contínua, atualização e reuso</h1>
+<p class="text-lg text-neutral-400 max-w-3xl">
+        Um mentor que para no dia em que foi gerado envelhece. Este módulo mostra como ele cresce com cada conteúdo novo do especialista,
+        como recebe as correções do kit <strong class="text-rose-400">sem perder o que é seu</strong>, como o mesmo desenho serve para outro especialista
+        — e fecha com o projeto final e a rubrica.
+      </p>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 max-w-2xl">
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">2,4 min</div><div class="text-xs text-neutral-400">Ingestão real</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">R9 · R10</div><div class="text-xs text-neutral-400">Regras novas</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">10 pts</div><div class="text-xs text-neutral-400">Rubrica</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">~60 min</div><div class="text-xs text-neutral-400">Duração</div></div>
+</div>
+<div class="mt-6 max-w-2xl">
+<div aria-label="Progresso do módulo 6.2" aria-valuemax="100" aria-valuemin="0" class="inema-meter" data-inema-meter="modulo:6-2" role="progressbar">
+<span class="inema-meter-pct">0%</span><span class="inema-meter-count">0 de 6</span>
+</div>
+</div>
+</div>
+</header>
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:grid lg:grid-cols-[220px_1fr] lg:gap-10">
+<nav aria-label="Índice da página" class="hidden lg:block sticky top-24 self-start" data-inema-toc="">
+<p class="text-sm text-neutral-400 mb-2">Tópico <span class="inema-toc-pos">1</span> de <span class="inema-toc-total">6</span></p>
+<ul class="space-y-1 text-sm">
+<li><a class="inema-toc-link hover:text-rose-400" href="#topico-1">1. /ingere na prática</a></li>
+<li><a class="inema-toc-link hover:text-rose-400" href="#topico-2">2. Promoção de regras</a></li>
+<li><a class="inema-toc-link hover:text-rose-400" href="#topico-3">3. --atualizar</a></li>
+<li><a class="inema-toc-link hover:text-rose-400" href="#topico-4">4. Outro especialista</a></li>
+<li><a class="inema-toc-link hover:text-rose-400" href="#topico-5">5. Conselho de mentores</a></li>
+<li><a class="inema-toc-link hover:text-rose-400" href="#topico-6">6. Projeto final</a></li>
+</ul>
+</nav>
+<main class="inema-prose" id="conteudo">
+<!-- TOPICO 1 -->
+<section class="mb-16" data-inema-topic="modulo-6-2#topico-1" id="topico-1">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">1</span>
+<h2 class="text-2xl font-bold">📥 /ingere: um link novo, o mentor inteiro atualizado</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m6-2-t1-p1">
+          O especialista publicou um guia novo. Você não recompila a wiki inteira nem reescreve regras à mão: roda
+          <span class="font-mono text-sm">/&lt;slug&gt;-ingere &lt;link&gt;</span>. A skill coleta, cria a página da fonte, propaga pelas páginas afetadas,
+          mexe nas regras se for o caso, registra no log e prova com os três validadores.
+        </p>
+<div class="bg-sky-900/20 rounded-xl border border-sky-500/30 p-5 mb-6">
+<p class="text-sm font-semibold text-sky-400 mb-2">Novo aqui? Ingestão e propagação</p>
+<p class="text-sm text-neutral-300"><strong>Ingestão</strong> é colocar uma fonte nova para dentro do mentor. <strong>Propagar</strong> é atualizar toda página da wiki que esse conteúdo toca — tema, princípio, método — com link nos dois sentidos. Sem propagar, a fonte nova fica isolada e o mentor nunca a usa.</p>
+</div>
+<div class="rounded-2xl border border-rose-500/30 bg-dark-900/40 p-3 sm:p-4 mb-4 overflow-hidden">
+<svg aria-label="Os sete passos da ingestão: coletar, página de fonte, propagar, regras, controle em index hot e log, três validadores e resumo ao usuário; se a fonte já está no manifesto, para e avisa" class="w-full h-auto" role="img" viewBox="0 0 1000 250">
+<defs>
+<linearGradient id="m62a-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#fb7185"></stop><stop offset="1" stop-color="#f43f5e"></stop></linearGradient>
+<filter height="180%" id="m62a-glow" width="180%" x="-40%" y="-40%"><feGaussianBlur result="b" stdDeviation="2"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+<pattern height="32" id="m62a-grid" patternUnits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#f43f5e" opacity="0.12" r="1.3"></circle></pattern>
+<marker id="m62a-ah" markerHeight="9" markerWidth="9" orient="auto" refX="6.5" refY="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#fb7185"></path></marker>
+<marker id="m62a-ahc" markerHeight="9" markerWidth="9" orient="auto" refX="6.5" refY="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#38bdf8"></path></marker>
+</defs>
+<rect fill="url(#m62a-grid)" height="250" width="1000" x="0" y="0"></rect>
+<g fill="none" opacity="0.6" stroke="#fb7185" stroke-width="1.8">
+<path d="M150,70 L176,70" marker-end="url(#m62a-ah)"></path>
+<path d="M306,70 L332,70" marker-end="url(#m62a-ah)"></path>
+<path d="M462,70 L488,70" marker-end="url(#m62a-ah)"></path>
+<path d="M618,70 L644,70" marker-end="url(#m62a-ah)"></path>
+<path d="M774,70 L800,70" marker-end="url(#m62a-ah)"></path>
+</g>
+<g font-family="Inter,sans-serif" font-size="12.5" font-weight="600">
+<rect fill="#2a0f16" height="50" rx="10" stroke="#fb7185" stroke-width="2" width="130" x="20" y="45"></rect><text fill="#fecdd3" text-anchor="middle" x="85" y="66">1 · coletar</text><text fill="#fecdd3" font-size="11" font-weight="400" opacity="0.8" text-anchor="middle" x="85" y="84">coletor do tipo</text>
+<rect fill="#2a0f16" height="50" rx="10" stroke="#fb7185" stroke-width="2" width="130" x="176" y="45"></rect><text fill="#fecdd3" text-anchor="middle" x="241" y="66">2 · fonte</text><text fill="#fecdd3" font-size="11" font-weight="400" opacity="0.8" text-anchor="middle" x="241" y="84">wiki/fontes/&lt;id&gt;</text>
+<rect fill="#2a0f16" height="50" rx="10" stroke="#fb7185" stroke-width="2" width="130" x="332" y="45"></rect><text fill="#fecdd3" text-anchor="middle" x="397" y="66">3 · propagar</text><text fill="#fecdd3" font-size="11" font-weight="400" opacity="0.8" text-anchor="middle" x="397" y="84">temas, princípios…</text>
+<rect fill="#2a0f16" height="50" rx="10" stroke="#fb7185" stroke-width="2" width="130" x="488" y="45"></rect><text fill="#fecdd3" text-anchor="middle" x="553" y="66">4 · regras</text><text fill="#fecdd3" font-size="11" font-weight="400" opacity="0.8" text-anchor="middle" x="553" y="84">reforça / promove</text>
+<rect fill="#2a0f16" height="50" rx="10" stroke="#fb7185" stroke-width="2" width="130" x="644" y="45"></rect><text fill="#fecdd3" text-anchor="middle" x="709" y="66">5 · controle</text><text fill="#fecdd3" font-size="11" font-weight="400" opacity="0.8" text-anchor="middle" x="709" y="84">index, hot, log</text>
+</g>
+<g filter="url(#m62a-glow)"><rect fill="#2a0f16" height="50" rx="10" stroke="url(#m62a-grad)" stroke-width="2.4" width="176" x="800" y="45"></rect></g>
+<text fill="#fb7185" font-family="Inter,sans-serif" font-size="12.5" font-weight="700" text-anchor="middle" x="888" y="66">6 · 3 validadores</text>
+<text fill="#fecdd3" font-family="Inter,sans-serif" font-size="11" text-anchor="middle" x="888" y="84">todos exit 0</text>
+<g fill="none" opacity="0.6" stroke="#38bdf8" stroke-width="1.8">
+<path d="M85,95 L85,170 L160,170" marker-end="url(#m62a-ahc)"></path>
+<path d="M888,95 L888,170 L820,170" marker-end="url(#m62a-ahc)"></path>
+</g>
+<g font-family="Inter,sans-serif">
+<rect fill="#0e1b26" height="46" rx="10" stroke="#38bdf8" stroke-width="2" width="300" x="164" y="148"></rect>
+<text fill="#bfe6ff" font-size="12.5" font-weight="600" text-anchor="middle" x="314" y="168">já está no manifesto?</text>
+<text fill="#bfe6ff" font-size="11.5" text-anchor="middle" x="314" y="185">para e avisa (nada duplica)</text>
+<rect fill="#0e1b26" height="46" rx="10" stroke="#38bdf8" stroke-width="2" width="300" x="516" y="148"></rect>
+<text fill="#bfe6ff" font-size="12.5" font-weight="600" text-anchor="middle" x="666" y="168">7 · diz em 3–5 linhas</text>
+<text fill="#bfe6ff" font-size="11.5" text-anchor="middle" x="666" y="185">o que o mentor aprendeu</text>
+<text fill="#fecdd3" font-size="12" text-anchor="middle" x="500" y="232">no piloto: 2,4 min · fonte nova · 2 métodos novos · R9 e R10 ativas · R1, R2, R6 reforçadas</text>
+</g>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-rose-400">Como ler:</strong> a fila rosa é o caminho normal; o desvio ciano à esquerda é a trava contra duplicação,
+            e o da direita é a última coisa que o aluno vê. O cartão brilhante é o que torna a ingestão confiável: sem os três exit 0, não terminou.
+          </p>
+</div>
+<h3 class="text-lg font-semibold mb-4">O caso real: um guia sobre usar dois agentes</h3>
+<div class="overflow-x-auto mb-6">
+<table class="w-full text-sm border border-dark-600 rounded-xl overflow-hidden">
+<thead class="bg-dark-800"><tr><th class="text-left p-3 text-rose-400">O que mudou</th><th class="text-left p-3 text-rose-400">No mentor do Nei</th></tr></thead>
+<tbody class="divide-y divide-dark-600 text-neutral-300">
+<tr><td class="p-3">Fonte nova</td><td class="p-3">guia <span class="font-mono text-xs">agente-claude-codex</span> → 22 fontes no acervo</td></tr>
+<tr><td class="p-3">Métodos novos</td><td class="p-3"><span class="font-mono text-xs">nucleo-portatil-entre-runtimes</span>, <span class="font-mono text-xs">revisao-cruzada-entre-agentes</span></td></tr>
+<tr><td class="p-3">Páginas propagadas</td><td class="p-3">5 temas, 4 princípios, 2 métodos já existentes, 1 fonte antiga, index e hot</td></tr>
+<tr><td class="p-3">Regras</td><td class="p-3">R9 e R10 criadas já ativas; R1, R2 e R6 reforçadas</td></tr>
+<tr><td class="p-3">Tamanho depois</td><td class="p-3">76 páginas e cerca de 1.300 links; 10 regras e 40 citações</td></tr>
+</tbody>
+</table>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">🧪</span> Faça agora — ingerir um conteúdo novo do seu especialista</h3>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-rose-400">Objetivo:</strong> fazer o teste 3 no seu mentor e conferir por fora. Commit antes, para ver exatamente o que a ingestão mudou.</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">cd ~/mentores/mentor-&lt;slug&gt;
+git add -A &amp;&amp; git commit -qm "antes da ingestão"
+claude
+# dentro do Claude Code:
+/&lt;slug&gt;-ingere &lt;link novo do especialista, fora do ESCOPO.md&gt;
+# de volta ao terminal:
+tail -1 wiki/log.md
+git status --short wiki/ regras.md
+python3 tools/stats.py &amp;&amp; python3 tools/validar_links.py &amp;&amp; python3 tools/validar_citacoes.py; echo "exit=$?"</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-rose-400">Como verificar:</strong> a última linha do log tem a data e a fonte nova; o <span class="font-mono text-xs">git status</span> mostra uma página nova em <span class="font-mono text-xs">wiki/fontes/</span> e páginas modificadas; <span class="font-mono text-xs">exit=0</span> no fim. Se o <span class="font-mono text-xs">git status</span> mostrar algo em <span class="font-mono text-xs">raw/</span> que não seja o item novo, a ingestão mexeu no acervo cru: anote no diário.</p>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-rose-500/20 border border-rose-500/30 text-rose-400 hover:bg-rose-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 2 -->
+<section class="mb-16" data-inema-topic="modulo-6-2#topico-2" id="topico-2">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">2</span>
+<h2 class="text-2xl font-bold">🎖️ Promoção de regras: banco → ativa</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m6-2-t2-p1">
+          Na trilha 4 você viu os três status de uma regra. A ingestão é o momento em que eles se movem. Uma regra com uma fonte só
+          fica no <strong>banco</strong>, esperando; quando chega a 2ª fonte diferente dizendo a mesma coisa, ela é <strong>promovida</strong> a ativa e passa a guiar o mentor.
+        </p>
+<div class="rounded-2xl border border-rose-500/30 bg-dark-900/40 p-3 sm:p-4 mb-4 overflow-hidden">
+<svg aria-label="Ciclo de vida de uma regra: comportamento novo entra como banco com uma fonte; a segunda fonte diferente promove para ativa; fontes extras reforçam a ativa com mais citações; inferência fica à parte, sem citação, e o mentor avisa" class="w-full h-auto" role="img" viewBox="0 0 1000 230">
+<defs>
+<linearGradient id="m62b-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#fb7185"></stop><stop offset="1" stop-color="#f43f5e"></stop></linearGradient>
+<filter height="180%" id="m62b-glow" width="180%" x="-40%" y="-40%"><feGaussianBlur result="b" stdDeviation="2"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+<pattern height="32" id="m62b-grid" patternUnits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#f43f5e" opacity="0.12" r="1.3"></circle></pattern>
+<marker id="m62b-ah" markerHeight="9" markerWidth="9" orient="auto" refX="6.5" refY="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#fb7185"></path></marker>
+<marker id="m62b-ahc" markerHeight="9" markerWidth="9" orient="auto" refX="6.5" refY="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#38bdf8"></path></marker>
+</defs>
+<rect fill="url(#m62b-grid)" height="230" width="1000" x="0" y="0"></rect>
+<g font-family="Inter,sans-serif">
+<rect fill="#0e1b26" height="60" rx="12" stroke="#38bdf8" stroke-width="2" width="200" x="30" y="60"></rect>
+<text fill="#bfe6ff" font-size="14" font-weight="600" text-anchor="middle" x="130" y="86">comportamento novo</text>
+<text fill="#bfe6ff" font-size="11.5" text-anchor="middle" x="130" y="106">visto na fonte nova</text>
+<path d="M230,90 L298,90" fill="none" marker-end="url(#m62b-ahc)" opacity="0.7" stroke="#38bdf8" stroke-width="1.8"></path>
+<rect fill="#2a0f16" height="60" rx="12" stroke="#fb7185" stroke-width="2" width="200" x="300" y="60"></rect>
+<text fill="#fecdd3" font-size="14" font-weight="600" text-anchor="middle" x="400" y="86">banco</text>
+<text fill="#fecdd3" font-size="11.5" text-anchor="middle" x="400" y="106">1 fonte · espera a 2ª</text>
+<path d="M500,90 L588,90" fill="none" marker-end="url(#m62b-ah)" opacity="0.7" stroke="#fb7185" stroke-width="1.8"></path>
+<text fill="#fb7185" font-size="12" font-weight="600" text-anchor="middle" x="544" y="80">2ª fonte</text>
+<g filter="url(#m62b-glow)"><rect fill="#2a0f16" height="60" rx="12" stroke="url(#m62b-grad)" stroke-width="2.6" width="200" x="590" y="60"></rect></g>
+<text fill="#fb7185" font-size="15" font-weight="700" text-anchor="middle" x="690" y="86">ativa</text>
+<text fill="#fecdd3" font-size="11.5" text-anchor="middle" x="690" y="106">≥2 fontes · guia o mentor</text>
+<path d="M790,80 C860,40 860,140 790,100" fill="none" marker-end="url(#m62b-ah)" opacity="0.7" stroke="#fb7185" stroke-width="1.8"></path>
+<text fill="#fecdd3" font-size="12" x="866" y="94">reforço:</text>
+<text fill="#fecdd3" font-size="12" x="866" y="110">+ citação</text>
+<rect fill="#1f1418" height="46" rx="12" stroke="#fb7185" stroke-dasharray="6 5" stroke-width="1.6" width="300" x="300" y="158"></rect>
+<text fill="#fecdd3" font-size="12.5" text-anchor="middle" x="450" y="186">inferência · sem citação · o mentor avisa</text>
+</g>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-rose-400">Como ler:</strong> só a seta rosa do meio muda o status — e ela exige uma 2ª fonte <em>diferente</em>. A volta à direita
+            mostra o reforço, que não muda o status, só engrossa a prova. A inferência fica de lado, tracejada: é útil, mas nunca finge ter fonte.
+          </p>
+</div>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m6-2-t2-p2">
+          No piloto aconteceu um caso curioso: R9 e R10 nasceram <strong>já ativas</strong>. O comportamento era novo no guia ingerido, mas a 2ª fonte
+          já estava no acervo cru, dizendo o mesmo sem que ninguém tivesse transformado aquilo em regra — uma live, no caso da R9, e outro guia, no da R10. Veja a R9 como ficou:
+        </p>
+<pre class="font-mono text-xs bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-6">## R9 — Revisar com outro agente, entregando o artefato real
+- status: ativa
+- enunciado: Pôr uma segunda IA para questionar e testar o que a primeira fez, dando a ela o mesmo
+  briefing e o arquivo, diff ou saída de teste (nunca um resumo), e não tratar a concordância das
+  duas como prova.
+- citacoes:
+  - "também é muito bom tu ter uma outra IA" — raw/videos/inema-vibecode-do-zero-dia-1-…txt@00:08:29
+  - "dê ao segundo agente o mesmo briefing da tarefa e o artefato real" — raw/guia/agente-claude-codex-…md
+  - "Os dois concordarem não é prova: eles podem dividir a mesma suposição errada." — raw/guia/agente-claude-codex-…md
+- no mentor: seção Revisão — o mentor pede o artefato (arquivo, diff, saída) em vez da descrição…</pre>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-5"><p class="text-rose-400 font-semibold mb-2">R9 — Revisão cruzada</p><p class="text-sm text-neutral-300">Fontes: uma live (vídeo) + o guia novo. Repare como ela ecoa o módulo 6.1: entregar o artefato real, não o resumo — o mesmo motivo de o validador ler o log e não o relato.</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-5"><p class="text-rose-400 font-semibold mb-2">R10 — Handoff não é permissão</p><p class="text-sm text-neutral-300">Gasto, publicação, deploy, envio ou apagar viram portão humano; nota antiga ou plano não autorizam. Fontes: dois guias diferentes. No mentor, vira a seção Risco.</p></div>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">🧪</span> Faça agora — o que a ingestão fez com as suas regras</h3>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-rose-400">Objetivo:</strong> contar regras por status antes e depois, e ver exatamente qual linha mudou.</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">cd ~/mentores/mentor-&lt;slug&gt;
+git show HEAD:regras.md | grep -E '^- status:' | sort | uniq -c   # antes (último commit)
+grep -E '^- status:' regras.md | sort | uniq -c                   # agora
+git diff --word-diff regras.md | grep -E 'status|^## R'</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-rose-400">Como verificar:</strong> se uma regra passou de <span class="font-mono text-xs">banco</span> para <span class="font-mono text-xs">ativa</span>, ela precisa ter agora 2 citações de arquivos diferentes do <span class="font-mono text-xs">raw/</span>. Confira com <span class="font-mono text-xs">python3 tools/validar_citacoes.py</span> → exit 0. Se nenhuma mudou, tudo bem: a fonte só reforçou ou não tocou regras.</p>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-rose-500/20 border border-rose-500/30 text-rose-400 hover:bg-rose-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 3 -->
+<section class="mb-16" data-inema-topic="modulo-6-2#topico-3" id="topico-3">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">3</span>
+<h2 class="text-2xl font-bold">🔄 novo-mentor.py --atualizar</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m6-2-t3-p1">
+          O kit evolui — o 1.2 nasceu do piloto. Seu mentor já existe, com acervo, wiki e regras que custaram horas. Gerar de novo
+          seria perder tudo. O <span class="font-mono text-sm">--atualizar</span> faz a separação: troca o que é <em>código e instrução do kit</em> e não encosta no que é <em>conteúdo seu</em>.
+        </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ O que ele atualiza</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span><span class="font-mono text-xs">tools/</span> — coletores e validadores</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span><span class="font-mono text-xs">.claude/</span> — agente, skills, hooks e settings</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>material dos testes: <span class="font-mono text-xs">README.md</span>, <span class="font-mono text-xs">script_emoji.py</span>, <span class="font-mono text-xs">comentarios.json</span></span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span><span class="font-mono text-xs">mentor.config.json</span>: só <em>acrescenta</em> chaves novas; nunca sobrescreve as suas</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ O que ele não toca</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span><span class="font-mono text-xs">raw/</span> — o acervo cru</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span><span class="font-mono text-xs">wiki/</span> e <span class="font-mono text-xs">regras.md</span></span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span><span class="font-mono text-xs">ESCOPO.md</span> e <span class="font-mono text-xs">CLAUDE.md</span></span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span><span class="font-mono text-xs">testes/respostas/</span> — as respostas que você guardou</span></li>
+</ul>
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> E se eu personalizei o agente?</h3>
+<p class="text-neutral-300">Cada arquivo que vai ser trocado e estava diferente do novo é copiado antes para <span class="font-mono text-sm">.mentor/backup-&lt;data&gt;/</span>. O comando avisa no fim: "se você tinha personalizado o agente, compare". No piloto, a atualização para o 1.2 mexeu em 9 arquivos — agente, 3 skills, config e 4 tools — e nenhuma página da wiki.</p>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">🧪</span> Faça agora — atualizar o seu mentor com segurança</h3>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-rose-400">Objetivo:</strong> levar seu mentor para a versão atual do kit e provar que o conteúdo não mudou.</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">cd ~/caminho/do/kit/mentor-especialista &amp;&amp; git pull &amp;&amp; cat VERSION
+cd ~/mentores/mentor-&lt;slug&gt; &amp;&amp; git add -A &amp;&amp; git commit -qm "antes de atualizar o kit"
+python3 ~/caminho/do/kit/mentor-especialista/novo-mentor.py --atualizar ~/mentores/mentor-&lt;slug&gt;
+git status --short | grep -E ' (raw|wiki)/| regras.md| ESCOPO.md' || echo "conteúdo intacto"
+python3 tools/stats.py &amp;&amp; python3 tools/validar_links.py &amp;&amp; python3 tools/validar_citacoes.py; echo "exit=$?"</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-rose-400">Como verificar:</strong> a saída do <span class="font-mono text-xs">--atualizar</span> termina com "Não mexi em: raw/, wiki/, regras.md, ESCOPO.md, CLAUDE.md, testes/respostas/."; o <span class="font-mono text-xs">grep</span> imprime "conteúdo intacto"; os validadores dão <span class="font-mono text-xs">exit=0</span>. Depois rode de novo o teste 2 do módulo 6.1 para ver se a versão nova mudou o placar.</p>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-rose-500/20 border border-rose-500/30 text-rose-400 hover:bg-rose-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 4 -->
+<section class="mb-16" data-inema-topic="modulo-6-2#topico-4" id="topico-4">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">4</span>
+<h2 class="text-2xl font-bold">♻️ Reuso para outro especialista</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m6-2-t4-p1">
+          Nada no kit é específico do Nei. O que muda de um especialista para outro é o <em>conteúdo</em> — acervo, wiki, regras — e, às vezes,
+          o formato da resposta. O <strong>núcleo</strong> (<span class="font-mono text-sm">raw/</span>, <span class="font-mono text-sm">wiki/</span>, <span class="font-mono text-sm">regras.md</span>, <span class="font-mono text-sm">tools/</span>) nem depende do Claude Code.
+        </p>
+<h3 class="text-lg font-semibold mb-4">Três tipos de reuso</h3>
+<div class="relative border-l-2 border-rose-500/30 ml-3 space-y-6 mb-8">
+<div class="ml-6"><span class="absolute -left-2 w-4 h-4 rounded-full bg-rose-500"></span><p class="font-semibold text-rose-400">Mesmo tipo de domínio (ensina código)</p><p class="text-sm text-neutral-300">Rode o <span class="font-mono text-xs">novo-mentor.py</span> de novo com outro slug, nome e domínio. Repita as fases 1–5. Calibre as metas <em>depois</em> de listar as fontes — no piloto, a meta de guias reprovou porque cada guia tinha 900–1.400 palavras.</p></div>
+<div class="ml-6"><span class="absolute -left-2 w-4 h-4 rounded-full bg-rose-500"></span><p class="font-semibold text-rose-400">Domínio que não é código (vendas, escrita, coaching)</p><p class="text-sm text-neutral-300">Troque o loop no agente e as <span class="font-mono text-xs">secoes_resposta</span> no config. O portão continua lá; se o mentor nunca gerar script, ele simplesmente nunca bloqueia.</p></div>
+<div class="ml-6"><span class="absolute -left-2 w-4 h-4 rounded-full bg-sky-400"></span><p class="font-semibold text-sky-400">Outro agente (fora do Claude Code)</p><p class="text-sm text-neutral-300">Copie o corpo do agente para o arquivo de instruções do outro agente (ex.: <span class="font-mono text-xs">AGENTS.md</span>) e transforme cada skill em comando salvo. Sem hooks, não há portão: rode <span class="font-mono text-xs">validar_resposta.py --transcript</span> depois de cada resposta — a verificação de fora do módulo 6.1 vira a sua única garantia.</p></div>
+</div>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m6-2-t4-p2">Exemplo de seções para um mentor de escrita, no <span class="font-mono text-sm">mentor.config.json</span>:</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-6">"secoes_resposta": ["Objetivo", "Rascunho mínimo", "Previsão de reação", "Teste com leitor", "Versão fraca", "Relatório"]</pre>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> O que não muda de um mentor para outro</h3>
+<p class="text-neutral-300">Copiar o <strong>método</strong>, nunca a voz nem a identidade (trilha 1). Toda regra ativa com 2 fontes reais. Os 3 testes antes de usar. Mudar de especialista não é desculpa para pular a prova.</p>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">🧪</span> Faça agora — o segundo mentor</h3>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-rose-400">Objetivo:</strong> gerar o esqueleto de um segundo mentor ao lado do primeiro, sem misturar os dois.</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">cd ~/caminho/do/kit/mentor-especialista
+python3 novo-mentor.py &lt;slug2&gt; --nome "&lt;Nome do 2º especialista&gt;" \
+  --dominio "&lt;domínio numa frase estreita&gt;" --destino ~/mentores
+ls ~/mentores
+ls ~/mentores/mentor-&lt;slug2&gt;/.claude/skills</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-rose-400">Como verificar:</strong> <span class="font-mono text-xs">~/mentores</span> lista as duas pastas; o novo tem 6 skills com o prefixo <span class="font-mono text-xs">&lt;slug2&gt;-</span>. Se você rodar de novo com o mesmo slug, o gerador recusa ("já existe") — ele não sobrescreve um mentor sem <span class="font-mono text-xs">--forcar</span>.</p>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-rose-500/20 border border-rose-500/30 text-rose-400 hover:bg-rose-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 5 -->
+<section class="mb-16" data-inema-topic="modulo-6-2#topico-5" id="topico-5">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">5</span>
+<h2 class="text-2xl font-bold">🏛️ Conselho de mentores</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m6-2-t5-p1">
+          Com dois ou mais mentores prontos, você pode juntá-los num projeto seu e consultar todos sobre a mesma pergunta. Cada um continua
+          preso às próprias regras e citações: o conselho não mistura as vozes, compara os métodos.
+        </p>
+<div class="bg-sky-900/20 rounded-xl border border-sky-500/30 p-5 mb-6">
+<p class="text-sm font-semibold text-sky-400 mb-2">Novo aqui? Subagente</p>
+<p class="text-sm text-neutral-300">Um <strong>subagente</strong> é um assistente especializado que o Claude Code chama para uma tarefa, com instruções próprias, definido num arquivo em <span class="font-mono text-xs">.claude/agents/</span>. Cada mentor tem o seu (<span class="font-mono text-xs">&lt;slug&gt;-mentor.md</span>). Juntar os arquivos numa pasta só deixa a sessão chamar qualquer um deles.</p>
+</div>
+<div class="rounded-2xl border border-rose-500/30 bg-dark-900/40 p-3 sm:p-4 mb-4 overflow-hidden">
+<svg aria-label="Conselho de mentores: uma pergunta vai para o mentor A e o mentor B em paralelo, cada um com as próprias regras e citações; as respostas voltam para uma comparação que aponta onde concordam e onde divergem, e o humano decide" class="w-full h-auto" role="img" viewBox="0 0 1000 260">
+<defs>
+<linearGradient id="m62c-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#fb7185"></stop><stop offset="1" stop-color="#f43f5e"></stop></linearGradient>
+<filter height="180%" id="m62c-glow" width="180%" x="-40%" y="-40%"><feGaussianBlur result="b" stdDeviation="2"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+<pattern height="32" id="m62c-grid" patternUnits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#f43f5e" opacity="0.12" r="1.3"></circle></pattern>
+<marker id="m62c-ah" markerHeight="9" markerWidth="9" orient="auto" refX="6.5" refY="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#fb7185"></path></marker>
+<marker id="m62c-ahc" markerHeight="9" markerWidth="9" orient="auto" refX="6.5" refY="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#38bdf8"></path></marker>
+</defs>
+<rect fill="url(#m62c-grid)" height="260" width="1000" x="0" y="0"></rect>
+<g fill="none" opacity="0.65" stroke-width="1.8">
+<path d="M220,130 C280,130 280,62 340,62" marker-end="url(#m62c-ah)" stroke="#fb7185"></path>
+<path d="M220,130 C280,130 280,198 340,198" marker-end="url(#m62c-ahc)" stroke="#38bdf8"></path>
+<path d="M600,62 C660,62 660,130 718,130" marker-end="url(#m62c-ah)" stroke="#fb7185"></path>
+<path d="M600,198 C660,198 660,130 718,130" marker-end="url(#m62c-ahc)" stroke="#38bdf8"></path>
+</g>
+<g font-family="Inter,sans-serif">
+<rect fill="#2a0f16" height="60" rx="12" stroke="#fb7185" stroke-width="2" width="190" x="30" y="100"></rect>
+<text fill="#fecdd3" font-size="14" font-weight="600" text-anchor="middle" x="125" y="126">sua pergunta</text>
+<text fill="#fecdd3" font-size="11.5" text-anchor="middle" x="125" y="146">+ o artefato real</text>
+<rect fill="#2a0f16" height="64" rx="12" stroke="#fb7185" stroke-width="2" width="260" x="340" y="30"></rect>
+<text fill="#fecdd3" font-size="14" font-weight="600" text-anchor="middle" x="470" y="56">mentor A</text>
+<text fill="#fecdd3" font-size="11.5" text-anchor="middle" x="470" y="78">regras e citações de A</text>
+<rect fill="#0e1b26" height="64" rx="12" stroke="#38bdf8" stroke-width="2" width="260" x="340" y="166"></rect>
+<text fill="#bfe6ff" font-size="14" font-weight="600" text-anchor="middle" x="470" y="192">mentor B</text>
+<text fill="#bfe6ff" font-size="11.5" text-anchor="middle" x="470" y="214">regras e citações de B</text>
+<g filter="url(#m62c-glow)"><rect fill="#2a0f16" height="76" rx="14" stroke="url(#m62c-grad)" stroke-width="2.6" width="250" x="720" y="92"></rect></g>
+<text fill="#fb7185" font-size="14" font-weight="700" text-anchor="middle" x="845" y="120">comparação</text>
+<text fill="#fecdd3" font-size="11.5" text-anchor="middle" x="845" y="140">onde concordam · onde divergem</text>
+<text fill="#fecdd3" font-size="11.5" text-anchor="middle" x="845" y="157">quem decide: você</text>
+</g>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-rose-400">Como ler:</strong> a pergunta se divide em dois caminhos independentes (rosa e ciano) que só se encontram na
+            comparação. O valor está na divergência: onde os dois concordam, a R9 lembra que isso <em>não</em> é prova — eles podem dividir a mesma suposição errada.
+          </p>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">🧪</span> Faça agora — montar e consultar o conselho</h3>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-rose-400">Objetivo:</strong> juntar os agentes de dois mentores num projeto e fazer uma pergunta aos dois.</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">mkdir -p ~/projetos/&lt;meu-projeto&gt;/.claude/agents
+cp ~/mentores/mentor-&lt;slugA&gt;/.claude/agents/&lt;slugA&gt;-mentor.md ~/projetos/&lt;meu-projeto&gt;/.claude/agents/
+cp ~/mentores/mentor-&lt;slugB&gt;/.claude/agents/&lt;slugB&gt;-mentor.md ~/projetos/&lt;meu-projeto&gt;/.claude/agents/
+cd ~/projetos/&lt;meu-projeto&gt; &amp;&amp; claude
+
+# prompt para colar na sessão:
+Consulte o subagente &lt;slugA&gt;-mentor e o subagente &lt;slugB&gt;-mentor, separadamente,
+sobre: &lt;sua pergunta&gt;. Entregue aos dois o arquivo &lt;caminho do artefato&gt;, não um resumo.
+Avise cada um de onde está o próprio núcleo: o &lt;slugA&gt;-mentor usa regras.md e wiki/
+em ~/mentores/mentor-&lt;slugA&gt;/; o &lt;slugB&gt;-mentor, em ~/mentores/mentor-&lt;slugB&gt;/.
+Depois compare numa tabela: onde concordam, onde divergem e qual regra (R1, R2…) de
+cada um justificou a posição. Não escolha um vencedor: a decisão é minha.</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-rose-400">Como verificar:</strong> a tabela cita IDs de regra de cada mentor. Abra o <span class="font-mono text-xs">regras.md</span> de cada um e confira se esses IDs existem e dizem o que a tabela afirma. Por que avisar o caminho: o agente procura <span class="font-mono text-xs">regras.md</span> e <span class="font-mono text-xs">wiki/</span> como caminhos relativos, e no seu projeto eles não existem. Se a tabela vier sem regras, o subagente não achou o núcleo e está respondendo genérico.</p>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-rose-500/20 border border-rose-500/30 text-rose-400 hover:bg-rose-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 6 -->
+<section class="mb-16" data-inema-topic="modulo-6-2#topico-6" id="topico-6">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">6</span>
+<h2 class="text-2xl font-bold">🎓 Projeto final e rubrica</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m6-2-t6-p1">
+          O projeto final é o mentor completo de um especialista à sua escolha — você mesmo é uma opção forte. O acervo do curso é menor que o do
+          piloto de propósito: <strong>20 a 50 fontes, cerca de 50 mil palavras</strong>. Um acervo completo é caro demais para exercício.
+        </p>
+<div class="bg-gradient-to-br from-rose-900/30 to-dark-800 rounded-xl border border-rose-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-rose-400 mb-4 flex items-center"><span class="mr-2">📦</span> O que entregar</h3>
+<div class="space-y-2 text-neutral-300 text-sm">
+<p>☐ 1. <span class="font-mono text-xs">ESCOPO.md</span> + <span class="font-mono text-xs">raw/MANIFESTO.json</span> + <span class="font-mono text-xs">raw/RELATORIO-FALHAS.md</span></p>
+<p>☐ 2. Wiki com <span class="font-mono text-xs">index</span>, <span class="font-mono text-xs">hot</span> e <span class="font-mono text-xs">log</span></p>
+<p>☐ 3. <span class="font-mono text-xs">regras.md</span> validado</p>
+<p>☐ 4. Agente e skills ajustados ao domínio</p>
+<p>☐ 5. <span class="font-mono text-xs">testes/aceitacao/RESULTADOS.md</span> com as 3 tarefas</p>
+<p>☐ 6. Um vídeo curto ou print do mentor ensinando algo <strong>que você não sabia antes</strong></p>
+</div>
+</div>
+<div class="overflow-x-auto mb-6">
+<table class="w-full text-sm border border-dark-600 rounded-xl overflow-hidden">
+<thead class="bg-dark-800"><tr><th class="text-left p-3 text-rose-400">Critério</th><th class="text-left p-3 text-rose-400">Como se prova</th><th class="text-left p-3 text-rose-400">Pontos</th></tr></thead>
+<tbody class="divide-y divide-dark-600 text-neutral-300">
+<tr><td class="p-3">Acervo rastreável</td><td class="p-3"><span class="font-mono text-xs">stats.py</span> exit 0</td><td class="p-3">1</td></tr>
+<tr><td class="p-3">Wiki interligada</td><td class="p-3"><span class="font-mono text-xs">validar_links.py</span> exit 0</td><td class="p-3">1</td></tr>
+<tr><td class="p-3">Regras com citação validada; inferências marcadas</td><td class="p-3"><span class="font-mono text-xs">validar_citacoes.py</span> exit 0</td><td class="p-3">2</td></tr>
+<tr><td class="p-3">Mentor segue o loop</td><td class="p-3"><span class="font-mono text-xs">validar_resposta.py</span> (com <span class="font-mono text-xs">--transcript</span>)</td><td class="p-3">2</td></tr>
+<tr><td class="p-3">Portão funcionando</td><td class="p-3">demonstração de bloqueio + liberação</td><td class="p-3">2</td></tr>
+<tr><td class="p-3">3 testes de aceitação registrados</td><td class="p-3"><span class="font-mono text-xs">RESULTADOS.md</span></td><td class="p-3">1</td></tr>
+<tr><td class="p-3">Ingestão atualiza a wiki sem edição manual</td><td class="p-3">linha nova no log + demonstração</td><td class="p-3">1</td></tr>
+<tr class="bg-dark-800"><td class="p-3 font-semibold text-rose-400" colspan="2">Total · aprovação com ≥ 8</td><td class="p-3 font-semibold text-rose-400">10</td></tr>
+</tbody>
+</table>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">🧪</span> Faça agora — a autoavaliação por comando</h3>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-rose-400">Objetivo:</strong> conferir os itens automáticos da rubrica de uma vez. Os itens de demonstração (portão e ingestão) você grava ou printa.</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">cd ~/mentores/mentor-&lt;slug&gt;
+for t in stats validar_links validar_citacoes; do
+  python3 tools/$t.py &gt;/dev/null 2&gt;&amp;1 &amp;&amp; echo "ok   $t" || echo "FALHA $t"
+done
+python3 tools/validar_resposta.py testes/respostas/&lt;arquivo do teste 1&gt;.md \
+  --transcript logs/teste1.jsonl &gt;/dev/null &amp;&amp; echo "ok   loop" || echo "FALHA loop"
+grep -c '^| 20' testes/aceitacao/RESULTADOS.md     # linhas de resultado registradas
+tail -1 wiki/log.md</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-rose-400">Como verificar:</strong> quatro linhas "ok" valem até 6 pontos; o <span class="font-mono text-xs">grep</span> deve contar ao menos 3 linhas; a última do log deve ser a sua ingestão. Some com as demonstrações. Abaixo de 8, volte ao módulo do critério que falhou — a mensagem do validador diz qual é.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-5"><p class="text-rose-400 font-semibold mb-1">Usar · 2 h</p><p class="text-sm text-neutral-300">Trilhas 1 e 6 com o exemplo do kit: perguntar, ler o relatório por regra e revisar antes de entregar.</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-5"><p class="text-rose-400 font-semibold mb-1">Construir · 1 semana</p><p class="text-sm text-neutral-300">O curso inteiro + o projeto final com a rubrica.</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-5"><p class="text-rose-400 font-semibold mb-1">Escalar · avançado</p><p class="text-sm text-neutral-300">Conselho de mentores, mentor da própria marca, ingestão por voz e porte para outros agentes.</p></div>
+</div>
+<div class="inema-check mt-8 mb-6 bg-dark-800 border border-dark-600 rounded-xl p-6" data-inema-check="modulo-6-2#q1">
+<p class="font-medium mb-4">Checagem rápida: o kit lançou uma versão nova e você quer as correções no seu mentor, que já tem 40 fontes e regras validadas. Qual é o caminho?</p>
+<div class="inema-check-options space-y-2">
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="0" type="button">Gerar o mentor de novo com --forcar e recoletar o acervo.</button>
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="1" type="button">Commit, rodar novo-mentor.py --atualizar na pasta, conferir que raw/, wiki/ e regras.md não mudaram e rodar os validadores.</button>
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="2" type="button">Rodar /&lt;slug&gt;-ingere com o link do kit novo.</button>
+</div>
+<div aria-live="polite" class="mt-4 text-sm" data-inema-check-feedback="" role="status"></div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-rose-500/20 border border-rose-500/30 text-rose-400 hover:bg-rose-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<section class="mb-12">
+<div class="bg-gradient-to-br from-rose-900/40 via-dark-800 to-dark-800 rounded-xl border border-rose-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📌</span> Resumo do módulo</h2>
+<div class="space-y-4 mb-8">
+<div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">/ingere</strong><span class="text-neutral-400"> - fonte nova vira página, propaga, mexe em regras e prova com 3 validadores.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">Promoção</strong><span class="text-neutral-400"> - banco vira ativa com a 2ª fonte diferente; R9 e R10 nasceram ativas no piloto.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">--atualizar</strong><span class="text-neutral-400"> - troca código e instruções do kit, com backup; não toca acervo, wiki, regras nem respostas.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">Reuso e conselho</strong><span class="text-neutral-400"> - outro especialista, outro domínio, outro agente; vários mentores comparando métodos.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">Projeto final</strong><span class="text-neutral-400"> - 6 entregas, rubrica de 10 pontos, aprovação com 8.</span></div></div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+<h3 class="font-semibold text-rose-400 mb-2">Fim do curso</h3>
+<p class="text-neutral-300">Você chegou ao último módulo. O próximo passo é o seu mentor passar nos 3 testes — com o log como testemunha.</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="modulo-6-1.html">← Módulo 6.1</a>
+<a class="flex-1 text-center px-6 py-3 bg-rose-600 text-white rounded-lg font-semibold hover:bg-rose-500 transition-colors" href="../../index.html">Voltar ao início do curso →</a>
+</div>
+</div>
+</section>
+</main>
+</div>
+<footer class="border-t border-dark-600 py-8 mt-16">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+<p>Mentor-Especialista — curso aberto da comunidade INEMA · 2026</p>
+<p class="mt-2">
+<a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+<span class="text-neutral-600 mx-1">-</span>
+<a class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200" href="https://inema.pro" target="_blank">PRO</a>
+</p>
+</div>
+</footer>
+<script src="../../assets/curso.js"></script>
+<script src="../../assets/learn.js"></script>
+<script>
+    if (window.INEMA && typeof window.INEMA.init === 'function') window.INEMA.init();
+    window.addEventListener('DOMContentLoaded', function () {
+      if (window.INEMA && INEMA.registerCheck) {
+        INEMA.registerCheck('modulo-6-2#q1', {
+          answer: 1,
+          explain: {
+            0: 'Isso joga fora horas de acervo, wiki e regras. O --atualizar existe justamente para não precisar disso.',
+            1: 'Isso. O --atualizar troca só tools/ e .claude/ (com backup) e acrescenta chaves novas no config. Commit antes e validadores depois provam que nada se perdeu.',
+            2: '/ingere é para conteúdo do especialista, não para código do kit. O kit entra pelo --atualizar.'
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

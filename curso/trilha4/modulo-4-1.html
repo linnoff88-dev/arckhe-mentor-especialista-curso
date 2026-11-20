@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="mentor-especialista-curso" name="inema-course"/>
+<title>Módulo 4.1 · Conduta, não frase de efeito | Mentor-Especialista</title>
+<meta content="Como transformar a wiki do especialista em regras de conduta: comportamento recorrente, fusão e corte, as 10 regras do Nei e a linha 'no mentor:'." name="description"/>
+<script src="../../assets/boot.js"></script>
+<script data-inema-manifest="" type="application/json">
+  {
+    "course": "mentor-especialista-curso",
+    "tracks": [
+      { "n": "1", "title": "Por que um mentor", "modules": [
+        { "id": "1-1", "title": "Os maus hábitos da IA quando ensina", "topics": 6, "href": "curso/trilha1/modulo-1-1.html" },
+        { "id": "1-2", "title": "Método não é persona: escopo do mentor", "topics": 6, "href": "curso/trilha1/modulo-1-2.html" }
+      ]},
+      { "n": "2", "title": "Coleta do acervo", "modules": [
+        { "id": "2-1", "title": "Fontes e coletores", "topics": 6, "href": "curso/trilha2/modulo-2-1.html" },
+        { "id": "2-2", "title": "Subagentes, manifesto e falhas", "topics": 6, "href": "curso/trilha2/modulo-2-2.html" }
+      ]},
+      { "n": "3", "title": "Wiki compilada", "modules": [
+        { "id": "3-1", "title": "Raw imutável, wiki viva", "topics": 6, "href": "curso/trilha3/modulo-3-1.html" },
+        { "id": "3-2", "title": "Fontes, temas, princípios e métodos", "topics": 6, "href": "curso/trilha3/modulo-3-2.html" }
+      ]},
+      { "n": "4", "title": "Regras com prova", "modules": [
+        { "id": "4-1", "title": "Conduta, não frase de efeito", "topics": 6, "href": "curso/trilha4/modulo-4-1.html" },
+        { "id": "4-2", "title": "Citação, status e validador", "topics": 6, "href": "curso/trilha4/modulo-4-2.html" }
+      ]},
+      { "n": "5", "title": "Agente, skills e portão", "modules": [
+        { "id": "5-1", "title": "Mapa: settings, agente e skills", "topics": 6, "href": "curso/trilha5/modulo-5-1.html" },
+        { "id": "5-2", "title": "O loop obrigatório do mentor", "topics": 6, "href": "curso/trilha5/modulo-5-2.html" },
+        { "id": "5-3", "title": "Skills: ensina, revisa, ingere", "topics": 6, "href": "curso/trilha5/modulo-5-3.html" },
+        { "id": "5-4", "title": "Portão de execução", "topics": 6, "href": "curso/trilha5/modulo-5-4.html" }
+      ]},
+      { "n": "6", "title": "Prova e evolução", "modules": [
+        { "id": "6-1", "title": "O piloto real e os testes de aceitação", "topics": 6, "href": "curso/trilha6/modulo-6-1.html" },
+        { "id": "6-2", "title": "Ingestão contínua, atualização e reuso", "topics": 6, "href": "curso/trilha6/modulo-6-2.html" }
+      ]}
+    ]
+  }
+  </script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../../assets/curso.css" rel="stylesheet"/>
+<link href="../../assets/learn.css" rel="stylesheet"/>
+<style>
+  /* light mode: acentos extras usados nesta página (texto escuro em superfície clara) */
+  html:not(.dark) .text-red-400 { color: #b91c1c; }
+  html:not(.dark) .text-sky-400 { color: #0369a1; }
+  html:not(.dark) .text-cyan-400 { color: #0e7490; }
+  html:not(.dark) .bg-dark-900\/60 { background-color: #f3f4f6; }
+</style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+<a class="skip sr-only focus:not-sr-only" href="#conteudo">Pular para o conteúdo</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🧭</span><span class="font-bold text-lg hidden sm:inline">Mentor-Especialista</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+<span class="text-neutral-600">-</span>
+<a class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200 text-sm font-medium" href="https://inema.pro" target="_blank">PRO</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Por quê</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Coleta</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Wiki</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10" href="index.html"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Regras</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors" href="../trilha5/index.html"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Agente</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors" href="../trilha6/index.html"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Prova</span></a>
+<button class="hidden md:inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-neutral-300 hover:text-neutral-100 transition-colors text-sm" data-inema-journey-open="" type="button">
+<span aria-hidden="true">◷</span><span>Minha jornada</span><span aria-hidden="true" class="inema-journey-badge hidden"></span>
+</button>
+<button aria-label="Alternar tema claro/escuro" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<nav aria-label="Trilha de navegação" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+<div class="flex items-center space-x-2 text-sm text-neutral-400">
+<a class="hover:text-amber-400" href="../../index.html">Início</a><span>/</span>
+<a class="hover:text-amber-400" href="index.html">Trilha 4</a><span>/</span>
+<span class="text-amber-400">Módulo 4.1</span>
+</div>
+</nav>
+<header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600" data-inema-module="4-1" data-inema-track="4">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">MÓDULO 4.1</span>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">🎯 Conduta, não frase de efeito</h1>
+<p class="text-lg text-neutral-400 max-w-3xl">
+        A wiki diz o que o especialista pensa. As regras dizem o que ele <em>faz</em> — e é isso que o mentor copia.
+        Neste módulo você aprende a achar, fundir e cortar regras até sobrar um punhado de condutas
+        que dá para reconhecer na pessoa e cobrar na resposta.
+      </p>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 max-w-2xl">
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">45</div><div class="text-xs text-neutral-400">Minutos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">10</div><div class="text-xs text-neutral-400">Regras do Nei</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Prático</div><div class="text-xs text-neutral-400">Tipo</div></div>
+</div>
+<div class="mt-6 max-w-2xl">
+<div aria-label="Progresso do módulo 4.1" aria-valuemax="100" aria-valuemin="0" class="inema-meter" data-inema-meter="modulo:4-1" role="progressbar">
+<span class="inema-meter-pct">0%</span><span class="inema-meter-count">0 de 6</span>
+</div>
+</div>
+</div>
+</header>
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:grid lg:grid-cols-[220px_1fr] lg:gap-10">
+<nav aria-label="Índice da página" class="hidden lg:block sticky top-24 self-start" data-inema-toc="">
+<p class="text-sm text-neutral-400 mb-2">Seção <span class="inema-toc-pos">1</span> de <span class="inema-toc-total">6</span></p>
+<ul class="space-y-1 text-sm">
+<li><a class="inema-toc-link hover:text-amber-400" href="#topico-1">1. Regra é conduta</a></li>
+<li><a class="inema-toc-link hover:text-amber-400" href="#topico-2">2. Onde procurar</a></li>
+<li><a class="inema-toc-link hover:text-amber-400" href="#topico-3">3. Fundir e cortar</a></li>
+<li><a class="inema-toc-link hover:text-amber-400" href="#topico-4">4. As 10 regras do Nei</a></li>
+<li><a class="inema-toc-link hover:text-amber-400" href="#topico-5">5. A linha "no mentor:"</a></li>
+<li><a class="inema-toc-link hover:text-amber-400" href="#topico-6">6. Rodar /&lt;slug&gt;-regras</a></li>
+</ul>
+</nav>
+<main class="inema-prose" id="conteudo">
+<!-- TOPICO 1 -->
+<section class="mb-16" data-inema-topic="modulo-4-1#topico-1" id="topico-1">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">1</span>
+<h2 class="text-2xl font-bold">🧭 Regra é comportamento recorrente</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m4-1-t1-p1">
+          Até aqui você coletou o acervo (trilha 2) e compilou a wiki (trilha 3). Agora vem a fase 3 do método:
+          tirar dessa wiki as <strong class="text-amber-400">regras de conduta</strong> do especialista. A definição que o kit usa
+          está na própria skill de regras: <em>"Regra = o que a pessoa FAZ de forma recorrente ao ensinar/construir, não uma frase de efeito."</em>
+        </p>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🆕</span> Novo aqui?</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li><strong>Raw</strong> é a pasta <code>raw/</code> com o acervo cru (legendas, transcrições, guias), que nunca é editado.</li>
+<li><strong>Wiki</strong> é a pasta <code>wiki/</code> com o acervo compilado em páginas curtas e ligadas entre si: fontes, temas, princípios e métodos.</li>
+<li><strong>Regra</strong> é um bloco no arquivo <code>regras.md</code>: um título, uma frase de ação (o <em>enunciado</em>), trechos copiados do raw que provam a regra (as <em>citações</em>) e onde ela aparece na resposta do mentor.</li>
+<li><strong>Frase de efeito</strong> é o que soa bem num slide mas não diz o que fazer na próxima tarefa ("qualidade em primeiro lugar").</li>
+</ul>
+</div>
+<div class="rounded-2xl border border-amber-500/30 bg-dark-900/40 p-3 sm:p-4 mb-4 overflow-hidden">
+<svg aria-label="Comparação: frase de efeito não tem gatilho, ação nem prova; conduta tem gatilho, ação observável e citações de fontes diferentes" class="w-full h-auto" role="img" viewbox="0 0 1000 250">
+<defs>
+<linearGradient id="m41a-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#fbbf24"></stop><stop offset="1" stop-color="#f59e0b"></stop></linearGradient>
+<filter height="180%" id="m41a-glow" width="180%" x="-40%" y="-40%"><feGaussianBlur result="b" stdDeviation="2"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+<pattern height="32" id="m41a-grid" patternUnits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#f59e0b" opacity="0.14" r="1.3"></circle></pattern>
+<marker id="m41a-ah" markerHeight="9" markerWidth="9" orient="auto" refX="6.5" refY="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#38bdf8"></path></marker>
+</defs>
+<rect fill="#0b1220" height="250" rx="16" width="1000" x="0" y="0"></rect>
+<rect fill="url(#m41a-grid)" height="250" width="1000" x="0" y="0"></rect>
+<path d="M500,20 L500,230" opacity="0.5" stroke="#9ca3af" stroke-dasharray="8 8" stroke-width="1.5"></path>
+<g font-family="Inter,sans-serif">
+<text fill="#f87171" font-size="15" font-weight="700" x="40" y="44">✗ frase de efeito</text>
+<rect fill="#2a0f16" height="64" rx="12" stroke="#f87171" stroke-width="2" width="400" x="40" y="62"></rect>
+<text fill="#fca5a5" font-size="16" font-style="italic" text-anchor="middle" x="240" y="100">"Qualidade acima de tudo."</text>
+<text fill="#fca5a5" font-size="13" x="52" y="156">• quando vale? ninguém sabe</text>
+<text fill="#fca5a5" font-size="13" x="52" y="180">• o que eu faço agora? não diz</text>
+<text fill="#fca5a5" font-size="13" x="52" y="204">• dá para conferir? não</text>
+<text fill="#fbbf24" font-size="15" font-weight="700" x="540" y="44">✓ conduta (regra)</text>
+<g filter="url(#m41a-glow)"><rect fill="#1f1604" height="64" rx="12" stroke="url(#m41a-grad)" stroke-width="2" width="420" x="540" y="62"></rect></g>
+<text fill="#fcd9a0" font-size="14" text-anchor="middle" x="750" y="90">R1 — Conferir o resultado real</text>
+<text fill="#fcd9a0" font-size="14" text-anchor="middle" x="750" y="110">antes de dizer "pronto"</text>
+<rect fill="#0e1b26" height="30" rx="8" stroke="#38bdf8" stroke-width="1.6" width="130" x="540" y="146"></rect><text fill="#bfe6ff" font-size="12" text-anchor="middle" x="605" y="166">gatilho: "pronto"</text>
+<rect fill="#0e1b26" height="30" rx="8" stroke="#38bdf8" stroke-width="1.6" width="130" x="685" y="146"></rect><text fill="#bfe6ff" font-size="12" text-anchor="middle" x="750" y="166">ação: rodar e ler</text>
+<rect fill="#0e1b26" height="30" rx="8" stroke="#38bdf8" stroke-width="1.6" width="130" x="830" y="146"></rect><text fill="#bfe6ff" font-size="12" text-anchor="middle" x="895" y="166">prova: 5 citações</text>
+<path d="M605,180 L605,198 L895,198 L895,180" fill="none" marker-end="url(#m41a-ah)" opacity="0.7" stroke="#38bdf8" stroke-width="1.6"></path>
+<text fill="#bfe6ff" font-size="12.5" text-anchor="middle" x="750" y="222">dá para cobrar na resposta do mentor</text>
+</g>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-amber-400">Como ler:</strong> à esquerda, a frase não tem quando, nem o quê, nem prova — o mentor não teria como
+            segui-la. À direita, a R1 do piloto tem as três peças em ciano: um momento que dispara a regra, uma ação que dá para ver
+            e trechos do acervo que mostram a pessoa fazendo isso. Se faltar uma das três, ainda não é regra.
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ Não é regra</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Opinião sobre o mercado ("IA vai mudar tudo")</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Gosto pessoal que não muda a forma de trabalhar</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Algo dito uma vez, numa live, sem repetir em lugar nenhum</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Bordão de abertura ou de encerramento</span></li>
+</ul>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ É regra</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Um gesto de trabalho que se repete em fontes diferentes</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Começa com verbo: conferir, medir, definir, cortar, recusar</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Muda o que o mentor escreve na resposta</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Tem trecho literal no raw para provar</span></li>
+</ul>
+</div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-400 hover:bg-amber-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 2 -->
+<section class="mb-16" data-inema-topic="modulo-4-1#topico-2" id="topico-2">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">2</span>
+<h2 class="text-2xl font-bold">🔎 Onde procurar: princípios e métodos da wiki</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m4-1-t2-p1">
+          Você não procura regra no raw inteiro: 189 mil palavras é muito para ler de novo. Procura na wiki, que já fez esse
+          trabalho. A skill manda ler duas pastas: <code>wiki/principios/</code> (o que a pessoa acredita e repete) e
+          <code>wiki/metodos/</code> (como ela executa, passo a passo). Regra boa costuma ser o <strong class="text-amber-400">ponto onde um
+          princípio vira gesto dentro de vários métodos</strong>.
+        </p>
+<div class="rounded-2xl border border-amber-500/30 bg-dark-900/40 p-3 sm:p-4 mb-4 overflow-hidden">
+<svg aria-label="Funil do piloto: 22 fontes e cerca de 189 mil palavras no raw, wiki com princípios e métodos, e no fim 8 regras na fase 3 e 10 depois da ingestão" class="w-full h-auto" role="img" viewbox="0 0 1000 230">
+<defs>
+<linearGradient id="m41b-grad" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#fbbf24"></stop><stop offset="1" stop-color="#f59e0b"></stop></linearGradient>
+<filter height="180%" id="m41b-glow" width="180%" x="-40%" y="-40%"><feGaussianBlur result="b" stdDeviation="2"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+<marker id="m41b-ah" markerHeight="9" markerWidth="9" orient="auto" refX="6.5" refY="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#fbbf24"></path></marker>
+</defs>
+<rect fill="#0b1220" height="230" rx="16" width="1000" x="0" y="0"></rect>
+<g font-family="Inter,sans-serif">
+<path d="M40,40 L300,40 L300,190 L40,190 Z" fill="#1f1604" stroke="#fbbf24" stroke-width="2"></path>
+<text fill="#fbbf24" font-size="16" font-weight="700" text-anchor="middle" x="170" y="92">raw/</text>
+<text fill="#fcd9a0" font-size="13" text-anchor="middle" x="170" y="118">22 fontes</text>
+<text fill="#fcd9a0" font-size="13" text-anchor="middle" x="170" y="138">14 lives + 8 guias</text>
+<text fill="#fcd9a0" font-size="13" text-anchor="middle" x="170" y="158">~189 mil palavras</text>
+<path d="M310,115 L352,115" marker-end="url(#m41b-ah)" stroke="#fbbf24" stroke-width="2"></path>
+<path d="M362,55 L600,72 L600,158 L362,175 Z" fill="#0e1b26" stroke="#38bdf8" stroke-width="2"></path>
+<text fill="#bfe6ff" font-size="16" font-weight="700" text-anchor="middle" x="480" y="100">wiki/</text>
+<text fill="#bfe6ff" font-size="13" text-anchor="middle" x="480" y="124">principios/  ·  metodos/</text>
+<text fill="#bfe6ff" font-size="12" text-anchor="middle" x="480" y="144">(o resto da wiki fica de fora)</text>
+<path d="M610,115 L652,115" marker-end="url(#m41b-ah)" stroke="#fbbf24" stroke-width="2"></path>
+<g filter="url(#m41b-glow)"><path d="M662,80 L820,92 L820,138 L662,150 Z" fill="#1f1604" stroke="url(#m41b-grad)" stroke-width="2"></path></g>
+<text fill="#fbbf24" font-size="15" font-weight="700" text-anchor="middle" x="740" y="112">regras.md</text>
+<text fill="#fcd9a0" font-size="12" text-anchor="middle" x="740" y="130">fase 3: 8 regras</text>
+<path d="M830,115 L862,115" marker-end="url(#m41b-ah)" stroke="#fbbf24" stroke-dasharray="5 5" stroke-width="2"></path>
+<rect fill="#1f1604" height="56" rx="10" stroke="#fbbf24" stroke-width="2" width="110" x="868" y="87"></rect>
+<text fill="#fbbf24" font-size="14" font-weight="700" text-anchor="middle" x="923" y="112">10 regras</text>
+<text fill="#fcd9a0" font-size="11" text-anchor="middle" x="923" y="130">após ingestão</text>
+<text fill="#9ca3af" font-size="12" text-anchor="middle" x="500" y="212">quanto mais à direita, menos texto e mais prova por linha</text>
+</g>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-amber-400">Como ler:</strong> o funil estreita da esquerda para a direita. O raw tem tudo; a wiki em ciano já separou princípios
+            e métodos; as regras são o que sobra depois de fundir e cortar. Na fase 3 do piloto saíram 8 regras; quando um guia novo
+            foi ingerido, viraram 10 (a R9 e a R10 nasceram aí — você vê isso na trilha 6).
+          </p>
+</div>
+<div class="space-y-6 mb-6">
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold">1</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+<h4 class="font-semibold text-neutral-100 mb-2">Leia os princípios procurando verbos</h4>
+<p class="text-neutral-300 text-sm">No piloto, <code>wiki/principios/</code> tem 12 páginas hoje (verificar antes de afirmar, critério de pronto explícito, medir antes de acreditar, menor custo que resolve, falhar cedo…). Cada página tem um enunciado e uma lista de trechos com a fonte de cada um.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold">2</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+<h4 class="font-semibold text-neutral-100 mb-2">Cruze com os métodos</h4>
+<p class="text-neutral-300 text-sm"><code>wiki/metodos/</code> tem 21 páginas (loop com critério de sucesso e aborto, revisão cruzada entre agentes, auditoria de ablação, trocar LLM por script…). Um princípio que aparece como passo dentro de vários métodos é candidato forte.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold">3</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-amber-500/30">
+<h4 class="font-semibold text-neutral-100 mb-2">Conte as fontes, não as menções</h4>
+<p class="text-neutral-300 text-sm">Dez trechos da mesma live valem menos que dois trechos de fontes diferentes. É essa contagem que vai decidir o status da regra no módulo 4.2.</p>
+</div>
+</div>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3">Trecho real: <code>wiki/principios/verificar-antes-de-afirmar.md</code></h3>
+<pre class="font-mono text-xs sm:text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-3">## Enunciado
+
+O OK da ferramenta ou do agente não prova nada. Nada é dado como
+feito sem conferir o resultado real (ls, refresh, teste final, exit
+code, outra IA, caso nunca visto) [...]
+
+## Trechos
+
+- "Arquivo existir não é prova. O agente ter lido e usado é." — [[guia-agente-claude-codex-...]]
+- "Nada sai sem passar pelo qa_short.py" — [[guia-makeshorts-...]]
+- "ele passou dizendo que tinha OK, mas não" (@02:38:55) — [[video-inema-vibecode-do-zero-dia-3-...]]
+- "Confira você mesmo (rode o teste final, veja o hash dos testes)" — [[guia-execucao-longa-...]]</pre>
+<p class="text-sm text-neutral-400"><strong class="text-amber-400">O que reparar:</strong> a página já traz trechos de guias e de lives diferentes, com o arquivo de origem. Quatro desses trechos foram parar, palavra por palavra, nas citações da R1. A wiki fez a garimpagem; a fase 3 só escolhe e prova de novo contra o raw.</p>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-400 hover:bg-amber-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 3 -->
+<section class="mb-16" data-inema-topic="modulo-4-1#topico-3" id="topico-3">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">3</span>
+<h2 class="text-2xl font-bold">✂️ Fundir e cortar: poucas e fortes</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m4-1-t3-p1">
+          A skill dá a meta: <em>"Mire em 5–9 regras. Menos regras e mais fortes é melhor que muitas e fracas."</em> O mentor lê
+          o <code>regras.md</code> inteiro antes de toda resposta; cada regra a mais dilui as outras e alonga a resposta.
+          Por isso a fase 3 tem duas operações, nesta ordem: <strong class="text-amber-400">fundir</strong> o que é a mesma conduta com
+          nomes diferentes e <strong class="text-amber-400">cortar</strong> o que não muda a resposta.
+        </p>
+<div class="rounded-2xl border border-amber-500/30 bg-dark-900/40 p-3 sm:p-4 mb-4 overflow-hidden">
+<svg aria-label="Fusão: os princípios verificar antes de afirmar e parte de revisão cruzada convergem em uma regra; um princípio sem gesto próprio é cortado" class="w-full h-auto" role="img" viewbox="0 0 1000 220">
+<defs>
+<filter height="180%" id="m41c-glow" width="180%" x="-40%" y="-40%"><feGaussianBlur result="b" stdDeviation="2"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+<marker id="m41c-ah" markerHeight="9" markerWidth="9" orient="auto" refX="6.5" refY="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#38bdf8"></path></marker>
+<marker id="m41c-ahr" markerHeight="9" markerWidth="9" orient="auto" refX="6.5" refY="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#f87171"></path></marker>
+</defs>
+<rect fill="#0b1220" height="220" rx="16" width="1000" x="0" y="0"></rect>
+<g font-family="Inter,sans-serif" font-size="12.5">
+<rect fill="#0e1b26" height="34" rx="9" stroke="#38bdf8" stroke-width="1.8" width="260" x="30" y="26"></rect><text fill="#bfe6ff" text-anchor="middle" x="160" y="48">"conferir o resultado real"</text>
+<rect fill="#0e1b26" height="34" rx="9" stroke="#38bdf8" stroke-width="1.8" width="260" x="30" y="72"></rect><text fill="#bfe6ff" text-anchor="middle" x="160" y="94">"não confiar no OK do agente"</text>
+<rect fill="#0e1b26" height="34" rx="9" stroke="#38bdf8" stroke-width="1.8" width="260" x="30" y="118"></rect><text fill="#bfe6ff" text-anchor="middle" x="160" y="140">"arquivo existir não é prova"</text>
+<rect fill="#2a0f16" height="34" rx="9" stroke="#f87171" stroke-width="1.8" width="260" x="30" y="168"></rect><text fill="#fca5a5" text-anchor="middle" x="160" y="190">frase sem gesto próprio</text>
+</g>
+<g fill="none" opacity="0.75" stroke="#38bdf8" stroke-width="1.8">
+<path d="M296,43 C420,43 430,90 520,92" marker-end="url(#m41c-ah)"></path>
+<path d="M296,89 L520,94" marker-end="url(#m41c-ah)"></path>
+<path d="M296,135 C420,135 430,98 520,96" marker-end="url(#m41c-ah)"></path>
+</g>
+<path d="M296,185 L420,185" fill="none" marker-end="url(#m41c-ahr)" stroke="#f87171" stroke-width="1.8"></path>
+<text fill="#f87171" font-family="Inter,sans-serif" font-size="13" font-weight="600" x="432" y="190">corta (não muda a resposta)</text>
+<g filter="url(#m41c-glow)"><rect fill="#1f1604" height="76" rx="14" stroke="#fbbf24" stroke-width="2" width="430" x="530" y="56"></rect></g>
+<text fill="#fbbf24" font-family="Inter,sans-serif" font-size="15" font-weight="700" text-anchor="middle" x="745" y="86">R1 — Conferir o resultado real</text>
+<text fill="#fcd9a0" font-family="Inter,sans-serif" font-size="13" text-anchor="middle" x="745" y="108">antes de dizer "pronto"  ·  1 regra, 5 citações</text>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-amber-400">Como ler:</strong> três jeitos de dizer a mesma coisa (em ciano) entram como citações de uma regra só, e cada um
+            reforça a prova. A caixa vermelha é o que não sobrevive: se tirar a frase não muda nada no que o mentor escreve, ela não
+            vira regra. Fundir aumenta a prova; cortar diminui o ruído.
+          </p>
+</div>
+<div class="overflow-x-auto mb-6">
+<table class="w-full text-sm border border-dark-600 rounded-lg overflow-hidden">
+<thead class="bg-dark-700">
+<tr><th class="text-left p-3 text-amber-400">Situação na wiki</th><th class="text-left p-3 text-amber-400">O que fazer</th><th class="text-left p-3 text-amber-400">Exemplo do piloto</th></tr>
+</thead>
+<tbody class="divide-y divide-dark-600 text-neutral-300">
+<tr><td class="p-3">Mesma conduta com nomes diferentes</td><td class="p-3">Fundir numa regra; as frases viram citações</td><td class="p-3">R1 junta "verificar", "não confiar no OK" e "arquivo existir não é prova"</td></tr>
+<tr><td class="p-3">Duas condutas que sempre andam juntas</td><td class="p-3">Uma regra com enunciado composto</td><td class="p-3">R2: critério de pronto <em>e</em> de aborto</td></tr>
+<tr><td class="p-3">Conduta forte, mas só em uma fonte</td><td class="p-3">Fica, com status <code>banco</code>, à espera da 2ª fonte</td><td class="p-3">Nenhuma ficou em banco no piloto: as 10 estão ativas</td></tr>
+<tr><td class="p-3">Opinião, tema ou assunto</td><td class="p-3">Fica na wiki, não vira regra</td><td class="p-3">Os temas de <code>wiki/temas/</code> não entram no <code>regras.md</code></td></tr>
+<tr><td class="p-3">Trecho que contradiz a wiki</td><td class="p-3">Descartar e explicar no relatório</td><td class="p-3">O diário registra que a sessão descartou um trecho assim</td></tr>
+</tbody>
+</table>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Teste do corte</h3>
+<p class="text-neutral-300 text-sm">Para cada regra candidata, pergunte: <em>"Se eu apagar esta regra, a próxima resposta do mentor muda em quê?"</em> Se você não consegue apontar a seção que muda, corte. É a própria R7 do Nei aplicada às regras: <em>"remover instrução, skill ou camada que não melhora o resultado medido"</em>.</p>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-400 hover:bg-amber-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 4 -->
+<section class="mb-16" data-inema-topic="modulo-4-1#topico-4" id="topico-4">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">4</span>
+<h2 class="text-2xl font-bold">📜 As 10 regras do Nei</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m4-1-t4-p1">
+          Este é o <code>regras.md</code> real do mentor do Nei, resumido. Cada cartão traz o título da regra e uma das citações
+          copiadas do raw — fala de live (com a marca de tempo) ou frase de guia. Repare que todas começam com verbo e que
+          dá para imaginar o mentor fazendo cada uma.
+        </p>
+<div class="rounded-2xl border border-amber-500/30 bg-dark-900/40 p-3 sm:p-4 mb-6 overflow-hidden">
+<svg aria-label="As 10 regras agrupadas por momento da tarefa: antes de começar R2, R4 e R8; durante R7, R3, R5 e R6; antes de entregar R1, R9 e R10" class="w-full h-auto" role="img" viewbox="0 0 1000 200">
+<defs>
+<marker id="m41d-ah" markerHeight="9" markerWidth="9" orient="auto" refX="6.5" refY="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#fbbf24"></path></marker>
+<filter height="180%" id="m41d-glow" width="180%" x="-40%" y="-40%"><feGaussianBlur result="b" stdDeviation="2"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+</defs>
+<rect fill="#0b1220" height="200" rx="16" width="1000" x="0" y="0"></rect>
+<path d="M40,100 L960,100" marker-end="url(#m41d-ah)" opacity="0.45" stroke="#fbbf24" stroke-width="2"></path>
+<g font-family="Inter,sans-serif">
+<text fill="#fbbf24" font-size="14" font-weight="700" text-anchor="middle" x="170" y="34">antes de começar</text>
+<text fill="#38bdf8" font-size="14" font-weight="700" text-anchor="middle" x="500" y="34">durante</text>
+<text fill="#fbbf24" font-size="14" font-weight="700" text-anchor="middle" x="830" y="34">antes de entregar</text>
+<g font-size="13" font-weight="600">
+<rect fill="#1f1604" height="34" rx="9" stroke="#fbbf24" stroke-width="1.8" width="84" x="40" y="54"></rect><text fill="#fcd9a0" text-anchor="middle" x="82" y="76">R2 pronto</text>
+<rect fill="#1f1604" height="34" rx="9" stroke="#fbbf24" stroke-width="1.8" width="84" x="130" y="54"></rect><text fill="#fcd9a0" text-anchor="middle" x="172" y="76">R4 custo</text>
+<rect fill="#1f1604" height="34" rx="9" stroke="#fbbf24" stroke-width="1.8" width="84" x="220" y="54"></rect><text fill="#fcd9a0" text-anchor="middle" x="262" y="76">R8 cedo</text>
+<rect fill="#0e1b26" height="34" rx="9" stroke="#38bdf8" stroke-width="1.8" width="84" x="330" y="120"></rect><text fill="#bfe6ff" text-anchor="middle" x="372" y="142">R7 mínimo</text>
+<rect fill="#0e1b26" height="34" rx="9" stroke="#38bdf8" stroke-width="1.8" width="84" x="420" y="120"></rect><text fill="#bfe6ff" text-anchor="middle" x="462" y="142">R3 medir</text>
+<rect fill="#0e1b26" height="34" rx="9" stroke="#38bdf8" stroke-width="1.8" width="84" x="510" y="120"></rect><text fill="#bfe6ff" text-anchor="middle" x="552" y="142">R5 base</text>
+<rect fill="#0e1b26" height="34" rx="9" stroke="#38bdf8" stroke-width="1.8" width="84" x="600" y="120"></rect><text fill="#bfe6ff" text-anchor="middle" x="642" y="142">R6 junto</text>
+<g filter="url(#m41d-glow)">
+<rect fill="#1f1604" height="34" rx="9" stroke="#fbbf24" stroke-width="2" width="84" x="700" y="54"></rect>
+<rect fill="#1f1604" height="34" rx="9" stroke="#fbbf24" stroke-width="2" width="84" x="790" y="54"></rect>
+<rect fill="#1f1604" height="34" rx="9" stroke="#fbbf24" stroke-width="2" width="84" x="880" y="54"></rect>
+</g>
+<text fill="#fcd9a0" text-anchor="middle" x="742" y="76">R1 conferir</text>
+<text fill="#fcd9a0" text-anchor="middle" x="832" y="76">R9 revisão</text>
+<text fill="#fcd9a0" text-anchor="middle" x="922" y="76">R10 portão</text>
+</g>
+<text fill="#9ca3af" font-size="12" text-anchor="middle" x="500" y="186">agrupamento só para leitura; no regras.md a ordem é R1 → R10</text>
+</g>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-amber-400">Como ler:</strong> a seta é uma tarefa do começo ao fim. As regras em âmbar no início decidem <em>se</em> e
+            <em>como</em> começar; as em ciano guiam o trabalho; as em âmbar com brilho seguram a entrega. Um mentor que segue só o meio
+            parece prestativo, mas entrega sem prova — é por isso que as pontas pesam tanto.
+          </p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-4"><p class="text-amber-400 text-sm font-semibold mb-1">R1 — Conferir o resultado real antes de dizer "pronto"</p><p class="text-xs text-neutral-400">"ele passou dizendo que tinha OK, mas não" <span class="text-neutral-500">· live, 02:38:55</span></p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-4"><p class="text-amber-400 text-sm font-semibold mb-1">R2 — Definir o critério de pronto (e de aborto) antes de começar</p><p class="text-xs text-neutral-400">"dou essa missão 3. Se tu não resolver," <span class="text-neutral-500">· live, 00:15:19</span></p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-4"><p class="text-amber-400 text-sm font-semibold mb-1">R3 — Medir com e sem antes de acreditar</p><p class="text-xs text-neutral-400">"comparei, testei com e sem e descobri" <span class="text-neutral-500">· live, 00:05:23</span></p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-4"><p class="text-amber-400 text-sm font-semibold mb-1">R4 — Usar o menor custo que resolve</p><p class="text-xs text-neutral-400">"O menor modelo que resolve bem esse passo é o escolhido" <span class="text-neutral-500">· guia</span></p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-4"><p class="text-amber-400 text-sm font-semibold mb-1">R5 — Ensinar o fundamento que não muda, não a casca</p><p class="text-xs text-neutral-400">"dar camada, eu quero dar fundamento." <span class="text-neutral-500">· live, 01:55:39</span></p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-4"><p class="text-amber-400 text-sm font-semibold mb-1">R6 — Construir junto, e construir o seu</p><p class="text-xs text-neutral-400">"usar sistema dos outros. Vocês têm que" <span class="text-neutral-500">· live, 01:38:35</span></p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-4"><p class="text-amber-400 text-sm font-semibold mb-1">R7 — Começar mínimo e cortar o que não paga o custo</p><p class="text-xs text-neutral-400">"né? Com menos prompt, mais inteligência." <span class="text-neutral-500">· live, 01:01:56</span></p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-4"><p class="text-amber-400 text-sm font-semibold mb-1">R8 — Falhar cedo, na entrada</p><p class="text-xs text-neutral-400">"ter essa visão. Nós temos que errar cedo" <span class="text-neutral-500">· live, 01:38:48</span></p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-4"><p class="text-amber-400 text-sm font-semibold mb-1">R9 — Revisar com outro agente, entregando o artefato real</p><p class="text-xs text-neutral-400">"Os dois concordarem não é prova: eles podem dividir a mesma suposição errada." <span class="text-neutral-500">· guia</span></p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-4"><p class="text-amber-400 text-sm font-semibold mb-1">R10 — Ação irreversível só com pedido atual do humano</p><p class="text-xs text-neutral-400">"Handoff não é permissão." <span class="text-neutral-500">· guia</span></p></div>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">🔍</span> Por que as citações de live parecem cortadas?</h3>
+<p class="text-neutral-300 text-sm">"dou essa missão 3. Se tu não resolver," não é erro de cópia: é o trecho literal da legenda, que quebra a fala em pedaços. A skill pede trechos curtos (5 a 25 palavras) e copiados, não parafraseados. Quem lê a citação inteira entende a regra pelo enunciado; a citação só prova que a fala existe. No módulo 4.2 você vê como o validador lida com essas quebras.</p>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-400 hover:bg-amber-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 5 -->
+<section class="mb-16" data-inema-topic="modulo-4-1#topico-5" id="topico-5">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">5</span>
+<h2 class="text-2xl font-bold">🧩 A linha "no mentor:" e as seções do especialista</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m4-1-t5-p1">
+          Uma regra sem lugar na resposta fica só no papel. Por isso cada bloco termina com <code>- no mentor:</code>, dizendo
+          <strong class="text-amber-400">em qual seção da resposta</strong> a regra aparece. No piloto, a R6 diz: <em>"seção Sua vez — a resposta
+          termina com um exercício que o aluno executa no próprio projeto, não com a solução pronta."</em> A R4 pede uma seção
+          Custo; a R8 e a R10, uma seção Risco.
+        </p>
+<div class="rounded-2xl border border-amber-500/30 bg-dark-900/40 p-3 sm:p-4 mb-4 overflow-hidden">
+<svg aria-label="Caminho de uma regra até a resposta: linha no mentor, lista secoes_resposta no mentor.config.json, agente escreve a seção, validar_resposta cobra" class="w-full h-auto" role="img" viewbox="0 0 1000 170">
+<defs>
+<marker id="m41e-ah" markerHeight="9" markerWidth="9" orient="auto" refX="6.5" refY="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#fbbf24"></path></marker>
+<filter height="180%" id="m41e-glow" width="180%" x="-40%" y="-40%"><feGaussianBlur result="b" stdDeviation="2"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+</defs>
+<rect fill="#0b1220" height="170" rx="16" width="1000" x="0" y="0"></rect>
+<g font-family="Inter,sans-serif">
+<rect fill="#1f1604" height="70" rx="12" stroke="#fbbf24" stroke-width="2" width="200" x="24" y="40"></rect>
+<text fill="#fbbf24" font-size="13" font-weight="700" text-anchor="middle" x="124" y="68">regras.md</text>
+<text fill="#fcd9a0" font-size="12" text-anchor="middle" x="124" y="90">- no mentor: seção Custo</text>
+<path d="M230,75 L262,75" marker-end="url(#m41e-ah)" stroke="#fbbf24" stroke-width="2"></path>
+<rect fill="#0e1b26" height="70" rx="12" stroke="#38bdf8" stroke-width="2" width="220" x="270" y="40"></rect>
+<text fill="#bfe6ff" font-size="13" font-weight="700" text-anchor="middle" x="380" y="68">mentor.config.json</text>
+<text fill="#bfe6ff" font-size="12" text-anchor="middle" x="380" y="90">secoes_resposta += "Custo"</text>
+<path d="M496,75 L528,75" marker-end="url(#m41e-ah)" stroke="#fbbf24" stroke-width="2"></path>
+<rect fill="#1f1604" height="70" rx="12" stroke="#fbbf24" stroke-width="2" width="200" x="536" y="40"></rect>
+<text fill="#fbbf24" font-size="13" font-weight="700" text-anchor="middle" x="636" y="68">agente mentor</text>
+<text fill="#fcd9a0" font-size="12" text-anchor="middle" x="636" y="90">escreve "### Custo"</text>
+<path d="M742,75 L774,75" marker-end="url(#m41e-ah)" stroke="#fbbf24" stroke-width="2"></path>
+<g filter="url(#m41e-glow)"><rect fill="#0e1b26" height="70" rx="12" stroke="#38bdf8" stroke-width="2" width="196" x="782" y="40"></rect></g>
+<text fill="#bfe6ff" font-size="13" font-weight="700" text-anchor="middle" x="880" y="68">validar_resposta.py</text>
+<text fill="#bfe6ff" font-size="12" text-anchor="middle" x="880" y="90">falta a seção → reprova</text>
+<text fill="#9ca3af" font-size="12" text-anchor="middle" x="500" y="146">a regra só "vale" quando alguém de fora consegue cobrar</text>
+</g>
+</svg>
+<p class="text-sm text-neutral-400 mt-3">
+<strong class="text-amber-400">Como ler:</strong> a linha <code>no mentor:</code> sai do <code>regras.md</code>, vira item da lista de seções
+            exigidas, o agente escreve a seção e o validador (em ciano, de fora) confere. Se qualquer elo faltar, a regra existe no
+            arquivo mas não aparece na resposta — foi exatamente o furo que o piloto encontrou.
+          </p>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> O furo que o piloto achou (kit 1.1)</h3>
+<p class="text-neutral-300 text-sm">O diário da fase 3 registra: <em>"As regras do Nei pedem seções próprias (Custo, Sua vez, Por baixo, Risco), mas o agente do template tem loop fixo (Pronto, Menor versão…) e validar_resposta exige as seções fixas."</em> Gravidade média. A correção entrou no kit 1.2: o agente inclui as seções pedidas pelas regras e a skill de regras ganhou um passo 5 que junta esses nomes em <code>secoes_resposta</code> — com limite de <strong>1 a 3 seções novas</strong>, para a resposta não virar formulário.</p>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3">Na prática: o relatório do teste 1 do piloto</h3>
+<p class="text-neutral-300 text-sm mb-3">A resposta real do mentor ao pedido "hook Stop que bloqueia com TODO.md aberto" terminou com uma tabela em que cada passo diz qual regra o guiou (trecho):</p>
+<div class="overflow-x-auto">
+<table class="w-full text-xs sm:text-sm border border-dark-600 rounded-lg overflow-hidden">
+<thead class="bg-dark-700"><tr><th class="text-left p-2 text-amber-400">Passo</th><th class="text-left p-2 text-amber-400">O que saiu</th><th class="text-left p-2 text-amber-400">Regra</th></tr></thead>
+<tbody class="divide-y divide-dark-600 text-neutral-300">
+<tr><td class="p-2">Definir pronto e aborto</td><td class="p-2">3 critérios, teto de 3 bloqueios</td><td class="p-2">R2</td></tr>
+<tr><td class="p-2">Menor versão (v0)</td><td class="p-2">hook mínimo, zero tokens por checagem</td><td class="p-2">R7, R4</td></tr>
+<tr><td class="p-2">Versão quebrada</td><td class="p-2">6 blocks, loop sem fim</td><td class="p-2">R2</td></tr>
+<tr><td class="p-2">Prova real</td><td class="p-2">3 itens <code>[x]</code> numa sessão de verdade</td><td class="p-2">R1</td></tr>
+<tr><td class="p-2">Exercício</td><td class="p-2">no projeto do aluno</td><td class="p-2">R6</td></tr>
+</tbody>
+</table>
+</div>
+<p class="text-sm text-neutral-400 mt-3"><strong class="text-amber-400">O que reparar:</strong> a coluna "Regra" só faz sentido porque as regras têm ID estável (R1, R2…). O <code>validar_resposta.py</code> confere que todo ID citado existe no <code>regras.md</code> — inventar uma "R11" reprova.</p>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-400 hover:bg-amber-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<!-- TOPICO 6 -->
+<section class="mb-16" data-inema-topic="modulo-4-1#topico-6" id="topico-6">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">6</span>
+<h2 class="text-2xl font-bold">⌨️ Na prática: rodar <code>/&lt;slug&gt;-regras</code></h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m4-1-t6-p1">
+          O gerador do kit criou, no seu mentor, uma skill chamada <code>&lt;slug&gt;-regras</code> (no piloto, <code>slug</code> é
+          <code>nei</code>, então a skill é <code>/nei-regras</code>). Ela lê princípios e métodos, escreve o <code>regras.md</code> no
+          formato exato e roda o validador. No piloto, a fase 3 levou <strong class="text-amber-400">1,1 minuto</strong>, saiu com
+          <strong class="text-amber-400">8 regras ativas e 31 citações</strong> e o validador passou de primeira.
+        </p>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🆕</span> Novo aqui?</h3>
+<p class="text-neutral-300 text-sm"><strong>Skill</strong> é uma pasta <code>.claude/skills/&lt;nome&gt;/</code> com um <code>SKILL.md</code> de instruções; no Claude Code você a chama digitando <code>/&lt;nome&gt;</code>. <strong>Slug</strong> é o apelido curto do mentor, sem espaço nem acento, escolhido ao gerar o projeto. <strong>Exit code</strong> é o número que um comando devolve ao terminar: 0 é sucesso, qualquer outro é falha.</p>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">🧪</span> Exercício copiável 1 — gerar as regras</h3>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-amber-400">Objetivo:</strong> extrair as regras do seu especialista a partir da wiki que você compilou na trilha 3. Abra o Claude Code <strong>dentro da pasta do seu mentor</strong> e cole:</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">/&lt;slug&gt;-regras
+
+Mire em 5 a 9 regras. Antes de escrever cada uma, me diga de quais
+páginas de wiki/principios/ e wiki/metodos/ ela saiu e quantas fontes
+DIFERENTES a sustentam. Copie os trechos do raw, não parafraseie.
+No fim, rode python3 tools/validar_citacoes.py e mostre a saída inteira.</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-amber-400">Como verificar:</strong> a última linha da saída tem que ser <code>OK</code>, logo depois de algo como <code>8 regras (8 ativas), 31 citações encontradas, 0 faltando</code> (esses são os números da fase 3 do piloto; os seus serão outros). Se aparecer <code>REPROVADO:</code>, a correção é copiar o trecho do raw de novo — nunca afrouxar o validador.</p>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">🔬</span> Exercício copiável 2 — auditar se é conduta</h3>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-amber-400">Objetivo:</strong> pegar regra que é frase de efeito disfarçada, antes que ela entre no mentor.</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">Leia regras.md. Não altere nada.
+Para cada regra, responda numa tabela:
+regra | gatilho (quando ela vale) | ação observável | seção da resposta
+que muda (linha "no mentor:") | nº de arquivos diferentes nas citações.
+Marque como SUSPEITA toda regra sem gatilho claro, sem ação que dê
+para ver ou que não mude nenhuma seção. Sugira fundir regras que
+descrevem a mesma conduta.</pre>
+<p class="text-neutral-300 text-sm"><strong class="text-amber-400">Como verificar:</strong> nenhuma linha deve ficar com gatilho ou ação vazios. Cada SUSPEITA vira uma decisão sua: reescrever o enunciado com verbo, fundir com outra ou apagar. Depois de mexer, rode o validador de novo.</p>
+</div>
+<div class="inema-check mt-8 mb-6 bg-dark-800 border border-dark-600 rounded-xl p-6" data-inema-check="modulo-4-1#q1">
+<p class="font-medium mb-4">Checagem rápida: qual candidata é uma regra de conduta, no sentido do kit?</p>
+<div class="inema-check-options space-y-2">
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="0" type="button">"A IA é a maior revolução da nossa geração."</button>
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="1" type="button">"Antes de pôr o agente para trabalhar, escrever o comando que prova o sucesso e quantas tentativas ele tem."</button>
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="2" type="button">"Sempre buscar a excelência em tudo o que fizer."</button>
+</div>
+<div aria-live="polite" class="mt-4 text-sm" data-inema-check-feedback="" role="status"></div>
+</div>
+<div class="flex justify-start items-center gap-3 mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-400 hover:bg-amber-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+</button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<span aria-hidden="true">?</span><span>Tenho dúvida</span>
+</button>
+</div>
+</section>
+<section class="mb-12">
+<div class="bg-gradient-to-br from-amber-900/40 via-dark-800 to-dark-800 rounded-xl border border-amber-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📌</span> Resumo do Módulo</h2>
+<div class="space-y-4 mb-8">
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-neutral-100">Regra é conduta</strong><span class="text-neutral-400"> - gatilho, ação observável e prova; frase de efeito não tem nenhum dos três.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-neutral-100">Procure na wiki</strong><span class="text-neutral-400"> - princípios cruzados com métodos; conte fontes, não menções.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-neutral-100">Fundir e cortar</strong><span class="text-neutral-400"> - de 5 a 9 regras; o que não muda a resposta sai.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-neutral-100">As 10 do Nei</strong><span class="text-neutral-400"> - 8 na fase 3, 10 depois da ingestão, todas ativas, 40 citações.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-neutral-100">"no mentor:"</strong><span class="text-neutral-400"> - liga a regra a uma seção que o validador cobra.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-neutral-100">/&lt;slug&gt;-regras</strong><span class="text-neutral-400"> - pronto é o validador com exit 0.</span></div></div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+<h3 class="font-semibold text-amber-400 mb-2">Próximo Módulo:</h3>
+<p class="text-neutral-300">4.2 - Citação, status e validador: o formato exato, ativa/banco/inferência, a normalização e o dia em que um <code>git checkout</code> apagou as regras.</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="index.html">← Voltar para Trilha</a>
+<a class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors" href="modulo-4-2.html">Próximo Módulo →</a>
+</div>
+</div>
+</section>
+</main>
+</div>
+<footer class="border-t border-dark-600 py-8 mt-16">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+<p>Mentor-Especialista — um curso da comunidade INEMA — 2026</p>
+<p class="mt-2">
+<a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+<span class="text-neutral-600 mx-1">-</span>
+<a class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200" href="https://inema.pro" target="_blank">PRO</a>
+</p>
+</div>
+</footer>
+<script src="../../assets/curso.js"></script>
+<script src="../../assets/learn.js"></script>
+<script>
+    if (window.INEMA && typeof window.INEMA.init === 'function') window.INEMA.init();
+    window.addEventListener('DOMContentLoaded', function () {
+      if (window.INEMA && INEMA.registerCheck) {
+        INEMA.registerCheck('modulo-4-1#q1', {
+          answer: 1,
+          explain: {
+            0: 'Opinião sobre o mundo: não tem gatilho, não diz o que fazer na próxima tarefa e não muda nenhuma seção da resposta.',
+            1: 'Isso. Tem gatilho (antes de começar), ação observável (escrever o comando e o limite) e é, na prática, a R2 do Nei.',
+            2: 'Frase de efeito clássica: soa bem, mas ninguém consegue conferir se o mentor seguiu ou não.'
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
