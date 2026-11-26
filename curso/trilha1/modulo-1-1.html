@@ -4,28 +4,28 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="mentor-especialista-curso" name="inema-course"/>
+<meta content="mentor-especialista-curso" name="ARCKHÉ-course"/>
 <title>Módulo 1.1 · Os maus hábitos da IA quando ensina | Mentor-Especialista</title>
 <script>
   (function () {
     try {
       var html = document.documentElement;
-      var DEF = { theme: 'inema-dark', font: 'inter', fontScale: 100, lineWidth: 68, leading: 1.7, accent: 'emerald' };
+      var DEF = { theme: 'ARCKHÉ-dark', font: 'inter', fontScale: 100, lineWidth: 68, leading: 1.7, accent: 'emerald' };
       function clone(o) { var r = {}; for (var x in o) r[x] = o[x]; return r; }
       var p = clone(DEF);
       try {
-        var raw = localStorage.getItem('inema.prefs');
+        var raw = localStorage.getItem('ARCKHÉ.prefs');
         if (raw) { var parsed = JSON.parse(raw); if (parsed && typeof parsed === 'object') { for (var k in DEF) if (parsed[k] != null) p[k] = parsed[k]; } }
-        else { var legacy = localStorage.getItem('theme'); if (legacy === 'light') p.theme = 'claro'; else if (legacy === 'dark') p.theme = 'inema-dark'; }
+        else { var legacy = localStorage.getItem('theme'); if (legacy === 'light') p.theme = 'claro'; else if (legacy === 'dark') p.theme = 'ARCKHÉ-dark'; }
       } catch (e) { p = clone(DEF); }
-      var THEMES = { 'inema-dark': { dark: true, attr: null, cs: 'dark' }, 'claro': { dark: false, attr: null, cs: 'light' }, 'sepia': { dark: false, attr: 'sepia', cs: 'light' }, 'foco': { dark: null, attr: 'foco', cs: null }, 'contraste': { dark: true, attr: 'contraste', cs: 'dark' } };
-      var t = THEMES[p.theme] || THEMES['inema-dark'];
+      var THEMES = { 'ARCKHÉ-dark': { dark: true, attr: null, cs: 'dark' }, 'claro': { dark: false, attr: null, cs: 'light' }, 'sepia': { dark: false, attr: 'sepia', cs: 'light' }, 'foco': { dark: null, attr: 'foco', cs: null }, 'contraste': { dark: true, attr: 'contraste', cs: 'dark' } };
+      var t = THEMES[p.theme] || THEMES['ARCKHÉ-dark'];
       if (t.dark === true) html.classList.add('dark'); else if (t.dark === false) html.classList.remove('dark');
       if (t.attr) html.setAttribute('data-theme', t.attr); else html.removeAttribute('data-theme');
       html.style.colorScheme = (t.cs ? t.cs : (html.classList.contains('dark') ? 'dark' : 'light'));
       html.setAttribute('data-font', p.font || 'inter'); html.setAttribute('data-accent', p.accent || 'emerald');
       var s = html.style, scale = (+p.fontScale || 100);
-      s.setProperty('--inema-font-scale', (scale / 100).toString()); s.setProperty('font-size', scale + '%');
+      s.setProperty('--ARCKHÉ-font-scale', (scale / 100).toString()); s.setProperty('font-size', scale + '%');
       s.setProperty('--measure', (+p.lineWidth || 68) + 'ch'); s.setProperty('--lh-body', (+p.leading || 1.7).toString());
       var fam = p.font === 'system' ? 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif' : (p.font === 'leitura' ? '"Atkinson Hyperlegible", "Inter", system-ui, sans-serif' : '"Inter", system-ui, sans-serif');
       s.setProperty('--font-body', fam);
@@ -36,7 +36,7 @@
     } catch (err) { try { document.documentElement.classList.add('dark'); document.documentElement.style.colorScheme = 'dark'; } catch (e) {} }
   })();
   </script>
-<script data-inema-manifest="" type="application/json">
+<script data-ARCKHÉ-manifest="" type="application/json">
   {
     "course": "mentor-especialista-curso",
     "tracks": [
@@ -149,9 +149,9 @@
 <span class="text-2xl">🧭</span><span class="font-bold text-lg hidden sm:inline">Mentor-Especialista</span>
 </a>
 <span class="text-neutral-600">|</span>
-<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://ARCKHÉ AI" target="_blank">ARCKHÉ AI</a>
 <span class="text-neutral-600">-</span>
-<a class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200 text-sm font-medium" href="https://inema.pro" target="_blank">PRO</a>
+<a class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200 text-sm font-medium" href="https://ARCKHÉ.pro" target="_blank">PRO</a>
 </div>
 <div class="flex items-center space-x-1 sm:space-x-2">
 <a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10" href="index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Por quê</span></a>
@@ -160,8 +160,8 @@
 <a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors" href="../trilha4/index.html"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Regras</span></a>
 <a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors" href="../trilha5/index.html"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Agente</span></a>
 <a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors" href="../trilha6/index.html"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Prova</span></a>
-<button class="hidden md:inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-neutral-300 hover:text-neutral-100 transition-colors text-sm" data-inema-journey-open="" type="button">
-<span aria-hidden="true">◷</span><span>Minha jornada</span><span aria-hidden="true" class="inema-journey-badge hidden"></span>
+<button class="hidden md:inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-neutral-300 hover:text-neutral-100 transition-colors text-sm" data-ARCKHÉ-journey-open="" type="button">
+<span aria-hidden="true">◷</span><span>Minha jornada</span><span aria-hidden="true" class="ARCKHÉ-journey-badge hidden"></span>
 </button>
 <button aria-label="Alternar tema claro/escuro" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
 <svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
@@ -178,7 +178,7 @@
 <span class="text-emerald-400">Módulo 1.1</span>
 </div>
 </nav>
-<header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600" data-inema-module="1-1" data-inema-track="1">
+<header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600" data-ARCKHÉ-module="1-1" data-ARCKHÉ-track="1">
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.1</span>
 <h1 class="text-3xl sm:text-4xl font-bold mb-4">🩺 Os maus hábitos da IA quando ensina</h1>
@@ -194,32 +194,32 @@
 <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Fundamento</div><div class="text-xs text-neutral-400">Tipo</div></div>
 </div>
 <div class="mt-6 max-w-2xl">
-<div aria-label="Progresso do módulo 1.1" aria-valuemax="100" aria-valuemin="0" class="inema-meter" data-inema-meter="modulo:1-1" role="progressbar">
-<span class="inema-meter-pct">0%</span><span class="inema-meter-count">0 de 6</span>
+<div aria-label="Progresso do módulo 1.1" aria-valuemax="100" aria-valuemin="0" class="ARCKHÉ-meter" data-ARCKHÉ-meter="modulo:1-1" role="progressbar">
+<span class="ARCKHÉ-meter-pct">0%</span><span class="ARCKHÉ-meter-count">0 de 6</span>
 </div>
 </div>
 </div>
 </header>
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:grid lg:grid-cols-[220px_1fr] lg:gap-10">
-<nav aria-label="Índice da página" class="hidden lg:block sticky top-24 self-start" data-inema-toc="">
-<p class="text-sm text-neutral-400 mb-2">Seçêo <span class="inema-toc-pos">1</span> de <span class="inema-toc-total">6</span></p>
+<nav aria-label="Índice da página" class="hidden lg:block sticky top-24 self-start" data-ARCKHÉ-toc="">
+<p class="text-sm text-neutral-400 mb-2">Seçêo <span class="ARCKHÉ-toc-pos">1</span> de <span class="ARCKHÉ-toc-total">6</span></p>
 <ul class="space-y-1 text-sm">
-<li><a class="inema-toc-link hover:text-emerald-400" href="#topico-1">1. Demais ou de menos</a></li>
-<li><a class="inema-toc-link hover:text-emerald-400" href="#topico-2">2. Parece certa</a></li>
-<li><a class="inema-toc-link hover:text-emerald-400" href="#topico-3">3. Supõe sem avisar</a></li>
-<li><a class="inema-toc-link hover:text-emerald-400" href="#topico-4">4. Genérico</a></li>
-<li><a class="inema-toc-link hover:text-emerald-400" href="#topico-5">5. Mentor, nêo prompt</a></li>
-<li><a class="inema-toc-link hover:text-emerald-400" href="#topico-6">6. O entendimento é seu</a></li>
+<li><a class="ARCKHÉ-toc-link hover:text-emerald-400" href="#topico-1">1. Demais ou de menos</a></li>
+<li><a class="ARCKHÉ-toc-link hover:text-emerald-400" href="#topico-2">2. Parece certa</a></li>
+<li><a class="ARCKHÉ-toc-link hover:text-emerald-400" href="#topico-3">3. Supõe sem avisar</a></li>
+<li><a class="ARCKHÉ-toc-link hover:text-emerald-400" href="#topico-4">4. Genérico</a></li>
+<li><a class="ARCKHÉ-toc-link hover:text-emerald-400" href="#topico-5">5. Mentor, nêo prompt</a></li>
+<li><a class="ARCKHÉ-toc-link hover:text-emerald-400" href="#topico-6">6. O entendimento é seu</a></li>
 </ul>
 </nav>
-<main class="inema-prose" id="conteudo">
+<main class="ARCKHÉ-prose" id="conteudo">
 <!-- TOPICO 1 -->
-<section class="mb-16" data-inema-topic="modulo-1-1#topico-1" id="topico-1">
+<section class="mb-16" data-ARCKHÉ-topic="modulo-1-1#topico-1" id="topico-1">
 <div class="flex items-center space-x-4 mb-6">
 <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span>
 <h2 class="text-2xl font-bold">🎚️ Reconheça quando a IA explica demais ou de menos</h2>
 </div>
-<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m1-1-t1-p1">
+<p class="text-neutral-300 mb-6 leading-relaxed" data-ARCKHÉ-block="m1-1-t1-p1">
           O primeiro mau hábito é de calibragem. Você pergunta uma coisa pontual e recebe uma aula de seis seções, com
           história, alternativas e ressalvas. Ou o contrário: pede para entender e recebe só o código pronto, sem o porquê.
           Nos dois casos você sai <strong class="text-emerald-400">mais perdido do que entrou</strong>. A IA nêo sabe o que
@@ -287,21 +287,21 @@
 <div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Sintoma</p><p class="text-xs text-neutral-400">Sair mais perdido</p></div>
 </div>
 <div class="flex justify-start items-center gap-3 mt-6">
-<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 transition-colors" data-inema-read-toggle="" type="button">
-<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 transition-colors" data-ARCKHÉ-read-toggle="" type="button">
+<span aria-hidden="true" class="ARCKHÉ-read-icon">○</span><span class="ARCKHÉ-read-label">Marcar como lido</span>
 </button>
-<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-ARCKHÉ-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
 <span aria-hidden="true">?</span><span>Tenho dúvida</span>
 </button>
 </div>
 </section>
 <!-- TOPICO 2 -->
-<section class="mb-16" data-inema-topic="modulo-1-1#topico-2" id="topico-2">
+<section class="mb-16" data-ARCKHÉ-topic="modulo-1-1#topico-2" id="topico-2">
 <div class="flex items-center space-x-4 mb-6">
 <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span>
 <h2 class="text-2xl font-bold">🎭 Desconfie da resposta que parece certa sem estar</h2>
 </div>
-<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m1-1-t2-p1">
+<p class="text-neutral-300 mb-6 leading-relaxed" data-ARCKHÉ-block="m1-1-t2-p1">
           O segundo hábito é o mais caro. O tom da resposta nêo muda com a qualidade dela: a IA diz "funciona" com a mesma
           segurança quando rodou e quando só imaginou que rodaria. Para quem está aprendendo, nêo há como separar as duas
           coisas pelo texto. A única saída é <strong class="text-emerald-400">a prova</strong>: o comando que rodou e a saída que voltou.
@@ -317,7 +317,7 @@
 </div>
 <div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
 <h3 class="text-lg font-semibold mb-4 flex items-center"><span class="mr-2">🔬</span> Caso real do piloto: "o validador passa"</h3>
-<p class="text-neutral-300 text-sm mb-4" data-inema-block="m1-1-t2-p2">No piloto com o mentor do Nei, o teste 2 pedia para revisar um script que funciona mas quebra em certas condições. Na segunda rodada aconteceu exatamente este hábito:</p>
+<p class="text-neutral-300 text-sm mb-4" data-ARCKHÉ-block="m1-1-t2-p2">No piloto com o mentor do Nei, o teste 2 pedia para revisar um script que funciona mas quebra em certas condições. Na segunda rodada aconteceu exatamente este hábito:</p>
 <div class="space-y-4">
 <div class="flex items-start space-x-4">
 <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold text-sm">1</span></div>
@@ -350,21 +350,21 @@
 <div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Exit code</p><p class="text-xs text-neutral-400">0 passou, resto falhou</p></div>
 </div>
 <div class="flex justify-start items-center gap-3 mt-6">
-<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 transition-colors" data-inema-read-toggle="" type="button">
-<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 transition-colors" data-ARCKHÉ-read-toggle="" type="button">
+<span aria-hidden="true" class="ARCKHÉ-read-icon">○</span><span class="ARCKHÉ-read-label">Marcar como lido</span>
 </button>
-<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-ARCKHÉ-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
 <span aria-hidden="true">?</span><span>Tenho dúvida</span>
 </button>
 </div>
 </section>
 <!-- TOPICO 3 -->
-<section class="mb-16" data-inema-topic="modulo-1-1#topico-3" id="topico-3">
+<section class="mb-16" data-ARCKHÉ-topic="modulo-1-1#topico-3" id="topico-3">
 <div class="flex items-center space-x-4 mb-6">
 <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span>
 <h2 class="text-2xl font-bold">🤫 Peça para a IA dizer o que ela supôs</h2>
 </div>
-<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m1-1-t3-p1">
+<p class="text-neutral-300 mb-6 leading-relaxed" data-ARCKHÉ-block="m1-1-t3-p1">
           Todo pedido tem buracos. Onde fica o arquivo? O que acontece se ele nêo existir? Até quando tentar? A IA preenche
           cada buraco com a escolha mais plausível e segue em frente <strong class="text-emerald-400">sem te contar</strong>.
           Quando o resultado nêo bate com o que você queria, você nem sabe em que ponto a conversa se separou.
@@ -418,21 +418,21 @@ lista e espere a minha resposta.</pre>
 <div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Aborto</p><p class="text-xs text-neutral-400">Quando desistir</p></div>
 </div>
 <div class="flex justify-start items-center gap-3 mt-6">
-<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 transition-colors" data-inema-read-toggle="" type="button">
-<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 transition-colors" data-ARCKHÉ-read-toggle="" type="button">
+<span aria-hidden="true" class="ARCKHÉ-read-icon">○</span><span class="ARCKHÉ-read-label">Marcar como lido</span>
 </button>
-<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-ARCKHÉ-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
 <span aria-hidden="true">?</span><span>Tenho dúvida</span>
 </button>
 </div>
 </section>
 <!-- TOPICO 4 -->
-<section class="mb-16" data-inema-topic="modulo-1-1#topico-4" id="topico-4">
+<section class="mb-16" data-ARCKHÉ-topic="modulo-1-1#topico-4" id="topico-4">
 <div class="flex items-center space-x-4 mb-6">
 <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span>
 <h2 class="text-2xl font-bold">🌫️ Troque o conhecimento genérico por um acervo real</h2>
 </div>
-<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m1-1-t4-p1">
+<p class="text-neutral-300 mb-6 leading-relaxed" data-ARCKHÉ-block="m1-1-t4-p1">
           O quarto hábito é responder com a média da internet. A resposta nêo está errada, mas é de ninguém: nêo traz o jeito
           de um especialista que você confia, os atalhos dele, os erros que ele já cometeu e nêo repete. O mentor resolve isso
           ancorando cada regra num <strong class="text-emerald-400">trecho real</strong> do que a pessoa publicou.
@@ -479,7 +479,7 @@ lista e espere a minha resposta.</pre>
 - status: ativa
 - citacoes:
   - "ele passou dizendo que tinha OK, mas nêo"
-    — raw/videos/inema-vibecode-do-zero-dia-3-basico-de-infra.txt@02:38:55
+    — raw/videos/ARCKHÉ-vibecode-do-zero-dia-3-basico-de-infra.txt@02:38:55
   - "Arquivo existir nêo é prova. O agente ter lido e usado é."
     — raw/guia/agente-claude-codex-migrar-do-claude-pro-codex-ou--ac8311.md</pre>
 <p class="text-neutral-400 text-sm">Repare: a regra nêo é uma frase bonita sobre qualidade. É um comportamento que aparece em várias fontes diferentes, e cada apariçêo tem endereço. No piloto, o Nei deu nota 8 de 10 para "reconheço a pessoa nas regras".</p>
@@ -491,21 +491,21 @@ lista e espere a minha resposta.</pre>
 <div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Reconhecível</p><p class="text-xs text-neutral-400">"É ela, nêo IA genérica"</p></div>
 </div>
 <div class="flex justify-start items-center gap-3 mt-6">
-<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 transition-colors" data-inema-read-toggle="" type="button">
-<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 transition-colors" data-ARCKHÉ-read-toggle="" type="button">
+<span aria-hidden="true" class="ARCKHÉ-read-icon">○</span><span class="ARCKHÉ-read-label">Marcar como lido</span>
 </button>
-<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-ARCKHÉ-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
 <span aria-hidden="true">?</span><span>Tenho dúvida</span>
 </button>
 </div>
 </section>
 <!-- TOPICO 5 -->
-<section class="mb-16" data-inema-topic="modulo-1-1#topico-5" id="topico-5">
+<section class="mb-16" data-ARCKHÉ-topic="modulo-1-1#topico-5" id="topico-5">
 <div class="flex items-center space-x-4 mb-6">
 <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span>
 <h2 class="text-2xl font-bold">🧭 Entenda por que um mentor, e nêo mais um prompt</h2>
 </div>
-<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m1-1-t5-p1">
+<p class="text-neutral-300 mb-6 leading-relaxed" data-ARCKHÉ-block="m1-1-t5-p1">
           Dá para escrever um prompt pedindo "explique na medida, nêo suponha, prove o que diz". Ajuda por uma conversa, e
           some na seguinte. Prompt é instruçêo; o piloto mostrou que <strong class="text-emerald-400">instruçêo sozinha nêo segura
           comportamento</strong>. O mentor troca instruçêo por quatro peças com mecanismo, cada uma atacando um hábito.
@@ -567,7 +567,7 @@ lista e espere a minha resposta.</pre>
 <div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
 <h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">🧪</span> Copie e rode: veja um mentor passando nos validadores</h3>
 <p class="text-neutral-300 text-sm mb-2"><strong class="text-emerald-400">Objetivo:</strong> antes de construir o seu, ver as peças funcionando no <code class="font-mono text-xs">exemplo/</code> do kit, um mentor completo de uma especialista fictícia (a Profa. Lia), com 3 fontes e 7 regras. Precisa só de Python 3.10+ e git.</p>
-<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-3">git clone https://github.com/inematds/mentor-especialista.git
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-3">git clone https://github.com/linnoff88-dev/mentor-especialista.git
 cd mentor-especialista
 python3 exemplo/tools/stats.py --raiz exemplo; echo "stats exit=$?"
 python3 exemplo/tools/validar_citacoes.py --raiz exemplo; echo "citacoes exit=$?"</pre>
@@ -580,21 +580,21 @@ python3 exemplo/tools/validar_citacoes.py --raiz exemplo; echo "citacoes exit=$?
 <div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Gabarito</p><p class="text-xs text-neutral-400">O exemplo/ do kit</p></div>
 </div>
 <div class="flex justify-start items-center gap-3 mt-6">
-<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 transition-colors" data-inema-read-toggle="" type="button">
-<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 transition-colors" data-ARCKHÉ-read-toggle="" type="button">
+<span aria-hidden="true" class="ARCKHÉ-read-icon">○</span><span class="ARCKHÉ-read-label">Marcar como lido</span>
 </button>
-<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-ARCKHÉ-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
 <span aria-hidden="true">?</span><span>Tenho dúvida</span>
 </button>
 </div>
 </section>
 <!-- TOPICO 6 -->
-<section class="mb-16" data-inema-topic="modulo-1-1#topico-6" id="topico-6">
+<section class="mb-16" data-ARCKHÉ-topic="modulo-1-1#topico-6" id="topico-6">
 <div class="flex items-center space-x-4 mb-6">
 <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span>
 <h2 class="text-2xl font-bold">🧠 Deixe a IA fazer o trabalho, mas guarde o entendimento para você</h2>
 </div>
-<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m1-1-t6-p1">
+<p class="text-neutral-300 mb-6 leading-relaxed" data-ARCKHÉ-block="m1-1-t6-p1">
           A IA pode fazer o trabalho pesado. Compreender continua sendo tarefa de quem usa. O mentor existe para você
           <strong class="text-emerald-400">entender</strong>, nêo só para receber código pronto. Na prática, isso aparece em
           dois lugares da resposta: a previsêo (você vê o que se espera antes de rodar) e a seçêo "Sua vez", em que o mentor
@@ -634,14 +634,14 @@ python3 exemplo/tools/validar_citacoes.py --raiz exemplo; echo "citacoes exit=$?
 <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> O que o Nei aprendeu no próprio teste</h3>
 <p class="text-neutral-300 text-sm">No teste 1, o mentor mostrou a versêo ingênua do hook em loop infinito: com um item que o agente nêo consegue fechar sozinho, ela bloqueou 6 de 6 tentativas. A correçêo foi um teto de 3 bloqueios por sessêo. O registro do piloto diz: "Aprendi: o bloqueio sem teto prende a sessêo para sempre". É isso que se espera de um mentor: que você saia sabendo algo que nêo sabia.</p>
 </div>
-<div class="inema-check mt-8 mb-6 bg-dark-800 border border-dark-600 rounded-xl p-6" data-inema-check="modulo-1-1#q1">
+<div class="ARCKHÉ-check mt-8 mb-6 bg-dark-800 border border-dark-600 rounded-xl p-6" data-ARCKHÉ-check="modulo-1-1#q1">
 <p class="font-medium mb-4">Checagem rápida (nêo bloqueia nada): a sessêo do Claude diz "rodei o validador e passou". O que você faz?</p>
-<div class="inema-check-options space-y-2">
-<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="0" type="button">Aceito: se ela rodou, está provado.</button>
-<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="1" type="button">Rodo eu mesmo o validador, com a prova completa, e olho o exit code.</button>
-<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="2" type="button">Peço para ela rodar de novo e confirmar com mais certeza.</button>
+<div class="ARCKHÉ-check-options space-y-2">
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-ARCKHÉ-check-option="0" type="button">Aceito: se ela rodou, está provado.</button>
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-ARCKHÉ-check-option="1" type="button">Rodo eu mesmo o validador, com a prova completa, e olho o exit code.</button>
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-ARCKHÉ-check-option="2" type="button">Peço para ela rodar de novo e confirmar com mais certeza.</button>
 </div>
-<div aria-live="polite" class="mt-4 text-sm" data-inema-check-feedback="" role="status"></div>
+<div aria-live="polite" class="mt-4 text-sm" data-ARCKHÉ-check-feedback="" role="status"></div>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
 <div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Trabalho</p><p class="text-xs text-neutral-400">Pode ser da IA</p></div>
@@ -650,10 +650,10 @@ python3 exemplo/tools/validar_citacoes.py --raiz exemplo; echo "citacoes exit=$?
 <div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><p class="text-emerald-400 text-sm font-semibold mb-1">Aprender algo</p><p class="text-xs text-neutral-400">A medida de um bom mentor</p></div>
 </div>
 <div class="flex justify-start items-center gap-3 mt-6">
-<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 transition-colors" data-inema-read-toggle="" type="button">
-<span aria-hidden="true" class="inema-read-icon">○</span><span class="inema-read-label">Marcar como lido</span>
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 transition-colors" data-ARCKHÉ-read-toggle="" type="button">
+<span aria-hidden="true" class="ARCKHÉ-read-icon">○</span><span class="ARCKHÉ-read-label">Marcar como lido</span>
 </button>
-<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-inema-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm" data-ARCKHÉ-doubt-toggle="" title="Marcar dúvida neste tópico" type="button">
 <span aria-hidden="true">?</span><span>Tenho dúvida</span>
 </button>
 </div>
@@ -686,9 +686,9 @@ python3 exemplo/tools/validar_citacoes.py --raiz exemplo; echo "citacoes exit=$?
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
 <p>Mentor-Especialista: o método de um especialista virando seu mentor no Claude Code — 2026</p>
 <p class="mt-2">
-<a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+<a class="text-sky-400 hover:text-sky-300" href="https://ARCKHÉ AI" target="_blank">ARCKHÉ AI</a>
 <span class="text-neutral-600 mx-1">-</span>
-<a class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200" href="https://inema.pro" target="_blank">PRO</a>
+<a class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200" href="https://ARCKHÉ.pro" target="_blank">PRO</a>
 </p>
 </div>
 </footer>
@@ -714,15 +714,15 @@ python3 exemplo/tools/validar_citacoes.py --raiz exemplo; echo "citacoes exit=$?
       htmlEl.classList.toggle('dark');
       const dark = htmlEl.classList.contains('dark');
       localStorage.setItem('theme', dark ? 'dark' : 'light');
-      try { const p = JSON.parse(localStorage.getItem('inema.prefs') || '{}'); p.theme = dark ? 'inema-dark' : 'claro'; localStorage.setItem('inema.prefs', JSON.stringify(p)); } catch (e) {}
+      try { const p = JSON.parse(localStorage.getItem('ARCKHÉ.prefs') || '{}'); p.theme = dark ? 'ARCKHÉ-dark' : 'claro'; localStorage.setItem('ARCKHÉ.prefs', JSON.stringify(p)); } catch (e) {}
     });
   </script>
 <script src="../../assets/learn.js"></script>
 <script>
-    if (window.INEMA && typeof window.INEMA.init === 'function') window.INEMA.init();
+    if (window.ARCKHÉ && typeof window.ARCKHÉ.init === 'function') window.ARCKHÉ.init();
     window.addEventListener('DOMContentLoaded', function () {
-      if (window.INEMA && INEMA.registerCheck) {
-        INEMA.registerCheck('modulo-1-1#q1', {
+      if (window.ARCKHÉ && ARCKHÉ.registerCheck) {
+        ARCKHÉ.registerCheck('modulo-1-1#q1', {
           answer: 1,
           explain: {
             0: 'Foi exatamente o que falhou no piloto: a sessêo disse "o validador passa" porque rodou sem o log. Afirmaçêo da própria sessêo nêo é prova.',

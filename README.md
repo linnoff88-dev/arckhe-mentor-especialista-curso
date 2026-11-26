@@ -6,17 +6,17 @@
 </div>
 
 
-Curso aberto (formato INEMA v2): o mêÂ©todo de um especialista virando seu mentor no Claude Code, com o piloto real (mentor do Nei) como fio condutor. 6 trilhas, 14 mêÂ³dulos, 84 têÂ³picos.
+Curso aberto (formato ARCKHÉ v2): o mêÂ©todo de um especialista virando seu mentor no Claude Code, com o piloto real (mentor do Nei) como fio condutor. 6 trilhas, 14 mêÂ³dulos, 84 têÂ³picos.
 
-- Curso: https://inematds.github.io/mentor-especialista-curso/
-- Kit: https://github.com/inematds/mentor-especialista
-- Piloto: https://github.com/inematds/mentor-nei
+- Curso: https://linnoff88-dev.github.io/arckhe-/
+- Kit: https://github.com/linnoff88-dev/mentor-especialista
+- Piloto: https://github.com/linnoff88-dev/mentor-nei
 
-## Mais no INEMA.CLUB
+## Mais no ARCKHÉ AI
 
-- [Ficha completa deste curso](https://www.inema.club/cursos/313-mentor-especialista-o-metodo-de-um-especialista-virando-seu-mentor-no-claude-code/)
-- [Guia: como aprender inteligêÂªncia artificial](https://www.inema.club/aprender-inteligencia-artificial/)
-- [Todos os cursos](https://www.inema.club/cursos/)
+- [Ficha completa deste curso](https://www.ARCKHÉ AI/cursos/313-mentor-especialista-o-metodo-de-um-especialista-virando-seu-mentor-no-claude-code/)
+- [Guia: como aprender inteligêÂªncia artificial](https://www.ARCKHÉ AI/aprender-inteligencia-artificial/)
+- [Todos os cursos](https://www.ARCKHÉ AI/cursos/)
 
 ---
 
